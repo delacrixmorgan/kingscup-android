@@ -1,19 +1,18 @@
 package com.delacrix.kingscup;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.delacrix.kingscup.ui.MenuFragment;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+/**
+ * Created by delac on 04/03/2017.
+ */
 
-public class MainActivity extends Activity {
-
+public class GameActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +27,5 @@ public class MainActivity extends Activity {
                 .beginTransaction()
                 .replace(R.id.activity_main_vg_fragment, new MenuFragment())
                 .commit();
-    }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

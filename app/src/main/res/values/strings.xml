@@ -1,3 +1,36 @@
 <resources>
-    <string name="app_name">Kingscup</string>
+    <string name="app_name">King\'s Cup</string>
+
+    <string name="suit_1">Spade</string>
+    <string name="suit_2">Heart</string>
+    <string name="suit_3">Club</string>
+    <string name="suit_4">Diamond</string>
+
+    <string name="name_1">Waterfall</string>
+    <string name="name_2">You</string>
+    <string name="name_3">Me</string>
+    <string name="name_4">Thumb Master</string>
+    <string name="name_5">Guys</string>
+    <string name="name_6">Chicks</string>
+    <string name="name_7">Heaven</string>
+    <string name="name_8">Mate</string>
+    <string name="name_9">Rhyme</string>
+    <string name="name_10">Category</string>
+    <string name="name_11">Jack</string>
+    <string name="name_12">Questions</string>
+    <string name="name_13">King</string>
+
+    <string name="action_1">Everyone drinks</string>
+    <string name="action_2">Choose a mate and drink together</string>
+    <string name="action_3">Drink alone</string>
+    <string name="action_4">Place your thumb on the table, last to do so, drinks!</string>
+    <string name="action_5">All guys drink</string>
+    <string name="action_6">All chicks drink</string>
+    <string name="action_7">Reach for the sky, last player drinks!</string>
+    <string name="action_8">Choose a partner and drinks whenever the player drinks!</string>
+    <string name="action_9">Say a rhyme, next player adds a line. If you fail, drink!</string>
+    <string name="action_10">Choose a category, say something that fits the category until whoever can\'t think of any, drink!</string>
+    <string name="action_11">Complete the sentence, "Never have I ever..", anyone who has, drink!</string>
+    <string name="action_12">Ask a player a question, they must respond with another question to someone else, first to fail, drink!</string>
+    <string name="action_13">Set a new rule. Fill the King\'s Cup!</string>
 </resources>
