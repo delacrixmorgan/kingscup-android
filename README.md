@@ -1,0 +1,4 @@
+# Kingscup
+King's Cup is one of the most popular drinking game, also known as Oval of Fire , Ring of Fire or just simply Kings. It can be played with more than 2 players. Playing time is estimated around 20 - 40 minutes. Each card has a rule that is predetermined before the game starts, and when the player that draw the last King in the deck, it ends the game and ultimately has the finish off the King's Cup with liquor that is progressively added by players who have drawn the King card during the game.
+
+It is designed using Android Material Design's colour palette in mind. Set out to build a simple yet a beautifully designed party game with friends. King's Cup is a perfect app for game night, celebrations, birthday parties, you name it. It is an incredibly light weight app and able to play fully offline after download, no Internet connection required. Now it comes in 3 languages, English, Chinese and Korean. More to come. In the meantime, go nuts!
