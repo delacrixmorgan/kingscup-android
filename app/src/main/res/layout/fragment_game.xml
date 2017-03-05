@@ -1,22 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/wallpaper_pink"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/deck_action"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="30dp"
-        android:textColor="@color/colorWhite"
-        android:text="Hello World!" />
+        android:gravity="top|start"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="30dp">
 
-    <Button
-        android:id="@+id/button_next"
-        android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="J"
+            android:textColor="@color/colorPinkTheme"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/heart_pink" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:text="Hit Me" />
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/jack_pink"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jack"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/deck_action"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="Hello World!"
+            android:textColor="@color/colorWhite" />
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hit Me" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingTop="55dp"
+        android:scaleY="-1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="J"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/heart_dark" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
