@@ -33,4 +33,16 @@
     <string name="action_11">Complete the sentence, "Never have I ever..", anyone who has, drink!</string>
     <string name="action_12">Ask a player a question, they must respond with another question to someone else, first to fail, drink!</string>
     <string name="action_13">Set a new rule. Fill the King\'s Cup!</string>
+
+    <string name="next_1">Hit Me</string>
+    <string name="next_2">Coming Up</string>
+    <string name="next_3">Just One More</string>
+    <string name="next_4">This Is It</string>
+    <string name="next_5">Don\'t Think</string>
+    <string name="next_6">Drink Me</string>
+    <string name="next_7">Faster Mate</string>
+    <string name="next_8">You Sure?</string>
+    <string name="next_9">Alright Buddy?</string>
+    <string name="next_10">Come On!</string>
+
 </resources>
