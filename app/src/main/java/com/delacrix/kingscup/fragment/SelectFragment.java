@@ -1,4 +1,4 @@
-package com.delacrix.kingscup.ui;
+package com.delacrix.kingscup.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -13,9 +13,10 @@ import com.delacrix.kingscup.R;
  * Created by delac on 04/03/2017.
  */
 
-public class FinishFragment extends Fragment{
+public class SelectFragment extends Fragment {
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_game, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_select, container, false);
 
         return rootView;
     }

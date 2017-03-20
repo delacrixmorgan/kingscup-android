@@ -22,7 +22,7 @@
         tools:ignore="MissingPrefix" />
 
     <Button
-        android:id="@+id/button_startgame"
+        android:id="@+id/button_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -32,7 +32,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button_settings"
+        android:id="@+id/button_deck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"

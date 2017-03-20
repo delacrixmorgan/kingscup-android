@@ -1,4 +1,4 @@
-package com.delacrix.kingscup.ui;
+package com.delacrix.kingscup.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
