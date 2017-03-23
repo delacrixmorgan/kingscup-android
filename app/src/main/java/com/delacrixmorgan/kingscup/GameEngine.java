@@ -1,9 +1,9 @@
-package com.delacrix.kingscup;
+package com.delacrixmorgan.kingscup;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.delacrix.kingscup.model.Card;
+import com.delacrixmorgan.kingscup.model.Card;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.delacrix.kingscup;
+package com.delacrixmorgan.kingscup;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.delacrix.kingscup.fragment.MenuFragment;
+import com.delacrixmorgan.kingscup.fragment.MenuFragment;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 

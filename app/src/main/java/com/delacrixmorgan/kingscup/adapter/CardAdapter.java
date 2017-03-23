@@ -1,4 +1,4 @@
-package com.delacrix.kingscup.adapter;
+package com.delacrixmorgan.kingscup.adapter;
 
 /**
  * Created by delacrix on 17/03/2017.

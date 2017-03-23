@@ -1,4 +1,4 @@
-package com.delacrix.kingscup.fragment;
+package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.delacrix.kingscup.GameEngine;
-import com.delacrix.kingscup.R;
+import com.delacrixmorgan.kingscup.GameEngine;
+import com.delacrixmorgan.kingscup.R;
 
 /**
  * Created by Delacrix on 09/10/2016.

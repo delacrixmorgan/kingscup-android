@@ -1,10 +1,10 @@
-package com.delacrix.kingscup.shared;
+package com.delacrixmorgan.kingscup.shared;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 
-import com.delacrix.kingscup.R;
+import com.delacrixmorgan.kingscup.R;
 
 /**
  * Created by delacrix on 17/03/2017.

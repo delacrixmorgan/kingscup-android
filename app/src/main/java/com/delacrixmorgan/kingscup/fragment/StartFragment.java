@@ -1,4 +1,4 @@
-package com.delacrix.kingscup.fragment;
+package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.delacrix.kingscup.R;
-import com.delacrix.kingscup.shared.Helper;
+import com.delacrixmorgan.kingscup.R;
+import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
  * Created by delac on 04/03/2017.

@@ -1,4 +1,4 @@
-package com.delacrix.kingscup;
+package com.delacrixmorgan.kingscup;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

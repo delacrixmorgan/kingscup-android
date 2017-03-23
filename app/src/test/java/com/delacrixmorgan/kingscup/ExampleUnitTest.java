@@ -1,4 +1,4 @@
-package com.delacrix.kingscup;
+package com.delacrixmorgan.kingscup;
 
 import org.junit.Test;
 
