@@ -45,7 +45,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_start:
-                Helper.showFragment(getActivity(), new StartFragment(), MenuFragment.TAG);
+                Helper.showFragment(getActivity(), new GuideFragment(), MenuFragment.TAG);
                 break;
 
             case R.id.button_deck:
