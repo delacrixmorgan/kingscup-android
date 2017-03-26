@@ -16,7 +16,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
     private Context mContext;
 
-    CardAdapter(Context context) {
+    public CardAdapter(Context context) {
         mContext = context;
     }
 
