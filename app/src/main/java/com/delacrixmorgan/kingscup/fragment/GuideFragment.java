@@ -17,7 +17,7 @@ import com.delacrixmorgan.kingscup.shared.Helper;
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-public class StartFragment extends Fragment {
+public class GuideFragment extends Fragment {
     private static String TAG = "StartFragment";
     final Handler mHandler = new Handler();
     int counter = 0;
@@ -62,7 +62,7 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mHandler.removeCallbacks(runnable);
-                Helper.showFragment(getActivity(), new SelectFragment(), StartFragment.TAG);
+                Helper.showFragment(getActivity(), new SelectFragment(), GuideFragment.TAG);
             }
         });
     }
