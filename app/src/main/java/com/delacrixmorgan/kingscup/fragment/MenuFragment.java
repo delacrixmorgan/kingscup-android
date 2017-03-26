@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,11 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.delacrixmorgan.kingscup.GameActivity;
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
- * Created by Delacrix on 09/10/2016.
+ * Created by Delacrix Morgan on 09/10/2016.
  */
 
 public class MenuFragment extends Fragment implements View.OnClickListener {
@@ -45,7 +47,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_start:
-                Helper.showFragment(getActivity(), new StartFragment(), MenuFragment.TAG);
+                startActivity(new Intent(getActivity(), GameActivity.class));
                 break;
 
             case R.id.button_deck:

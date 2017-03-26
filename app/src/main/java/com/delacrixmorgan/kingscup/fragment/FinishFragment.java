@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.delacrixmorgan.kingscup.R;
 
 /**
- * Created by delac on 04/03/2017.
+ * Created by Delacrix Morgan on 04/03/2017.
  */
 
 public class FinishFragment extends Fragment{

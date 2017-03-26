@@ -1,4 +1,4 @@
-package com.delacrixmorgan.kingscup;
+package com.delacrixmorgan.kingscup.engine;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 /**
- * Created by Delacrix on 09/10/2016.
+ * Created by Delacrix Morgan on 09/10/2016.
  */
 
 public class GameEngine {
@@ -47,6 +47,14 @@ public class GameEngine {
                 mDeck.add(new Card(stringSuit, stringName, stringAction));
             }
         }
+    }
+
+    public ArrayList<Card> getmDeck() {
+        return mDeck;
+    }
+
+    public void setmDeck(ArrayList<Card> mDeck) {
+        this.mDeck = mDeck;
     }
 
     public Card drawCard() {

@@ -14,7 +14,7 @@ import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
- * Created by delac on 04/03/2017.
+ * Created by Delacrix Morgan on 04/03/2017.
  */
 
 public class StartFragment extends Fragment {

@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.delacrixmorgan.kingscup.GameEngine;
+import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.R;
 
 /**
- * Created by Delacrix on 09/10/2016.
+ * Created by Delacrix Morgan on 09/10/2016.
  */
 
 public class CardFragment extends Fragment {

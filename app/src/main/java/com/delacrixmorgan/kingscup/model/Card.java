@@ -1,7 +1,7 @@
 package com.delacrixmorgan.kingscup.model;
 
 /**
- * Created by Delacrix on 09/10/2016.
+ * Created by Delacrix Morgan on 09/10/2016.
  */
 
 public class Card {
