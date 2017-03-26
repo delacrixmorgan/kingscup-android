@@ -17,16 +17,17 @@ public class GameEngine {
 
     private ArrayList<Card> mDeck = new ArrayList<>();
 
-    public static synchronized GameEngine getInstance(@NonNull Context context) {
-        if (sGameEngine == null) {
-            sGameEngine = new GameEngine(context);
-        }
+    private GameEngine(@NonNull Context context) {
+        buildDeck(context, context.getPackageName());
+    }
 
+    public static synchronized GameEngine newInstance(@NonNull Context context) {
+        sGameEngine = new GameEngine(context);
         return sGameEngine;
     }
 
-    private GameEngine(@NonNull Context context) {
-        buildDeck(context, context.getPackageName());
+    public static synchronized GameEngine getInstance() {
+        return sGameEngine;
     }
 
     private void buildDeck(Context context, String packageName) {

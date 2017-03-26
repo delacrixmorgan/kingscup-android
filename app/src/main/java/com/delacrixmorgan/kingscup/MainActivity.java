@@ -1,15 +1,13 @@
 package com.delacrixmorgan.kingscup;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.fragment.MenuFragment;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Delacrix Morgan on 26/03/2017.
@@ -21,6 +19,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        GameEngine.newInstance(this);
 
         getFragmentManager()
                 .beginTransaction()
