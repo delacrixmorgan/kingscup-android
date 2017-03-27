@@ -18,7 +18,7 @@ import com.delacrixmorgan.kingscup.shared.Helper;
  */
 
 public class GuideFragment extends Fragment {
-    private static String TAG = "StartFragment";
+    private static String TAG = "GuideFragment";
     final Handler mHandler = new Handler();
     int counter = 0;
     private TextView mGuide;

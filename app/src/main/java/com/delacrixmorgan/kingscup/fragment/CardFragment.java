@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.R;
+import com.delacrixmorgan.kingscup.engine.GameEngine;
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
@@ -39,7 +39,7 @@ public class CardFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDeckAction.setText(GameEngine.getInstance(getActivity()).drawCard().getmAction());
+                mDeckAction.setText(GameEngine.getInstance().drawCard().getmAction());
             }
         });
     }

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.delacrixmorgan.kingscup.fragment.StartFragment;
+import com.delacrixmorgan.kingscup.fragment.GuideFragment;
 
 /**
  * Created by Delacrix Morgan on 26/03/2017.
@@ -20,7 +20,7 @@ public class GameActivity extends Activity {
 
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.activity_main_vg_fragment, new StartFragment())
+                .replace(R.id.activity_main_vg_fragment, new GuideFragment())
                 .commit();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
