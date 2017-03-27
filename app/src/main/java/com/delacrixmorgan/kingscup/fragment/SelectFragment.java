@@ -12,7 +12,6 @@ import android.widget.Button;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
-import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
@@ -50,7 +49,7 @@ public class SelectFragment extends Fragment {
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.showFragment(getActivity(), new CardFragment(), SelectFragment.TAG);
+
             }
         });
     }
