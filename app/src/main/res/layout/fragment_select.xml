@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/select_pink">
 
     <Button
         android:id="@+id/button_next"
@@ -12,7 +13,8 @@
         android:background="@drawable/rounded_button"
         android:text="next"
         android:textColor="@color/colorWhite"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fragment_select_card_recycler_view"
