@@ -30,7 +30,7 @@ public class GuideFragment extends Fragment {
     };
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_start, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_guide, container, false);
 
         mGuide = (TextView) rootView.findViewById(R.id.tv_guide);
         mSkipButton = (Button) rootView.findViewById(R.id.btn_skip);

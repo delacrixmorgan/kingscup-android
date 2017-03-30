@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:text="Start Fragment"
-        android:textAlignment="center" />
+    android:background="@drawable/wallpaper_pink">
 
     <TextView
         android:id="@+id/tv_guide"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="20dp"
+        android:text="Guide Fragment"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite" />
 
     <Button
         android:id="@+id/btn_skip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/rounded_button"
         android:text="Skip"
+        android:layout_alignParentBottom="true"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />
 
-</LinearLayout>
+</RelativeLayout>
