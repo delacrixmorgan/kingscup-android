@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="50dp"
-    android:gravity="center_vertical">
+    android:padding="50dp">
 
     <TextView
         style="@style/Base.TextAppearance.AppCompat.Large"
-        fontPath="fonts/LeagueSpartan-Bold.otf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -26,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/btn_rounded_red"
         android:text="Game On!"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />
@@ -36,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/btn_rounded_red"
         android:text="I want another deck"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />
@@ -46,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/btn_rounded_red"
         android:text="Who brought this?"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />

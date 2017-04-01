@@ -2,27 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper_pink">
+    android:background="@drawable/wallpaper_pink"
+    android:padding="50dp">
+
+    <ImageView
+        android:id="@+id/iv_guide_symbol"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/heart_pink" />
 
     <TextView
         android:id="@+id/tv_guide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:padding="20dp"
+        android:layout_below="@id/iv_guide_symbol"
+        android:padding="18dp"
         android:text="Guide Fragment"
         android:textAlignment="center"
-        android:textColor="@color/colorWhite" />
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btn_skip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/rounded_button"
-        android:text="Skip"
         android:layout_alignParentBottom="true"
-        android:textColor="@color/colorWhite"
-        android:textStyle="bold" />
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/btn_rounded_white"
+        android:text="Skip"
+        android:textColor="@color/colorPrimary" />
 
 </RelativeLayout>
