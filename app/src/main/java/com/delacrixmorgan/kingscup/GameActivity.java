@@ -9,7 +9,6 @@ import android.view.WindowManager;
 
 import com.delacrixmorgan.kingscup.fragment.GuideFragment;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
