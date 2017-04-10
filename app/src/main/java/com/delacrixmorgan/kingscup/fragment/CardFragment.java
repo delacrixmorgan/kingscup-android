@@ -10,13 +10,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.delacrixmorgan.kingscup.R;
-import com.delacrixmorgan.kingscup.engine.GameEngine;
+import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
  */
 
 public class CardFragment extends Fragment {
+
+    private static String TAG = "CardFragment";
 
     private TextView mDeckAction;
     private Button mNextButton;
@@ -39,7 +41,8 @@ public class CardFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDeckAction.setText(GameEngine.getInstance().drawCard().getmAction());
+                Helper.showFragment(getActivity(), new SelectFragment(), CardFragment.TAG);
+                //mDeckAction.setText(GameEngine.getInstance().drawCard().getmAction());
             }
         });
     }

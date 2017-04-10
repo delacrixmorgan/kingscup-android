@@ -32,7 +32,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.showFragment((Activity) mContext, new CardFragment(), CardAdapter.TAG);
+                Helper.showFragmentSlideDown((Activity) mContext, new CardFragment(), CardAdapter.TAG);
             }
         });
 

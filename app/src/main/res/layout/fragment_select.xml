@@ -5,63 +5,67 @@
     android:background="@drawable/select_pink">
 
     <RelativeLayout
-        android:id="@+id/fragment_select_cup_status_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="120dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <ImageView
+        <RelativeLayout
+            android:id="@+id/fragment_select_cup_status_layout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:src="@drawable/cup_whole" />
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_height="70dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/cup_volume_2" />
+            android:layout_marginTop="120dp">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/cup_whole" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/cup_volume_2" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_select_status_text"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_select_cup_status_layout"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="Come On"
+                android:textColor="@color/colorWhite" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 Kings Left"
+                android:textColor="@color/colorWhite" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_select_status_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_rounded_white"
+            android:text="Done Yet?"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
     </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/fragment_select_status_text"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fragment_select_cup_status_layout"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:text="Come On"
-            android:textColor="@color/colorWhite" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2 Kings Left"
-            android:textColor="@color/colorWhite" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/button_next"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fragment_select_status_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btn_rounded_white"
-        android:text="Done Yet?"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fragment_select_card_recycler_view"
