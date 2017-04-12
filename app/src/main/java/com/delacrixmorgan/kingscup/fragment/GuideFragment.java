@@ -65,7 +65,6 @@ public class GuideFragment extends Fragment {
                     animation.setRepeatMode(Animation.REVERSE);
 
                     mSymbol.startAnimation(animation);
-
                     mSymbol.setBackgroundResource(mArraySymbol[counter]);
                     mGuide.setText(mArrayGuide[counter]);
 

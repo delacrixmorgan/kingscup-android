@@ -41,7 +41,8 @@ public class CardFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.showFragment(getActivity(), new SelectFragment(), CardFragment.TAG);
+                getActivity().onBackPressed();
+
                 //mDeckAction.setText(GameEngine.getInstance().drawCard().getmAction());
             }
         });
