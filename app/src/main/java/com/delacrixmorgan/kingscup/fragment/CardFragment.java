@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.delacrixmorgan.kingscup.R;
-import com.delacrixmorgan.kingscup.shared.Helper;
+import com.delacrixmorgan.kingscup.engine.GameEngine;
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
@@ -38,12 +38,14 @@ public class CardFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Bundle bundle = this.getArguments();
+        int position = bundle.getInt("position");
+
+        mDeckAction.setText(GameEngine.getInstance().getCard(position).getmAction());
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().onBackPressed();
-
-                //mDeckAction.setText(GameEngine.getInstance().drawCard().getmAction());
+                getActivity().getFragmentManager().popBackStack();
             }
         });
     }

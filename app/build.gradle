@@ -19,7 +19,7 @@ android {
     }
 }
 
-ext{
+ext {
     supportLib = '25.3.1'
 }
 

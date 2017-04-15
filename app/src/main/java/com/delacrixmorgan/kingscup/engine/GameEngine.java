@@ -54,14 +54,14 @@ public class GameEngine {
         return mDeck;
     }
 
-    public void setmDeck(ArrayList<Card> mDeck) {
-        this.mDeck = mDeck;
-    }
-
     public Card drawCard() {
         Card card = mDeck.get(0);
         mDeck.remove(0);
 
         return card;
+    }
+
+    public Card getCard(int i) {
+        return mDeck.get(i);
     }
 }
