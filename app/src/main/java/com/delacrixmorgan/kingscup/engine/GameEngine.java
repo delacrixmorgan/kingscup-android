@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import com.delacrixmorgan.kingscup.model.Card;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 
 /**
@@ -13,9 +15,11 @@ import java.util.ArrayList;
  */
 
 public class GameEngine {
-    private static GameEngine sGameEngine;
 
+    private static GameEngine sGameEngine;
     private ArrayList<Card> mDeck = new ArrayList<>();
+    private int mKingCounter;
+
 
     private GameEngine(@NonNull Context context) {
         buildDeck(context, context.getPackageName());
@@ -23,6 +27,7 @@ public class GameEngine {
 
     public static synchronized GameEngine newInstance(@NonNull Context context) {
         sGameEngine = new GameEngine(context);
+
         return sGameEngine;
     }
 
@@ -33,6 +38,8 @@ public class GameEngine {
     private void buildDeck(Context context, String packageName) {
         int resourceSuit, resourceName, resourceAction;
         String stringSuit, stringName, stringAction;
+
+        mKingCounter = 0;
 
         for (int i = 1; i <= 4; i++) {
             resourceSuit = context.getResources().getIdentifier("suit_" + i, "string", packageName);
@@ -48,17 +55,23 @@ public class GameEngine {
                 mDeck.add(new Card(stringSuit, stringName, stringAction));
             }
         }
+        shuffleDeck();
+    }
+
+    public Card drawCard(int i) {
+        Card card = mDeck.get(i);
+        mDeck.remove(i);
+        shuffleDeck();
+
+        return card;
+    }
+
+    private void shuffleDeck() {
+        Collections.shuffle(mDeck, new Random(System.nanoTime()));
     }
 
     public ArrayList<Card> getmDeck() {
         return mDeck;
-    }
-
-    public Card drawCard() {
-        Card card = mDeck.get(0);
-        mDeck.remove(0);
-
-        return card;
     }
 
     public Card getCard(int i) {

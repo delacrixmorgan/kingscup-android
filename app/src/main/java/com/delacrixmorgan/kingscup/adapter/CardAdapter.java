@@ -41,7 +41,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         holder.frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameEngine.getInstance().drawCard();
+                GameEngine.getInstance().drawCard(position);
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("position", position);

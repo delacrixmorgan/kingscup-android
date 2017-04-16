@@ -23,14 +23,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        GameEngine.newInstance(this);
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/LeagueSpartan-Bold.otf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
-
-        GameEngine.newInstance(this);
 
         getFragmentManager()
                 .beginTransaction()
