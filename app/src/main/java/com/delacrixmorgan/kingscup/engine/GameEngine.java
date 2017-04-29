@@ -20,6 +20,8 @@ public class GameEngine {
     private ArrayList<Card> mDeck = new ArrayList<>();
     private int mKingCounter;
 
+    public Boolean mCardSelected;
+
 
     private GameEngine(@NonNull Context context) {
         buildDeck(context, context.getPackageName());
@@ -39,6 +41,7 @@ public class GameEngine {
         int resourceSuit, resourceName, resourceAction;
         String stringSuit, stringName, stringAction;
 
+        mCardSelected = false;
         mKingCounter = 0;
 
         for (int i = 1; i <= 4; i++) {

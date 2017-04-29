@@ -41,15 +41,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         holder.frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameEngine.getInstance().drawCard(position);
+                if (!GameEngine.getInstance().mCardSelected){
+                    GameEngine.getInstance().mCardSelected = true;
+                    GameEngine.getInstance().drawCard(position);
 
-                Bundle bundle = new Bundle();
-                bundle.putInt("position", position);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("position", position);
 
-                Fragment cardFragment = new CardFragment();
-                cardFragment.setArguments(bundle);
+                    Fragment cardFragment = new CardFragment();
+                    cardFragment.setArguments(bundle);
 
-                Helper.showFragmentSlideDown((Activity) mContext, cardFragment, CardAdapter.TAG);
+                    notifyItemRemoved(position);
+
+                    Helper.showFragmentSlideDown((Activity) mContext, cardFragment, CardAdapter.TAG);
+                }
             }
         });
     }

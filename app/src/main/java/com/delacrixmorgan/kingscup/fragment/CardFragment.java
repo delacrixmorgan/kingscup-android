@@ -45,6 +45,7 @@ public class CardFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GameEngine.getInstance().mCardSelected = false;
                 getActivity().getFragmentManager().popBackStack();
             }
         });
