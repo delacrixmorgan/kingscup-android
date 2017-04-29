@@ -3,7 +3,6 @@ package com.delacrixmorgan.kingscup.shared;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.os.Bundle;
 import android.transition.Slide;
 import android.view.Gravity;
 
@@ -11,7 +10,7 @@ import com.delacrixmorgan.kingscup.R;
 
 
 /**
- * Created by delacrix on 17/03/2017.
+ * Created by Delacrix Morgan on 17/03/2017.
  */
 
 public class Helper {

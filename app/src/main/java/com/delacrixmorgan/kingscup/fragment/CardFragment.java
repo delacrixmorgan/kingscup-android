@@ -38,14 +38,12 @@ public class CardFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Bundle bundle = this.getArguments();
-        int position = bundle.getInt("position");
+        mDeckAction.setText(GameEngine.getInstance().getCurrentCard().getmAction());
 
-        mDeckAction.setText(GameEngine.getInstance().getCard(position).getmAction());
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameEngine.getInstance().mCardSelected = false;
+                GameEngine.getInstance().popCard();
                 getActivity().getFragmentManager().popBackStack();
             }
         });

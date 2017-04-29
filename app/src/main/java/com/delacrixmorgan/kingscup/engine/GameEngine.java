@@ -1,9 +1,13 @@
 package com.delacrixmorgan.kingscup.engine;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.delacrixmorgan.kingscup.adapter.CardAdapter;
+import com.delacrixmorgan.kingscup.fragment.CardFragment;
 import com.delacrixmorgan.kingscup.model.Card;
+import com.delacrixmorgan.kingscup.shared.Helper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,10 +21,10 @@ import java.util.Random;
 public class GameEngine {
 
     private static GameEngine sGameEngine;
+    public Boolean mCardSelected;
     private ArrayList<Card> mDeck = new ArrayList<>();
     private int mKingCounter;
-
-    public Boolean mCardSelected;
+    private int mCurrentCardPosition;
 
 
     private GameEngine(@NonNull Context context) {
@@ -61,12 +65,24 @@ public class GameEngine {
         shuffleDeck();
     }
 
-    public Card drawCard(int i) {
-        Card card = mDeck.get(i);
-        mDeck.remove(i);
-        shuffleDeck();
+    public void drawCard(Context context, int i, CardAdapter cardAdapter) {
+        if (!mCardSelected) {
+            mCurrentCardPosition = i;
+            mCardSelected = true;
 
-        return card;
+            cardAdapter.notifyItemRemoved(i);
+            Helper.showFragmentSlideDown((Activity) context, new CardFragment(), cardAdapter.getClass().getSimpleName());
+        }
+    }
+
+    public void popCard() {
+        mDeck.remove(mCurrentCardPosition);
+        mCurrentCardPosition = 0;
+        mCardSelected = false;
+    }
+
+    public Card getCurrentCard() {
+        return mDeck.get(mCurrentCardPosition);
     }
 
     private void shuffleDeck() {
@@ -75,9 +91,5 @@ public class GameEngine {
 
     public ArrayList<Card> getmDeck() {
         return mDeck;
-    }
-
-    public Card getCard(int i) {
-        return mDeck.get(i);
     }
 }
