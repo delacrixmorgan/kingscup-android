@@ -1,10 +1,8 @@
 package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import android.widget.TextView;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
-import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
@@ -36,7 +33,7 @@ public class CardFragment extends Fragment {
         mTextName = (TextView) rootView.findViewById(R.id.card_name);
         mTextAction = (TextView) rootView.findViewById(R.id.card_action);
         mTextLightValue = (TextView) rootView.findViewById(R.id.card_light_value);
-        mTextDarkValue = (TextView)rootView.findViewById(R.id.card_dark_value);
+        mTextDarkValue = (TextView) rootView.findViewById(R.id.card_dark_value);
 
         mLightLargeSymbol = (ImageView) rootView.findViewById(R.id.card_light_lg_symbol);
         mLightSmallSymbol = (ImageView) rootView.findViewById(R.id.card_light_sm_symbol);
@@ -87,12 +84,8 @@ public class CardFragment extends Fragment {
             public void onClick(View v) {
                 GameEngine.getInstance().popCard();
 
-                if (GameEngine.getInstance().checkWin()) {
-                    Helper.showFragment(getActivity(), new SelectFragment(), CardFragment.TAG);
-                } else {
-                    getActivity().getFragmentManager().findFragmentByTag("SelectFragment").onResume();
-                    getActivity().getFragmentManager().popBackStack();
-                }
+                getActivity().getFragmentManager().findFragmentByTag("SelectFragment").onResume();
+                getActivity().getFragmentManager().popBackStack();
             }
         });
     }

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.delacrixmorgan.kingscup.R;
@@ -23,6 +24,7 @@ public class SelectFragment extends Fragment {
 
     private RecyclerView mCardRecyclerView;
     private Button mButtonEndGame;
+    private ImageView mImageVolume;
     private TextView mTextStatusHeader, mTextStatusBody;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,20 +33,21 @@ public class SelectFragment extends Fragment {
         mCardRecyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_select_card_recycler_view);
         mButtonEndGame = (Button) rootView.findViewById(R.id.button_endgame);
 
+        mImageVolume = (ImageView) rootView.findViewById(R.id.image_cup_volume);
+
         mTextStatusHeader = (TextView) rootView.findViewById(R.id.status_header);
         mTextStatusBody = (TextView) rootView.findViewById(R.id.status_body);
+
+        GameEngine.getInstance().initRecyclerView(getActivity(), mCardRecyclerView);
 
         return rootView;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onResume() {
+        super.onResume();
 
-        mTextStatusHeader.setText("Come On");
-        mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");
-
-        if (GameEngine.getInstance().checkWin()) {
+        if (GameEngine.getInstance().checkWin()){
             GameEngine.getInstance().stopGame();
 
             mButtonEndGame.setVisibility(View.VISIBLE);
@@ -56,12 +59,23 @@ public class SelectFragment extends Fragment {
             });
         }
 
-        GameEngine.getInstance().initRecyclerView(getActivity(), mCardRecyclerView);
-    }
+        switch (GameEngine.getInstance().getmKingCounter()){
+            case 1:
+                mImageVolume.setBackgroundResource(R.drawable.cup_volume_4);
+                break;
 
-    @Override
-    public void onResume() {
-        super.onResume();
+            case 2:
+                mImageVolume.setBackgroundResource(R.drawable.cup_volume_3);
+                break;
+
+            case 3:
+                mImageVolume.setBackgroundResource(R.drawable.cup_volume_2);
+                break;
+
+            case 4:
+                mImageVolume.setBackgroundResource(R.drawable.cup_volume_1);
+                break;
+        }
 
         mTextStatusHeader.setText("Come On");
         mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");

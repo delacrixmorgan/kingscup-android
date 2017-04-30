@@ -27,9 +27,8 @@ public class GameEngine {
 
     private CardAdapter mCardAdapter;
     private Boolean mCardSelected;
-    private ArrayList<Card> mDeck = new ArrayList<>();
-    private int mKingCounter;
-    private int mCurrentCardPosition;
+    private ArrayList<Card> mDeck;
+    private int mKingCounter, mCurrentCardPosition;
 
 
     private GameEngine(@NonNull Context context) {
@@ -38,7 +37,6 @@ public class GameEngine {
 
     public static synchronized GameEngine newInstance(@NonNull Context context) {
         sGameEngine = new GameEngine(context);
-
         return sGameEngine;
     }
 
@@ -58,8 +56,9 @@ public class GameEngine {
         int resourceSuit, resourceName, resourceAction;
         String stringValue, stringSuit, stringName, stringAction;
 
-        mCardSelected = false;
         mKingCounter = 4;
+        mCardSelected = false;
+        mDeck = new ArrayList<>();
 
         for (int i = 1; i <= 4; i++) {
             resourceSuit = context.getResources().getIdentifier("suit_" + i, "string", packageName);
@@ -123,6 +122,7 @@ public class GameEngine {
 
     public void stopGame() {
         mDeck.clear();
+        mCardAdapter.notifyDataSetChanged();
     }
 
     public Boolean checkWin() {

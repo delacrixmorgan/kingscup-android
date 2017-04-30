@@ -22,11 +22,12 @@
                 android:src="@drawable/cup_whole" />
 
             <ImageView
+                android:id="@+id/image_cup_volume"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/cup_volume_2" />
+                android:background="@drawable/cup_volume_2" />
 
         </RelativeLayout>
 
