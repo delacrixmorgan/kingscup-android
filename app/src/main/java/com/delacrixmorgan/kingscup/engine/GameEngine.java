@@ -21,6 +21,7 @@ import java.util.Random;
  */
 
 public class GameEngine {
+    private static String TAG = "GameEngine";
 
     private static GameEngine sGameEngine;
 
@@ -58,7 +59,7 @@ public class GameEngine {
         String stringValue, stringSuit, stringName, stringAction;
 
         mCardSelected = false;
-        mKingCounter = 0;
+        mKingCounter = 4;
 
         for (int i = 1; i <= 4; i++) {
             resourceSuit = context.getResources().getIdentifier("suit_" + i, "string", packageName);
@@ -103,6 +104,11 @@ public class GameEngine {
         if (!mCardSelected) {
             mCurrentCardPosition = i;
             mCardSelected = true;
+
+            if (mDeck.get(i).getmName().equals("King")) {
+                mKingCounter--;
+            }
+
             Helper.showFragmentSlideDown((Activity) context, new CardFragment(), mCardAdapter.getClass().getSimpleName());
         }
     }
@@ -115,6 +121,14 @@ public class GameEngine {
         mCardSelected = false;
     }
 
+    public void stopGame() {
+        mDeck.clear();
+    }
+
+    public Boolean checkWin() {
+        return (mKingCounter < 1);
+    }
+
     public Card getCurrentCard() {
         return mDeck.get(mCurrentCardPosition);
     }
@@ -125,5 +139,9 @@ public class GameEngine {
 
     public ArrayList<Card> getmDeck() {
         return mDeck;
+    }
+
+    public int getmKingCounter() {
+        return mKingCounter;
     }
 }

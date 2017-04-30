@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.delacrixmorgan.kingscup.GameActivity;
 import com.delacrixmorgan.kingscup.R;
+import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
@@ -47,6 +48,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_start:
+                GameEngine.newInstance(getActivity());
                 startActivity(new Intent(getActivity(), GameActivity.class));
                 break;
 

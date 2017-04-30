@@ -73,7 +73,6 @@ public class GuideFragment extends Fragment {
                 } else {
                     mHandler.removeCallbacks(this);
                 }
-
             }
         };
 

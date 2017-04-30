@@ -17,7 +17,7 @@ public class Helper {
     public static void showFragment(Activity activity, Fragment fragment, String backStack) {
         activity.getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.activity_main_vg_fragment, fragment)
+                .replace(R.id.activity_main_vg_fragment, fragment, fragment.getClass().getSimpleName())
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .addToBackStack(backStack)
                 .commit();
