@@ -55,7 +55,7 @@ public class GameEngine {
 
     private void buildDeck(Context context, String packageName) {
         int resourceSuit, resourceName, resourceAction;
-        String stringSuit, stringName, stringAction;
+        String stringValue, stringSuit, stringName, stringAction;
 
         mCardSelected = false;
         mKingCounter = 0;
@@ -71,7 +71,28 @@ public class GameEngine {
                 stringName = context.getString(resourceName);
                 stringAction = context.getString(resourceAction);
 
-                mDeck.add(new Card(stringSuit, stringName, stringAction));
+                switch (j) {
+                    case 1:
+                        stringValue = "A";
+                        break;
+
+                    case 11:
+                        stringValue = "J";
+                        break;
+
+                    case 12:
+                        stringValue = "Q";
+                        break;
+
+                    case 13:
+                        stringValue = "K";
+                        break;
+
+                    default:
+                        stringValue = String.valueOf(j);
+                }
+
+                mDeck.add(new Card(stringValue, stringSuit, stringName, stringAction));
             }
         }
 

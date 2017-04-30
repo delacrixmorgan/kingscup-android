@@ -14,6 +14,7 @@
         android:paddingTop="30dp">
 
         <TextView
+            android:id="@+id/card_light_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -26,7 +27,7 @@
             android:id="@+id/card_light_sm_symbol"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/heart_pink" />
+            android:background="@drawable/heart_pink" />
 
     </LinearLayout>
 
@@ -79,11 +80,12 @@
         android:layout_alignParentEnd="true"
         android:gravity="end"
         android:orientation="vertical"
-        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:paddingTop="55dp"
-        android:scaleY="-1">
+        android:rotation="-180">
 
         <TextView
+            android:id="@+id/card_dark_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -96,7 +98,7 @@
             android:id="@+id/card_dark_sm_symbol"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/heart_dark" />
+            android:background="@drawable/heart_dark" />
 
     </LinearLayout>
 

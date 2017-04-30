@@ -5,12 +5,21 @@ package com.delacrixmorgan.kingscup.model;
  */
 
 public class Card {
-    private String mSuit, mName, mAction;
+    private String mValue,mSuit, mName, mAction;
 
-    public Card(String mSuit, String mName, String mAction) {
+    public Card(String mValue, String mSuit, String mName, String mAction) {
+        this.mValue = mValue;
         this.mSuit = mSuit;
         this.mName = mName;
         this.mAction = mAction;
+    }
+
+    public String getmValue() {
+        return mValue;
+    }
+
+    public void setmValue(String mValue) {
+        this.mValue = mValue;
     }
 
     public String getmSuit() {
