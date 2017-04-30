@@ -36,7 +36,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         holder.frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameEngine.getInstance().drawCard(mContext, holder.getAdapterPosition(), CardAdapter.this);
+                GameEngine.getInstance().drawCard(mContext, holder.getAdapterPosition());
             }
         });
     }

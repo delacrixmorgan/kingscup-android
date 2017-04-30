@@ -3,6 +3,8 @@ package com.delacrixmorgan.kingscup.engine;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
 import com.delacrixmorgan.kingscup.fragment.CardFragment;
@@ -21,7 +23,9 @@ import java.util.Random;
 public class GameEngine {
 
     private static GameEngine sGameEngine;
-    public Boolean mCardSelected;
+
+    private CardAdapter mCardAdapter;
+    private Boolean mCardSelected;
     private ArrayList<Card> mDeck = new ArrayList<>();
     private int mKingCounter;
     private int mCurrentCardPosition;
@@ -39,6 +43,14 @@ public class GameEngine {
 
     public static synchronized GameEngine getInstance() {
         return sGameEngine;
+    }
+
+    public void initRecyclerView(Context context, RecyclerView recyclerView) {
+        mCardAdapter = new CardAdapter(context);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setAdapter(mCardAdapter);
+        recyclerView.scrollToPosition(0);
     }
 
     private void buildDeck(Context context, String packageName) {
@@ -62,21 +74,22 @@ public class GameEngine {
                 mDeck.add(new Card(stringSuit, stringName, stringAction));
             }
         }
+
         shuffleDeck();
     }
 
-    public void drawCard(Context context, int i, CardAdapter cardAdapter) {
+    public void drawCard(Context context, int i) {
         if (!mCardSelected) {
             mCurrentCardPosition = i;
             mCardSelected = true;
-
-            cardAdapter.notifyItemRemoved(i);
-            Helper.showFragmentSlideDown((Activity) context, new CardFragment(), cardAdapter.getClass().getSimpleName());
+            Helper.showFragmentSlideDown((Activity) context, new CardFragment(), mCardAdapter.getClass().getSimpleName());
         }
     }
 
     public void popCard() {
         mDeck.remove(mCurrentCardPosition);
+        mCardAdapter.notifyItemRemoved(mCurrentCardPosition);
+
         mCurrentCardPosition = 0;
         mCardSelected = false;
     }
