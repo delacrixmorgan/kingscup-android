@@ -23,6 +23,7 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/card_light_sm_symbol"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/heart_pink" />
@@ -37,11 +38,13 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/card_light_lg_symbol"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/jack_pink"/>
+            android:background="@drawable/jack_pink"/>
 
         <TextView
+            android:id="@+id/card_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jack"
@@ -51,7 +54,7 @@
             android:textAllCaps="true"/>
 
         <TextView
-            android:id="@+id/deck_action"
+            android:id="@+id/card_action"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:gravity="center"
@@ -90,6 +93,7 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/card_dark_sm_symbol"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/heart_dark" />
