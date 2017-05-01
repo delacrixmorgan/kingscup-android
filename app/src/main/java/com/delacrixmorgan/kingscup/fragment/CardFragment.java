@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
+import com.delacrixmorgan.kingscup.model.Card;
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
@@ -47,13 +48,14 @@ public class CardFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Card card = GameEngine.getInstance().getCurrentCard();
 
-        mTextName.setText(GameEngine.getInstance().getCurrentCard().getmName());
-        mTextAction.setText(GameEngine.getInstance().getCurrentCard().getmAction());
-        mTextLightValue.setText(GameEngine.getInstance().getCurrentCard().getmValue());
-        mTextDarkValue.setText(GameEngine.getInstance().getCurrentCard().getmValue());
+        mTextName.setText(card.getmName());
+        mTextAction.setText(card.getmAction());
+        mTextLightValue.setText(card.getmValue());
+        mTextDarkValue.setText(card.getmValue());
 
-        switch (GameEngine.getInstance().getCurrentCard().getmSuit()) {
+        switch (card.getmSuit()) {
             case "Spade":
                 mLightLargeSymbol.setBackgroundResource(R.drawable.spade_pink);
                 mLightSmallSymbol.setBackgroundResource(R.drawable.spade_pink);
@@ -82,8 +84,6 @@ public class CardFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameEngine.getInstance().popCard();
-
                 getActivity().getFragmentManager().findFragmentByTag("SelectFragment").onResume();
                 getActivity().getFragmentManager().popBackStack();
             }

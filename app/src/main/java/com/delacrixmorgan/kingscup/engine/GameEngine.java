@@ -3,8 +3,6 @@ package com.delacrixmorgan.kingscup.engine;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
 import com.delacrixmorgan.kingscup.fragment.CardFragment;
@@ -25,7 +23,6 @@ public class GameEngine {
 
     private static GameEngine sGameEngine;
 
-    private CardAdapter mCardAdapter;
     private Boolean mCardSelected;
     private ArrayList<Card> mDeck;
     private int mKingCounter, mCurrentCardPosition;
@@ -42,14 +39,6 @@ public class GameEngine {
 
     public static synchronized GameEngine getInstance() {
         return sGameEngine;
-    }
-
-    public void initRecyclerView(Context context, RecyclerView recyclerView) {
-        mCardAdapter = new CardAdapter(context);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-        recyclerView.setAdapter(mCardAdapter);
-        recyclerView.scrollToPosition(0);
     }
 
     private void buildDeck(Context context, String packageName) {
@@ -95,7 +84,6 @@ public class GameEngine {
                 mDeck.add(new Card(stringValue, stringSuit, stringName, stringAction));
             }
         }
-
         shuffleDeck();
     }
 
@@ -108,25 +96,23 @@ public class GameEngine {
                 mKingCounter--;
             }
 
-            Helper.showFragmentSlideDown((Activity) context, new CardFragment(), mCardAdapter.getClass().getSimpleName());
+            Helper.showFragmentSlideDown((Activity) context, new CardFragment(), "CardAdapter");
         }
     }
 
-    public void popCard() {
+    public Boolean checkWin(CardAdapter adapter) {
         mDeck.remove(mCurrentCardPosition);
-        mCardAdapter.notifyItemRemoved(mCurrentCardPosition);
+        adapter.notifyItemRemoved(mCurrentCardPosition);
 
         mCurrentCardPosition = 0;
         mCardSelected = false;
-    }
 
-    public void stopGame() {
-        mDeck.clear();
-        mCardAdapter.notifyDataSetChanged();
-    }
-
-    public Boolean checkWin() {
         return (mKingCounter < 1);
+    }
+
+    public void stopGame(CardAdapter adapter) {
+        mDeck.clear();
+        adapter.notifyDataSetChanged();
     }
 
     public Card getCurrentCard() {
@@ -144,4 +130,5 @@ public class GameEngine {
     public int getmKingCounter() {
         return mKingCounter;
     }
+
 }

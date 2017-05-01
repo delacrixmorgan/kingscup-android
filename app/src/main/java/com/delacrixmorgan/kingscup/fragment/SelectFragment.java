@@ -3,6 +3,7 @@ package com.delacrixmorgan.kingscup.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.delacrixmorgan.kingscup.R;
+import com.delacrixmorgan.kingscup.adapter.CardAdapter;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 
 /**
@@ -23,6 +25,7 @@ public class SelectFragment extends Fragment {
     private static String TAG = "SelectFragment";
 
     private RecyclerView mCardRecyclerView;
+    private CardAdapter mCardAdapter;
     private Button mButtonEndGame;
     private ImageView mImageVolume;
     private TextView mTextStatusHeader, mTextStatusBody;
@@ -38,17 +41,26 @@ public class SelectFragment extends Fragment {
         mTextStatusHeader = (TextView) rootView.findViewById(R.id.status_header);
         mTextStatusBody = (TextView) rootView.findViewById(R.id.status_body);
 
-        GameEngine.getInstance().initRecyclerView(getActivity(), mCardRecyclerView);
-
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mCardAdapter = new CardAdapter(getActivity());
+
+        mCardRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        mCardRecyclerView.setAdapter(mCardAdapter);
+        mCardRecyclerView.scrollToPosition(0);
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        if (GameEngine.getInstance().checkWin()){
-            GameEngine.getInstance().stopGame();
+        if (GameEngine.getInstance().checkWin(mCardAdapter)){
+            GameEngine.getInstance().stopGame(mCardAdapter);
 
             mButtonEndGame.setVisibility(View.VISIBLE);
             mButtonEndGame.setOnClickListener(new View.OnClickListener() {
