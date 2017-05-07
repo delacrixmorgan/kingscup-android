@@ -81,6 +81,7 @@ public class CardFragment extends Fragment {
                 break;
         }
 
+        mNextButton.setText(GameEngine.getInstance().getNextText());
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

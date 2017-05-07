@@ -20,20 +20,21 @@ import java.util.Random;
 
 public class GameEngine {
     private static String TAG = "GameEngine";
-
     private static GameEngine sGameEngine;
 
-    private Boolean mCardSelected;
     private ArrayList<Card> mDeck;
+    private ArrayList<String> mNextArray;
+    private Boolean mCardSelected;
     private int mKingCounter, mCurrentCardPosition;
+
+    private GameEngine(@NonNull Context context) {
+        buildDeck(context, context.getPackageName());
+        buildArray(context, context.getPackageName());
+    }
 
     public static synchronized GameEngine newInstance(@NonNull Context context) {
         sGameEngine = new GameEngine(context);
         return sGameEngine;
-    }
-
-    private GameEngine(@NonNull Context context) {
-        buildDeck(context, context.getPackageName());
     }
 
     public static synchronized GameEngine getInstance() {
@@ -85,6 +86,16 @@ public class GameEngine {
         shuffleDeck();
     }
 
+    private void buildArray(Context context, String packageName) {
+        int resourceNextArray;
+        mNextArray = new ArrayList<>();
+
+        for (int i = 1; i <= 10; i++) {
+            resourceNextArray = context.getResources().getIdentifier("next_" + i, "string", packageName);
+            mNextArray.add(context.getString(resourceNextArray));
+        }
+    }
+
     public void drawCard(Context context, int i) {
         if (!mCardSelected) {
             mCurrentCardPosition = i;
@@ -131,4 +142,8 @@ public class GameEngine {
         return mKingCounter;
     }
 
+    public String getNextText() {
+        Collections.shuffle(mNextArray, new Random(System.nanoTime()));
+        return mNextArray.get(0);
+    }
 }
