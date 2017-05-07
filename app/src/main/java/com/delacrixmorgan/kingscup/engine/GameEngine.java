@@ -27,14 +27,13 @@ public class GameEngine {
     private ArrayList<Card> mDeck;
     private int mKingCounter, mCurrentCardPosition;
 
-
-    private GameEngine(@NonNull Context context) {
-        buildDeck(context, context.getPackageName());
-    }
-
     public static synchronized GameEngine newInstance(@NonNull Context context) {
         sGameEngine = new GameEngine(context);
         return sGameEngine;
+    }
+
+    private GameEngine(@NonNull Context context) {
+        buildDeck(context, context.getPackageName());
     }
 
     public static synchronized GameEngine getInstance() {
@@ -80,7 +79,6 @@ public class GameEngine {
                     default:
                         stringValue = String.valueOf(j);
                 }
-
                 mDeck.add(new Card(stringValue, stringSuit, stringName, stringAction));
             }
         }
@@ -106,6 +104,8 @@ public class GameEngine {
 
         mCurrentCardPosition = 0;
         mCardSelected = false;
+
+        //mKingCounter--;
 
         return (mKingCounter < 1);
     }

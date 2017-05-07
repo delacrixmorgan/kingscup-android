@@ -59,7 +59,7 @@ public class SelectFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        if (GameEngine.getInstance().checkWin(mCardAdapter)){
+        if (GameEngine.getInstance().checkWin(mCardAdapter)) {
             GameEngine.getInstance().stopGame(mCardAdapter);
 
             mButtonEndGame.setVisibility(View.VISIBLE);
@@ -71,20 +71,24 @@ public class SelectFragment extends Fragment {
             });
         }
 
-        switch (GameEngine.getInstance().getmKingCounter()){
-            case 1:
+        switch (GameEngine.getInstance().getmKingCounter()) {
+            case 0:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_4);
                 break;
 
-            case 2:
+            case 1:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_3);
                 break;
 
-            case 3:
+            case 2:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_2);
                 break;
 
-            case 4:
+            case 3:
+                mImageVolume.setBackgroundResource(R.drawable.cup_volume_1);
+                break;
+
+            default:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_1);
                 break;
         }
