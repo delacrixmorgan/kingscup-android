@@ -23,7 +23,7 @@ public class GameEngine {
     private static GameEngine sGameEngine;
 
     private ArrayList<Card> mDeck;
-    private ArrayList<String> mNextArray;
+    private ArrayList<String> mGuideArray, mNextArray;
     private Boolean mCardSelected;
     private int mKingCounter, mCurrentCardPosition;
 
@@ -87,12 +87,15 @@ public class GameEngine {
     }
 
     private void buildArray(Context context, String packageName) {
-        int resourceNextArray;
+        mGuideArray = new ArrayList<>();
         mNextArray = new ArrayList<>();
 
-        for (int i = 1; i <= 10; i++) {
-            resourceNextArray = context.getResources().getIdentifier("next_" + i, "string", packageName);
-            mNextArray.add(context.getString(resourceNextArray));
+        for (int i = 1; i <= 3; i++) {
+            mGuideArray.add(context.getString(context.getResources().getIdentifier("guide_" + i, "string", packageName)));
+        }
+
+        for (int j = 1; j <= 10; j++) {
+            mNextArray.add(context.getString(context.getResources().getIdentifier("next_" + j, "string", packageName)));
         }
     }
 
@@ -145,5 +148,9 @@ public class GameEngine {
     public String getNextText() {
         Collections.shuffle(mNextArray, new Random(System.nanoTime()));
         return mNextArray.get(0);
+    }
+
+    public ArrayList<String> getmGuideArray() {
+        return mGuideArray;
     }
 }
