@@ -21,18 +21,18 @@
     <string name="name_13">King</string>
 
     <string name="action_1">Everyone drinks</string>
-    <string name="action_2">Choose a mate and drink together</string>
+    <string name="action_2">Choose a mate\nAnd drink together</string>
     <string name="action_3">Drink alone</string>
     <string name="action_4">Place your thumb on the table, last to do so, drinks!</string>
     <string name="action_5">All guys drink</string>
     <string name="action_6">All chicks drink</string>
-    <string name="action_7">Reach for the sky, last player drinks!</string>
+    <string name="action_7">Reach for the sky\nLast player drinks!</string>
     <string name="action_8">Choose a partner and drinks whenever the player drinks!</string>
-    <string name="action_9">Say a rhyme, next player adds a line. If you fail, drink!</string>
-    <string name="action_10">Choose a category, say something that fits the category until whoever can\'t think of any, drink!</string>
-    <string name="action_11">Complete the sentence, "Never have I ever..", anyone who has, drink!</string>
-    <string name="action_12">Ask a player a question, they must respond with another question to someone else, first to fail, drink!</string>
-    <string name="action_13">Set a new rule. Fill the King\'s Cup!</string>
+    <string name="action_9">Say a rhyme\nNext player adds a line.\nIf you fail, drink!</string>
+    <string name="action_10">Choose a category\nSay something that fits\nUntil whoever can\'t think of any, drink!</string>
+    <string name="action_11">Complete the sentence,\n"Never have I ever.."\nAnyone who has, drink!</string>
+    <string name="action_12">Ask a player a question\nThey must respond with another question to someone else\nFirst to fail, drink!</string>
+    <string name="action_13">Set a new rule.\nFill the King\'s Cup!</string>
 
     <string name="next_1">Hit Me</string>
     <string name="next_2">Coming Up</string>

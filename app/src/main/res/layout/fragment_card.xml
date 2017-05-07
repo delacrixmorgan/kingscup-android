@@ -42,35 +42,39 @@
             android:id="@+id/card_light_lg_symbol"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/jack_pink"/>
+            android:background="@drawable/jack_pink" />
 
         <TextView
             android:id="@+id/card_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Jack"
-            android:padding="10dp"
+            android:textAllCaps="true"
             android:textColor="@color/colorWhite"
-            android:textStyle="bold"
             android:textSize="30sp"
-            android:textAllCaps="true"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/card_action"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:padding="30dp"
-            android:text="Hello World!"
-            android:textColor="@color/colorWhite" />
+            android:text="@string/action_11"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button_next"
-            android:background="@drawable/btn_rounded_white"
-            android:textColor="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hit Me" />
+            android:background="@drawable/btn_rounded_white"
+            android:text="@string/next_1"
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 
