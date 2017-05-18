@@ -59,6 +59,8 @@ public class SelectFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+        mCardRecyclerView.setEnabled(true);
+
         if (GameEngine.getInstance().checkWin(mCardAdapter)) {
             GameEngine.getInstance().stopGame(mCardAdapter);
 

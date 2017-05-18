@@ -65,11 +65,18 @@
             android:visibility="gone" />
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/fragment_select_card_recycler_view"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="48dp" />
+        android:layout_marginBottom="48dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_select_card_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>

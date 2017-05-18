@@ -15,7 +15,7 @@ import com.delacrixmorgan.kingscup.R;
 
 public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_card, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_about, container, false);
 
         return rootView;
     }

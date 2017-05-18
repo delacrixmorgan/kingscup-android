@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.delacrixmorgan.kingscup.GameActivity;
 import com.delacrixmorgan.kingscup.R;
@@ -53,7 +54,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.button_deck:
-                Helper.showFragment(getActivity(), new DeckFragment(), MenuFragment.TAG);
+                Toast.makeText(getActivity(), "Designer on Vacation", Toast.LENGTH_SHORT).show();
+                //Helper.showFragment(getActivity(), new DeckFragment(), MenuFragment.TAG);
                 break;
 
             case R.id.button_about:

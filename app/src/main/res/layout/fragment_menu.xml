@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="20dp"
-        android:layout_marginBottom="20dp"
         android:text="@string/app_name"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
