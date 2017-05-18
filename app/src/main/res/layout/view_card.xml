@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/frame_layout_card"
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/select_card"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="5dp">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/select_card" />
-</FrameLayout>
+    android:layout_height="300dp"
+    android:layout_marginStart="5dp"
+    android:adjustViewBounds="true"
+    android:src="@drawable/select_card" />

@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
@@ -33,7 +33,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
     @Override
     public void onBindViewHolder(final CardViewHolder holder, int position) {
-        holder.frameLayout.setOnClickListener(new View.OnClickListener() {
+        holder.selectCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GameEngine.getInstance().drawCard(mContext, holder.getAdapterPosition());
@@ -47,11 +47,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     }
 
     class CardViewHolder extends RecyclerView.ViewHolder {
-        FrameLayout frameLayout;
+        ImageView selectCard;
 
         private CardViewHolder(View itemView) {
             super(itemView);
-            frameLayout = (FrameLayout) itemView.findViewById(R.id.frame_layout_card);
+            selectCard = (ImageView) itemView.findViewById(R.id.select_card);
         }
     }
 }
