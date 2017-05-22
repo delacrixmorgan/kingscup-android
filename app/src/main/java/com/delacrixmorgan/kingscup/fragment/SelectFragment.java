@@ -1,7 +1,9 @@
 package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -62,6 +64,9 @@ public class SelectFragment extends Fragment {
 
         if (GameEngine.getInstance().checkWin(mCardAdapter)) {
             GameEngine.getInstance().stopGame(mCardAdapter);
+
+            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(2000);
 
             mButtonEndGame.setVisibility(View.VISIBLE);
             mButtonEndGame.setOnClickListener(new View.OnClickListener() {

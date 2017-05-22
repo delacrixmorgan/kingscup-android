@@ -36,19 +36,4 @@ public class Helper {
                 .addToBackStack(backStack)
                 .commit();
     }
-
-    public static void showReplaceFragmentSlideDown(Activity activity, Fragment fragment, String backStack) {
-        FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            fragment.setEnterTransition(new Slide(Gravity.BOTTOM).setDuration(200));
-        } else {
-            fragmentTransaction.setCustomAnimations(R.animator.slide_in, R.animator.slide_out, R.animator.slide_in, R.animator.slide_out);
-        }
-
-        fragmentTransaction
-                .replace(R.id.activity_main_vg_fragment, fragment)
-                .addToBackStack(backStack)
-                .commit();
-    }
 }

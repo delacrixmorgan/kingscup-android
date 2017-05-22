@@ -118,6 +118,8 @@ public class GameEngine {
         mCurrentCardPosition = 0;
         mCardSelected = false;
 
+        mKingCounter--;
+
         return (mKingCounter < 1);
     }
 
@@ -150,4 +152,6 @@ public class GameEngine {
     public ArrayList<String> getmGuideArray() {
         return mGuideArray;
     }
+
+
 }

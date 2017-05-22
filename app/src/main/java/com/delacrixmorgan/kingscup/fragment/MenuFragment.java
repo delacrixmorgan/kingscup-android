@@ -58,7 +58,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.button_about:
-                Helper.showReplaceFragmentSlideDown(getActivity(), new AboutFragment(), MenuFragment.TAG);
+                Helper.showFragment(getActivity(), new AboutFragment(), MenuFragment.TAG);
                 break;
         }
     }

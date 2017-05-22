@@ -9,7 +9,9 @@ import android.support.v7.app.AlertDialog;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.fragment.GuideFragment;
+import com.delacrixmorgan.kingscup.fragment.SelectFragment;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -41,20 +43,26 @@ public class GameActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.quit_title)
-                .setMessage(R.string.quit_header)
-                .setPositiveButton(R.string.quit_yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                        dialog.dismiss();
-                    }
-                })
-                .setNegativeButton(R.string.quit_no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .show();
+        if (GameEngine.getInstance().getmKingCounter() < 1){
+            finish();
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.quit_title)
+                    .setMessage(R.string.quit_header)
+                    .setPositiveButton(R.string.quit_yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton(R.string.quit_no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
+        }
+
+
     }
 }
