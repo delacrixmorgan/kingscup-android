@@ -3,7 +3,6 @@ package com.delacrixmorgan.kingscup;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -43,15 +42,15 @@ public class GameActivity extends Activity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Quit Game")
-                .setMessage("Are you sure that you want to quit?")
-                .setPositiveButton("I am afraid to go on.", new DialogInterface.OnClickListener() {
+                .setTitle(R.string.quit_title)
+                .setMessage(R.string.quit_header)
+                .setPositiveButton(R.string.quit_yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                         dialog.dismiss();
                     }
                 })
-                .setNegativeButton("But, I refused to give in.", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.quit_no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }

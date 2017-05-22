@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">King\'s Cup</string>
+    <string name="start_game">Game On!</string>
+    <string name="deck_selector">I want another deck</string>
+    <string name="about_us">Who brought this?</string>
 
     <string name="suit_1">Spade</string>
     <string name="suit_2">Heart</string>
@@ -48,5 +51,24 @@
     <string name="guide_1">Yes, this a drinking game. You can put all sorts of drinks and mix it together.\n\nDoesn\'t necessary has to be alcoholic.</string>
     <string name="guide_2">Pick a person to start the game, select a card and do what it says.\n\nThere is no escape!\nPass to the next person when you are done.</string>
     <string name="guide_3">Draw a King from the deck,\nyou will have the honour to choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</string>
+
+    <string name="quit_title">Quit Game</string>
+    <string name="quit_header">Are you sure that you want to quit?</string>
+    <string name="quit_yes">I am afraid to go on</string>
+    <string name="quit_no">But, I refused to give in</string>
+
+    <string name="quick_guide">Quick Guide</string>
+    <string name="skip">Skip</string>
+    <string name="game_over_header">Game Over Mate</string>
+    <string name="game_over_body">Drink it up!</string>
+    <string name="counter_king_left">King Left</string>
+    <string name="counter_kings_left">Kings Left</string>
+
+    <string name="preference_engineer">Engineer</string>
+    <string name="preference_designer">Designer</string>
+    <string name="preference_supported_languages">Supported Languages</string>
+    <string name="preference_source_code">Source Code</string>
+    <string name="preference_version">Version</string>
+    <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
 
 </resources>

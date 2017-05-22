@@ -75,31 +75,31 @@ public class SelectFragment extends Fragment {
         switch (GameEngine.getInstance().getmKingCounter()) {
             case 0:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_4);
-                mTextStatusBody.setText("Game Over Mate");
-                mTextStatusHeader.setText("Drink it up!");
+                mTextStatusBody.setText(R.string.game_over_header);
+                mTextStatusHeader.setText(R.string.game_over_body);
                 break;
 
             case 1:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_3);
-                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " King Left");
+                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " " + getString(R.string.counter_king_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             case 2:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_2);
-                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");
+                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " " + getString(R.string.counter_kings_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             case 3:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_1);
-                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");
+                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " " + getString(R.string.counter_kings_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             default:
                 mImageVolume.setBackgroundResource(R.drawable.cup_whole);
-                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");
+                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " " + getString(R.string.counter_kings_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
         }

@@ -8,13 +8,13 @@
             android:icon="@mipmap/ic_launcher"
             android:key="version_number"
             android:summary="Delacrix Morgan"
-            android:title="Engineer" />
+            android:title="@string/preference_engineer" />
 
         <Preference
             android:icon="@mipmap/ic_launcher"
             android:key="version_number"
             android:summary="(On Vacation)"
-            android:title="Designer" />
+            android:title="@string/preference_designer" />
 
     </PreferenceCategory>
 
@@ -23,17 +23,17 @@
             android:icon="@mipmap/ic_launcher"
             android:key="version_number"
             android:summary="English"
-            android:title="Supported Languages" />
+            android:title="@string/preference_supported_languages" />
 
         <Preference
             android:icon="@mipmap/ic_launcher"
             android:key="version_number"
             android:summary="GitHub Repository"
-            android:title="Source Code">
+            android:title="@string/preference_source_code">
 
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/delacrixmorgan/kingscup-android" />
+                android:data="@string/github_sourcecode" />
 
         </Preference>
 
@@ -41,7 +41,7 @@
             android:icon="@mipmap/ic_launcher"
             android:key="version_number"
             android:summary="1.0.0"
-            android:title="Version" />
+            android:title="@string/preference_version" />
 
     </PreferenceCategory>
 

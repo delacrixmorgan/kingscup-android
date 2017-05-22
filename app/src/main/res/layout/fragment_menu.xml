@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@drawable/btn_rounded_red"
-        android:text="Game On!"
+        android:text="@string/start_game"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@drawable/btn_rounded_red"
-        android:text="I want another deck"
+        android:text="@string/deck_selector"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />
 
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@drawable/btn_rounded_red"
-        android:text="Who brought this?"
+        android:text="@string/about_us"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />
 

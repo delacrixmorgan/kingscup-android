@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-
 /**
  * Created by Delacrix Morgan on 09/10/2016.
  */
@@ -108,7 +107,7 @@ public class GameEngine {
                 mKingCounter--;
             }
 
-            Helper.showFragmentSlideDown((Activity) context, new CardFragment(), "CardAdapter");
+            Helper.showAddFragmentSlideDown((Activity) context, new CardFragment(), "CardAdapter");
         }
     }
 
@@ -118,8 +117,6 @@ public class GameEngine {
 
         mCurrentCardPosition = 0;
         mCardSelected = false;
-
-        //mKingCounter--;
 
         return (mKingCounter < 1);
     }

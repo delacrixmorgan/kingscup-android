@@ -55,11 +55,10 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
             case R.id.button_deck:
                 Toast.makeText(getActivity(), "Designer on Vacation", Toast.LENGTH_SHORT).show();
-                //Helper.showFragment(getActivity(), new DeckFragment(), MenuFragment.TAG);
                 break;
 
             case R.id.button_about:
-                Helper.showFragment(getActivity(), new AboutFragment(), MenuFragment.TAG);
+                Helper.showReplaceFragmentSlideDown(getActivity(), new AboutFragment(), MenuFragment.TAG);
                 break;
         }
     }
