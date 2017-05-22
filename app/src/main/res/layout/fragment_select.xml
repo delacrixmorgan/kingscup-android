@@ -19,13 +19,13 @@
                 android:id="@+id/image_cup_volume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cup_volume_2" />
+                android:background="@drawable/cup_whole" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/fragment_select_status_text"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fragment_select_cup_status_layout"
             android:layout_centerHorizontal="true"
@@ -33,22 +33,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/status_header"
+                android:id="@+id/status_body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                android:text="Come On"
+                android:text="2 Kings Left"
+                android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@+id/status_body"
+                android:id="@+id/status_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 Kings Left"
+                android:text="Come On"
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
-
         </LinearLayout>
 
         <Button

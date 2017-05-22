@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,26 +75,33 @@ public class SelectFragment extends Fragment {
         switch (GameEngine.getInstance().getmKingCounter()) {
             case 0:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_4);
+                mTextStatusBody.setText("Game Over Mate");
+                mTextStatusHeader.setText("Drink it up!");
                 break;
 
             case 1:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_3);
+                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " King Left");
+                mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             case 2:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_2);
+                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");
+                mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             case 3:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_1);
+                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");
+                mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             default:
-                mImageVolume.setBackgroundResource(R.drawable.cup_volume_1);
+                mImageVolume.setBackgroundResource(R.drawable.cup_whole);
+                mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");
+                mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
         }
-
-        mTextStatusHeader.setText("Come On");
-        mTextStatusBody.setText(GameEngine.getInstance().getmKingCounter() + " Kings Left");
     }
 }
