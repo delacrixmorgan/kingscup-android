@@ -1,11 +1,9 @@
 package com.delacrixmorgan.kingscup.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.delacrixmorgan.kingscup.R;
 
@@ -13,11 +11,12 @@ import com.delacrixmorgan.kingscup.R;
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-public class AboutFragment extends Fragment {
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_about, container, false);
+public class AboutFragment extends PreferenceFragment {
 
-        return rootView;
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.preferences);
     }
 
     @Override

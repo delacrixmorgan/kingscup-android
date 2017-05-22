@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference android:layout="@layout/preference_header" />
+
+    <PreferenceCategory android:title="Creators">
+        <Preference
+            android:icon="@mipmap/ic_launcher"
+            android:key="version_number"
+            android:summary="Delacrix Morgan"
+            android:title="Engineer" />
+
+        <Preference
+            android:icon="@mipmap/ic_launcher"
+            android:key="version_number"
+            android:summary="(On Vacation)"
+            android:title="Designer" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+        <Preference
+            android:icon="@mipmap/ic_launcher"
+            android:key="version_number"
+            android:summary="English"
+            android:title="Supported Languages" />
+
+        <Preference
+            android:icon="@mipmap/ic_launcher"
+            android:key="version_number"
+            android:summary="GitHub Repository"
+            android:title="Source Code">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/delacrixmorgan/kingscup-android" />
+
+        </Preference>
+
+        <Preference
+            android:icon="@mipmap/ic_launcher"
+            android:key="version_number"
+            android:summary="1.0.0"
+            android:title="Version" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
