@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -21,13 +20,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:padding="20dp"
+        android:padding="22dp"
         android:text="@string/app_name"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        tools:ignore="MissingPrefix" />
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/button_start"
