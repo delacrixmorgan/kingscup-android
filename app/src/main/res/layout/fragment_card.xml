@@ -59,7 +59,7 @@
             android:id="@+id/card_action"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="30dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
@@ -74,6 +74,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_rounded_white"
             android:text="@string/next_1"
+            android:layout_margin="10dp"
             android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
