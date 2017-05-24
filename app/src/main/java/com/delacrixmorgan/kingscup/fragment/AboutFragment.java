@@ -52,6 +52,16 @@ public class AboutFragment extends PreferenceFragment {
                     }
                 });
 
+                ImageView spartanImageView = (ImageView) creditDialog.findViewById(R.id.iv_spartan_github);
+                spartanImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("https://github.com/theleagueof/league-spartan"));
+                        startActivity(intent);
+                    }
+                });
+
                 Button doneButton = (Button) creditDialog.findViewById(R.id.button_done);
                 doneButton.setOnClickListener(new View.OnClickListener() {
                     @Override

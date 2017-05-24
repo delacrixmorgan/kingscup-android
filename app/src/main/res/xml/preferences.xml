@@ -40,7 +40,7 @@
         <Preference
             android:icon="@mipmap/ic_launcher"
             android:key="credit_library"
-            android:summary="Libraries"
+            android:summary="Hearts and Kisses"
             android:title="Credits" />
 
         <Preference

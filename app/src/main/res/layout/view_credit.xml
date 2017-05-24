@@ -18,20 +18,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Android Libraries"
+            android:text="Credits"
             android:textAlignment="center"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:padding="2dp"
             android:text="Christopher Jenkins, Calligraphy"
             android:textAlignment="center" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Android Library"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
         <ImageView
             android:id="@+id/iv_jenkins_github"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:src="@drawable/github" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="2dp"
+            android:text="The League Of, League Spartan"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Font Library"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/iv_spartan_github"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -42,8 +73,8 @@
             android:id="@+id/button_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/btn_rounded_green"
             android:text="Done"
             android:textColor="@color/colorWhite" />
