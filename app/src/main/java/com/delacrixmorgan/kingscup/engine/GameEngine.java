@@ -118,8 +118,6 @@ public class GameEngine {
         mCurrentCardPosition = 0;
         mCardSelected = false;
 
-        mKingCounter--;
-
         return (mKingCounter < 1);
     }
 

@@ -39,10 +39,18 @@
 
         <Preference
             android:icon="@mipmap/ic_launcher"
+            android:key="credit_library"
+            android:summary="Libraries"
+            android:title="Credits" />
+
+        <Preference
+            android:icon="@mipmap/ic_launcher"
             android:key="version_number"
             android:summary="1.0.0"
             android:title="@string/preference_version" />
 
     </PreferenceCategory>
+
+    <Preference android:layout="@layout/preference_footer" />
 
 </PreferenceScreen>
