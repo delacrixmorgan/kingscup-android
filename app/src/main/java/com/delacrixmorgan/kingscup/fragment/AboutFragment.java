@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.delacrixmorgan.kingscup.R;
 
@@ -19,7 +20,10 @@ import com.delacrixmorgan.kingscup.R;
 
 public class AboutFragment extends PreferenceFragment {
 
-    Preference mCreditLibrary;
+    private Preference mCreditLibrary, mVersion;
+
+    private int mMonkeyCounter;
+    final int unicode[] = {0x1F648, 0x1F649, 0x1F64A};
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,6 +31,9 @@ public class AboutFragment extends PreferenceFragment {
         addPreferencesFromResource(R.xml.preferences);
 
         mCreditLibrary = findPreference("credit_library");
+        mVersion = findPreference("version_number");
+
+        mMonkeyCounter = 0;
     }
 
     @Override
@@ -73,5 +80,16 @@ public class AboutFragment extends PreferenceFragment {
                 return false;
             }
         });
+
+        mVersion.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                mMonkeyCounter = mMonkeyCounter > 2 ? 0 : mMonkeyCounter;
+                Toast.makeText(getActivity(), new String(Character.toChars(unicode[mMonkeyCounter++])), Toast.LENGTH_SHORT).show();
+
+                return false;
+            }
+        });
+
     }
 }
