@@ -3,6 +3,7 @@ package com.delacrixmorgan.kingscup.shared;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.transition.Slide;
 import android.view.Gravity;
 
@@ -23,17 +24,11 @@ public class Helper {
     }
 
     public static void showAddFragmentSlideDown(Activity activity, Fragment fragment, String backStack) {
-        FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             fragment.setEnterTransition(new Slide(Gravity.BOTTOM).setDuration(200));
-        } else {
-            fragmentTransaction.setCustomAnimations(R.animator.slide_in, R.animator.slide_out, R.animator.slide_in, R.animator.slide_out);
+            fragment.setExitTransition(new Slide(Gravity.TOP).setDuration(200));
         }
 
-        fragmentTransaction
-                .add(R.id.activity_main_vg_fragment, fragment)
-                .addToBackStack(backStack)
-                .commit();
+        showFragment(activity, fragment, backStack);
     }
 }

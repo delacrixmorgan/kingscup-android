@@ -8,6 +8,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -20,10 +21,9 @@ import com.delacrixmorgan.kingscup.R;
 
 public class AboutFragment extends PreferenceFragment {
 
-    private Preference mCreditLibrary, mVersion;
-
-    private int mMonkeyCounter;
     final int unicode[] = {0x1F648, 0x1F649, 0x1F64A};
+    private Preference mCreditLibrary, mVersion;
+    private int mMonkeyCounter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,8 +45,10 @@ public class AboutFragment extends PreferenceFragment {
             public boolean onPreferenceClick(Preference preference) {
                 final Dialog creditDialog = new Dialog(getActivity());
 
+                creditDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 creditDialog.setContentView(R.layout.view_credit);
                 creditDialog.setTitle("Credits");
+
                 creditDialog.show();
 
                 ImageView jenkinsImageView = (ImageView) creditDialog.findViewById(R.id.iv_jenkins_github);

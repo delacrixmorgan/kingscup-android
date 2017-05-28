@@ -107,7 +107,7 @@ public class GameEngine {
                 mKingCounter--;
             }
 
-            Helper.showAddFragmentSlideDown((Activity) context, new CardFragment(), "CardAdapter");
+            Helper.showAddFragmentSlideDown((Activity) context, new CardFragment(), "SelectFragment");
         }
     }
 
