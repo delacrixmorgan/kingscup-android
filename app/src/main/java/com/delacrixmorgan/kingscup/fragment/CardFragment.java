@@ -1,15 +1,11 @@
 package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +13,7 @@ import android.widget.TextView;
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.model.Card;
+import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
@@ -54,9 +51,7 @@ public class CardFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         final Card card = GameEngine.getInstance().getCurrentCard();
 
-        AnimationSet animGrow = new AnimationSet(true);
-        animGrow.addAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.pop_out));
-        mNextButton.startAnimation(animGrow);
+        Helper.animateButtonGrow(getActivity(), mNextButton);
 
         mTextName.setText(card.getmName());
         mTextAction.setText(card.getmAction());

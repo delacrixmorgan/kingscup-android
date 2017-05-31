@@ -5,6 +5,9 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.transition.Slide;
 import android.view.Gravity;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 
 import com.delacrixmorgan.kingscup.R;
 
@@ -39,5 +42,11 @@ public class Helper {
                     .addToBackStack(backStack)
                     .commit();
         }
+    }
+
+    public static void animateButtonGrow(Activity activity, Button button){
+        AnimationSet animGrow = new AnimationSet(true);
+        animGrow.addAnimation(AnimationUtils.loadAnimation(activity, R.anim.pop_out));
+        button.startAnimation(animGrow);
     }
 }

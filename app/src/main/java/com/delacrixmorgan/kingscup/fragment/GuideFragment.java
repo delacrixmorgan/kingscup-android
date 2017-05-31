@@ -50,6 +50,8 @@ public class GuideFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Helper.animateButtonGrow(getActivity(), mSkipButton);
+
         mViewPager.setAdapter(new sGuideAdapter(getActivity()));
         mTabLayout.setupWithViewPager(mViewPager, true);
 
