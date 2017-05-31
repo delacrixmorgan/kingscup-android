@@ -54,12 +54,11 @@ public class SelectFragment extends Fragment {
         mCardRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         mCardRecyclerView.setAdapter(mCardAdapter);
         mCardRecyclerView.scrollToPosition(0);
+
+        updateGraphics();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
+    public void updateFragment() {
         mCardRecyclerView.setEnabled(true);
 
         if (GameEngine.getInstance().checkWin(mCardAdapter)) {
@@ -77,6 +76,10 @@ public class SelectFragment extends Fragment {
             });
         }
 
+        updateGraphics();
+    }
+
+    private void updateGraphics() {
         switch (GameEngine.getInstance().getmKingCounter()) {
             case 0:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_4);

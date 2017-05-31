@@ -98,7 +98,9 @@ public class CardFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.button_next:
 
-                getFragmentManager().findFragmentByTag("SelectFragment").onResume();
+                SelectFragment fragment = (SelectFragment) getFragmentManager().findFragmentByTag("SelectFragment");
+                fragment.updateFragment();
+
                 getFragmentManager().popBackStack();
 
                 break;
