@@ -26,7 +26,7 @@ public class Helper {
     }
 
     public static void showAddFragmentSlideDown(Activity activity, Fragment fragment, String backStack) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
             fragment.setEnterTransition(new Slide(Gravity.BOTTOM).setDuration(200));
 
             activity.getFragmentManager()
@@ -37,7 +37,7 @@ public class Helper {
         } else {
             activity.getFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.activity_main_vg_fragment, fragment, fragment.getClass().getSimpleName())
+                    .add(R.id.activity_main_vg_fragment, fragment, fragment.getClass().getSimpleName())
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(backStack)
                     .commit();
