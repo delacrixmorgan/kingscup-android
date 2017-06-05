@@ -86,17 +86,18 @@ public class CardFragment extends Fragment implements View.OnClickListener {
 
         mNextButton.setText(GameEngine.getInstance().getNextText());
         mNextButton.setOnClickListener(this);
+        mNextButton.setEnabled(true);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_next:
-
                 SelectFragment fragment = (SelectFragment) getFragmentManager().findFragmentByTag("SelectFragment");
                 fragment.updateFragment();
 
                 getFragmentManager().popBackStack();
+                mNextButton.setEnabled(false);
 
                 break;
         }

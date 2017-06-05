@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.fragment.GuideFragment;
 import com.delacrixmorgan.kingscup.fragment.SelectFragment;
+import com.delacrixmorgan.kingscup.shared.Helper;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -25,10 +26,17 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.activity_main_vg_fragment, new GuideFragment())
-                .commit();
+        if (getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.QUICK_GUIDE_PREFERENCE, true)) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.activity_main_vg_fragment, new GuideFragment())
+                    .commit();
+        } else {
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.activity_main_vg_fragment, new SelectFragment())
+                    .commit();
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
@@ -62,7 +70,5 @@ public class GameActivity extends Activity {
                     })
                     .show();
         }
-
-
     }
 }

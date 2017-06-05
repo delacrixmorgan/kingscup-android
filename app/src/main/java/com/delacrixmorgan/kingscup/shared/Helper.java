@@ -16,6 +16,9 @@ import com.delacrixmorgan.kingscup.R;
  */
 
 public class Helper {
+    final public static String SHARED_PREFERENCE = "SHARED_PREFERENCE";
+    final public static String QUICK_GUIDE_PREFERENCE = "QUICK_GUIDE_PREFERENCE";
+
     public static void showFragment(Activity activity, Fragment fragment, String backStack) {
         activity.getFragmentManager()
                 .beginTransaction()
@@ -44,7 +47,7 @@ public class Helper {
         }
     }
 
-    public static void animateButtonGrow(Activity activity, Button button){
+    public static void animateButtonGrow(Activity activity, Button button) {
         AnimationSet animGrow = new AnimationSet(true);
         animGrow.addAnimation(AnimationUtils.loadAnimation(activity, R.anim.pop_out));
         button.startAnimation(animGrow);

@@ -3,6 +3,20 @@
 
     <Preference android:layout="@layout/preference_header" />
 
+    <PreferenceCategory android:title="Settings">
+        <SwitchPreference
+            android:icon="@mipmap/ic_launcher"
+            android:key="quick_guide"
+            android:title="@string/quick_guide" />
+
+        <Preference
+            android:icon="@mipmap/ic_launcher"
+            android:key=""
+            android:summary="English"
+            android:title="@string/language" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="Creators">
         <Preference
             android:icon="@mipmap/ic_launcher"
@@ -19,12 +33,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="About">
-        <Preference
-            android:icon="@mipmap/ic_launcher"
-            android:key=""
-            android:summary="English"
-            android:title="@string/preference_supported_languages" />
-
         <Preference
             android:icon="@mipmap/ic_launcher"
             android:key=""

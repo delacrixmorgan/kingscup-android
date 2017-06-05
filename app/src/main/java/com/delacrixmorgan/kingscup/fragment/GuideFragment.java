@@ -2,6 +2,7 @@ package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -21,6 +22,8 @@ import android.widget.TextView;
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.shared.Helper;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
@@ -72,6 +75,10 @@ public class GuideFragment extends Fragment {
         mSkipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor = getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).edit();
+                editor.putBoolean(Helper.QUICK_GUIDE_PREFERENCE, false);
+                editor.apply();
+
                 Helper.showFragment(getActivity(), new SelectFragment(), GuideFragment.TAG);
             }
         });

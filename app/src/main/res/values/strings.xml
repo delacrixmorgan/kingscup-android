@@ -64,9 +64,9 @@
     <string name="counter_king_left">King Left</string>
     <string name="counter_kings_left">Kings Left</string>
 
+    <string name="language">Language</string>
     <string name="preference_engineer">Engineer</string>
     <string name="preference_designer">Designer</string>
-    <string name="preference_supported_languages">Supported Languages</string>
     <string name="preference_source_code">Source Code</string>
     <string name="preference_version">Version</string>
     <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
