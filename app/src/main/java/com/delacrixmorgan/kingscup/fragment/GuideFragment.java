@@ -53,6 +53,10 @@ public class GuideFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        if (!getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.QUICK_GUIDE_PREFERENCE, true)) {
+            Helper.showFragment(getActivity(), new SelectFragment(), GuideFragment.TAG);
+        }
+
         Helper.animateButtonGrow(getActivity(), mSkipButton);
 
         mViewPager.setAdapter(new sGuideAdapter(getActivity()));

@@ -26,17 +26,10 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.QUICK_GUIDE_PREFERENCE, true)) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.activity_main_vg_fragment, new GuideFragment())
-                    .commit();
-        } else {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.activity_main_vg_fragment, new SelectFragment())
-                    .commit();
-        }
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.activity_main_vg_fragment, new GuideFragment())
+                .commit();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
