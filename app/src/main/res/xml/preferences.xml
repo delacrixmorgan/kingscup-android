@@ -9,6 +9,11 @@
             android:key="quick_guide"
             android:title="@string/quick_guide" />
 
+        <SwitchPreference
+            android:icon="@mipmap/ic_launcher"
+            android:key="sound_effects"
+            android:title="@string/sound_effects" />
+
         <Preference
             android:icon="@mipmap/ic_launcher"
             android:key=""

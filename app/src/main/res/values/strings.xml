@@ -70,5 +70,6 @@
     <string name="preference_source_code">Source Code</string>
     <string name="preference_version">Version</string>
     <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
+    <string name="sound_effects">Sound Effects</string>
 
 </resources>

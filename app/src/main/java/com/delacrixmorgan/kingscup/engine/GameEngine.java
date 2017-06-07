@@ -2,8 +2,10 @@ package com.delacrixmorgan.kingscup.engine;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 
+import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
 import com.delacrixmorgan.kingscup.fragment.CardFragment;
 import com.delacrixmorgan.kingscup.model.Card;
@@ -12,6 +14,8 @@ import com.delacrixmorgan.kingscup.shared.Helper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
@@ -25,8 +29,11 @@ public class GameEngine {
     private ArrayList<String> mGuideArray, mNextArray;
     private Boolean mCardSelected;
     private int mKingCounter, mCurrentCardPosition;
+    private MediaPlayer mMediaPlayer;
 
     private GameEngine(@NonNull Context context) {
+        mMediaPlayer = MediaPlayer.create(context, R.raw.water_pour);
+
         buildDeck(context, context.getPackageName());
         buildArray(context, context.getPackageName());
     }
@@ -105,6 +112,10 @@ public class GameEngine {
 
             if (mDeck.get(i).getmName().equals("King")) {
                 mKingCounter--;
+
+                if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)){
+                    mMediaPlayer.start();
+                }
             }
 
             Helper.showAddFragmentSlideDown((Activity) context, new CardFragment(), "SelectFragment");

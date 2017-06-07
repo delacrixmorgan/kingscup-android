@@ -30,7 +30,7 @@ public class AboutFragment extends PreferenceFragment {
     private static String TAG = "AboutFragment";
 
     final int unicode[] = {0x1F648, 0x1F649, 0x1F64A};
-    private SwitchPreference mQuickGuide;
+    private SwitchPreference mQuickGuide, mSoundEffects;
     private Preference mCreditLibrary, mVersion;
     private int mMonkeyCounter;
 
@@ -40,6 +40,7 @@ public class AboutFragment extends PreferenceFragment {
         addPreferencesFromResource(R.xml.preferences);
 
         mQuickGuide = (SwitchPreference) findPreference("quick_guide");
+        mSoundEffects = (SwitchPreference) findPreference("sound_effects");
 
         mCreditLibrary = findPreference("credit_library");
         mVersion = findPreference("version_number");
@@ -62,6 +63,19 @@ public class AboutFragment extends PreferenceFragment {
                 return true;
             }
         });
+
+        mSoundEffects.setChecked(getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true));
+        mSoundEffects.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                SharedPreferences.Editor editor = getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).edit();
+                editor.putBoolean(Helper.SOUND_EFFECTS_PREFERENCE, (Boolean) newValue);
+                editor.apply();
+
+                return true;
+            }
+        });
+
 
         mCreditLibrary.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
