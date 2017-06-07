@@ -40,7 +40,7 @@ public class Helper {
         } else {
             activity.getFragmentManager()
                     .beginTransaction()
-                    .add(R.id.activity_main_vg_fragment, fragment, fragment.getClass().getSimpleName())
+                    .replace(R.id.activity_main_vg_fragment, fragment, fragment.getClass().getSimpleName())
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(backStack)
                     .commit();
