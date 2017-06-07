@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/select_card"
+<com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="300dp"
+    android:layout_height="wrap_content"
     android:layout_marginStart="5dp"
-    android:adjustViewBounds="true"
-    android:src="@drawable/select_card" />
+    app:mrl_rippleOverlay="true"
+    app:mrl_rippleRoundedCorners="16dp">
+
+    <ImageView
+        android:id="@+id/select_card"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/select_card" />
+
+</com.balysv.materialripple.MaterialRippleLayout>

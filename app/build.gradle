@@ -36,4 +36,5 @@ dependencies {
     compile "com.android.support:design:${supportLib}"
 
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile 'com.balysv:material-ripple:1.0.2'
 }

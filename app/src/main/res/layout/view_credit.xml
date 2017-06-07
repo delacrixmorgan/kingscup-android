@@ -38,6 +38,30 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:padding="2dp"
+                    android:text="The League Of, League Spartan"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Font Library"
+                    android:textAlignment="center"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/iv_spartan_github"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/github" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="2dp"
                     android:text="Christopher Jenkins, Calligraphy"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent" />
@@ -62,19 +86,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:padding="2dp"
-                    android:text="The League Of, League Spartan"
+                    android:text="Balys Valentukevicius, Material Ripple"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Font Library"
+                    android:text="Android Library"
                     android:textAlignment="center"
                     android:textSize="12sp" />
 
                 <ImageView
-                    android:id="@+id/iv_spartan_github"
+                    android:id="@+id/iv_balys_github"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"

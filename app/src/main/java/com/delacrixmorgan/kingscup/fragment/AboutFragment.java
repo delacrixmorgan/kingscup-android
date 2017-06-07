@@ -74,6 +74,16 @@ public class AboutFragment extends PreferenceFragment {
 
                 creditDialog.show();
 
+                ImageView spartanImageView = (ImageView) creditDialog.findViewById(R.id.iv_spartan_github);
+                spartanImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("https://github.com/theleagueof/league-spartan"));
+                        startActivity(intent);
+                    }
+                });
+
                 ImageView jenkinsImageView = (ImageView) creditDialog.findViewById(R.id.iv_jenkins_github);
                 jenkinsImageView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -84,12 +94,12 @@ public class AboutFragment extends PreferenceFragment {
                     }
                 });
 
-                ImageView spartanImageView = (ImageView) creditDialog.findViewById(R.id.iv_spartan_github);
-                spartanImageView.setOnClickListener(new View.OnClickListener() {
+                ImageView balysImageView= (ImageView) creditDialog.findViewById(R.id.iv_balys_github);
+                balysImageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("https://github.com/theleagueof/league-spartan"));
+                        intent.setData(Uri.parse("https://github.com/balysv/material-ripple"));
                         startActivity(intent);
                     }
                 });
