@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper_pink"
@@ -19,42 +21,73 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:gravity="center_horizontal"
         android:padding="20dp"
-        android:layout_marginBottom="40dp"
         android:text="@string/app_name"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
         android:textSize="22sp" />
 
-    <Button
-        android:id="@+id/button_start"
+    <com.balysv.materialripple.MaterialRippleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/btn_rounded_red"
-        android:text="@string/start_game"
-        android:textColor="@color/colorWhite"
-        android:textStyle="bold" />
+        app:mrl_rippleOverlay="true"
+        app:mrl_rippleRoundedCorners="50dp">
 
-    <Button
-        android:id="@+id/button_deck"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/btn_rounded_red"
-        android:text="@string/deck_selector"
-        android:textColor="@color/colorWhite"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/button_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_rounded_red"
+            android:stateListAnimator="@null"
+            android:text="@string/start_game"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            tools:targetApi="lollipop" />
 
-    <Button
-        android:id="@+id/button_about"
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/btn_rounded_red"
-        android:text="@string/about_us"
-        android:textColor="@color/colorWhite"
-        android:textStyle="bold" />
+        app:mrl_rippleOverlay="true"
+        app:mrl_rippleRoundedCorners="50dp">
+
+        <Button
+            android:id="@+id/button_deck"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_rounded_red"
+            android:stateListAnimator="@null"
+            android:text="@string/deck_selector"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            tools:targetApi="lollipop" />
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:mrl_rippleOverlay="true"
+        app:mrl_rippleRoundedCorners="50dp">
+
+        <Button
+            android:id="@+id/button_about"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_rounded_red"
+            android:stateListAnimator="@null"
+            android:text="@string/about_us"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            tools:targetApi="lollipop" />
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
 
 </LinearLayout>
