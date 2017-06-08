@@ -30,7 +30,7 @@ public class Helper {
     }
 
     public static void showAddFragmentSlideDown(Activity activity, Fragment fragment, String backStack) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             fragment.setEnterTransition(new Slide(Gravity.BOTTOM).setDuration(200));
 
             activity.getFragmentManager()
