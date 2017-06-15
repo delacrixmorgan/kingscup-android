@@ -7,6 +7,7 @@ import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,14 +67,6 @@ public class SelectFragment extends Fragment {
 
             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(2000);
-
-            mButtonEndGame.setVisibility(View.VISIBLE);
-            mButtonEndGame.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getActivity().finish();
-                }
-            });
         }
 
         updateGraphics();
@@ -85,6 +78,14 @@ public class SelectFragment extends Fragment {
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_4);
                 mTextStatusBody.setText(R.string.game_over_header);
                 mTextStatusHeader.setText(R.string.game_over_body);
+
+                mButtonEndGame.setVisibility(View.VISIBLE);
+                mButtonEndGame.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().finish();
+                    }
+                });
                 break;
 
             case 1:
