@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
+import com.delacrixmorgan.kingscup.shared.Helper;
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
@@ -73,6 +74,7 @@ public class SelectFragment extends Fragment {
                 mTextStatusBody.setText(R.string.game_over_header);
                 mTextStatusHeader.setText(R.string.game_over_body);
 
+                Helper.animateButtonGrow(getActivity(), mButtonEndGame);
                 mButtonEndGame.setVisibility(View.VISIBLE);
                 mButtonEndGame.setOnClickListener(new View.OnClickListener() {
                     @Override

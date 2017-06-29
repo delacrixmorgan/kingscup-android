@@ -99,6 +99,7 @@ public class CardFragment extends Fragment implements View.OnClickListener {
             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(2000);
 
+            mNextButton.setVisibility(View.GONE);
             mNextButton.setEnabled(false);
 
             Handler handler = new Handler();
@@ -114,7 +115,7 @@ public class CardFragment extends Fragment implements View.OnClickListener {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GameEngine.getInstance().playVictorySound();
+                    GameEngine.getInstance().playVictorySound(getActivity());
                     SelectFragment fragment = (SelectFragment) getFragmentManager().findFragmentByTag("SelectFragment");
                     fragment.updateFragment();
                     getFragmentManager().popBackStack();
@@ -137,7 +138,6 @@ public class CardFragment extends Fragment implements View.OnClickListener {
 
                 getFragmentManager().popBackStack();
                 mNextButton.setEnabled(false);
-
                 break;
         }
     }

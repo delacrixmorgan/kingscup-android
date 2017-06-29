@@ -3,7 +3,6 @@ package com.delacrixmorgan.kingscup.engine;
 import android.app.Activity;
 import android.content.Context;
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import com.delacrixmorgan.kingscup.R;
@@ -14,6 +13,7 @@ import com.delacrixmorgan.kingscup.shared.Helper;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Random;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -26,16 +26,16 @@ public class GameEngine {
     private static String TAG = "GameEngine";
     private static GameEngine sGameEngine;
 
+    private int mKingCounter, mCurrentCardPosition;
+    private Boolean mCardSelected;
     private ArrayList<Card> mDeck;
     private ArrayList<String> mGuideArray, mNextArray;
-    private Boolean mCardSelected;
-    private int mKingCounter, mCurrentCardPosition;
-    private MediaPlayer[] mMediaPlayers;
+    private HashMap<String, MediaPlayer> mMediaPlayers;
 
     private GameEngine(@NonNull Context context) {
-        mMediaPlayers = new MediaPlayer[2];
-        mMediaPlayers[0] = MediaPlayer.create(context, R.raw.water_pour);
-        mMediaPlayers[1] = MediaPlayer.create(context, R.raw.victory_cheer);
+        mMediaPlayers = new HashMap<>();
+        mMediaPlayers.put("KING", MediaPlayer.create(context, R.raw.king));
+        mMediaPlayers.put("GAME_OVER", MediaPlayer.create(context, R.raw.game_over));
 
         buildDeck(context, context.getPackageName());
         buildArray(context, context.getPackageName());
@@ -117,7 +117,7 @@ public class GameEngine {
                 mKingCounter--;
 
                 if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)) {
-                    mMediaPlayers[0].start();
+                    mMediaPlayers.get("KING").start();
                 }
             }
 
@@ -125,13 +125,10 @@ public class GameEngine {
         }
     }
 
-    public void playVictorySound(){
-        mMediaPlayers[1].start();
-//        PlayThread[] playThreads = new PlayThread[2];
-//        for (int j = 0; j < 2; j++) {
-//            playThreads[j] = new PlayThread();
-//            playThreads[j].executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, mMediaPlayers[j]);
-//        }
+    public void playVictorySound(Context context){
+        if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)){
+            mMediaPlayers.get("GAME_OVER").start();
+        }
     }
 
     public void updateCardAdapter(CardAdapter adapter) {
@@ -147,6 +144,11 @@ public class GameEngine {
         }
     }
 
+    public String getNextText() {
+        Collections.shuffle(mNextArray, new Random(System.nanoTime()));
+        return mNextArray.get(0);
+    }
+
     public Card getCurrentCard() {
         return mDeck.get(mCurrentCardPosition);
     }
@@ -155,28 +157,15 @@ public class GameEngine {
         Collections.shuffle(mDeck, new Random(System.nanoTime()));
     }
 
-    public ArrayList<Card> getmDeck() {
-        return mDeck;
-    }
-
     public int getmKingCounter() {
         return mKingCounter;
     }
 
-    public String getNextText() {
-        Collections.shuffle(mNextArray, new Random(System.nanoTime()));
-        return mNextArray.get(0);
+    public ArrayList<Card> getmDeck() {
+        return mDeck;
     }
 
     public ArrayList<String> getmGuideArray() {
         return mGuideArray;
-    }
-
-    class PlayThread extends AsyncTask<MediaPlayer, Void, Void> {
-        @Override
-        protected Void doInBackground(MediaPlayer... player) {
-            player[0].start();
-            return null;
-        }
     }
 }
