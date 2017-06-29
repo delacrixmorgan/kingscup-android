@@ -2,6 +2,7 @@ package com.delacrixmorgan.kingscup.engine;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 
@@ -14,6 +15,7 @@ import com.delacrixmorgan.kingscup.shared.Helper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Random;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -35,7 +37,12 @@ public class GameEngine {
     private GameEngine(@NonNull Context context) {
         mMediaPlayers = new HashMap<>();
         mMediaPlayers.put("KING", MediaPlayer.create(context, R.raw.king));
+        mMediaPlayers.put("BACK", MediaPlayer.create(context, R.raw.back));
         mMediaPlayers.put("GAME_OVER", MediaPlayer.create(context, R.raw.game_over));
+        mMediaPlayers.put("CARD_FLIP", MediaPlayer.create(context, R.raw.card_flip));
+        mMediaPlayers.put("CARD_WHOOSH", MediaPlayer.create(context, R.raw.card_whoosh));
+        mMediaPlayers.put("CARD_SHUFFLE", MediaPlayer.create(context, R.raw.card_shuffle));
+        mMediaPlayers.put("BUTTON_CLICK", MediaPlayer.create(context, R.raw.button_click));
 
         buildDeck(context, context.getPackageName());
         buildArray(context, context.getPackageName());
@@ -115,19 +122,16 @@ public class GameEngine {
 
             if (mDeck.get(i).getmName().equals("King")) {
                 mKingCounter--;
-
-                if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)) {
-                    mMediaPlayers.get("KING").start();
-                }
+                playSound(context, "KING");
             }
 
             Helper.showAddFragmentSlideDown((Activity) context, new CardFragment(), "SelectFragment");
         }
     }
 
-    public void playVictorySound(Context context){
+    public void playSound(Context context, String key){
         if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)){
-            mMediaPlayers.get("GAME_OVER").start();
+            mMediaPlayers.get(key).start();
         }
     }
 

@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +39,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        GameEngine.newInstance(getActivity());
 
         mStartButton.setOnClickListener(this);
         mDeckButton.setOnClickListener(this);
@@ -48,6 +48,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        GameEngine.getInstance().playSound(getActivity(), "BUTTON_CLICK");
         switch (v.getId()) {
             case R.id.button_start:
                 GameEngine.newInstance(getActivity());

@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.delacrixmorgan.kingscup.R;
+import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.shared.Helper;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -59,7 +60,7 @@ public class AboutFragment extends PreferenceFragment {
                 SharedPreferences.Editor editor = getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).edit();
                 editor.putBoolean(Helper.QUICK_GUIDE_PREFERENCE, (Boolean) newValue);
                 editor.apply();
-
+                GameEngine.getInstance().playSound(getActivity(), "BUTTON_CLICK");
                 return true;
             }
         });
@@ -71,7 +72,7 @@ public class AboutFragment extends PreferenceFragment {
                 SharedPreferences.Editor editor = getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).edit();
                 editor.putBoolean(Helper.SOUND_EFFECTS_PREFERENCE, (Boolean) newValue);
                 editor.apply();
-
+                GameEngine.getInstance().playSound(getActivity(), "BUTTON_CLICK");
                 return true;
             }
         });

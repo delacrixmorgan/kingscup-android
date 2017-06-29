@@ -115,7 +115,7 @@ public class CardFragment extends Fragment implements View.OnClickListener {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GameEngine.getInstance().playVictorySound(getActivity());
+                    GameEngine.getInstance().playSound(getActivity(), "GAME_OVER");
                     SelectFragment fragment = (SelectFragment) getFragmentManager().findFragmentByTag("SelectFragment");
                     fragment.updateFragment();
                     getFragmentManager().popBackStack();
@@ -133,9 +133,10 @@ public class CardFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_next:
+                GameEngine.getInstance().playSound(getActivity(), "CARD_WHOOSH");
+
                 SelectFragment fragment = (SelectFragment) getFragmentManager().findFragmentByTag("SelectFragment");
                 fragment.updateFragment();
-
                 getFragmentManager().popBackStack();
                 mNextButton.setEnabled(false);
                 break;

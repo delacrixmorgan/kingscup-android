@@ -52,12 +52,14 @@ public class GameActivity extends Activity {
                     .setMessage(R.string.quit_header)
                     .setPositiveButton(R.string.quit_yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            GameEngine.getInstance().playSound(getApplicationContext(), "CARD_WHOOSH");
                             finish();
                             dialog.dismiss();
                         }
                     })
                     .setNegativeButton(R.string.quit_no, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            GameEngine.getInstance().playSound(getApplicationContext(), "CARD_WHOOSH");
                             dialog.dismiss();
                         }
                     })

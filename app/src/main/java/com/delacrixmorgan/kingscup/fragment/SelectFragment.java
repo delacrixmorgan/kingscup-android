@@ -79,6 +79,7 @@ public class SelectFragment extends Fragment {
                 mButtonEndGame.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        GameEngine.getInstance().playSound(getActivity(), "CARD_WHOOSH");
                         getActivity().finish();
                     }
                 });

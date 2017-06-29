@@ -2,6 +2,7 @@ package com.delacrixmorgan.kingscup;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
@@ -24,6 +25,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/LeagueSpartan-Bold.otf")
                 .setFontAttrId(R.attr.fontPath)
@@ -44,5 +47,11 @@ public class MainActivity extends Activity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        GameEngine.getInstance().playSound(this, "CARD_WHOOSH");
     }
 }

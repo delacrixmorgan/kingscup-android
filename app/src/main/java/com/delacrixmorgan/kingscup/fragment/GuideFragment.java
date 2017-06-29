@@ -79,6 +79,7 @@ public class GuideFragment extends Fragment {
         mSkipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GameEngine.getInstance().playSound(getActivity(), "BUTTON_CLICK");
                 SharedPreferences.Editor editor = getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).edit();
                 editor.putBoolean(Helper.QUICK_GUIDE_PREFERENCE, false);
                 editor.apply();
