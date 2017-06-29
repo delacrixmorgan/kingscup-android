@@ -1,11 +1,20 @@
 package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -85,8 +94,38 @@ public class CardFragment extends Fragment implements View.OnClickListener {
         }
 
         mNextButton.setText(GameEngine.getInstance().getNextText());
-        mNextButton.setOnClickListener(this);
-        mNextButton.setEnabled(true);
+
+        if (GameEngine.getInstance().getmKingCounter() < 1) {
+            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(2000);
+
+            mNextButton.setEnabled(false);
+
+            Handler handler = new Handler();
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    AnimationSet animGrow = new AnimationSet(true);
+                    animGrow.addAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.pop_out));
+                    mLightLargeSymbol.startAnimation(animGrow);
+                }
+            });
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GameEngine.getInstance().playVictorySound();
+                    SelectFragment fragment = (SelectFragment) getFragmentManager().findFragmentByTag("SelectFragment");
+                    fragment.updateFragment();
+                    getFragmentManager().popBackStack();
+
+                }
+            }, 2000);
+
+        } else {
+            mNextButton.setOnClickListener(this);
+            mNextButton.setEnabled(true);
+        }
     }
 
     @Override

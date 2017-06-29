@@ -61,20 +61,14 @@ public class SelectFragment extends Fragment {
 
     public void updateFragment() {
         mCardRecyclerView.setEnabled(true);
-
-        if (GameEngine.getInstance().checkWin(mCardAdapter)) {
-            GameEngine.getInstance().stopGame(mCardAdapter);
-
-            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-            vibrator.vibrate(2000);
-        }
-
+        GameEngine.getInstance().updateCardAdapter(mCardAdapter);
         updateGraphics();
     }
 
     private void updateGraphics() {
         switch (GameEngine.getInstance().getmKingCounter()) {
             case 0:
+            case -1:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_4);
                 mTextStatusBody.setText(R.string.game_over_header);
                 mTextStatusHeader.setText(R.string.game_over_body);

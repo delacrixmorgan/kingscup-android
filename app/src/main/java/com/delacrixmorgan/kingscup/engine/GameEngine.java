@@ -117,16 +117,7 @@ public class GameEngine {
                 mKingCounter--;
 
                 if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)) {
-                    if (mKingCounter < 1) {
-                        PlayThread[] playThreads = new PlayThread[2];
-                        for (int j = 0; j < 2; j++) {
-                            playThreads[j] = new PlayThread();
-                            playThreads[j].executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, mMediaPlayers[j]);
-                        }
-
-                    } else {
-                        mMediaPlayers[0].start();
-                    }
+                    mMediaPlayers[0].start();
                 }
             }
 
@@ -134,19 +125,26 @@ public class GameEngine {
         }
     }
 
-    public Boolean checkWin(CardAdapter adapter) {
+    public void playVictorySound(){
+        mMediaPlayers[1].start();
+//        PlayThread[] playThreads = new PlayThread[2];
+//        for (int j = 0; j < 2; j++) {
+//            playThreads[j] = new PlayThread();
+//            playThreads[j].executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, mMediaPlayers[j]);
+//        }
+    }
+
+    public void updateCardAdapter(CardAdapter adapter) {
         mDeck.remove(mCurrentCardPosition);
         adapter.notifyItemRemoved(mCurrentCardPosition);
 
         mCurrentCardPosition = 0;
         mCardSelected = false;
 
-        return (mKingCounter < 1);
-    }
-
-    public void stopGame(CardAdapter adapter) {
-        mDeck.clear();
-        adapter.notifyDataSetChanged();
+        if (mKingCounter <  1){
+            mDeck.clear();
+            adapter.notifyDataSetChanged();
+        }
     }
 
     public Card getCurrentCard() {
