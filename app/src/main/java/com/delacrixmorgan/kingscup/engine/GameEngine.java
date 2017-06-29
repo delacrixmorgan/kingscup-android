@@ -3,6 +3,7 @@ package com.delacrixmorgan.kingscup.engine;
 import android.app.Activity;
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import com.delacrixmorgan.kingscup.R;
@@ -29,10 +30,12 @@ public class GameEngine {
     private ArrayList<String> mGuideArray, mNextArray;
     private Boolean mCardSelected;
     private int mKingCounter, mCurrentCardPosition;
-    private MediaPlayer mMediaPlayer;
+    private MediaPlayer[] mMediaPlayers;
 
     private GameEngine(@NonNull Context context) {
-        mMediaPlayer = MediaPlayer.create(context, R.raw.water_pour);
+        mMediaPlayers = new MediaPlayer[2];
+        mMediaPlayers[0] = MediaPlayer.create(context, R.raw.water_pour);
+        mMediaPlayers[1] = MediaPlayer.create(context, R.raw.victory_cheer);
 
         buildDeck(context, context.getPackageName());
         buildArray(context, context.getPackageName());
@@ -113,8 +116,17 @@ public class GameEngine {
             if (mDeck.get(i).getmName().equals("King")) {
                 mKingCounter--;
 
-                if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)){
-                    mMediaPlayer.start();
+                if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)) {
+                    if (mKingCounter < 1) {
+                        PlayThread[] playThreads = new PlayThread[2];
+                        for (int j = 0; j < 2; j++) {
+                            playThreads[j] = new PlayThread();
+                            playThreads[j].executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, mMediaPlayers[j]);
+                        }
+
+                    } else {
+                        mMediaPlayers[0].start();
+                    }
                 }
             }
 
@@ -162,5 +174,11 @@ public class GameEngine {
         return mGuideArray;
     }
 
-
+    class PlayThread extends AsyncTask<MediaPlayer, Void, Void> {
+        @Override
+        protected Void doInBackground(MediaPlayer... player) {
+            player[0].start();
+            return null;
+        }
+    }
 }
