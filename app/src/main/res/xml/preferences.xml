@@ -16,7 +16,7 @@
 
         <Preference
             android:icon="@mipmap/ic_launcher"
-            android:key=""
+            android:key="language"
             android:summary="English"
             android:title="@string/language" />
 

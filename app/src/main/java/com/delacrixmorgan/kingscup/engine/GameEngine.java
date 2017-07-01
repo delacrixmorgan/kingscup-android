@@ -58,7 +58,6 @@ public class GameEngine {
     }
 
     private void buildDeck(Context context, String packageName) {
-        int resourceSuit, resourceName, resourceAction;
         String stringValue, stringSuit, stringName, stringAction;
 
         mKingCounter = 4;
@@ -66,15 +65,11 @@ public class GameEngine {
         mDeck = new ArrayList<>();
 
         for (int i = 1; i <= 4; i++) {
-            resourceSuit = context.getResources().getIdentifier("suit_" + i, "string", packageName);
-            stringSuit = context.getString(resourceSuit);
+            stringSuit = context.getString(context.getResources().getIdentifier("suit_" + i, "string", packageName));
 
             for (int j = 1; j <= 13; j++) {
-                resourceName = context.getResources().getIdentifier("name_" + j, "string", packageName);
-                resourceAction = context.getResources().getIdentifier("action_" + j, "string", packageName);
-
-                stringName = context.getString(resourceName);
-                stringAction = context.getString(resourceAction);
+                stringName = context.getString(context.getResources().getIdentifier("name_" + j, "string", packageName));
+                stringAction = context.getString(context.getResources().getIdentifier("action_" + j, "string", packageName));
 
                 switch (j) {
                     case 1:

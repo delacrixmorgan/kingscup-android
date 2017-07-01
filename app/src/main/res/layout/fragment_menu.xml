@@ -82,7 +82,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/btn_rounded_red"
             android:stateListAnimator="@null"
-            android:text="@string/about_us"
+            android:text="@string/preferences"
             android:textColor="@color/colorWhite"
             android:textStyle="bold"
             tools:targetApi="lollipop" />
