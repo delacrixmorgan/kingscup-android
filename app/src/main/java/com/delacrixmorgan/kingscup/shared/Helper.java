@@ -19,6 +19,9 @@ public class Helper {
     final public static String SHARED_PREFERENCE = "SHARED_PREFERENCE";
     final public static String QUICK_GUIDE_PREFERENCE = "QUICK_GUIDE_PREFERENCE";
     final public static String SOUND_EFFECTS_PREFERENCE = "SOUND_EFFECTS_PREFERENCE";
+    final public static String LANGUAGE_PREFERENCE = "LANGUAGE_PREFERENCE";
+
+    final public static CharSequence[] mLanguageItems = { "English", "简体中文" };
 
     public static void showFragment(Activity activity, Fragment fragment, String backStack) {
         activity.getFragmentManager()

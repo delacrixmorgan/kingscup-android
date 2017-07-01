@@ -36,7 +36,7 @@
     <string name="action_10">选个类型，大家说个适当的。直到一方想不到的，喝！</string>
     <string name="action_11">完成以下，“我没做过..”\n当中谁有，喝！</string>
     <string name="action_12">问一个人一个问题，他要同样问下一方。直到一方停止的，喝！</string>
-    <string name="action_13">设定新的规矩。填满王杯。</string>
+    <string name="action_13">设定新规矩。填满王杯。</string>
 
     <string name="next_1">放马过来</string>
     <string name="next_2">要来了啊</string>
@@ -62,8 +62,8 @@
     <string name="skip">开始</string>
     <string name="game_over_header">游戏结束</string>
     <string name="game_over_body">一人灌给它完!</string>
-    <string name="counter_king_left">国王剩下</string>
-    <string name="counter_kings_left">国王剩下</string>
+    <string name="counter_king_left">个剩下的国王</string>
+    <string name="counter_kings_left">个剩下的国王</string>
 
     <string name="language">语言</string>
     <string name="preference_engineer">工程师</string>

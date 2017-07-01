@@ -6,12 +6,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 import android.support.annotation.Nullable;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -21,12 +25,14 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.delacrixmorgan.kingscup.MainActivity;
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.shared.Helper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -85,35 +91,39 @@ public class AboutFragment extends PreferenceFragment {
             }
         });
 
+        mLanguage.setSummary(Helper.mLanguageItems[getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getInt(Helper.LANGUAGE_PREFERENCE, 0)]);
         mLanguage.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-//                final Dialog languageDialog = new Dialog(getActivity());
-//
-//                languageDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//                languageDialog.setContentView(R.layout.view_language);
-//                languageDialog.setTitle("Language");
-//
-//                languageDialog.show();
-//
-//                Spinner spinner = (Spinner) languageDialog.findViewById(R.id.language_spinner);
-//
-//                List<String> list = new ArrayList<String>();
-//                list.add("list 1");
-//                list.add("list 2");
-//                list.add("list 3");
-//                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, list);
-//                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-//                spinner.setAdapter(dataAdapter);
-
-                final CharSequence[] items = { "English", "简体中文" };
-
                 new AlertDialog.Builder(getActivity())
                         .setTitle("Language")
-                        .setSingleChoiceItems(items, -1,
+                        .setSingleChoiceItems(Helper.mLanguageItems, getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getInt(Helper.LANGUAGE_PREFERENCE, 0),
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int item) {
+                                        SharedPreferences.Editor editor = getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).edit();
+                                        editor.putInt(Helper.LANGUAGE_PREFERENCE, item);
+                                        editor.apply();
 
+                                        mLanguage.setSummary(Helper.mLanguageItems[item]);
+
+                                        String languageCode = "en";
+                                        switch (item){
+                                            case 0:
+                                                languageCode = "en";
+                                                break;
+
+                                            case 1:
+                                                languageCode = "zh";
+                                                break;
+                                        }
+
+                                        Configuration configuration =  new Configuration(getResources().getConfiguration());
+                                        configuration.locale = new Locale(languageCode);
+                                        getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
+
+                                        Intent refresh = new Intent(getActivity(), MainActivity.class);
+                                        getActivity().finish();
+                                        startActivity(refresh);
                                     }
                                 })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
