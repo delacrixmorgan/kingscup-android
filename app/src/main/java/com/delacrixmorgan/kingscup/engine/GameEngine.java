@@ -5,6 +5,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
@@ -12,6 +13,7 @@ import com.delacrixmorgan.kingscup.fragment.CardFragment;
 import com.delacrixmorgan.kingscup.model.Card;
 import com.delacrixmorgan.kingscup.shared.Helper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -57,6 +59,14 @@ public class GameEngine {
         return sGameEngine;
     }
 
+    public void playSound(Context context, String key){
+        if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)){
+            if (mMediaPlayers.get(key) != null){
+                mMediaPlayers.get(key).start();
+            }
+        }
+    }
+
     private void buildDeck(Context context, String packageName) {
         String stringValue, stringSuit, stringName, stringAction;
 
@@ -94,7 +104,7 @@ public class GameEngine {
                 mDeck.add(new Card(stringValue, stringSuit, stringName, stringAction));
             }
         }
-        shuffleDeck();
+        Collections.shuffle(mDeck, new Random(System.nanoTime()));
     }
 
     private void buildArray(Context context, String packageName) {
@@ -115,18 +125,12 @@ public class GameEngine {
             mCurrentCardPosition = i;
             mCardSelected = true;
 
-            if (mDeck.get(i).getmName().equals("King")) {
+            if (mDeck.get(i).getmName().equals(context.getResources().getString(R.string.name_13))) {
                 mKingCounter--;
                 playSound(context, "KING");
             }
 
             Helper.showAddFragmentSlideDown((Activity) context, new CardFragment(), "SelectFragment");
-        }
-    }
-
-    public void playSound(Context context, String key){
-        if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)){
-            mMediaPlayers.get(key).start();
         }
     }
 
@@ -150,10 +154,6 @@ public class GameEngine {
 
     public Card getCurrentCard() {
         return mDeck.get(mCurrentCardPosition);
-    }
-
-    private void shuffleDeck() {
-        Collections.shuffle(mDeck, new Random(System.nanoTime()));
     }
 
     public int getmKingCounter() {

@@ -134,7 +134,6 @@ public class CardFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.button_next:
                 GameEngine.getInstance().playSound(getActivity(), "CARD_WHOOSH");
-
                 SelectFragment fragment = (SelectFragment) getFragmentManager().findFragmentByTag("SelectFragment");
                 fragment.updateFragment();
                 getFragmentManager().popBackStack();
