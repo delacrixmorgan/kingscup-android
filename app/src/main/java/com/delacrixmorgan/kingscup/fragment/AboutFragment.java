@@ -105,21 +105,7 @@ public class AboutFragment extends PreferenceFragment {
                                         editor.apply();
 
                                         mLanguage.setSummary(Helper.mLanguageItems[item]);
-
-                                        String languageCode = "en";
-                                        switch (item){
-                                            case 0:
-                                                languageCode = "en";
-                                                break;
-
-                                            case 1:
-                                                languageCode = "zh";
-                                                break;
-                                        }
-
-                                        Configuration configuration =  new Configuration(getResources().getConfiguration());
-                                        configuration.locale = new Locale(languageCode);
-                                        getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
+                                        Helper.setLocaleLanguage(getActivity());
 
                                         Intent refresh = new Intent(getActivity(), MainActivity.class);
                                         getActivity().finish();

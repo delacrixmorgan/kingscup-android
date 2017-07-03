@@ -56,7 +56,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.button_deck:
-                Toast.makeText(getActivity(), "Designer on Vacation", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getResources().getString(R.string.designer_vocation), Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.button_about:

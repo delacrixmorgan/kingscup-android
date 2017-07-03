@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setLocaleLanguage();
+        Helper.setLocaleLanguage(this);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
@@ -47,23 +47,6 @@ public class MainActivity extends Activity {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-    }
-
-    private void setLocaleLanguage(){
-        String languageCode = "en";
-        switch (getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getInt(Helper.LANGUAGE_PREFERENCE, 0)){
-            case 0:
-                languageCode = "en";
-                break;
-
-            case 1:
-                languageCode = "zh";
-                break;
-        }
-
-        Configuration configuration =  new Configuration(getResources().getConfiguration());
-        configuration.locale = new Locale(languageCode);
-        getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
     }
 
     @Override

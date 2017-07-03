@@ -24,19 +24,19 @@
     <string name="name_12">问题</string>
     <string name="name_13">国王</string>
 
-    <string name="action_1">大家干杯</string>
-    <string name="action_2">和一个伴，一起干杯</string>
-    <string name="action_3">单独喝</string>
-    <string name="action_4">把拇指碰桌面。 最慢的那一位，喝！</string>
-    <string name="action_5">帅哥们干杯</string>
-    <string name="action_6">美女们干杯</string>
-    <string name="action_7">大家指向天空。最后的那一位，喝！</string>
-    <string name="action_8">选个永久伴。每当你有喝，他也跟你喝！</string>
+    <string name="action_1">大家干杯！</string>
+    <string name="action_2">和一个伴，一起干杯。</string>
+    <string name="action_3">自己单独喝吧！</string>
+    <string name="action_4">把拇指碰桌面。\n最慢的那一位，喝！</string>
+    <string name="action_5">帅哥们干杯！</string>
+    <string name="action_6">美女们干杯！</string>
+    <string name="action_7">大家指向天空。\n最后的那一位，喝！</string>
+    <string name="action_8">选个永久伴。\n每当你有喝，他也跟你喝！</string>
     <string name="action_9">大家不能和你有眼神接触。\n否则，喝！</string>
-    <string name="action_10">选个类型，大家说个适当的。直到一方想不到的，喝！</string>
+    <string name="action_10">选个类型，大家说个适当的。\n直到一方想不到的，喝！</string>
     <string name="action_11">完成以下，“我没做过..”\n当中谁有，喝！</string>
-    <string name="action_12">问一个人一个问题，他要同样问下一方。直到一方停止的，喝！</string>
-    <string name="action_13">设定新规矩。填满王杯。</string>
+    <string name="action_12">问一个人一个问题。\n\n他要同样问下一方，\n直到一方停止的。喝！</string>
+    <string name="action_13">设定新规矩。\n填你所愿入王杯！</string>
 
     <string name="next_1">放马过来</string>
     <string name="next_2">要来了啊</string>
@@ -49,9 +49,9 @@
     <string name="next_9">还行吗你?</string>
     <string name="next_10">等什么你？</string>
 
-    <string name="guide_1">是的，这是个喝酒游戏。你可以把各种饮料混合在一起。\n\n没必要必须是酒精的。</string>
-    <string name="guide_2">决定一个人开始游戏。选择一张卡，并做它所说的。没的逃跑！\n\n完成后，论给下一个人。</string>
-    <string name="guide_3">抽到王牌时，你将有幸选择任何饮料倒入王杯。\n抽到最后一个王牌的人,必须一次完成王杯子！干杯。</string>
+    <string name="guide_1">是的，这是个喝酒游戏，\n没必要必须是酒精的。\n\n每人自准杯子，\n选个做王杯放在中间。</string>
+    <string name="guide_2">决定一个人开始游戏。\n选择一张卡，并做它所说的。\n没的逃跑！\n\n完成后，论给下一个人。</string>
+    <string name="guide_3">抽到王牌时，\n认你所愿选择任何饮料倒入王杯。\n\n抽到最后一个王牌的人,\n必须一次完成王杯子！干杯。</string>
 
     <string name="quit_title">退出游戏</string>
     <string name="quit_header">你确定要退出吗？</string>
@@ -65,12 +65,16 @@
     <string name="counter_king_left">个剩下的国王</string>
     <string name="counter_kings_left">个剩下的国王</string>
 
-    <string name="language">语言</string>
     <string name="preference_engineer">工程师</string>
     <string name="preference_designer">设计师</string>
     <string name="preference_source_code">代码</string>
+    <string name="preference_credits">感激</string>
+    <string name="preference_credits_summary">XOXO</string>
     <string name="preference_version">版本</string>
     <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
     <string name="sound_effects">音响</string>
+
+    <string name="language">语言</string>
+    <string name="designer_vocation">设计师假期中</string>
 
 </resources>

@@ -53,8 +53,8 @@
         <Preference
             android:icon="@mipmap/ic_launcher"
             android:key="credit_library"
-            android:summary="Hearts and Kisses"
-            android:title="Credits" />
+            android:summary="@string/preference_credits_summary"
+            android:title="@string/preference_credits" />
 
         <Preference
             android:icon="@mipmap/ic_launcher"

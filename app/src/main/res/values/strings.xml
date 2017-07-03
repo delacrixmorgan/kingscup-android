@@ -49,9 +49,9 @@
     <string name="next_9">Alright Buddy?</string>
     <string name="next_10">Come On</string>
 
-    <string name="guide_1">Yes, this a drinking game. You can put all sorts of drinks and mix it together.\n\nDoesn\'t necessary has to be alcoholic.</string>
+    <string name="guide_1">Yes, this a drinking game.\nDoesn\'t has to be alcoholic.\n\nEveryone have your own drinking cup and place a cup in the middle to be the King\'s Cup.</string>
     <string name="guide_2">Pick a person to start the game, select a card and do what it says.\n\nThere is no escape!\nPass to the next person when you are done.</string>
-    <string name="guide_3">Draw a King from the deck,\nyou will have the honour to choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</string>
+    <string name="guide_3">Draw a King from the deck,\nyou can choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</string>
 
     <string name="quit_title">Quit Game</string>
     <string name="quit_header">Are you sure that you want to quit?</string>
@@ -68,14 +68,13 @@
     <string name="preference_engineer">Engineer</string>
     <string name="preference_designer">Designer</string>
     <string name="preference_source_code">Source Code</string>
+    <string name="preference_credits">Credits</string>
+    <string name="preference_credits_summary">Hearts and Kisses</string>
     <string name="preference_version">Version</string>
     <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
     <string name="sound_effects">Sound Effects</string>
 
     <string name="language">Language</string>
-    <string-array name="language_array">
-        <item>English</item>
-        <item>Chinese</item>
-    </string-array>
+    <string name="designer_vocation">Designer on Vacation</string>
 
 </resources>
