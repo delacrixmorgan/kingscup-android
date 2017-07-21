@@ -24,15 +24,15 @@
     <string name="name_12">问卷博士</string>
     <string name="name_13">国王之杯</string>
 
-    <string name="action_1">如果有人抽到了A，从他开始，所有人都要喝酒。只有当你右边的人开始喝之后你才能开始，也只有当你右边的人停下之后你才能停下。所以如果你坐在抽到A的人左边，直到全桌人停止喝酒之后你才能停。</string>
+    <string name="action_1">抽牌的人先开始喝，\n大家跟着喝直到他停止。</string>
     <string name="action_2">和一个伴，一起干杯。</string>
     <string name="action_3">自己单独喝吧！</string>
-    <string name="action_4">每次他将拇指放在桌子上的时候，所有人都必须照做，最后一个完成的人喝酒。</string>
+    <string name="action_4">每次他将拇指放在\n桌子上时，所有人都必须照做，\n最后一个完成的人喝酒。</string>
     <string name="action_5">在座所有的男性必须喝酒！</string>
     <string name="action_6">在座所有的女性必须喝酒！</string>
     <string name="action_7">在场所有人都要马上举起双手，最后举的人要喝。</string>
-    <string name="action_8">选个永久伴。每当你喝酒的时候，被选中的人也要喝，反之亦然。一直持续到下一次有人抽到伴。如果忘记在“伙伴”喝酒时喝酒，两个人都必须罚酒。</string>
-    <string name="action_9">每一次“蛇眼”跟某个人发生眼神接触，那个人就要喝酒。</string>
+    <string name="action_8">选个伴。每当你喝酒的时候，被选中的人也要喝。\n\n一直持续到下一次有人抽到伴。\n如果忘记在“伙伴”喝酒时喝酒，两个人都必须罚酒。</string>
+    <string name="action_9">每一次 “蛇眼” \n跟某个人发生眼神接触，\n那个人就要喝酒。</string>
     <string name="action_10">选个类型，大家说个适当的。\n直到一方想不到的，喝！</string>
     <string name="action_11">完成以下，“我没做过..”\n当中谁有，喝！</string>
     <string name="action_12">问一个人一个问题。\n他要同样问下一方，\n直到一方停止的。喝！</string>
