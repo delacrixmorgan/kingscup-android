@@ -1,13 +1,10 @@
 package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,9 +64,13 @@ public class SelectFragment extends Fragment {
     }
 
     private void updateGraphics() {
-        int kingCounter = GameEngine.getInstance().getmKingCounter();
+        int kingCounter;
 
-        Log.i(TAG, "updateGraphics: " + kingCounter);
+        try {
+            kingCounter = GameEngine.getInstance().getmKingCounter();
+        } catch (NullPointerException e) {
+            kingCounter = 4;
+        }
 
         switch (kingCounter) {
             case 0:
