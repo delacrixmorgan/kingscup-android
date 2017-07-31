@@ -1,6 +1,12 @@
-# Kingscup
+# KingsCup
 
 ![Overview Header](http://i344.photobucket.com/albums/p354/delacrix/1_overview_zpsmrh7hdwg.png)
+
+## Overview
+
+Gather around with your pints and let’s go for a round of King’s Cup. Beverages not Included!
+
+## Description
 
 King's Cup is one of the most popular drinking game, also known as Oval of Fire , Ring of Fire or just simply Kings. It can be played with as MANY people as you like.
 
@@ -22,6 +28,6 @@ Set out to be a simple yet awesome party game. Even when you’re stranded in th
  
 More to come. In the meantime, go nuts!
 
-Google Play Store - KingsCup
+**Google Play Store - KingsCup**
 
 https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup
