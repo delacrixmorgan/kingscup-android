@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">King\'s Cup</string>
-    <string name="start_game">Game On!</string>
+    <string name="start_game">Game On</string>
     <string name="deck_selector">Deck Selector</string>
     <string name="preferences">Preferences</string>
 
@@ -24,18 +24,18 @@
     <string name="name_12">Questions</string>
     <string name="name_13">King</string>
 
-    <string name="action_1">Everyone drinks!</string>
+    <string name="action_1">Everyone starts drinking until the person who draw the card stopped.</string>
     <string name="action_2">Choose a mate\nAnd drink together!</string>
     <string name="action_3">Only you. Drink!</string>
-    <string name="action_4">Place your thumb on the table, last to do so, drinks!</string>
+    <string name="action_4">Place your thumb\non the table.\nLast to do so, drinks!</string>
     <string name="action_5">All guys drink!</string>
     <string name="action_6">All ladies drink!</string>
-    <string name="action_7">Reach for the sky\nLast player drinks!</string>
+    <string name="action_7">Everyone reach for the sky with both hands.\nLast player drinks!</string>
     <string name="action_8">Choose a partner and drinks whenever the player drinks!</string>
-    <string name="action_9">Nobody can make eye contact with you.\nIf caught, drink!</string>
-    <string name="action_10">Choose a category\nSay something that fits\nUntil whoever can\'t think of any, drink!</string>
-    <string name="action_11">Complete the sentence,\n"Never have I ever.."\nAnyone who has, drink!</string>
-    <string name="action_12">Ask a player a question\nThey must respond with another question to someone else\nFirst to fail, drink!</string>
+    <string name="action_9">Nobody can make\neye contact with you.\nIf caught, drink!</string>
+    <string name="action_10">Choose a category.\nSay something that fits until whoever can\'t think of any, drink!</string>
+    <string name="action_11">Complete the sentence,\n "Never have I ever.." \nAnyone who has, drink!</string>
+    <string name="action_12">Ask a player a question.\nThey must respond with another question to the next person.\n\nFirst to fail, drink!</string>
     <string name="action_13">Set a new rule.\nFill the King\'s Cup!</string>
 
     <string name="next_1">Hit Me</string>

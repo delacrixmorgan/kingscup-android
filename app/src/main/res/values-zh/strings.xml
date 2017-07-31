@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">王杯</string>
+    <string name="app_name">国王之杯</string>
     <string name="start_game">开动</string>
     <string name="deck_selector">卡牌选择</string>
     <string name="preferences">设置</string>
@@ -14,25 +14,25 @@
     <string name="name_2">你</string>
     <string name="name_3">我</string>
     <string name="name_4">拇指大师</string>
-    <string name="name_5">兄弟</string>
-    <string name="name_6">姐妹</string>
-    <string name="name_7">海阔天空</string>
+    <string name="name_5">帅哥</string>
+    <string name="name_6">美女</string>
+    <string name="name_7">天堂</string>
     <string name="name_8">伙伴</string>
     <string name="name_9">蛇眼</string>
     <string name="name_10">类型</string>
-    <string name="name_11">杰克</string>
-    <string name="name_12">问题</string>
-    <string name="name_13">国王</string>
+    <string name="name_11">从来没有</string>
+    <string name="name_12">问卷博士</string>
+    <string name="name_13">国王之杯</string>
 
-    <string name="action_1">大家干杯！</string>
+    <string name="action_1">抽牌的人先开始喝，\n大家跟着喝直到他停止。</string>
     <string name="action_2">和一个伴，一起干杯。</string>
     <string name="action_3">自己单独喝吧！</string>
-    <string name="action_4">把拇指碰桌面。\n最慢的那一位，喝！</string>
-    <string name="action_5">帅哥们干杯！</string>
-    <string name="action_6">美女们干杯！</string>
-    <string name="action_7">大家指向天空。\n最后的那一位，喝！</string>
-    <string name="action_8">选个永久伴。\n每当你有喝，他也跟你喝！</string>
-    <string name="action_9">大家不能和你有眼神接触。\n否则，喝！</string>
+    <string name="action_4">每次他将拇指放在\n桌子上时，所有人都必须照做，\n最后一个完成的人喝酒。</string>
+    <string name="action_5">在座所有的男性必须喝酒！</string>
+    <string name="action_6">在座所有的女性必须喝酒！</string>
+    <string name="action_7">在场所有人都要马上举起双手，最后举的人要喝。</string>
+    <string name="action_8">选个伴。每当你喝酒的时候，被选中的人也要喝。\n\n一直持续到下一次有人抽到伴。\n如果忘记在“伙伴”喝酒时喝酒，两个人都必须罚酒。</string>
+    <string name="action_9">每一次 “蛇眼” \n跟某个人发生眼神接触，\n那个人就要喝酒。</string>
     <string name="action_10">选个类型，大家说个适当的。\n直到一方想不到的，喝！</string>
     <string name="action_11">完成以下，“我没做过..”\n当中谁有，喝！</string>
     <string name="action_12">问一个人一个问题。\n他要同样问下一方，\n直到一方停止的。喝！</string>
@@ -49,16 +49,16 @@
     <string name="next_9">还行吗你?</string>
     <string name="next_10">等什么你？</string>
 
-    <string name="guide_1">是的，这是个喝酒游戏，\n没必要必须是酒精的。\n\n每人自准杯子，\n选个做王杯放在中间。</string>
-    <string name="guide_2">决定一个人开始游戏。\n选择一张卡，并做它所说的。\n没的逃跑！\n\n完成后，论给下一个人。</string>
-    <string name="guide_3">抽到王牌时，\n认你所愿选择任何饮料倒入王杯。\n\n抽到最后一个王牌的人,\n必须一次完成王杯子！干杯。</string>
+    <string name="guide_1">这是饮酒时一种助兴取乐的游戏，\n不会喝酒也可以用其他饮料代替。\n\n每个人都有自己的杯子，并且在中央放置一个杯子称为国王之杯。</string>
+    <string name="guide_2">由任意一人开始游戏，抽取一张卡，\n按照上面的指示完成动作。\n\n之后大家按顺时针轮流抽牌。</string>
+    <string name="guide_3">当抽到国王时，\n选择一种饮料倒进桌子\n中央的国王之杯。\n\n抽到最后一个国王的人要\n一口干掉国王之杯中的混合物。</string>
 
     <string name="quit_title">退出游戏</string>
     <string name="quit_header">你确定要退出吗？</string>
     <string name="quit_yes">我很怕继续下去</string>
     <string name="quit_no">但是，我拒绝放弃</string>
 
-    <string name="quick_guide">简要规则</string>
+    <string name="quick_guide">游戏规则</string>
     <string name="skip">开始</string>
     <string name="game_over_header">游戏结束</string>
     <string name="game_over_body">一人灌给它完!</string>

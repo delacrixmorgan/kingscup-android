@@ -2,7 +2,6 @@ package com.delacrixmorgan.kingscup;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,8 +11,6 @@ import android.view.WindowManager;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.fragment.MenuFragment;
 import com.delacrixmorgan.kingscup.shared.Helper;
-
-import java.util.Locale;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
