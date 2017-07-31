@@ -1,6 +1,6 @@
 # KingsCup
 
-![Overview Header](http://i344.photobucket.com/albums/p354/delacrix/1_overview_zpsmrh7hdwg.png)
+![Overview Header](/screenshots/0_header_small.png?raw=true "Overview Header")
 
 ## Overview
 
