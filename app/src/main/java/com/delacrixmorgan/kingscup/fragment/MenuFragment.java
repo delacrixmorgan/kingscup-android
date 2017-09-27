@@ -22,7 +22,7 @@ import com.delacrixmorgan.kingscup.shared.Helper;
 public class MenuFragment extends Fragment implements View.OnClickListener {
 
     private static String TAG = "MenuFragment";
-    private Button mStartButton, mDeckButton, mAboutButton;
+    private Button mStartButton, mDeckButton, mSettingButton;
 
     @Nullable
     @Override
@@ -31,7 +31,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
         mStartButton = (Button) rootView.findViewById(R.id.button_start);
         mDeckButton = (Button) rootView.findViewById(R.id.button_deck);
-        mAboutButton = (Button) rootView.findViewById(R.id.button_about);
+        mSettingButton = (Button) rootView.findViewById(R.id.button_setting);
 
         return rootView;
     }
@@ -43,7 +43,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
         mStartButton.setOnClickListener(this);
         mDeckButton.setOnClickListener(this);
-        mAboutButton.setOnClickListener(this);
+        mSettingButton.setOnClickListener(this);
     }
 
     @Override
@@ -59,8 +59,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), getResources().getString(R.string.designer_vocation), Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.button_about:
-                Helper.showFragment(getActivity(), new AboutFragment(), MenuFragment.TAG);
+            case R.id.button_setting:
+                Helper.showFragment(getActivity(), new SettingFragment(), MenuFragment.TAG);
                 break;
         }
     }

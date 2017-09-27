@@ -40,8 +40,8 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-public class AboutFragment extends PreferenceFragment {
-    private static String TAG = "AboutFragment";
+public class SettingFragment extends PreferenceFragment {
+    private static String TAG = "SettingFragment";
 
     final int unicode[] = {0x1F648, 0x1F649, 0x1F64A};
     private SwitchPreference mQuickGuide, mSoundEffects;
