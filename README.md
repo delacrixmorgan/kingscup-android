@@ -1,4 +1,4 @@
-# KingsCup
+# King's Cup
 
 ![Overview Header](/screenshots/0_header_small.png?raw=true "Overview Header")
 
