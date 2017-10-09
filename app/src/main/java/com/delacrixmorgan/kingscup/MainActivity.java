@@ -1,10 +1,15 @@
 package com.delacrixmorgan.kingscup;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -43,6 +48,17 @@ public class MainActivity extends Activity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            TypedValue typedValue = new TypedValue();
+            Resources.Theme theme = getTheme();
+            theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+            int color = typedValue.data;
+
+            Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.kingscup_logo_icon);
+            setTaskDescription(new ActivityManager.TaskDescription(null, bm, color));
+            bm.recycle();
         }
     }
 
