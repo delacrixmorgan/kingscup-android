@@ -55,14 +55,23 @@
                 app:tabIndicatorHeight="0dp" />
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/btn_skip"
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rl_guide_text"
-            android:background="@drawable/btn_rounded_white"
-            android:text="@string/skip"
-            android:textColor="@color/colorPrimary" />
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleRoundedCorners="50dp">
+
+            <Button
+                android:id="@+id/btn_skip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_rounded_white"
+                android:text="@string/skip"
+                android:textColor="@color/colorPrimary" />
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
 
     </RelativeLayout>
 
