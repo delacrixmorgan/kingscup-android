@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
@@ -49,11 +49,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     }
 
     class CardViewHolder extends RecyclerView.ViewHolder {
-        ImageView selectCard;
+        LinearLayout selectCard;
 
         private CardViewHolder(View itemView) {
             super(itemView);
-            selectCard = (ImageView) itemView.findViewById(R.id.select_card);
+            selectCard = (LinearLayout) itemView.findViewById(R.id.view_card_layout);
         }
     }
 }
