@@ -6,33 +6,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 import android.support.annotation.Nullable;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.delacrixmorgan.kingscup.MainActivity;
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.shared.Helper;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -155,7 +144,7 @@ public class SettingFragment extends PreferenceFragment {
                     }
                 });
 
-                ImageView balysImageView= (ImageView) creditDialog.findViewById(R.id.iv_balys_github);
+                ImageView balysImageView = (ImageView) creditDialog.findViewById(R.id.iv_balys_github);
                 balysImageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
