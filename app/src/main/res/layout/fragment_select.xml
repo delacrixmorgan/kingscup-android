@@ -38,7 +38,7 @@
                     android:paddingTop="20dp"
                     android:text="2 Kings Left"
                     android:textAllCaps="true"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="22sp" />
 
                 <TextView
@@ -46,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Come On"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 

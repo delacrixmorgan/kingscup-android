@@ -71,10 +71,13 @@
     <string name="preference_credits">Credits</string>
     <string name="preference_credits_summary">Hearts and Kisses</string>
     <string name="preference_version">Version</string>
+    <string name="preference_done">Done</string>
+    <string name="creator_engineer_morgan_github">https://github.com/delacrixmorgan</string>
     <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
     <string name="sound_effects">Sound Effects</string>
 
     <string name="language">Language</string>
     <string name="designer_vocation">Designer on Vacation</string>
+
 
 </resources>
