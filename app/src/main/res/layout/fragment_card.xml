@@ -51,7 +51,7 @@
             android:layout_marginTop="10dp"
             android:text="Jack"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -65,7 +65,7 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/action_11"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <Button
