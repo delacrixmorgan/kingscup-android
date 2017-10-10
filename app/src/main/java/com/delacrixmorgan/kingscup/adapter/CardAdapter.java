@@ -16,7 +16,6 @@ import com.delacrixmorgan.kingscup.engine.GameEngine;
  */
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
-
     private static String TAG = "CardAdapter";
     private Context mContext;
 
@@ -26,10 +25,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.view_card, parent, false);
-
-        return new CardViewHolder(view);
+        return new CardViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_card, parent, false));
     }
 
     @Override
