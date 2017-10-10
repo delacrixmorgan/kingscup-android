@@ -71,6 +71,8 @@
     <string name="preference_credits">感激</string>
     <string name="preference_credits_summary">XOXO</string>
     <string name="preference_version">版本</string>
+    <string name="preference_done">好的</string>
+    <string name="creator_engineer_morgan_github">https://github.com/delacrixmorgan</string>
     <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
     <string name="sound_effects">音响</string>
 

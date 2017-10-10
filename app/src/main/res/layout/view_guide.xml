@@ -5,6 +5,6 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:text="@string/guide_1"
-    android:textColor="@color/colorWhite"
+    android:textColor="@color/white"
     android:textSize="18sp" />
 

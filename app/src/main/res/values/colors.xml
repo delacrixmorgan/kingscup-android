@@ -6,11 +6,9 @@
 
     <color name="colorPinkTheme">#E63A74</color>
 
-    <color name="colorBlack">#000000</color>
-    <color name="colorWhite">#FFFFFF</color>
-
-    <color name="colorFacebook">#3b5998</color>
-    <color name="colorYellow">#ffeb3b</color>
-    <color name="colorRed">#dd5044</color>
-    <color name="colorGreen">#4CAF50</color>
+    <color name="black">#212121</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#ffeb3b</color>
+    <color name="red">#dd5044</color>
+    <color name="green">#4CAF50</color>
 </resources>

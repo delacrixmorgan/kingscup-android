@@ -26,7 +26,7 @@
         android:padding="20dp"
         android:text="@string/app_name"
         android:textAllCaps="true"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/white"
         android:textSize="22sp" />
 
     <com.balysv.materialripple.MaterialRippleLayout
@@ -43,7 +43,7 @@
             android:background="@drawable/btn_rounded_red"
             android:stateListAnimator="@null"
             android:text="@string/start_game"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:textStyle="bold"
             tools:targetApi="lollipop" />
 
@@ -63,7 +63,7 @@
             android:background="@drawable/btn_rounded_red"
             android:stateListAnimator="@null"
             android:text="@string/deck_selector"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:textStyle="bold"
             tools:targetApi="lollipop" />
 
@@ -83,7 +83,7 @@
             android:background="@drawable/btn_rounded_red"
             android:stateListAnimator="@null"
             android:text="@string/preferences"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:textStyle="bold"
             tools:targetApi="lollipop" />
 
