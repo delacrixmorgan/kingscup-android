@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="58dp"
-    android:background="@drawable/select_pink">
+    android:background="@drawable/select_pink"
+    android:paddingBottom="58dp">
 
     <RelativeLayout
         android:id="@+id/rl_select_status"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/rl_select_card">
+        android:layout_above="@+id/ll_select_card">
 
         <RelativeLayout
             android:id="@+id/fragment_select_cup_status_layout"
@@ -67,18 +67,28 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/rl_select_card"
+    <LinearLayout
+        android:id="@+id/ll_select_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/fragment_select_card_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/fragment_select_card_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:indeterminate="false"
+            android:max="52"
+            android:progress="15" />
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -1,21 +1,26 @@
 package com.delacrixmorgan.kingscup.fragment;
 
 import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.shared.Helper;
+
+import static android.view.View.GONE;
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
@@ -25,6 +30,7 @@ public class SelectFragment extends Fragment {
     private static String TAG = "SelectFragment";
 
     private RecyclerView mCardRecyclerView;
+    private ProgressBar mProgressBar;
     private CardAdapter mCardAdapter;
     private Button mButtonEndGame;
     private ImageView mImageVolume;
@@ -34,8 +40,9 @@ public class SelectFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_select, container, false);
 
         mCardRecyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_select_card_recycler_view);
-        mButtonEndGame = (Button) rootView.findViewById(R.id.button_endgame);
+        mProgressBar = (ProgressBar) rootView.findViewById(R.id.fragment_select_card_progress_bar);
 
+        mButtonEndGame = (Button) rootView.findViewById(R.id.button_endgame);
         mImageVolume = (ImageView) rootView.findViewById(R.id.image_cup_volume);
 
         mTextStatusHeader = (TextView) rootView.findViewById(R.id.status_header);
@@ -47,12 +54,27 @@ public class SelectFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
 
-        mCardAdapter = new CardAdapter(getActivity());
+        mCardAdapter = new CardAdapter(getActivity(), mProgressBar);
 
-        mCardRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        mCardRecyclerView.setLayoutManager(manager);
         mCardRecyclerView.setAdapter(mCardAdapter);
-        mCardRecyclerView.scrollToPosition(0);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mCardRecyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    if (manager.findFirstVisibleItemPosition() == 0) {
+                        mProgressBar.setProgress(0);
+                    } else {
+                        mProgressBar.setProgress(manager.findLastVisibleItemPosition());
+                    }
+                }
+            });
+        } else {
+            mProgressBar.setVisibility(GONE);
+        }
 
         updateGraphics();
     }
