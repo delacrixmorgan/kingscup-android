@@ -15,6 +15,8 @@ import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.shared.Helper;
 
+import static android.view.View.GONE;
+
 /**
  * Created by Delacrix Morgan on 09/10/2016.
  */
