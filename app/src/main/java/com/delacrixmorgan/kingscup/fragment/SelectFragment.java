@@ -92,25 +92,25 @@ public class SelectFragment extends Fragment {
 
             case 1:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_3);
-                mTextStatusBody.setText(kingCounter + " " + getString(R.string.counter_king_left));
+                mTextStatusBody.setText(getString(R.string.counter_1_king_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             case 2:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_2);
-                mTextStatusBody.setText(kingCounter + " " + getString(R.string.counter_kings_left));
+                mTextStatusBody.setText(getString(R.string.counter_2_king_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             case 3:
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_1);
-                mTextStatusBody.setText(kingCounter + " " + getString(R.string.counter_kings_left));
+                mTextStatusBody.setText(getString(R.string.counter_3_king_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             default:
                 mImageVolume.setBackgroundResource(R.drawable.cup_whole);
-                mTextStatusBody.setText(kingCounter + " " + getString(R.string.counter_kings_left));
+                mTextStatusBody.setText(getString(R.string.counter_4_king_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
         }
