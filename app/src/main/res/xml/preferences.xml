@@ -34,12 +34,6 @@
                 android:data="@string/creator_engineer_morgan_github" />
         </Preference>
 
-        <Preference
-            android:icon="@mipmap/ic_launcher"
-            android:key=""
-            android:summary="(On Vacation)"
-            android:title="@string/preference_designer" />
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="About">
