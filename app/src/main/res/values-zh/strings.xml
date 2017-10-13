@@ -62,8 +62,10 @@
     <string name="skip">开始</string>
     <string name="game_over_header">游戏结束</string>
     <string name="game_over_body">一人灌给它完!</string>
-    <string name="counter_king_left">个剩下的国王</string>
-    <string name="counter_kings_left">个剩下的国王</string>
+    <string name="counter_1_king_left">剩下一个国王</string>
+    <string name="counter_2_king_left">剩下两个国王</string>
+    <string name="counter_3_king_left">剩下三个国王</string>
+    <string name="counter_4_king_left">剩下四个国王</string>
 
     <string name="preference_engineer">工程师</string>
     <string name="preference_designer">设计师</string>

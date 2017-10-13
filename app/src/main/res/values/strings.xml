@@ -62,8 +62,10 @@
     <string name="skip">Skip</string>
     <string name="game_over_header">Game Over Mate</string>
     <string name="game_over_body">Drink it up!</string>
-    <string name="counter_king_left">King Left</string>
-    <string name="counter_kings_left">Kings Left</string>
+    <string name="counter_1_king_left">1 King Left</string>
+    <string name="counter_2_king_left">2 Kings Left</string>
+    <string name="counter_3_king_left">3 Kings Left</string>
+    <string name="counter_4_king_left">4 Kings Left</string>
 
     <string name="preference_engineer">Engineer</string>
     <string name="preference_designer">Designer</string>
