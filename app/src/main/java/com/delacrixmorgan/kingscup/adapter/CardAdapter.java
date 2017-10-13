@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
@@ -18,9 +19,11 @@ import com.delacrixmorgan.kingscup.engine.GameEngine;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
     private static String TAG = "CardAdapter";
     private Context mContext;
+    private ProgressBar mProgressBar;
 
-    public CardAdapter(Context context) {
+    public CardAdapter(Context context, ProgressBar progressBar) {
         mContext = context;
+        mProgressBar = progressBar;
     }
 
     @Override
@@ -34,6 +37,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             @Override
             public void onClick(View v) {
                 try {
+                    mProgressBar.setMax(mProgressBar.getMax() - 1);
+                    
                     GameEngine.getInstance().playSound(mContext, "CARD_FLIP");
                     GameEngine.getInstance().drawCard(mContext, holder.getAdapterPosition());
                 } catch (ArrayIndexOutOfBoundsException e) {
