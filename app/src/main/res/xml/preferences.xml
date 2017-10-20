@@ -62,7 +62,4 @@
             android:title="@string/preference_version" />
 
     </PreferenceCategory>
-
-    <Preference android:layout="@layout/preference_footer" />
-
 </PreferenceScreen>
