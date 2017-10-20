@@ -19,10 +19,12 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.activity_main_vg_fragment, new GuideFragment())
-                .commit();
+        if (savedInstanceState == null) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.activity_main_vg_fragment, new GuideFragment())
+                    .commit();
+        }
     }
 
     @Override

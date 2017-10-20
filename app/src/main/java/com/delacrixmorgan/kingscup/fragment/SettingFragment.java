@@ -63,7 +63,6 @@ public class SettingFragment extends PreferenceFragment {
                 SharedPreferences.Editor editor = getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).edit();
                 editor.putBoolean(Helper.QUICK_GUIDE_PREFERENCE, (Boolean) newValue);
                 editor.apply();
-                GameEngine.getInstance().playSound(getActivity(), "BUTTON_CLICK");
                 return true;
             }
         });
@@ -75,7 +74,6 @@ public class SettingFragment extends PreferenceFragment {
                 SharedPreferences.Editor editor = getActivity().getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).edit();
                 editor.putBoolean(Helper.SOUND_EFFECTS_PREFERENCE, (Boolean) newValue);
                 editor.apply();
-                GameEngine.getInstance().playSound(getActivity(), "BUTTON_CLICK");
                 return true;
             }
         });

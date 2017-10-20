@@ -50,7 +50,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        GameEngine.getInstance().playSound(getActivity(), "BUTTON_CLICK");
         switch (v.getId()) {
             case R.id.button_start:
                 GameEngine.newInstance(getActivity());
