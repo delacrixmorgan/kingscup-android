@@ -58,7 +58,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
         private CardViewHolder(View itemView) {
             super(itemView);
-            selectCard = (LinearLayout) itemView.findViewById(R.id.view_card_layout);
+            selectCard = (LinearLayout)itemView.findViewById(R.id.view_card_layout);
         }
     }
 }
