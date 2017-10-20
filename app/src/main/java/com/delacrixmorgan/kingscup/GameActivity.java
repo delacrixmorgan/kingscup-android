@@ -1,20 +1,13 @@
 package com.delacrixmorgan.kingscup;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.View;
 
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.fragment.GuideFragment;
-import com.delacrixmorgan.kingscup.fragment.SelectFragment;
-import com.delacrixmorgan.kingscup.shared.Helper;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Delacrix Morgan on 26/03/2017.
@@ -30,21 +23,11 @@ public class GameActivity extends Activity {
                 .beginTransaction()
                 .replace(R.id.activity_main_vg_fragment, new GuideFragment())
                 .commit();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow();
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
-    }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     @Override
     public void onBackPressed() {
-        if (GameEngine.getInstance().getmKingCounter() < 1){
+        if (GameEngine.getInstance().getmKingCounter() < 1) {
             finish();
         } else {
             new AlertDialog.Builder(this)
@@ -64,6 +47,20 @@ public class GameActivity extends Activity {
                         }
                     })
                     .show();
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
 }
