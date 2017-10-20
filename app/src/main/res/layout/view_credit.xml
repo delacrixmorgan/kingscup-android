@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:minWidth="500dp">
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,9 +15,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:padding="5dp"
             android:text="@string/preference_credits_summary"
-            android:textAlignment="center"
             android:textColor="@color/yellow"
             android:textSize="22sp" />
 
@@ -32,16 +31,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:gravity="center"
                 android:padding="2dp"
                 android:text="The League Of, League Spartan"
-                android:textAlignment="center"
                 android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Font Library"
-                android:textAlignment="center"
                 android:textColor="@color/red"
                 android:textSize="12sp" />
 
@@ -57,16 +56,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:gravity="center"
                 android:padding="2dp"
                 android:text="Christopher Jenkins, Calligraphy"
-                android:textAlignment="center"
                 android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Android Library"
-                android:textAlignment="center"
                 android:textColor="@color/red"
                 android:textSize="12sp" />
 
@@ -82,16 +81,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:gravity="center"
                 android:padding="2dp"
                 android:text="Balys Valentukevicius, Material Ripple"
-                android:textAlignment="center"
                 android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Android Library"
-                android:textAlignment="center"
                 android:textColor="@color/red"
                 android:textSize="12sp" />
 
@@ -120,7 +119,6 @@
                 android:background="@drawable/btn_rounded_green"
                 android:text="@string/preference_done"
                 android:textColor="@color/white" />
-
         </com.balysv.materialripple.MaterialRippleLayout>
     </LinearLayout>
 </ScrollView>

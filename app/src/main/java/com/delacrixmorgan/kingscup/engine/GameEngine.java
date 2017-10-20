@@ -44,7 +44,6 @@ public class GameEngine {
         mMediaPlayers.put("CARD_FLIP", MediaPlayer.create(context, R.raw.card_flip));
         mMediaPlayers.put("CARD_WHOOSH", MediaPlayer.create(context, R.raw.card_whoosh));
         mMediaPlayers.put("CARD_SHUFFLE", MediaPlayer.create(context, R.raw.card_shuffle));
-        mMediaPlayers.put("BUTTON_CLICK", MediaPlayer.create(context, R.raw.button_click));
 
         buildDeck(context, context.getPackageName());
         buildArray(context, context.getPackageName());
