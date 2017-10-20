@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.delacrixmorgan.kingscup"
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 9
         versionName "1.2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,7 +20,7 @@ android {
 }
 
 ext {
-    supportLib = '25.4.0'
+    supportLib = '26.1.0'
 }
 
 dependencies {
@@ -34,6 +34,5 @@ dependencies {
     compile "com.android.support:appcompat-v7:${supportLib}"
     compile "com.android.support:design:${supportLib}"
 
-    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.balysv:material-ripple:1.0.2'
 }
