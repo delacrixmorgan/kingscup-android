@@ -2,7 +2,6 @@ package com.delacrixmorgan.kingscup;
 
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,9 +14,6 @@ import android.view.View;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.fragment.MenuFragment;
 import com.delacrixmorgan.kingscup.shared.Helper;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Delacrix Morgan on 26/03/2017.
