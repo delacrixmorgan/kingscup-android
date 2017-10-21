@@ -4,18 +4,15 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.delacrixmorgan.kingscup.GameActivity;
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
 import com.delacrixmorgan.kingscup.shared.Helper;
-
-import static android.view.View.GONE;
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
@@ -24,16 +21,16 @@ import static android.view.View.GONE;
 public class MenuFragment extends Fragment implements View.OnClickListener {
 
     private static String TAG = "MenuFragment";
-    private Button mStartButton, mDeckButton, mSettingButton;
+    private FloatingActionButton mRateButton, mStartButton, mSettingButton;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu, container, false);
 
-        mStartButton = (Button) rootView.findViewById(R.id.button_start);
-        mDeckButton = (Button) rootView.findViewById(R.id.button_deck);
-        mSettingButton = (Button) rootView.findViewById(R.id.button_setting);
+        mRateButton = rootView.findViewById(R.id.fragment_menu_rate_button);
+        mStartButton = rootView.findViewById(R.id.fragment_menu_start_button);
+        mSettingButton = rootView.findViewById(R.id.fragment_menu_setting_button);
 
         return rootView;
     }
@@ -43,24 +40,23 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         GameEngine.newInstance(getActivity());
 
+        mRateButton.setOnClickListener(this);
         mStartButton.setOnClickListener(this);
-        mDeckButton.setOnClickListener(this);
         mSettingButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_start:
+            case R.id.fragment_menu_rate_button:
+                break;
+
+            case R.id.fragment_menu_start_button:
                 GameEngine.newInstance(getActivity());
                 startActivity(new Intent(getActivity(), GameActivity.class));
                 break;
 
-            case R.id.button_deck:
-                Toast.makeText(getActivity(), getResources().getString(R.string.designer_vocation), Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.button_setting:
+            case R.id.fragment_menu_setting_button:
                 Helper.showFragment(getActivity(), new SettingFragment(), MenuFragment.TAG);
                 break;
         }
