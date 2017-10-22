@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ public class SelectFragment extends Fragment {
     private static String TAG = "SelectFragment";
 
     private RecyclerView mCardRecyclerView;
+    private FloatingActionButton mQuitButton;
     private ProgressBar mProgressBar;
     private CardAdapter mCardAdapter;
     private Button mButtonEndGame;
@@ -38,14 +40,15 @@ public class SelectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_select, container, false);
 
-        mCardRecyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_select_card_recycler_view);
-        mProgressBar = (ProgressBar) rootView.findViewById(R.id.fragment_select_card_progress_bar);
+        mCardRecyclerView = rootView.findViewById(R.id.fragment_select_card_recycler_view);
+        mQuitButton = rootView.findViewById(R.id.fragment_select_quit_button);
+        mProgressBar = rootView.findViewById(R.id.fragment_select_card_progress_bar);
 
-        mButtonEndGame = (Button) rootView.findViewById(R.id.button_endgame);
-        mImageVolume = (ImageView) rootView.findViewById(R.id.image_cup_volume);
+        mButtonEndGame = rootView.findViewById(R.id.fragment_select_button_endgame);
+        mImageVolume = rootView.findViewById(R.id.fragment_select_image_cup_volume);
 
-        mTextStatusHeader = (TextView) rootView.findViewById(R.id.status_header);
-        mTextStatusBody = (TextView) rootView.findViewById(R.id.status_body);
+        mTextStatusHeader = rootView.findViewById(R.id.fragment_select_status_header);
+        mTextStatusBody = rootView.findViewById(R.id.fragment_select_status_body);
 
         return rootView;
     }
@@ -53,6 +56,14 @@ public class SelectFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        mQuitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().onBackPressed();
+            }
+        });
+
         final LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
 
         mCardAdapter = new CardAdapter(getActivity(), mProgressBar);
