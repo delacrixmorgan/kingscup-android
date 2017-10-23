@@ -57,7 +57,6 @@
                 android:src="@drawable/crown" />
         </LinearLayout>
 
-
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fragment_select_quit_button"
             android:layout_width="wrap_content"

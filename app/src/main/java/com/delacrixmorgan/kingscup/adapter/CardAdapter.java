@@ -2,7 +2,6 @@ package com.delacrixmorgan.kingscup.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,14 +35,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         holder.selectCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    mProgressBar.setMax(mProgressBar.getMax() - 1);
-                    
-                    GameEngine.getInstance().playSound(mContext, "CARD_FLIP");
-                    GameEngine.getInstance().drawCard(mContext, holder.getAdapterPosition());
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    Log.i(TAG, "onClick (ArrayIndexOutOfBoundsException) : " + e.getMessage());
-                }
+                mProgressBar.setMax(mProgressBar.getMax() - 1);
+                GameEngine.getInstance().playSound(mContext, "CARD_FLIP");
+                GameEngine.getInstance().drawCard(mContext, holder.getAdapterPosition());
             }
         });
     }
@@ -58,7 +52,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
         private CardViewHolder(View itemView) {
             super(itemView);
-            selectCard = (LinearLayout)itemView.findViewById(R.id.view_card_layout);
+            selectCard = itemView.findViewById(R.id.view_card_layout);
         }
     }
 }

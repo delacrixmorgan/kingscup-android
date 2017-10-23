@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:paddingEnd="10dp"
         android:paddingStart="10dp"
-        android:paddingTop="30dp">
+        android:paddingTop="5dp">
 
         <TextView
             android:id="@+id/card_light_value"
@@ -70,22 +70,17 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
 
-        <com.balysv.materialripple.MaterialRippleLayout
-            android:layout_width="match_parent"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fragment_card_done_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:mrl_rippleOverlay="true"
-            app:mrl_rippleRoundedCorners="50dp">
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/checked"
+            app:backgroundTint="@color/white"
+            app:elevation="0dp"
+            app:fabSize="mini" />
 
-            <Button
-                android:id="@+id/button_next"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_rounded_white"
-                android:text="@string/next_1"
-                android:textColor="@color/colorPrimary" />
-
-        </com.balysv.materialripple.MaterialRippleLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -97,7 +92,7 @@
         android:orientation="vertical"
         android:paddingEnd="10dp"
         android:paddingStart="10dp"
-        android:paddingTop="55dp"
+        android:paddingTop="5dp"
         android:rotation="-180">
 
         <TextView
