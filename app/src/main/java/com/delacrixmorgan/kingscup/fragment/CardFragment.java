@@ -6,16 +6,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
-import android.util.Log;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,29 +25,28 @@ import com.delacrixmorgan.kingscup.shared.Helper;
  * Created by Delacrix Morgan on 09/10/2016.
  */
 
-public class CardFragment extends Fragment implements View.OnClickListener {
-
+public class CardFragment extends Fragment implements View.OnTouchListener {
     private static String TAG = "CardFragment";
 
     private TextView mTextName, mTextAction, mTextLightValue, mTextDarkValue;
     private ImageView mLightLargeSymbol, mLightSmallSymbol, mDarkSmallSymbol;
-    private Button mNextButton;
+    private FloatingActionButton mDoneButton;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_card, container, false);
 
-        mTextName = (TextView) rootView.findViewById(R.id.card_name);
-        mTextAction = (TextView) rootView.findViewById(R.id.card_action);
-        mTextLightValue = (TextView) rootView.findViewById(R.id.card_light_value);
-        mTextDarkValue = (TextView) rootView.findViewById(R.id.card_dark_value);
+        mTextName = rootView.findViewById(R.id.card_name);
+        mTextAction = rootView.findViewById(R.id.card_action);
+        mTextLightValue = rootView.findViewById(R.id.card_light_value);
+        mTextDarkValue = rootView.findViewById(R.id.card_dark_value);
 
-        mLightLargeSymbol = (ImageView) rootView.findViewById(R.id.card_light_lg_symbol);
-        mLightSmallSymbol = (ImageView) rootView.findViewById(R.id.card_light_sm_symbol);
-        mDarkSmallSymbol = (ImageView) rootView.findViewById(R.id.card_dark_sm_symbol);
+        mLightLargeSymbol = rootView.findViewById(R.id.card_light_lg_symbol);
+        mLightSmallSymbol = rootView.findViewById(R.id.card_light_sm_symbol);
+        mDarkSmallSymbol = rootView.findViewById(R.id.card_dark_sm_symbol);
 
-        mNextButton = (Button) rootView.findViewById(R.id.button_next);
+        mDoneButton = rootView.findViewById(R.id.fragment_card_done_button);
 
         return rootView;
     }
@@ -60,7 +56,7 @@ public class CardFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         final Card card = GameEngine.getInstance().getCurrentCard();
 
-        Helper.animateButtonGrow(getActivity(), mNextButton);
+        Helper.animateButtonGrow(getActivity(), mDoneButton);
 
         mTextName.setText(card.getmName());
         mTextAction.setText(card.getmAction());
@@ -93,14 +89,13 @@ public class CardFragment extends Fragment implements View.OnClickListener {
                 break;
         }
 
-        mNextButton.setText(GameEngine.getInstance().getNextText());
 
         if (GameEngine.getInstance().getmKingCounter() < 1) {
             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(2000);
 
-            mNextButton.setVisibility(View.GONE);
-            mNextButton.setEnabled(false);
+            mDoneButton.setVisibility(View.GONE);
+            mDoneButton.setEnabled(false);
 
             Handler handler = new Handler();
             handler.post(new Runnable() {
@@ -124,21 +119,21 @@ public class CardFragment extends Fragment implements View.OnClickListener {
             }, 2000);
 
         } else {
-            mNextButton.setOnClickListener(this);
-            mNextButton.setEnabled(true);
+            mDoneButton.setOnTouchListener(this);
+            mDoneButton.setEnabled(true);
         }
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button_next:
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction()) {
+            case MotionEvent.ACTION_DOWN:
                 GameEngine.getInstance().playSound(getActivity(), "CARD_WHOOSH");
                 SelectFragment fragment = (SelectFragment) getFragmentManager().findFragmentByTag("SelectFragment");
                 fragment.updateFragment();
                 getFragmentManager().popBackStack();
-                mNextButton.setEnabled(false);
                 break;
         }
+        return true;
     }
 }

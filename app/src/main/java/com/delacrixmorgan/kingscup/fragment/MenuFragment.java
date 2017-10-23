@@ -46,17 +46,29 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        mRateButton.setEnabled(true);
+        mStartButton.setEnabled(true);
+        mSettingButton.setEnabled(true);
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fragment_menu_rate_button:
+                mRateButton.setEnabled(false);
                 break;
 
             case R.id.fragment_menu_start_button:
+                mStartButton.setEnabled(false);
                 GameEngine.newInstance(getActivity());
                 startActivity(new Intent(getActivity(), GameActivity.class));
                 break;
 
             case R.id.fragment_menu_setting_button:
+                mSettingButton.setEnabled(false);
                 Helper.showFragment(getActivity(), new SettingFragment(), MenuFragment.TAG);
                 break;
         }

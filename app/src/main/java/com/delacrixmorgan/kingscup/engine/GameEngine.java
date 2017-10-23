@@ -2,10 +2,8 @@ package com.delacrixmorgan.kingscup.engine;
 
 import android.app.Activity;
 import android.content.Context;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
@@ -13,11 +11,9 @@ import com.delacrixmorgan.kingscup.fragment.CardFragment;
 import com.delacrixmorgan.kingscup.model.Card;
 import com.delacrixmorgan.kingscup.shared.Helper;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Random;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -58,9 +54,9 @@ public class GameEngine {
         return sGameEngine;
     }
 
-    public void playSound(Context context, String key){
-        if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)){
-            if (mMediaPlayers.get(key) != null){
+    public void playSound(Context context, String key) {
+        if (context.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getBoolean(Helper.SOUND_EFFECTS_PREFERENCE, true)) {
+            if (mMediaPlayers.get(key) != null) {
                 mMediaPlayers.get(key).start();
             }
         }
@@ -140,7 +136,7 @@ public class GameEngine {
         mCurrentCardPosition = 0;
         mCardSelected = false;
 
-        if (mKingCounter <  1){
+        if (mKingCounter < 1) {
             mDeck.clear();
             adapter.notifyDataSetChanged();
         }

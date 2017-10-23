@@ -18,7 +18,6 @@ import android.widget.TextView;
 import com.delacrixmorgan.kingscup.R;
 import com.delacrixmorgan.kingscup.adapter.CardAdapter;
 import com.delacrixmorgan.kingscup.engine.GameEngine;
-import com.delacrixmorgan.kingscup.shared.Helper;
 
 import static android.view.View.GONE;
 
@@ -87,10 +86,10 @@ public class SelectFragment extends Fragment {
         }
 
         updateGraphics();
+
     }
 
     public void updateFragment() {
-        mCardRecyclerView.setEnabled(true);
         GameEngine.getInstance().updateCardAdapter(mCardAdapter);
         updateGraphics();
     }
@@ -111,7 +110,7 @@ public class SelectFragment extends Fragment {
                 mTextStatusBody.setText(R.string.game_over_header);
                 mTextStatusHeader.setText(R.string.game_over_body);
 
-                Helper.animateButtonGrow(getActivity(), mButtonEndGame);
+                //Helper.animateButtonGrow(getActivity(), mButtonEndGame);
                 mButtonEndGame.setVisibility(View.VISIBLE);
                 mButtonEndGame.setOnClickListener(new View.OnClickListener() {
                     @Override

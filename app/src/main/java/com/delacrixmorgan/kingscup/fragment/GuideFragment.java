@@ -41,10 +41,10 @@ public class GuideFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_guide, container, false);
 
-        mSymbol = (ImageView) rootView.findViewById(R.id.iv_guide_symbol);
-        mSkipButton = (Button) rootView.findViewById(R.id.btn_skip);
-        mViewPager = (ViewPager) rootView.findViewById(R.id.view_pager);
-        mTabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
+        mSymbol = rootView.findViewById(R.id.iv_guide_symbol);
+        mSkipButton = rootView.findViewById(R.id.btn_skip);
+        mViewPager = rootView.findViewById(R.id.view_pager);
+        mTabLayout = rootView.findViewById(R.id.tab_layout);
 
         return rootView;
     }
@@ -57,7 +57,7 @@ public class GuideFragment extends Fragment {
             Helper.showFragment(getActivity(), new SelectFragment(), GuideFragment.TAG);
         }
 
-        Helper.animateButtonGrow(getActivity(), mSkipButton);
+        //Helper.animateButtonGrow(getActivity(), mSkipButton);
 
         mViewPager.setAdapter(new sGuideAdapter(getActivity()));
         mTabLayout.setupWithViewPager(mViewPager, true);
