@@ -34,6 +34,7 @@ public class SelectFragment extends Fragment {
     private CardAdapter mCardAdapter;
     private Button mButtonEndGame;
     private ImageView mImageVolume;
+    private ImageView mKingOne, mKingTwo, mKingThree, mKingFour;
     private TextView mTextStatusHeader, mTextStatusBody;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,6 +46,11 @@ public class SelectFragment extends Fragment {
 
         mButtonEndGame = rootView.findViewById(R.id.fragment_select_button_endgame);
         mImageVolume = rootView.findViewById(R.id.fragment_select_image_cup_volume);
+
+        mKingOne = rootView.findViewById(R.id.fragment_select_king_1);
+        mKingTwo = rootView.findViewById(R.id.fragment_select_king_2);
+        mKingThree = rootView.findViewById(R.id.fragment_select_king_3);
+        mKingFour = rootView.findViewById(R.id.fragment_select_king_4);
 
         mTextStatusHeader = rootView.findViewById(R.id.fragment_select_status_header);
         mTextStatusBody = rootView.findViewById(R.id.fragment_select_status_body);
@@ -86,7 +92,6 @@ public class SelectFragment extends Fragment {
         }
 
         updateGraphics();
-
     }
 
     public void updateFragment() {
@@ -95,17 +100,10 @@ public class SelectFragment extends Fragment {
     }
 
     private void updateGraphics() {
-        int kingCounter;
-
-        try {
-            kingCounter = GameEngine.getInstance().getmKingCounter();
-        } catch (NullPointerException e) {
-            kingCounter = 4;
-        }
-
-        switch (kingCounter) {
+        switch (GameEngine.getInstance().getmKingCounter()) {
             case 0:
             case -1:
+                mKingOne.setVisibility(GONE);
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_4);
                 mTextStatusBody.setText(R.string.game_over_header);
                 mTextStatusHeader.setText(R.string.game_over_body);
@@ -122,18 +120,21 @@ public class SelectFragment extends Fragment {
                 break;
 
             case 1:
+                mKingTwo.setVisibility(GONE);
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_3);
                 mTextStatusBody.setText(getString(R.string.counter_1_king_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             case 2:
+                mKingThree.setVisibility(GONE);
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_2);
                 mTextStatusBody.setText(getString(R.string.counter_2_king_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
                 break;
 
             case 3:
+                mKingFour.setVisibility(GONE);
                 mImageVolume.setBackgroundResource(R.drawable.cup_volume_1);
                 mTextStatusBody.setText(getString(R.string.counter_3_king_left));
                 mTextStatusHeader.setText(GameEngine.getInstance().getNextText());
