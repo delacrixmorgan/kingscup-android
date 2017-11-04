@@ -49,7 +49,7 @@
         android:orientation="horizontal">
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fragment_menu_rate_button"
+            android:id="@+id/rateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -60,7 +60,7 @@
             app:fabSize="normal" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fragment_menu_start_button"
+            android:id="@+id/startButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -73,7 +73,7 @@
             app:fabSize="mini" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fragment_menu_setting_button"
+            android:id="@+id/settingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
