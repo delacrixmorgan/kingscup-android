@@ -128,8 +128,4 @@ class CardFragment : Fragment(), View.OnTouchListener {
         }
         return true
     }
-
-    companion object {
-        private val TAG = "CardFragment"
-    }
 }
