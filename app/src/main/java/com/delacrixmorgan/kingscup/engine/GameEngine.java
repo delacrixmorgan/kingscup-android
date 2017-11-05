@@ -125,7 +125,7 @@ public class GameEngine {
                 playSound(context, "KING");
             }
 
-            Helper.showAddFragmentSlideDown((Activity) context, new CardFragment(), "SelectFragment");
+            Helper.showAddFragmentSlideDown((Activity) context, new CardFragment());
         }
     }
 

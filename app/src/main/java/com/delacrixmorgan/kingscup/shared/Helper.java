@@ -38,21 +38,14 @@ public class Helper {
                 .commit();
     }
 
-    public static void showAddFragmentSlideDown(Activity activity, Fragment fragment, String backStack) {
+    public static void showAddFragmentSlideDown(Activity activity, Fragment fragment) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             fragment.setEnterTransition(new Slide(Gravity.BOTTOM).setDuration(200));
 
             activity.getFragmentManager()
                     .beginTransaction()
                     .add(R.id.activity_main_vg_fragment, fragment)
-                    .addToBackStack(backStack)
-                    .commit();
-        } else {
-            activity.getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.activity_main_vg_fragment, fragment, fragment.getClass().getSimpleName())
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .addToBackStack(backStack)
+                    .addToBackStack(fragment.getClass().getSimpleName())
                     .commit();
         }
     }
