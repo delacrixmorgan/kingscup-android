@@ -18,7 +18,7 @@
         android:paddingTop="5dp">
 
         <TextView
-            android:id="@+id/card_light_value"
+            android:id="@+id/lightLeftTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -28,7 +28,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/card_light_sm_symbol"
+            android:id="@+id/lightLeftImageView"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/heart_pink" />
@@ -43,13 +43,13 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/card_light_lg_symbol"
+            android:id="@+id/lightCenterImageView"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:background="@drawable/jack_pink" />
 
         <TextView
-            android:id="@+id/card_name"
+            android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -60,7 +60,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/card_action"
+            android:id="@+id/actionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
@@ -73,7 +73,7 @@
             android:textSize="18sp" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fragment_card_done_button"
+            android:id="@+id/doneButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -98,7 +98,7 @@
         android:rotation="-180">
 
         <TextView
-            android:id="@+id/card_dark_value"
+            android:id="@+id/darkRightTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -108,7 +108,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/card_dark_sm_symbol"
+            android:id="@+id/darkRightImageView"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/heart_dark" />
