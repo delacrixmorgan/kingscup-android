@@ -29,12 +29,12 @@ public class Helper {
     final public static CharSequence[] mLanguageItems = {"Default Language", "English", "简体中文"};
     private static String TAG = "Helper";
 
-    public static void showFragment(Activity activity, Fragment fragment, String backStack) {
+    public static void showFragment(Activity activity, Fragment fragment) {
         activity.getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.activity_main_vg_fragment, fragment, fragment.getClass().getSimpleName())
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .addToBackStack(backStack)
+                .addToBackStack(fragment.getClass().getSimpleName())
                 .commit();
     }
 

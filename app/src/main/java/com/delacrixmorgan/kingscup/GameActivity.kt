@@ -1,11 +1,9 @@
 package com.delacrixmorgan.kingscup
 
 import android.app.Activity
-import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.view.View
-
 import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.fragment.GuideFragment
 
@@ -18,12 +16,10 @@ class GameActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null) {
-            fragmentManager
-                    .beginTransaction()
-                    .replace(R.id.activity_main_vg_fragment, GuideFragment())
-                    .commit()
-        }
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.activity_main_vg_fragment, GuideFragment())
+                .commit()
     }
 
     override fun onBackPressed() {

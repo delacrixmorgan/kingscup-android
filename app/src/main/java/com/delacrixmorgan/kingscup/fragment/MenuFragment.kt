@@ -36,7 +36,7 @@ class MenuFragment : Fragment() {
 
         settingButton.setOnClickListener {
             settingButton.isEnabled = false
-            Helper.showFragment(activity, SettingFragment(), this::class.simpleName)
+            Helper.showFragment(activity, SettingFragment())
         }
     }
 
