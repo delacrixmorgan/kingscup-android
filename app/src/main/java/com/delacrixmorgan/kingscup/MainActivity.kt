@@ -26,11 +26,14 @@ class MainActivity : Activity() {
         volumeControlStream = AudioManager.STREAM_MUSIC
 
         if (savedInstanceState == null) {
-            fragmentManager
-                    .beginTransaction()
-                    .replace(R.id.activity_main_vg_fragment, MenuFragment())
-                    .commit()
+            GameEngine.newInstance(this)
         }
+
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.activity_main_vg_fragment, MenuFragment())
+                .commit()
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTaskDescription(ActivityManager.TaskDescription(
