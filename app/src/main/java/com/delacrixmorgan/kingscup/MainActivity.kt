@@ -1,13 +1,12 @@
 package com.delacrixmorgan.kingscup
 
-import android.app.Activity
 import android.app.ActivityManager
 import android.graphics.BitmapFactory
 import android.media.AudioManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-
+import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.fragment.MenuFragment
 import com.delacrixmorgan.kingscup.shared.Helper
@@ -16,7 +15,7 @@ import com.delacrixmorgan.kingscup.shared.Helper
  * Created by Delacrix Morgan on 26/03/2017.
  */
 
-class MainActivity : Activity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +28,9 @@ class MainActivity : Activity() {
             GameEngine.newInstance(this)
         }
 
-        fragmentManager
-                .beginTransaction()
-                .replace(R.id.activity_main_vg_fragment, MenuFragment())
-                .commit()
-
+        fragmentManager.inTransaction {
+            add(R.id.activity_main_vg_fragment, MenuFragment())
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTaskDescription(ActivityManager.TaskDescription(
