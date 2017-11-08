@@ -5,11 +5,11 @@ import android.graphics.BitmapFactory
 import android.media.AudioManager
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.fragment.MenuFragment
 import com.delacrixmorgan.kingscup.shared.Helper
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Created by Delacrix Morgan on 26/03/2017.
@@ -29,7 +29,7 @@ class MainActivity : BaseActivity() {
         }
 
         fragmentManager.inTransaction {
-            add(R.id.activity_main_vg_fragment, MenuFragment())
+            add(mainContainer.id, MenuFragment())
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -37,23 +37,6 @@ class MainActivity : BaseActivity() {
                     getString(R.string.app_name),
                     BitmapFactory.decodeResource(resources, R.drawable.kingscup_logo_icon),
                     resources.getColor(R.color.colorPrimary)))
-        }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        GameEngine.getInstance().playSound(this, "CARD_WHOOSH")
-    }
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
-            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
         }
     }
 }

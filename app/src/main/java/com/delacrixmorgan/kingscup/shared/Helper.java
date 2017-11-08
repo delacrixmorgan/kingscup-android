@@ -27,12 +27,11 @@ public class Helper {
     final public static String SOUND_EFFECTS_PREFERENCE = "SOUND_EFFECTS_PREFERENCE";
     final public static String LANGUAGE_PREFERENCE = "LANGUAGE_PREFERENCE";
     final public static CharSequence[] mLanguageItems = {"Default Language", "English", "简体中文"};
-    private static String TAG = "Helper";
 
     public static void showFragment(Activity activity, Fragment fragment) {
         activity.getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.activity_main_vg_fragment, fragment, fragment.getClass().getSimpleName())
+                .replace(R.id.mainContainer, fragment, fragment.getClass().getSimpleName())
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .addToBackStack(fragment.getClass().getSimpleName())
                 .commit();
@@ -44,7 +43,7 @@ public class Helper {
 
             activity.getFragmentManager()
                     .beginTransaction()
-                    .add(R.id.activity_main_vg_fragment, fragment)
+                    .add(R.id.mainContainer, fragment)
                     .addToBackStack(fragment.getClass().getSimpleName())
                     .commit();
         }
