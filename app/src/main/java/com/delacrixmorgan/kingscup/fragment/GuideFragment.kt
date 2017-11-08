@@ -13,7 +13,6 @@ import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.engine.GameEngine
 import kotlinx.android.synthetic.main.fragment_guide.*
 
@@ -46,10 +45,10 @@ class GuideFragment : Fragment() {
 
         skipButton.setOnClickListener {
 
-//            .fragmentManager
-//                    .beginTransaction()
-//                    .replace(R.id.activity_main_vg_fragment, SelectFragment(), SelectFragment::class.simpleName)
-//                    .commit()
+            activity.fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.mainContainer, SelectFragment(), SelectFragment::class.simpleName)
+                    .commit()
         }
     }
 

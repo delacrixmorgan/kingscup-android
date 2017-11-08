@@ -11,14 +11,14 @@ import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.adapter.CardAdapter
 import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.listener.CardSelectionListener
 import kotlinx.android.synthetic.main.fragment_select.*
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-class SelectFragment : Fragment() {
-
+class SelectFragment : Fragment(), CardSelectionListener {
     private var mCardAdapter: CardAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,7 +32,7 @@ class SelectFragment : Fragment() {
 
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
-        mCardAdapter = CardAdapter(activity, progressBar)
+        mCardAdapter = CardAdapter(this)
 
         recyclerView.layoutManager = manager
         recyclerView.adapter = mCardAdapter
@@ -50,6 +50,12 @@ class SelectFragment : Fragment() {
         }
 
         updateGraphics()
+    }
+
+    override fun onCardSelected(position: Int) {
+        progressBar.max = progressBar.max - 1
+        GameEngine.getInstance().playSound(activity, "CARD_FLIP")
+        GameEngine.getInstance().drawCard(activity, position)
     }
 
     fun updateFragment() {
