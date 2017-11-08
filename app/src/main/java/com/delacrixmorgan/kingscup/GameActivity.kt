@@ -1,25 +1,26 @@
 package com.delacrixmorgan.kingscup
 
-import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.view.View
+import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.fragment.GuideFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Created by Delacrix Morgan on 26/03/2017.
  */
 
-class GameActivity : Activity() {
+class GameActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fragmentManager
-                .beginTransaction()
-                .replace(R.id.activity_main_vg_fragment, GuideFragment())
-                .commit()
+        val fragment = GuideFragment()
+
+        fragmentManager.inTransaction {
+            replace(mainContainer.id, fragment)
+        }
     }
 
     override fun onBackPressed() {
@@ -39,18 +40,6 @@ class GameActivity : Activity() {
                         dialog.dismiss()
                     }
                     .show()
-        }
-    }
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
-            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
         }
     }
 }
