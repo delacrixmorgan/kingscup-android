@@ -17,6 +17,13 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  */
 
 class MenuFragment : Fragment() {
+
+    companion object {
+        fun newInstance(): MenuFragment {
+            return MenuFragment()
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu, container, false)
     }
