@@ -27,28 +27,15 @@ class SelectFragment : Fragment(), CardSelectionListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        quitButton.setOnClickListener { activity.onBackPressed() }
-
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         mCardAdapter = CardAdapter(this)
+        quitButton.setOnClickListener { activity.onBackPressed() }
 
         recyclerView.layoutManager = manager
         recyclerView.adapter = mCardAdapter
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            recyclerView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-                if (manager.findFirstVisibleItemPosition() == 0) {
-                    progressBar.progress = 0
-                } else {
-                    progressBar.progress = manager.findLastVisibleItemPosition()
-                }
-            }
-        } else {
-            progressBar.visibility = GONE
-        }
-
+        setupProgressBar(manager)
         updateGraphics()
     }
 
@@ -61,6 +48,20 @@ class SelectFragment : Fragment(), CardSelectionListener {
     fun updateFragment() {
         GameEngine.getInstance().updateCardAdapter(mCardAdapter)
         updateGraphics()
+    }
+
+    private fun setupProgressBar(manager: LinearLayoutManager) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            recyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
+                if (manager.findFirstVisibleItemPosition() == 0) {
+                    progressBar.progress = 0
+                } else {
+                    progressBar.progress = manager.findLastVisibleItemPosition()
+                }
+            }
+        } else {
+            progressBar.visibility = GONE
+        }
     }
 
     private fun updateGraphics() {
