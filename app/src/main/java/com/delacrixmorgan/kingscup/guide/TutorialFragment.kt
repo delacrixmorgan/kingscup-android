@@ -1,4 +1,4 @@
-package com.delacrixmorgan.kingscup.fragment
+package com.delacrixmorgan.kingscup.guide
 
 import android.app.Fragment
 import android.content.Context
@@ -14,13 +14,14 @@ import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.game.GameBoardFragment
 import kotlinx.android.synthetic.main.fragment_guide.*
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-class GuideFragment : Fragment() {
+class TutorialFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_guide, container, false)
@@ -47,7 +48,7 @@ class GuideFragment : Fragment() {
 
             activity.fragmentManager
                     .beginTransaction()
-                    .replace(R.id.mainContainer, SelectFragment(), SelectFragment::class.simpleName)
+                    .replace(R.id.mainContainer, GameBoardFragment(), GameBoardFragment::class.simpleName)
                     .commit()
         }
     }

@@ -1,4 +1,4 @@
-package com.delacrixmorgan.kingscup.shared;
+package com.delacrixmorgan.kingscup.common;
 
 import android.app.Activity;
 import android.app.Fragment;

@@ -1,4 +1,4 @@
-package com.delacrixmorgan.kingscup.adapter
+package com.delacrixmorgan.kingscup.game
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.engine.GameEngine
-import com.delacrixmorgan.kingscup.listener.CardSelectionListener
 
 /**
  * Created by Delacrix Morgan on 17/03/2017.
  */
 
-class CardAdapter(private val selectionListener: CardSelectionListener) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+class GameCardAdapter(private val selectionListener: GameCardSelectionListener) : RecyclerView.Adapter<GameCardAdapter.CardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         return CardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_card, parent, false))
