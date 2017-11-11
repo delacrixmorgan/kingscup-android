@@ -43,7 +43,7 @@ public class Helper {
 
             activity.getFragmentManager()
                     .beginTransaction()
-                    .add(R.id.mainContainer, fragment)
+                    .add(R.id.mainContainer, fragment, fragment.getClass().getSimpleName())
                     .addToBackStack(fragment.getClass().getSimpleName())
                     .commit();
         }
