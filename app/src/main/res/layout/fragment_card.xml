@@ -51,7 +51,7 @@
                 android:id="@+id/lightLeftImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/heart_pink" />
+                android:src="@drawable/heart_pink" />
 
         </LinearLayout>
 
@@ -66,7 +66,7 @@
                 android:id="@+id/lightCenterImageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:background="@drawable/jack_pink" />
+                android:src="@drawable/jack_pink" />
 
             <TextView
                 android:id="@+id/nameTextView"
@@ -131,7 +131,8 @@
                 android:id="@+id/darkRightImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/heart_dark" />
+                android:src="@drawable/heart_pink"
+                android:tint="@color/colorPrimary" />
 
         </LinearLayout>
     </RelativeLayout>

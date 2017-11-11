@@ -18,22 +18,22 @@ import kotlinx.android.synthetic.main.fragment_card.*
  */
 
 class GameCardFragment : Fragment(), View.OnTouchListener {
-    
+
     private lateinit var card: Card
     private var dataBinding: FragmentCardBinding? = null
     private var position: Int = 0
 
     companion object {
-        private const val GAMECARDFRAGMENT_CARD = "GameCardFragment.Card"
-        private const val GAMECARDFRAGMENT_POSITION = "GameCardFragment.Position"
+        private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
+        private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
 
         fun newInstance(card: Card? = null, position: Int = 0): GameCardFragment {
 
             val fragment = GameCardFragment()
             val args = Bundle()
 
-            args.putSerializable(GAMECARDFRAGMENT_CARD, card)
-            args.putInt(GAMECARDFRAGMENT_POSITION, position)
+            args.putSerializable(GAME_CARD_FRAGMENT_CARD, card)
+            args.putInt(GAME_CARD_FRAGMENT_POSITION, position)
 
             fragment.arguments = args
             return fragment
@@ -42,8 +42,8 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.card = arguments.getSerializable(GAMECARDFRAGMENT_CARD) as Card
-        this.position = arguments.getInt(GAMECARDFRAGMENT_POSITION)
+        this.card = arguments.getSerializable(GAME_CARD_FRAGMENT_CARD) as Card
+        this.position = arguments.getInt(GAME_CARD_FRAGMENT_POSITION)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -57,35 +57,23 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        val suitList = activity.resources.getStringArray(R.array.suit)
+        var suitDrawable: Int = R.drawable.spade_pink
 
-        Helper.animateButtonGrow(activity, doneButton)
-        doneButton.setOnTouchListener(this)
-//
-//        when (card.getmSuit()) {
-//            "Spade" -> {
-//                lightCenterImageView.setBackgroundResource(R.drawable.spade_pink)
-//                lightLeftImageView.setBackgroundResource(R.drawable.spade_pink)
-//                darkRightImageView!!.setBackgroundResource(R.drawable.spade_dark)
-//            }
-//
-//            "Heart" -> {
-//                lightCenterImageView.setBackgroundResource(R.drawable.heart_pink)
-//                lightLeftImageView.setBackgroundResource(R.drawable.heart_pink)
-//                darkRightImageView!!.setBackgroundResource(R.drawable.heart_dark)
-//            }
-//
-//            "Club" -> {
-//                lightCenterImageView.setBackgroundResource(R.drawable.club_pink)
-//                lightLeftImageView.setBackgroundResource(R.drawable.club_pink)
-//                darkRightImageView!!.setBackgroundResource(R.drawable.club_dark)
-//            }
-//
-//            "Diamond" -> {
-//                lightCenterImageView.setBackgroundResource(R.drawable.diamond_pink)
-//                lightLeftImageView.setBackgroundResource(R.drawable.diamond_pink)
-//                darkRightImageView!!.setBackgroundResource(R.drawable.diamond_dark)
-//            }
-//        }
+        when (this.card.suit) {
+            suitList[0] -> suitDrawable = R.drawable.spade_pink
+            suitList[1] -> suitDrawable = R.drawable.heart_pink
+            suitList[2] -> suitDrawable = R.drawable.club_pink
+            suitList[3] -> suitDrawable = R.drawable.diamond_pink
+        }
+
+        this.lightCenterImageView.setImageResource(suitDrawable)
+        this.lightLeftImageView.setImageResource(suitDrawable)
+        this.darkRightImageView.setImageResource(suitDrawable)
+
+        this.doneButton.setOnTouchListener(this)
+        Helper.animateButtonGrow(activity, this.doneButton)
 //
 //
 //        if (GameEngine.instance.getmKingCounter() < 1) {
