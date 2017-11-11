@@ -46,7 +46,7 @@ class GameEngine private constructor(context: Context) {
         Collections.shuffle(tauntList, Random(System.nanoTime()))
     }
 
-    fun drawCard(position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
+    fun removeCard(position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
         deckList.removeAt(position)
         cardAdapter.notifyItemRemoved(position)
         progressBar.max--
