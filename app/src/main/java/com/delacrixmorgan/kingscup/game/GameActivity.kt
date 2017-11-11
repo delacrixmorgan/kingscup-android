@@ -1,5 +1,7 @@
 package com.delacrixmorgan.kingscup.game
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.delacrixmorgan.kingscup.R
@@ -12,12 +14,19 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 
 class GameActivity : BaseActivity() {
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, GameActivity::class.java)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val fragment = GuideListFragment()
-
+        
         fragmentManager.inTransaction {
             replace(mainContainer.id, fragment)
         }
