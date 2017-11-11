@@ -64,5 +64,4 @@
             android:text="@string/skip"
             android:textColor="@color/colorPrimary" />
     </RelativeLayout>
-
 </RelativeLayout>

@@ -14,7 +14,7 @@ import android.widget.TextView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.game.GameBoardFragment
-import kotlinx.android.synthetic.main.fragment_guide.*
+import kotlinx.android.synthetic.main.fragment_guide_list.*
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_guide.*
 class GuideListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_guide, container, false)
+        return inflater.inflate(R.layout.fragment_guide_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,7 +58,7 @@ class GuideListFragment : Fragment() {
 
     private inner class GuideAdapter : PagerAdapter() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
-            val rootView = LayoutInflater.from(activity).inflate(R.layout.view_guide, collection, false)
+            val rootView = LayoutInflater.from(activity).inflate(R.layout.view_guide_list, collection, false)
 
             rootView.findViewById<TextView>(R.id.guideTextView).text = GameEngine.getInstance()?.guideList!![position]
             collection.addView(rootView)

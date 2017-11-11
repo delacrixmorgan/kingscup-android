@@ -15,7 +15,7 @@ import com.delacrixmorgan.kingscup.common.GameEngine
 class GameCardAdapter(private val selectionListener: GameCardSelectionListener) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder {
-        return GameCardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_card, parent, false))
+        return GameCardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_game_card, parent, false))
     }
 
     override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
