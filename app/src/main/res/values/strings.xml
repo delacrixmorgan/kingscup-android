@@ -5,54 +5,6 @@
     <string name="deck_selector">Deck Selector</string>
     <string name="preferences">Preferences</string>
 
-    <string name="suit_1">Spade</string>
-    <string name="suit_2">Heart</string>
-    <string name="suit_3">Club</string>
-    <string name="suit_4">Diamond</string>
-
-    <string name="name_1">Waterfall</string>
-    <string name="name_2">You</string>
-    <string name="name_3">Me</string>
-    <string name="name_4">Thumb Master</string>
-    <string name="name_5">Dudes</string>
-    <string name="name_6">Chicks</string>
-    <string name="name_7">Heaven</string>
-    <string name="name_8">Mate</string>
-    <string name="name_9">Snake Eyes</string>
-    <string name="name_10">Category</string>
-    <string name="name_11">Jack</string>
-    <string name="name_12">Questions</string>
-    <string name="name_13">King</string>
-
-    <string name="action_1">Everyone starts drinking until the person who draw the card stopped.</string>
-    <string name="action_2">Choose a mate\nAnd drink together!</string>
-    <string name="action_3">Only you. Drink!</string>
-    <string name="action_4">Place your thumb\non the table.\nLast to do so, drinks!</string>
-    <string name="action_5">All guys drink!</string>
-    <string name="action_6">All ladies drink!</string>
-    <string name="action_7">Everyone reach for the sky with both hands.\nLast player drinks!</string>
-    <string name="action_8">Choose a partner and drinks whenever the player drinks!</string>
-    <string name="action_9">Nobody can make\neye contact with you.\nIf caught, drink!</string>
-    <string name="action_10">Choose a category.\nSay something that fits until whoever can\'t think of any, drink!</string>
-    <string name="action_11">Complete the sentence,\n "Never have I ever.." \nAnyone who has, drink!</string>
-    <string name="action_12">Ask a player a question.\nThey must respond with another question to the next person.\n\nFirst to fail, drink!</string>
-    <string name="action_13">Set a new rule.\nFill the King\'s Cup!</string>
-
-    <string name="next_1">Hit Me</string>
-    <string name="next_2">Coming Up</string>
-    <string name="next_3">Just One More</string>
-    <string name="next_4">This Is It</string>
-    <string name="next_5">Don\'t Think</string>
-    <string name="next_6">Drink Me</string>
-    <string name="next_7">Faster Mate</string>
-    <string name="next_8">You Sure?</string>
-    <string name="next_9">Alright Buddy?</string>
-    <string name="next_10">Come On</string>
-
-    <string name="guide_1">Yes, this a drinking game.\nDoesn\'t has to be alcoholic.\n\nEveryone have your own drinking cup and place a cup in the middle to be the King\'s Cup.</string>
-    <string name="guide_2">Pick a person to start the game, select a card and do what it says.\n\nThere is no escape!\nPass to the next person when you are done.</string>
-    <string name="guide_3">Draw a King from the deck,\nyou can choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</string>
-
     <string name="quit_title">Quit Game</string>
     <string name="quit_header">Are you sure that you want to quit?</string>
     <string name="quit_yes">I am afraid to go on</string>
@@ -78,5 +30,4 @@
     <string name="sound_effects">Sound Effects</string>
 
     <string name="language">Language</string>
-
 </resources>
