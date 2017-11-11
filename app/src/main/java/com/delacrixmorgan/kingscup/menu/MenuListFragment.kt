@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.game.GameActivity
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
 import kotlinx.android.synthetic.main.fragment_menu.*
 

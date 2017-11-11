@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
 import kotlinx.android.synthetic.main.fragment_card.*
 
@@ -80,7 +80,6 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
             }
 
             handler.postDelayed({
-                GameEngine.instance.playSound(activity, "GAME_OVER")
                 val fragment = fragmentManager.findFragmentByTag("GameBoardFragment") as GameBoardFragment
                 fragment.updateFragment()
                 fragmentManager.popBackStack()
@@ -95,7 +94,6 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
         when (motionEvent.action) {
             MotionEvent.ACTION_DOWN -> {
-                GameEngine.instance.playSound(activity, "CARD_WHOOSH")
                 val fragment = fragmentManager.findFragmentByTag("GameBoardFragment") as GameBoardFragment
                 fragment.updateFragment()
                 fragmentManager.popBackStack()
