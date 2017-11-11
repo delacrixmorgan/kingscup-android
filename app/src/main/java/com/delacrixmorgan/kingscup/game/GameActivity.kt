@@ -25,19 +25,19 @@ class GameActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (GameEngine.getInstance().getmKingCounter() < 1) {
+        if (GameEngine.instance.getmKingCounter() < 1) {
             finish()
         } else {
             AlertDialog.Builder(this)
                     .setTitle(R.string.quit_title)
                     .setMessage(R.string.quit_header)
                     .setPositiveButton(R.string.quit_yes) { dialog, which ->
-                        GameEngine.getInstance().playSound(applicationContext, "CARD_WHOOSH")
+                        GameEngine.instance.playSound(applicationContext, "CARD_WHOOSH")
                         finish()
                         dialog.dismiss()
                     }
                     .setNegativeButton(R.string.quit_no) { dialog, which ->
-                        GameEngine.getInstance().playSound(applicationContext, "CARD_WHOOSH")
+                        GameEngine.instance.playSound(applicationContext, "CARD_WHOOSH")
                         dialog.dismiss()
                     }
                     .show()
