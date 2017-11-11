@@ -40,10 +40,12 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     }
 
     override fun onCardSelected(position: Int) {
-        //GameEngine.newInstance(activity).drawCard(position, cardAdapter, progressBar)
-
-        val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position))
+        val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
         Helper.showAddFragmentSlideDown(activity, fragment)
+    }
+
+    fun removeCardFromDeck(position: Int) {
+        GameEngine.newInstance(activity).drawCard(position, cardAdapter, progressBar)
     }
 
     private fun setupProgressBar(manager: LinearLayoutManager) {

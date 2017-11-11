@@ -17,25 +17,30 @@ import kotlinx.android.synthetic.main.fragment_card.*
 
 class GameCardFragment : Fragment(), View.OnTouchListener {
 
+    private lateinit var card: Card
+    private var position: Int = 0
+
     companion object {
-        const val GAMECARDFRAGMENT_CARD = "GameCardFragment.Card"
-        fun newInstance(card: Card? = null): GameCardFragment {
+        private const val GAMECARDFRAGMENT_CARD = "GameCardFragment.Card"
+        private const val GAMECARDFRAGMENT_POSITION = "GameCardFragment.Position"
+
+        fun newInstance(card: Card? = null, position: Int = 0): GameCardFragment {
 
             val fragment = GameCardFragment()
             val args = Bundle()
 
             args.putSerializable(GAMECARDFRAGMENT_CARD, card)
+            args.putInt(GAMECARDFRAGMENT_POSITION, position)
 
             fragment.arguments = args
             return fragment
         }
     }
 
-    lateinit var card: Card
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.card = arguments.getSerializable(GAMECARDFRAGMENT_CARD) as Card
+        this.position = arguments.getInt(GAMECARDFRAGMENT_POSITION)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -110,6 +115,10 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
         when (motionEvent.action) {
             MotionEvent.ACTION_DOWN -> {
+                val fragmentTag = GameBoardFragment().javaClass.simpleName
+                val fragment = fragmentManager.findFragmentByTag(fragmentTag) as GameBoardFragment
+
+                fragment.removeCardFromDeck(this.position)
                 fragmentManager.popBackStack()
             }
         }
