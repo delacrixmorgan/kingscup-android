@@ -45,7 +45,7 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     }
 
     fun removeCardFromDeck(position: Int) {
-        GameEngine.newInstance(activity).drawCard(position, cardAdapter, progressBar)
+        GameEngine.newInstance(activity).removeCard(position, cardAdapter, progressBar)
     }
 
     private fun setupProgressBar(manager: LinearLayoutManager) {

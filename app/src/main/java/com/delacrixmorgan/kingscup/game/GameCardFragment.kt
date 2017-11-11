@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.game
 
 import android.app.Fragment
+import android.databinding.DataBindingUtil.bind
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.Helper
+import com.delacrixmorgan.kingscup.databinding.FragmentCardBinding
 import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.fragment_card.*
 
@@ -16,8 +18,9 @@ import kotlinx.android.synthetic.main.fragment_card.*
  */
 
 class GameCardFragment : Fragment(), View.OnTouchListener {
-
+    
     private lateinit var card: Card
+    private var dataBinding: FragmentCardBinding? = null
     private var position: Int = 0
 
     companion object {
@@ -44,7 +47,12 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_card, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_card, container, false)
+
+        this.dataBinding = bind(rootView)
+        this.dataBinding?.card = this.card
+
+        return rootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,12 +60,6 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
         Helper.animateButtonGrow(activity, doneButton)
         doneButton.setOnTouchListener(this)
-
-        nameTextView.text = card.header
-        actionTextView.text = card.body
-
-        lightLeftTextView.text = card.rank
-        darkRightTextView!!.text = card.rank
 //
 //        when (card.getmSuit()) {
 //            "Spade" -> {
