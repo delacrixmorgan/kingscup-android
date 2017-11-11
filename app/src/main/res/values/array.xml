@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="suit">
+        <item>Spade</item>
+        <item>Heart</item>
+        <item>Club</item>
+        <item>Diamond</item>
+    </string-array>
+
+    <string-array name="header">
+        <item>Waterfall</item>
+        <item>You</item>
+        <item>Me</item>
+        <item>Thumb Master</item>
+        <item>Dudes</item>
+        <item>Chicks</item>
+        <item>Heaven</item>
+        <item>Mate</item>
+        <item>Snake Eyes</item>
+        <item>Category</item>
+        <item>Jack</item>
+        <item>Questions</item>
+        <item>King</item>
+    </string-array>
+
+    <string-array name="body">
+        <item>Everyone starts drinking until the person who draw the card stopped.</item>
+        <item>Choose a mate\nAnd drink together!</item>
+        <item>>Only you. Drink!</item>
+        <item>Place your thumb\non the table.\nLast to do so, drinks!</item>
+        <item>All guys drink!</item>
+        <item>All ladies drink!</item>
+        <item>Everyone reach for the sky with both hands.\nLast player drinks!</item>
+        <item>Choose a partner and drinks whenever the player drinks!</item>
+        <item>Nobody can make\neye contact with you.\nIf caught, drink!</item>
+        <item>Choose a category.\nSay something that fits until whoever can\'t think of any, drink!</item>
+        <item>Complete the sentence,\n "Never have I ever.." \nAnyone who has, drink!</item>
+        <item>Ask a player a question.\nThey must respond with another question to the next person.\n\nFirst to fail, drink!</item>
+        <item>Set a new rule.\nFill the King\'s Cup!</item>
+    </string-array>
+
+    <string-array name="taunt">
+        <item>Hit Me</item>
+        <item>Coming Up</item>
+        <item>Just One More</item>
+        <item>This Is It</item>
+        <item>Don\'t Think</item>
+        <item>Drink Me</item>
+        <item>Faster Mate</item>
+        <item>You Sure?</item>
+        <item>Alright Buddy?</item>
+        <item>Come On</item>
+    </string-array>
+
+    <string-array name="guide">
+        <item>Yes, this a drinking game.\nDoesn\'t has to be alcoholic.\n\nEveryone have your own drinking cup and place a cup in the middle to be the King\'s Cup.</item>
+        <item>Pick a person to start the game, select a card and do what it says.\n\nThere is no escape!\nPass to the next person when you are done.</item>
+        <item>Draw a King from the deck,\nyou can choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</item>
+    </string-array>
+</resources>

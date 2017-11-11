@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_guide.*
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-class TutorialFragment : Fragment() {
+class GuideListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_guide, container, false)
