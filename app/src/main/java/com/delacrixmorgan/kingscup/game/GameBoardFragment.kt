@@ -10,6 +10,7 @@ import android.view.View.GONE
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.Helper
 import kotlinx.android.synthetic.main.fragment_select.*
 
 /**
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_select.*
  */
 
 class GameBoardFragment : Fragment(), GameCardSelectionListener {
-    private var mCardAdapter: GameCardAdapter? = null
+    private lateinit var cardAdapter: GameCardAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_select, container, false)
@@ -25,26 +26,22 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
-        mCardAdapter = GameCardAdapter(this)
+        cardAdapter = GameCardAdapter(this)
         quitButton.setOnClickListener { activity.onBackPressed() }
 
         recyclerView.layoutManager = manager
-        recyclerView.adapter = mCardAdapter
+        recyclerView.adapter = cardAdapter
 
         setupProgressBar(manager)
         updateGraphics()
     }
 
     override fun onCardSelected(position: Int) {
-        progressBar.max--
-        mCardAdapter?.let { GameEngine.newInstance(activity).drawCard(position, it) }
-    }
-
-    fun updateFragment() {
-        GameEngine.instance.updateCardAdapter(mCardAdapter)
-        updateGraphics()
+        GameEngine.newInstance(activity).drawCard(position, cardAdapter, progressBar)
+        Helper.showAddFragmentSlideDown(activity, GameCardFragment())
     }
 
     private fun setupProgressBar(manager: LinearLayoutManager) {
@@ -62,45 +59,45 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     }
 
     private fun updateGraphics() {
-        when (GameEngine.getInstance()?.getmKingCounter()) {
-            0, -1 -> {
-                kingOneImageView.visibility = GONE
-                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_4)
-                statusBodyTextView.setText(R.string.game_over_header)
-                statusTauntTextView.setText(R.string.game_over_body)
-
-                endGameButton.visibility = View.VISIBLE
-                endGameButton.setOnClickListener {
-                    activity.finish()
-                }
-            }
-
-            1 -> {
-                kingTwoImageView.visibility = GONE
-                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_3)
-                statusBodyTextView.text = getString(R.string.counter_1_king_left)
-                statusTauntTextView.text = GameEngine.instance.nextText
-            }
-
-            2 -> {
-                kingThreeImageView.visibility = GONE
-                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_2)
-                statusBodyTextView.text = getString(R.string.counter_2_king_left)
-                statusTauntTextView.text = GameEngine.instance.nextText
-            }
-
-            3 -> {
-                kingFourImageView.visibility = GONE
-                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_1)
-                statusBodyTextView.text = getString(R.string.counter_3_king_left)
-                statusTauntTextView.text = GameEngine.instance.nextText
-            }
-
-            else -> {
-                cupVolumeImageView.setBackgroundResource(R.drawable.cup_whole)
-                statusBodyTextView.text = getString(R.string.counter_4_king_left)
-                statusTauntTextView.text = GameEngine.instance.nextText
-            }
-        }
+//        when (GameEngine.getInstance()?.getmKingCounter()) {
+//            0, -1 -> {
+//                kingOneImageView.visibility = GONE
+//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_4)
+//                statusBodyTextView.setText(R.string.game_over_header)
+//                statusTauntTextView.setText(R.string.game_over_body)
+//
+//                endGameButton.visibility = View.VISIBLE
+//                endGameButton.setOnClickListener {
+//                    activity.finish()
+//                }
+//            }
+//
+//            1 -> {
+//                kingTwoImageView.visibility = GONE
+//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_3)
+//                statusBodyTextView.text = getString(R.string.counter_1_king_left)
+//                statusTauntTextView.text = GameEngine.instance.nextText
+//            }
+//
+//            2 -> {
+//                kingThreeImageView.visibility = GONE
+//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_2)
+//                statusBodyTextView.text = getString(R.string.counter_2_king_left)
+//                statusTauntTextView.text = GameEngine.instance.nextText
+//            }
+//
+//            3 -> {
+//                kingFourImageView.visibility = GONE
+//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_1)
+//                statusBodyTextView.text = getString(R.string.counter_3_king_left)
+//                statusTauntTextView.text = GameEngine.instance.nextText
+//            }
+//
+//            else -> {
+//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_whole)
+//                statusBodyTextView.text = getString(R.string.counter_4_king_left)
+//                statusTauntTextView.text = GameEngine.instance.nextText
+//            }
+//        }
     }
 }
