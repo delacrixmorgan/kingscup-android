@@ -61,7 +61,7 @@ class GuideListFragment : Fragment() {
             val rootView = inflater.inflate(R.layout.view_guide, collection, false)
 
             mGuideText = rootView.findViewById<View>(R.id.tv_guide) as TextView
-            mGuideText!!.text = GameEngine.getInstance().getmGuideArray()[position]
+            mGuideText!!.text = GameEngine.instance.getmGuideArray()[position]
 
             collection.addView(rootView)
 
@@ -73,7 +73,7 @@ class GuideListFragment : Fragment() {
         }
 
         override fun getCount(): Int {
-            return GameEngine.getInstance().getmGuideArray().size
+            return GameEngine.instance.getmGuideArray().size
         }
 
         override fun isViewFromObject(view: View, `object`: Any): Boolean {

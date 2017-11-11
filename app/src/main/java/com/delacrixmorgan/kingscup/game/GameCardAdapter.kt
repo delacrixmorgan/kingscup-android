@@ -25,7 +25,7 @@ class GameCardAdapter(private val selectionListener: GameCardSelectionListener) 
     }
 
     override fun getItemCount(): Int {
-        return GameEngine.getInstance().getmDeck().size
+        return GameEngine.instance.getmDeck().size
     }
 
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

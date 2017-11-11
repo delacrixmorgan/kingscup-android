@@ -28,7 +28,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val card = GameEngine.getInstance().currentCard
+        val card = GameEngine.instance.currentCard
 
         Helper.animateButtonGrow(activity, doneButton)
 
@@ -65,7 +65,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         }
 
 
-        if (GameEngine.getInstance().getmKingCounter() < 1) {
+        if (GameEngine.instance.getmKingCounter() < 1) {
             val vibrator = activity.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             vibrator.vibrate(2000)
 
@@ -80,7 +80,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
             }
 
             handler.postDelayed({
-                GameEngine.getInstance().playSound(activity, "GAME_OVER")
+                GameEngine.instance.playSound(activity, "GAME_OVER")
                 val fragment = fragmentManager.findFragmentByTag("GameBoardFragment") as GameBoardFragment
                 fragment.updateFragment()
                 fragmentManager.popBackStack()
@@ -95,7 +95,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
         when (motionEvent.action) {
             MotionEvent.ACTION_DOWN -> {
-                GameEngine.getInstance().playSound(activity, "CARD_WHOOSH")
+                GameEngine.instance.playSound(activity, "CARD_WHOOSH")
                 val fragment = fragmentManager.findFragmentByTag("GameBoardFragment") as GameBoardFragment
                 fragment.updateFragment()
                 fragmentManager.popBackStack()
