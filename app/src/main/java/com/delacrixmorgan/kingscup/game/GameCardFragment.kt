@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.Helper
+import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.fragment_card.*
 
 /**
@@ -16,22 +17,42 @@ import kotlinx.android.synthetic.main.fragment_card.*
 
 class GameCardFragment : Fragment(), View.OnTouchListener {
 
+    companion object {
+        const val GAMECARDFRAGMENT_CARD = "GameCardFragment.Card"
+        fun newInstance(card: Card? = null): GameCardFragment {
+
+            val fragment = GameCardFragment()
+            val args = Bundle()
+
+            args.putSerializable(GAMECARDFRAGMENT_CARD, card)
+
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    lateinit var card: Card
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        this.card = arguments.getSerializable(GAMECARDFRAGMENT_CARD) as Card
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_card, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val card = GameEngine.g.currentCard
 
         Helper.animateButtonGrow(activity, doneButton)
         doneButton.setOnTouchListener(this)
 
-//        nameTextView.text = card.getmName()
-//        actionTextView.text = card.getmAction()
-//
-//        lightLeftTextView.text = card.getmValue()
-//        darkRightTextView!!.text = card.getmValue()
+        nameTextView.text = card.header
+        actionTextView.text = card.body
+
+        lightLeftTextView.text = card.rank
+        darkRightTextView!!.text = card.rank
 //
 //        when (card.getmSuit()) {
 //            "Spade" -> {
