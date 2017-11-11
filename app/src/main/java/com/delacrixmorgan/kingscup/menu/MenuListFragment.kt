@@ -1,15 +1,14 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.app.Fragment
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.delacrixmorgan.kingscup.game.GameActivity
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
+import com.delacrixmorgan.kingscup.game.GameActivity
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
@@ -17,12 +16,6 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  */
 
 class MenuListFragment : Fragment() {
-
-    companion object {
-        fun newInstance(): MenuListFragment {
-            return MenuListFragment()
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu, container, false)
@@ -38,7 +31,9 @@ class MenuListFragment : Fragment() {
 
         startButton.setOnClickListener {
             GameEngine.newInstance(activity)
-            startActivity(Intent(activity, GameActivity::class.java))
+
+            val intent = GameActivity.newIntent(activity)
+            startActivity(intent)
         }
 
         settingButton.setOnClickListener {

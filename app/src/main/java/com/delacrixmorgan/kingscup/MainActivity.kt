@@ -4,6 +4,7 @@ import android.app.ActivityManager
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity() {
             setTaskDescription(ActivityManager.TaskDescription(
                     getString(R.string.app_name),
                     BitmapFactory.decodeResource(resources, R.drawable.kingscup_logo_icon),
-                    R.color.colorPrimary))
+                    ContextCompat.getColor(this, R.color.colorPrimary)))
         }
     }
 }
