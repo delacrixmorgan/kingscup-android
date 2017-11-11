@@ -1,10 +1,9 @@
 package com.delacrixmorgan.kingscup.common
 
-import android.app.Activity
 import android.content.Context
+import android.widget.ProgressBar
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.game.GameCardAdapter
-import com.delacrixmorgan.kingscup.game.GameCardFragment
 import com.delacrixmorgan.kingscup.model.Card
 import java.util.*
 import kotlin.collections.ArrayList
@@ -15,20 +14,18 @@ import kotlin.collections.ArrayList
 
 class GameEngine private constructor(context: Context) {
 
-    private var mKingCounter: Int = 0
     private var mCurrentCardPosition: Int = 0
     private var mCardSelected: Boolean? = null
 
+    private var kingCounter: Int = 4
+
     val deckList = ArrayList<Card>()
-    private val guideList = ArrayList<String>()
-    private val tauntList = ArrayList<String>()
+    val guideList = ArrayList<String>()
+    val tauntList = ArrayList<String>()
 
     companion object : SingletonHolder<GameEngine, Context>(::GameEngine)
 
     init {
-        mKingCounter = 4
-        mCardSelected = false
-
         this.buildGame(context)
     }
 
@@ -46,51 +43,25 @@ class GameEngine private constructor(context: Context) {
         gameTaunts.forEach { gameTaunt -> tauntList.add(gameTaunt) }
 
         Collections.shuffle(deckList, Random(System.nanoTime()))
+        Collections.shuffle(tauntList, Random(System.nanoTime()))
     }
 
-    fun drawCard(position: Int, cardAdapter: GameCardAdapter) {
+    fun drawCard(position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
         deckList.removeAt(position)
         cardAdapter.notifyItemRemoved(position)
-        
-        if ((!mCardSelected)!!) {
-            mCurrentCardPosition = i
-            mCardSelected = true
-
-            Helper.showAddFragmentSlideDown(context as Activity, GameCardFragment())
-        }
+        progressBar.max--
     }
 
-    val nextText: String
-        get() {
-            Collections.shuffle(mNextArray!!, Random(System.nanoTime()))
-            return mNextArray!![0]
-        }
-
-    val currentCard: Card
-        get() = mDeck!![mCurrentCardPosition]
-
-    fun updateCardAdapter(adapter: GameCardAdapter) {
-        mDeck!!.removeAt(mCurrentCardPosition)
-        adapter.notifyItemRemoved(mCurrentCardPosition)
-
-        mCurrentCardPosition = 0
-        mCardSelected = false
-
-        if (mKingCounter < 1) {
-            mDeck!!.clear()
-            adapter.notifyDataSetChanged()
-        }
-    }
-
-    fun getmKingCounter(): Int {
-        return mKingCounter
-    }
-
-    fun getmDeck(): ArrayList<Card>? {
-        return mDeck
-    }
-
-    fun getmGuideArray(): ArrayList<String>? {
-        return mGuideArray
-    }
+//    fun updateCardAdapter(adapter: GameCardAdapter) {
+//        mDeck!!.removeAt(mCurrentCardPosition)
+//        adapter.notifyItemRemoved(mCurrentCardPosition)
+//
+//        mCurrentCardPosition = 0
+//        mCardSelected = false
+//
+//        if (kingCounter < 1) {
+//            mDeck!!.clear()
+//            adapter.notifyDataSetChanged()
+//        }
+//    }
 }

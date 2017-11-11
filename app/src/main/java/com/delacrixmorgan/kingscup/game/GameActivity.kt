@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseActivity
-import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.guide.GuideListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -25,22 +24,16 @@ class GameActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (GameEngine.instance.getmKingCounter() < 1) {
-            finish()
-        } else {
-            AlertDialog.Builder(this)
-                    .setTitle(R.string.quit_title)
-                    .setMessage(R.string.quit_header)
-                    .setPositiveButton(R.string.quit_yes) { dialog, which ->
-                        GameEngine.instance.playSound(applicationContext, "CARD_WHOOSH")
-                        finish()
-                        dialog.dismiss()
-                    }
-                    .setNegativeButton(R.string.quit_no) { dialog, which ->
-                        GameEngine.instance.playSound(applicationContext, "CARD_WHOOSH")
-                        dialog.dismiss()
-                    }
-                    .show()
-        }
+        AlertDialog.Builder(this)
+                .setTitle(R.string.quit_title)
+                .setMessage(R.string.quit_header)
+                .setPositiveButton(R.string.quit_yes) { dialog, _ ->
+                    finish()
+                    dialog.dismiss()
+                }
+                .setNegativeButton(R.string.quit_no) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
     }
 }
