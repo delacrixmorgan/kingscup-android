@@ -1,4 +1,4 @@
-package com.delacrixmorgan.kingscup.fragment
+package com.delacrixmorgan.kingscup.game
 
 import android.app.Fragment
 import android.os.Build
@@ -9,17 +9,15 @@ import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.adapter.CardAdapter
 import com.delacrixmorgan.kingscup.engine.GameEngine
-import com.delacrixmorgan.kingscup.listener.CardSelectionListener
 import kotlinx.android.synthetic.main.fragment_select.*
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-class SelectFragment : Fragment(), CardSelectionListener {
-    private var mCardAdapter: CardAdapter? = null
+class GameBoardFragment : Fragment(), GameCardSelectionListener {
+    private var mCardAdapter: GameCardAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_select, container, false)
@@ -29,7 +27,7 @@ class SelectFragment : Fragment(), CardSelectionListener {
         super.onViewCreated(view, savedInstanceState)
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
-        mCardAdapter = CardAdapter(this)
+        mCardAdapter = GameCardAdapter(this)
         quitButton.setOnClickListener { activity.onBackPressed() }
 
         recyclerView.layoutManager = manager

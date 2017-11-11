@@ -1,4 +1,4 @@
-package com.delacrixmorgan.kingscup.fragment
+package com.delacrixmorgan.kingscup.game
 
 import android.app.Fragment
 import android.content.Context
@@ -13,14 +13,14 @@ import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.engine.GameEngine
-import com.delacrixmorgan.kingscup.shared.Helper
+import com.delacrixmorgan.kingscup.common.Helper
 import kotlinx.android.synthetic.main.fragment_card.*
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
  */
 
-class CardFragment : Fragment(), View.OnTouchListener {
+class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_card, container, false)
@@ -81,7 +81,7 @@ class CardFragment : Fragment(), View.OnTouchListener {
 
             handler.postDelayed({
                 GameEngine.getInstance().playSound(activity, "GAME_OVER")
-                val fragment = fragmentManager.findFragmentByTag("SelectFragment") as SelectFragment
+                val fragment = fragmentManager.findFragmentByTag("GameBoardFragment") as GameBoardFragment
                 fragment.updateFragment()
                 fragmentManager.popBackStack()
             }, 2000)
@@ -96,7 +96,7 @@ class CardFragment : Fragment(), View.OnTouchListener {
         when (motionEvent.action) {
             MotionEvent.ACTION_DOWN -> {
                 GameEngine.getInstance().playSound(activity, "CARD_WHOOSH")
-                val fragment = fragmentManager.findFragmentByTag("SelectFragment") as SelectFragment
+                val fragment = fragmentManager.findFragmentByTag("GameBoardFragment") as GameBoardFragment
                 fragment.updateFragment()
                 fragmentManager.popBackStack()
             }
