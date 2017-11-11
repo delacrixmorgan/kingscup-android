@@ -1,4 +1,4 @@
-package com.delacrixmorgan.kingscup.fragment
+package com.delacrixmorgan.kingscup.menu
 
 import android.app.Fragment
 import android.content.Intent
@@ -6,21 +6,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.delacrixmorgan.kingscup.GameActivity
+import com.delacrixmorgan.kingscup.game.GameActivity
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.engine.GameEngine
-import com.delacrixmorgan.kingscup.shared.Helper
+import com.delacrixmorgan.kingscup.common.Helper
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
  */
 
-class MenuFragment : Fragment() {
+class MenuListFragment : Fragment() {
 
     companion object {
-        fun newInstance(): MenuFragment {
-            return MenuFragment()
+        fun newInstance(): MenuListFragment {
+            return MenuListFragment()
         }
     }
 
@@ -43,7 +43,7 @@ class MenuFragment : Fragment() {
 
         settingButton.setOnClickListener {
             settingButton.isEnabled = false
-            Helper.showFragment(activity, SettingFragment())
+            Helper.showFragment(activity, MenuSettingFragment())
         }
     }
 

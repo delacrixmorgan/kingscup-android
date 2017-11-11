@@ -1,8 +1,8 @@
-package com.delacrixmorgan.kingscup.listener
+package com.delacrixmorgan.kingscup.game
 
 /**
  * Created by Delacrix Morgan on 08/11/2017.
  */
-interface CardSelectionListener {
+interface GameCardSelectionListener {
     fun onCardSelected(position: Int)
 }

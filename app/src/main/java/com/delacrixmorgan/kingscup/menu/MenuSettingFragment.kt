@@ -1,10 +1,8 @@
-package com.delacrixmorgan.kingscup.fragment
+package com.delacrixmorgan.kingscup.menu
 
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -19,8 +17,7 @@ import android.widget.Toast
 
 import com.delacrixmorgan.kingscup.MainActivity
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.engine.GameEngine
-import com.delacrixmorgan.kingscup.shared.Helper
+import com.delacrixmorgan.kingscup.common.Helper
 
 import android.content.Context.MODE_PRIVATE
 
@@ -28,7 +25,7 @@ import android.content.Context.MODE_PRIVATE
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-class SettingFragment : PreferenceFragment() {
+class MenuSettingFragment : PreferenceFragment() {
 
     internal val unicode = intArrayOf(0x1F648, 0x1F649, 0x1F64A)
     private var mQuickGuide: SwitchPreference? = null
@@ -146,6 +143,6 @@ class SettingFragment : PreferenceFragment() {
     }
 
     companion object {
-        private val TAG = "SettingFragment"
+        private val TAG = "MenuSettingFragment"
     }
 }

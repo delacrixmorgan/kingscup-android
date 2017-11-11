@@ -7,8 +7,8 @@ import android.os.Build
 import android.os.Bundle
 import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.engine.GameEngine
-import com.delacrixmorgan.kingscup.fragment.MenuFragment
-import com.delacrixmorgan.kingscup.shared.Helper
+import com.delacrixmorgan.kingscup.menu.MenuListFragment
+import com.delacrixmorgan.kingscup.common.Helper
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -29,7 +29,7 @@ class MainActivity : BaseActivity() {
         }
 
         fragmentManager.inTransaction {
-            add(mainContainer.id, MenuFragment())
+            add(mainContainer.id, MenuListFragment())
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

@@ -6,10 +6,10 @@ import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 
 import com.delacrixmorgan.kingscup.R;
-import com.delacrixmorgan.kingscup.adapter.CardAdapter;
-import com.delacrixmorgan.kingscup.fragment.CardFragment;
+import com.delacrixmorgan.kingscup.game.GameCardAdapter;
+import com.delacrixmorgan.kingscup.game.GameCardFragment;
 import com.delacrixmorgan.kingscup.model.Card;
-import com.delacrixmorgan.kingscup.shared.Helper;
+import com.delacrixmorgan.kingscup.common.Helper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -125,11 +125,11 @@ public class GameEngine {
                 playSound(context, "KING");
             }
 
-            Helper.showAddFragmentSlideDown((Activity) context, new CardFragment());
+            Helper.showAddFragmentSlideDown((Activity) context, new GameCardFragment());
         }
     }
 
-    public void updateCardAdapter(CardAdapter adapter) {
+    public void updateCardAdapter(GameCardAdapter adapter) {
         mDeck.remove(mCurrentCardPosition);
         adapter.notifyItemRemoved(mCurrentCardPosition);
 

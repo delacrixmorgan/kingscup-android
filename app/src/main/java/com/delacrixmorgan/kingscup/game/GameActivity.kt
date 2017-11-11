@@ -1,10 +1,11 @@
-package com.delacrixmorgan.kingscup
+package com.delacrixmorgan.kingscup.game
 
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.engine.GameEngine
-import com.delacrixmorgan.kingscup.fragment.GuideFragment
+import com.delacrixmorgan.kingscup.guide.TutorialFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -16,7 +17,7 @@ class GameActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragment = GuideFragment()
+        val fragment = TutorialFragment()
 
         fragmentManager.inTransaction {
             replace(mainContainer.id, fragment)
