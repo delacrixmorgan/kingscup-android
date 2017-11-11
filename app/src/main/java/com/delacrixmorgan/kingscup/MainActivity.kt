@@ -2,13 +2,12 @@ package com.delacrixmorgan.kingscup
 
 import android.app.ActivityManager
 import android.graphics.BitmapFactory
-import android.media.AudioManager
 import android.os.Build
 import android.os.Bundle
 import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.menu.MenuListFragment
 import com.delacrixmorgan.kingscup.common.Helper
+import com.delacrixmorgan.kingscup.menu.MenuListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -22,7 +21,6 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         Helper.setLocaleLanguage(this)
-        volumeControlStream = AudioManager.STREAM_MUSIC
 
         if (savedInstanceState == null) {
             GameEngine.newInstance(this)
@@ -36,7 +34,7 @@ class MainActivity : BaseActivity() {
             setTaskDescription(ActivityManager.TaskDescription(
                     getString(R.string.app_name),
                     BitmapFactory.decodeResource(resources, R.drawable.kingscup_logo_icon),
-                    resources.getColor(R.color.colorPrimary)))
+                    R.color.colorPrimary))
         }
     }
 }
