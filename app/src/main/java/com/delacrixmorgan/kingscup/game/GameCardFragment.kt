@@ -11,7 +11,7 @@ import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.Helper
 import com.delacrixmorgan.kingscup.databinding.FragmentCardBinding
 import com.delacrixmorgan.kingscup.model.Card
-import kotlinx.android.synthetic.main.fragment_card.*
+import kotlinx.android.synthetic.main.fragment_game_card.*
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
@@ -47,7 +47,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.fragment_card, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_game_card, container, false)
 
         this.dataBinding = bind(rootView)
         this.dataBinding?.card = this.card

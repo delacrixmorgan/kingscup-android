@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
-import kotlinx.android.synthetic.main.fragment_select.*
+import kotlinx.android.synthetic.main.fragment_game_board.*
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
@@ -21,7 +21,7 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     private lateinit var cardAdapter: GameCardAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_select, container, false)
+        return inflater.inflate(R.layout.fragment_game_board, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

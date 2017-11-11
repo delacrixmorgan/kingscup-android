@@ -7,4 +7,3 @@
     android:text="@string/guide_1"
     android:textColor="@color/white"
     android:textSize="18sp" />
-

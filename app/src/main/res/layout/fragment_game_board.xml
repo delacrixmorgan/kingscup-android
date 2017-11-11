@@ -123,7 +123,6 @@
                 android:visibility="gone" />
 
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -149,5 +148,4 @@
             android:max="52"
             android:progress="15" />
     </LinearLayout>
-
 </RelativeLayout>
