@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseActivity
-import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.guide.GuideListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 

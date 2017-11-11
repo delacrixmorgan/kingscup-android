@@ -13,7 +13,7 @@ import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.game.GameBoardFragment
 import kotlinx.android.synthetic.main.fragment_guide.*
 

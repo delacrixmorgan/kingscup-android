@@ -6,7 +6,7 @@ import android.media.AudioManager
 import android.os.Build
 import android.os.Bundle
 import com.delacrixmorgan.kingscup.common.BaseActivity
-import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.menu.MenuListFragment
 import com.delacrixmorgan.kingscup.common.Helper
 import kotlinx.android.synthetic.main.activity_main.*

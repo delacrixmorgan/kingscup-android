@@ -9,7 +9,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.common.GameEngine
 import kotlinx.android.synthetic.main.fragment_select.*
 
 /**
@@ -38,9 +38,8 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     }
 
     override fun onCardSelected(position: Int) {
-        progressBar.max = progressBar.max - 1
-        GameEngine.instance.playSound(activity, "CARD_FLIP")
-        GameEngine.instance.drawCard(activity, position)
+        progressBar.max--
+        mCardAdapter?.let { GameEngine.newInstance(activity).drawCard(position, it) }
     }
 
     fun updateFragment() {
@@ -63,7 +62,7 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     }
 
     private fun updateGraphics() {
-        when (GameEngine.instance.getmKingCounter()) {
+        when (GameEngine.getInstance()?.getmKingCounter()) {
             0, -1 -> {
                 kingOneImageView.visibility = GONE
                 cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_4)
@@ -72,7 +71,6 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
 
                 endGameButton.visibility = View.VISIBLE
                 endGameButton.setOnClickListener {
-                    GameEngine.instance.playSound(activity, "CARD_WHOOSH")
                     activity.finish()
                 }
             }
