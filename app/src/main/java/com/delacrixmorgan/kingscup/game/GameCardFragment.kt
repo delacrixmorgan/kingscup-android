@@ -57,7 +57,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         val suitList = activity.resources.getStringArray(R.array.suit)
         var suitDrawable: Int = R.drawable.spade_pink
 
