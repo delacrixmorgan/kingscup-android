@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.common
 
 import android.content.Context
+import android.os.Bundle
 import android.widget.ProgressBar
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.game.GameCardAdapter
@@ -14,18 +15,20 @@ import kotlin.collections.ArrayList
 
 class GameEngine private constructor(context: Context) {
 
-    private var mCurrentCardPosition: Int = 0
-    private var mCardSelected: Boolean? = null
-
-    private var kingCounter: Int = 4
+    val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
+    val GAME_ENGINE_TAUNT = "GAME_ENGINE_TAUNT"
+    val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
+    val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
 
     val deckList = ArrayList<Card>()
     val guideList = ArrayList<String>()
     val tauntList = ArrayList<String>()
+    var kingCounter: Int = 4
 
     companion object : SingletonHolder<GameEngine, Context>(::GameEngine)
 
     init {
+        this.kingCounter = 4
         this.buildGame(context)
     }
 
@@ -43,25 +46,57 @@ class GameEngine private constructor(context: Context) {
         gameTaunts.forEach { gameTaunt -> tauntList.add(gameTaunt) }
 
         Collections.shuffle(deckList, Random(System.nanoTime()))
-        Collections.shuffle(tauntList, Random(System.nanoTime()))
     }
 
-    fun removeCard(position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
-        deckList.removeAt(position)
+    fun removeCard(context: Context, position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
+        if (this.deckList[position].rank == context.resources.getStringArray(R.array.rank).last()) this.kingCounter--
+        this.deckList.removeAt(position)
+
         cardAdapter.notifyItemRemoved(position)
         progressBar.max--
     }
 
-//    fun updateCardAdapter(adapter: GameCardAdapter) {
-//        mDeck!!.removeAt(mCurrentCardPosition)
-//        adapter.notifyItemRemoved(mCurrentCardPosition)
-//
-//        mCurrentCardPosition = 0
-//        mCardSelected = false
-//
-//        if (kingCounter < 1) {
-//            mDeck!!.clear()
-//            adapter.notifyDataSetChanged()
-//        }
-//    }
+    fun updateGraphicStatus(context: Context): Bundle {
+        Collections.shuffle(tauntList, Random(System.nanoTime()))
+        val args = Bundle()
+
+        val status: String
+        var taunt = tauntList.first()
+        val volume: Int
+
+        when (kingCounter) {
+            0 -> {
+                status = context.getString(R.string.game_over_header)
+                taunt = context.getString(R.string.game_over_body)
+                volume = R.drawable.cup_volume_4
+            }
+
+            1 -> {
+                status = context.getString(R.string.counter_1_king_left)
+                volume = R.drawable.cup_volume_3
+            }
+
+            2 -> {
+                status = context.getString(R.string.counter_2_king_left)
+                volume = R.drawable.cup_volume_2
+            }
+
+            3 -> {
+                status = context.getString(R.string.counter_3_king_left)
+                volume = R.drawable.cup_volume_1
+            }
+
+            else -> {
+                status = context.getString(R.string.counter_4_king_left)
+                volume = R.drawable.cup_whole
+            }
+        }
+
+        args.putString(GAME_ENGINE_STATUS, status)
+        args.putString(GAME_ENGINE_TAUNT, taunt)
+        args.putInt(GAME_ENGINE_KING_COUNTER, kingCounter)
+        args.putInt(GAME_ENGINE_CUP_VOLUME, volume)
+
+        return args
+    }
 }
