@@ -36,7 +36,6 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         recyclerView.adapter = cardAdapter
 
         setupProgressBar(manager)
-        updateGraphics()
     }
 
     override fun onCardSelected(position: Int) {
@@ -67,48 +66,5 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         } else {
             progressBar.visibility = GONE
         }
-    }
-
-    private fun updateGraphics() {
-//        when (GameEngine.getInstance()?.getmKingCounter()) {
-//            0, -1 -> {
-//                kingOneImageView.visibility = GONE
-//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_4)
-//                statusBodyTextView.setText(R.string.game_over_header)
-//                statusTauntTextView.setText(R.string.game_over_body)
-//
-//                endGameButton.visibility = View.VISIBLE
-//                endGameButton.setOnClickListener {
-//                    activity.finish()
-//                }
-//            }
-//
-//            1 -> {
-//                kingTwoImageView.visibility = GONE
-//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_3)
-//                statusBodyTextView.text = getString(R.string.counter_1_king_left)
-//                statusTauntTextView.text = GameEngine.instance.nextText
-//            }
-//
-//            2 -> {
-//                kingThreeImageView.visibility = GONE
-//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_2)
-//                statusBodyTextView.text = getString(R.string.counter_2_king_left)
-//                statusTauntTextView.text = GameEngine.instance.nextText
-//            }
-//
-//            3 -> {
-//                kingFourImageView.visibility = GONE
-//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_volume_1)
-//                statusBodyTextView.text = getString(R.string.counter_3_king_left)
-//                statusTauntTextView.text = GameEngine.instance.nextText
-//            }
-//
-//            else -> {
-//                cupVolumeImageView.setBackgroundResource(R.drawable.cup_whole)
-//                statusBodyTextView.text = getString(R.string.counter_4_king_left)
-//                statusTauntTextView.text = GameEngine.instance.nextText
-//            }
-//        }
     }
 }
