@@ -45,7 +45,14 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     }
 
     fun removeCardFromDeck(position: Int) {
-        GameEngine.getInstance()?.removeCard(position, cardAdapter, progressBar)
+        GameEngine.getInstance()?.removeCard(activity, position, cardAdapter, progressBar)
+
+        val args: Bundle? = GameEngine.getInstance()?.updateGraphicStatus(activity)
+
+        statusTextView.text = args?.getString(GameEngine.getInstance()?.GAME_ENGINE_STATUS)
+        tauntTextView.text = args?.getString(GameEngine.getInstance()?.GAME_ENGINE_TAUNT)
+
+        args?.getInt(GameEngine.getInstance()?.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
     }
 
     private fun setupProgressBar(manager: LinearLayoutManager) {
