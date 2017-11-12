@@ -23,7 +23,6 @@ class MenuListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        GameEngine.newInstance(activity)
 
         rateButton.setOnClickListener {
             rateButton.isEnabled = false
@@ -31,9 +30,7 @@ class MenuListFragment : Fragment() {
 
         startButton.setOnClickListener {
             GameEngine.newInstance(activity)
-
-            val intent = GameActivity.newIntent(activity)
-            startActivity(intent)
+            startActivity(GameActivity.newIntent(activity))
         }
 
         settingButton.setOnClickListener {
