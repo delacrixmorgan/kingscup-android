@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.Helper
-import com.delacrixmorgan.kingscup.databinding.FragmentCardBinding
+import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.fragment_game_card.*
 
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
 class GameCardFragment : Fragment(), View.OnTouchListener {
 
     private lateinit var card: Card
-    private var dataBinding: FragmentCardBinding? = null
+    private var dataBinding: FragmentGameCardBinding? = null
     private var position: Int = 0
 
     companion object {
@@ -74,7 +74,6 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
         this.doneButton.setOnTouchListener(this)
         Helper.animateButtonGrow(activity, this.doneButton)
-//
 //
 //        if (GameEngine.instance.getmKingCounter() < 1) {
 //            val vibrator = activity.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
