@@ -2,6 +2,7 @@ package com.delacrixmorgan.kingscup.menu
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -14,12 +15,10 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
-
 import com.delacrixmorgan.kingscup.MainActivity
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
-
-import android.content.Context.MODE_PRIVATE
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
@@ -81,6 +80,7 @@ class MenuSettingFragment : PreferenceFragment() {
                         mLanguage!!.summary = Helper.mLanguageItems[item]
                         Helper.setLocaleLanguage(activity)
 
+                        GameEngine.newInstance(activity)
                         val refresh = Intent(activity, MainActivity::class.java)
                         activity.finish()
                         startActivity(refresh)
