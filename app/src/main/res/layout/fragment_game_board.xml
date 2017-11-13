@@ -80,47 +80,74 @@
                 app:fabSize="normal" />
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/volumeImageView"
+            <RelativeLayout
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="40dp"
+                android:adjustViewBounds="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/bubble" />
+
+                <TextView
+                    android:id="@+id/tauntTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Come On"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPinkTheme"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+            
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/cup_whole" />
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/statusTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:text="2 Kings Left"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
+                <ImageView
+                    android:id="@+id/volumeImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/cup_whole" />
 
-            <TextView
-                android:id="@+id/tauntTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Come On"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/statusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="4 Kings Left"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
 
-            <Button
-                android:id="@+id/endGameButton"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_rounded_white"
-                android:text="Done Yet?"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                <Button
+                    android:id="@+id/endGameButton"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_rounded_white"
+                    android:text="Done Yet?"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
-        </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+
     </LinearLayout>
 
     <LinearLayout
