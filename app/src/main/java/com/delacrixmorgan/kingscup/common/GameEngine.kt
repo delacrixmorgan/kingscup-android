@@ -14,18 +14,18 @@ import kotlin.collections.ArrayList
  */
 
 class GameEngine private constructor(context: Context) {
-
-    val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
-    val GAME_ENGINE_TAUNT = "GAME_ENGINE_TAUNT"
-    val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
-    val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
-
+    
     val deckList = ArrayList<Card>()
     val guideList = ArrayList<String>()
     val tauntList = ArrayList<String>()
     var kingCounter: Int = 4
 
-    companion object : SingletonHolder<GameEngine, Context>(::GameEngine)
+    companion object : SingletonHolder<GameEngine, Context>(::GameEngine) {
+        const val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
+        const val GAME_ENGINE_TAUNT = "GAME_ENGINE_TAUNT"
+        const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
+        const val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
+    }
 
     init {
         this.kingCounter = 4

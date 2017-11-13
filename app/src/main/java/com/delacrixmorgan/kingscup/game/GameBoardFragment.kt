@@ -12,6 +12,7 @@ import com.delacrixmorgan.kingscup.common.Helper
 import com.delacrixmorgan.kingscup.common.setupProgressBar
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
+
 /**
  * Created by Delacrix Morgan on 04/03/2017.
  */
@@ -34,7 +35,10 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         recyclerView.layoutManager = manager
         recyclerView.adapter = cardAdapter
 
+        statusTextView.text = getString(R.string.counter_4_king_left)
+        tauntTextView.text = activity.resources.getStringArray(R.array.taunt).first()
 
+        volumeImageView.setImageResource(R.drawable.cup_whole)
         setupProgressBar(manager, recyclerView, progressBar)
     }
 
@@ -48,9 +52,16 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
 
         val args: Bundle? = GameEngine.getInstance()?.updateGraphicStatus(activity)
 
-        statusTextView.text = args?.getString(GameEngine.getInstance()?.GAME_ENGINE_STATUS)
-        tauntTextView.text = args?.getString(GameEngine.getInstance()?.GAME_ENGINE_TAUNT)
+        statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_STATUS)
+        tauntTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
 
-        args?.getInt(GameEngine.getInstance()?.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
+        args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
+
+        when (args?.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
+            0 -> kingOneImageView.visibility = View.GONE
+            1 -> kingTwoImageView.visibility = View.GONE
+            2 -> kingThreeImageView.visibility = View.GONE
+            3 -> kingFourImageView.visibility = View.GONE
+        }
     }
 }

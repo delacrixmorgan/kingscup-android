@@ -31,9 +31,11 @@
             android:layout_marginTop="20dp">
 
             <LinearLayout
+                android:id="@+id/crownImageLinearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -41,7 +43,6 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:adjustViewBounds="true"
                     android:src="@drawable/crown" />
 
                 <ImageView
@@ -49,7 +50,6 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:adjustViewBounds="true"
                     android:src="@drawable/crown" />
 
                 <ImageView
@@ -57,7 +57,6 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:adjustViewBounds="true"
                     android:src="@drawable/crown" />
 
                 <ImageView
@@ -65,7 +64,6 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:adjustViewBounds="true"
                     android:src="@drawable/crown" />
             </LinearLayout>
 
