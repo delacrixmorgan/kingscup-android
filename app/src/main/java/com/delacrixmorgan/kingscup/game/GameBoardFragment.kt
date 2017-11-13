@@ -1,16 +1,15 @@
 package com.delacrixmorgan.kingscup.game
 
 import android.app.Fragment
-import android.os.Build
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
+import com.delacrixmorgan.kingscup.common.setupProgressBar
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
 /**
@@ -35,7 +34,8 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         recyclerView.layoutManager = manager
         recyclerView.adapter = cardAdapter
 
-        setupProgressBar(manager)
+
+        setupProgressBar(manager, recyclerView, progressBar)
     }
 
     override fun onCardSelected(position: Int) {
@@ -52,19 +52,5 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         tauntTextView.text = args?.getString(GameEngine.getInstance()?.GAME_ENGINE_TAUNT)
 
         args?.getInt(GameEngine.getInstance()?.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
-    }
-
-    private fun setupProgressBar(manager: LinearLayoutManager) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            recyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
-                if (manager.findFirstVisibleItemPosition() == 0) {
-                    progressBar.progress = 0
-                } else {
-                    progressBar.progress = manager.findLastVisibleItemPosition()
-                }
-            }
-        } else {
-            progressBar.visibility = GONE
-        }
     }
 }
