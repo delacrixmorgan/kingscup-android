@@ -27,7 +27,5 @@ open class SingletonHolder<out T, in A>(creator: (A) -> T) {
         }
     }
 
-    fun getInstance(): T? {
-        return instance
-    }
+    fun getInstance(): T? = instance
 }

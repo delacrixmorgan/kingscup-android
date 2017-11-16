@@ -14,15 +14,12 @@ import com.delacrixmorgan.kingscup.common.GameEngine
 
 class GameCardAdapter(private val selectionListener: GameCardSelectionListener) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder =
-            GameCardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_game_card, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder = GameCardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_game_card, parent, false))
+
+    override fun getItemCount(): Int = GameEngine.getInstance()?.deckList!!.size
 
     override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
         holder.selectCard.setOnClickListener { this.selectionListener.onCardSelected(holder.adapterPosition) }
-    }
-
-    override fun getItemCount(): Int {
-        return GameEngine.getInstance()?.deckList!!.size
     }
 
     class GameCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
