@@ -75,7 +75,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@{card.header}"
                 android:textAllCaps="true"
-                android:textColor="@color/white"
+                android:textColor="@android:color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -89,7 +89,7 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@{card.body}"
-                android:textColor="@color/white"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
             <android.support.design.widget.FloatingActionButton
@@ -99,7 +99,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/checked"
-                app:backgroundTint="@color/white"
+                app:backgroundTint="@android:color/white"
                 app:elevation="0dp"
                 app:fabSize="mini" />
 

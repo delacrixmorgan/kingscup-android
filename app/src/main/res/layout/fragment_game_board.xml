@@ -73,7 +73,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/menu"
-                app:backgroundTint="@color/white"
+                app:backgroundTint="@android:color/white"
                 app:elevation="6dp"
                 app:fabSize="normal" />
         </RelativeLayout>
@@ -99,7 +99,7 @@
                 android:text="Just One More"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@color/white"
+                android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
             <Button
