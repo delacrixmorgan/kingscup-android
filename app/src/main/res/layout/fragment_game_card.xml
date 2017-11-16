@@ -66,7 +66,7 @@
                 android:id="@+id/lightCenterImageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/jack_pink" />
+                android:src="@drawable/heart_pink" />
 
             <TextView
                 android:id="@+id/nameTextView"

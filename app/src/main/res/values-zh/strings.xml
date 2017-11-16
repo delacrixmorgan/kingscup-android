@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">国王之杯</string>
-    <string name="start_game">开动</string>
-    <string name="deck_selector">卡牌选择</string>
-    <string name="preferences">设置</string>
 
     <string name="quit_title">退出游戏</string>
     <string name="quit_header">你确定要退出吗？</string>

@@ -34,8 +34,7 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         recyclerView.layoutManager = manager
         recyclerView.adapter = cardAdapter
 
-        statusTextView.text = getString(R.string.counter_4_king_left)
-        tauntTextView.text = activity.resources.getStringArray(R.array.taunt).first()
+        statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
 
         volumeImageView.setImageResource(R.drawable.cup_whole)
         setupProgressBar(manager, recyclerView, progressBar)
@@ -51,9 +50,7 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
 
         val args: Bundle? = GameEngine.getInstance()?.updateGraphicStatus(activity)
 
-        statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_STATUS)
-        tauntTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
-
+        statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
         args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
 
         when (args?.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
