@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:padding="2dp"
                 android:text="The League Of, League Spartan"
-                android:textColor="@color/white" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                 android:gravity="center"
                 android:padding="2dp"
                 android:text="Christopher Jenkins, Calligraphy"
-                android:textColor="@color/white" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                 android:gravity="center"
                 android:padding="2dp"
                 android:text="Balys Valentukevicius, Material Ripple"
-                android:textColor="@color/white" />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -111,6 +111,6 @@
             android:layout_marginStart="20dp"
             android:background="@drawable/btn_rounded_green"
             android:text="@string/preference_done"
-            android:textColor="@color/white" />
+            android:textColor="@android:color/white" />
     </LinearLayout>
 </ScrollView>
