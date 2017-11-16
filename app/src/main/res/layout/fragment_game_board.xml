@@ -21,14 +21,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/fragment_select_bottom_layout"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/crownImageLinearLayout"
@@ -80,74 +78,41 @@
                 app:fabSize="normal" />
         </RelativeLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <RelativeLayout
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="40dp"
-                android:adjustViewBounds="true">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/bubble" />
-
-                <TextView
-                    android:id="@+id/tauntTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Come On"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPinkTheme"
-                    android:textSize="16sp" />
-
-            </RelativeLayout>
-
-            <LinearLayout
+        <ImageView
+                android:id="@+id/volumeImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:orientation="vertical">
+                android:layout_gravity="center"
+                android:background="@drawable/cup_whole" />
 
-                <ImageView
-                    android:id="@+id/volumeImageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@drawable/cup_whole" />
+            <TextView
+                android:id="@+id/statusTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Just One More"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/statusTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:text="4 Kings Left"
-                    android:textAlignment="center"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="22sp" />
+            <Button
+                android:id="@+id/endGameButton"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_rounded_white"
+                android:text="Done Yet?"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-                <Button
-                    android:id="@+id/endGameButton"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_rounded_white"
-                    android:text="Done Yet?"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-        </RelativeLayout>
-
-
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

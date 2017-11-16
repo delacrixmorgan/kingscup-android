@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">King\'s Cup</string>
-    <string name="start_game">Game On</string>
-    <string name="deck_selector">Deck Selector</string>
-    <string name="preferences">Preferences</string>
 
     <string name="quit_title">Quit Game</string>
     <string name="quit_header">Are you sure that you want to quit?</string>
