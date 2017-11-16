@@ -26,7 +26,7 @@ import com.delacrixmorgan.kingscup.common.Helper
 
 class MenuSettingFragment : PreferenceFragment() {
 
-    internal val unicode = intArrayOf(0x1F648, 0x1F649, 0x1F64A)
+    private val unicode = intArrayOf(0x1F648, 0x1F649, 0x1F64A)
     private var mQuickGuide: SwitchPreference? = null
     private var mSoundEffects: SwitchPreference? = null
     private var mLanguage: Preference? = null
@@ -140,9 +140,5 @@ class MenuSettingFragment : PreferenceFragment() {
             e.printStackTrace()
         }
 
-    }
-
-    companion object {
-        private val TAG = "MenuSettingFragment"
     }
 }
