@@ -1,7 +1,11 @@
 package com.delacrixmorgan.kingscup.game
 
 import android.app.Fragment
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -40,12 +44,19 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     }
 
     override fun onCardSelected(position: Int) {
+        val vibrator = activity.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            vibrator.vibrate(VibrationEffect.createOneShot(250, -1))
+        } else {
+            vibrator.vibrate(250)
+        }
+        
         val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
         Helper.showAddFragmentSlideDown(activity, fragment)
     }
 
     fun removeCardFromDeck(position: Int) {
-        GameEngine.getInstance()?.removeCard(activity, position, cardAdapter, progressBar)
+        GameEngine.getInstance()?.removeCard(position, cardAdapter, progressBar)
 
         val args: Bundle? = GameEngine.getInstance()?.updateGraphicStatus(activity)
 

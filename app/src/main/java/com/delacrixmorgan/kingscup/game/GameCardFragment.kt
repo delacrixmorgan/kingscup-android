@@ -3,11 +3,15 @@ package com.delacrixmorgan.kingscup.game
 import android.app.Fragment
 import android.databinding.DataBindingUtil.bind
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationSet
+import android.view.animation.AnimationUtils
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
@@ -58,6 +62,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val suitList = activity.resources.getStringArray(R.array.suit)
         var suitDrawable: Int = R.drawable.spade_pink
 
@@ -74,31 +79,23 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
         this.doneButton.setOnTouchListener(this)
         Helper.animateButtonGrow(activity, this.doneButton)
-//
-//        if (GameEngine.instance.getmKingCounter() < 1) {
-//            val vibrator = activity.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-//            vibrator.vibrate(2000)
-//
-//            doneButton.visibility = View.GONE
-//            doneButton.isEnabled = false
-//
-//            val handler = Handler()
-//            handler.post {
-//                val animGrow = AnimationSet(true)
-//                animGrow.addAnimation(AnimationUtils.loadAnimation(activity, R.anim.pop_out))
-//                lightCenterImageView.startAnimation(animGrow)
-//            }
-//
-//            handler.postDelayed({
-//                val fragment = fragmentManager.findFragmentByTag("GameBoardFragment") as GameBoardFragment
-//                fragment.updateFragment()
-//                fragmentManager.popBackStack()
-//            }, 2000)
-//
-//        } else {
-//            doneButton.setOnTouchListener(this)
-//            doneButton.isEnabled = true
-//        }
+
+        // Check Win
+        if (GameEngine.getInstance()?.checkWin(this.card)!!) {
+            val handler = Handler()
+            handler.post {
+                val animGrow = AnimationSet(true)
+                animGrow.addAnimation(AnimationUtils.loadAnimation(activity, R.anim.pop_out))
+                lightCenterImageView.startAnimation(animGrow)
+            }
+            handler.postDelayed({
+                val fragmentTag = GameBoardFragment().javaClass.simpleName
+                val fragment = fragmentManager.findFragmentByTag(fragmentTag) as GameBoardFragment
+
+                fragment.removeCardFromDeck(this.position)
+                fragmentManager.popBackStack()
+            }, 2000)
+        }
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {

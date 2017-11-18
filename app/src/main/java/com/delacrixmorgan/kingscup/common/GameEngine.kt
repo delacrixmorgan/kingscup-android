@@ -14,11 +14,12 @@ import kotlin.collections.ArrayList
  */
 
 class GameEngine private constructor(context: Context) {
-    
+
     val deckList = ArrayList<Card>()
     val guideList = ArrayList<String>()
     val tauntList = ArrayList<String>()
     var kingCounter: Int = 4
+    var kingRank: String = "K"
 
     companion object : SingletonHolder<GameEngine, Context>(::GameEngine) {
         const val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
@@ -29,6 +30,7 @@ class GameEngine private constructor(context: Context) {
 
     init {
         this.kingCounter = 4
+        this.kingRank = context.resources.getStringArray(R.array.rank).last()
         this.buildGame(context)
     }
 
@@ -48,8 +50,18 @@ class GameEngine private constructor(context: Context) {
         Collections.shuffle(deckList, Random(System.nanoTime()))
     }
 
-    fun removeCard(context: Context, position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
-        if (this.deckList[position].rank == context.resources.getStringArray(R.array.rank).last()) this.kingCounter--
+    fun checkWin(card: Card): Boolean {
+        if (card.rank == this.kingRank && kingCounter == 1) {
+            return true
+        }
+        return false
+    }
+
+    fun removeCard(position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
+        if (this.deckList[position].rank == this.kingRank) {
+            this.kingCounter--
+        }
+
         this.deckList.removeAt(position)
 
         cardAdapter.notifyItemRemoved(position)
