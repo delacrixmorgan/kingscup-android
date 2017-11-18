@@ -25,7 +25,7 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         fun newInstance(): GameBoardFragment {
             val fragment = GameBoardFragment()
             this.FRAGMENT_TAG = fragment.javaClass.simpleName
-            
+
             return GameBoardFragment()
         }
     }
@@ -49,6 +49,8 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         this.statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
         this.quitButton.setOnClickListener { activity.onBackPressed() }
         this.volumeImageView.setImageResource(R.drawable.cup_whole)
+
+
     }
 
     override fun onCardSelected(position: Int) {
@@ -71,10 +73,13 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
 
         when (args?.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
-            0 -> kingOneImageView.visibility = View.GONE
-            1 -> kingTwoImageView.visibility = View.GONE
-            2 -> kingThreeImageView.visibility = View.GONE
-            3 -> kingFourImageView.visibility = View.GONE
+            3 -> this.kingFourImageView.visibility = View.GONE
+            2 -> this.kingThreeImageView.visibility = View.GONE
+            1 -> this.kingTwoImageView.visibility = View.GONE
+            0 -> {
+                this.kingOneImageView.visibility = View.GONE
+                this.restartButton.visibility = View.VISIBLE
+            }
         }
     }
 }

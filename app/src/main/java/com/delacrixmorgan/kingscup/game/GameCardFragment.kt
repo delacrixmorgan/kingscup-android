@@ -26,8 +26,8 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     private var position: Int = 0
 
     companion object {
-        private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
-        private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
+        private const val GAME_CARD_FRAGMENT_CARD = "Card"
+        private const val GAME_CARD_FRAGMENT_POSITION = "Position"
 
         fun newInstance(card: Card? = null, position: Int = 0): GameCardFragment {
             val fragment = GameCardFragment()
@@ -77,26 +77,24 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         Helper.animateButtonGrow(activity, this.doneButton)
 
         if (GameEngine.getInstance()?.checkWin(this.card)!!) {
-            val handler = Handler()
+            this.doneButton.visibility = View.GONE
 
-            handler.postDelayed({
-                val fragment = fragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
-
-                fragment.removeCardFromDeck(this.position)
-                fragmentManager.popBackStack()
+            Handler().postDelayed({
+                this.backToBoardFragment()
             }, 2000)
         }
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
         when (motionEvent.action) {
-            MotionEvent.ACTION_DOWN -> {
-                val fragment = fragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
-
-                fragment.removeCardFromDeck(this.position)
-                fragmentManager.popBackStack()
-            }
+            MotionEvent.ACTION_DOWN -> this.backToBoardFragment()
         }
         return true
+    }
+
+    private fun backToBoardFragment() {
+        val fragment = fragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
+        fragment.removeCardFromDeck(this.position)
+        fragmentManager.popBackStack()
     }
 }
