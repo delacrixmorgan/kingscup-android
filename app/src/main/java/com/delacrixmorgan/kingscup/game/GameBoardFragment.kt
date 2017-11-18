@@ -1,11 +1,7 @@
 package com.delacrixmorgan.kingscup.game
 
 import android.app.Fragment
-import android.content.Context
-import android.os.Build
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +24,8 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         lateinit var FRAGMENT_TAG: String
         fun newInstance(): GameBoardFragment {
             val fragment = GameBoardFragment()
-
             this.FRAGMENT_TAG = fragment.javaClass.simpleName
+            
             return GameBoardFragment()
         }
     }
@@ -57,25 +53,19 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
 
     override fun onCardSelected(position: Int) {
         if (!this.isCardSelected) {
+            val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
             this.isCardSelected = true
 
-            val vibrator = activity.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(250, -1))
-            } else {
-                vibrator.vibrate(250)
-            }
-
-            val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
             Helper.showAddFragmentSlideDown(activity, fragment)
+            GameEngine.getInstance()?.vibrateFeedback()
         }
     }
 
     fun removeCardFromDeck(position: Int) {
-        this.isCardSelected = false
         GameEngine.getInstance()?.removeCard(position, cardAdapter, progressBar)
 
         val args: Bundle? = GameEngine.getInstance()?.updateGraphicStatus(activity)
+        this.isCardSelected = false
 
         statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
         args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
