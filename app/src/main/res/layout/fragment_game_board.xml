@@ -103,15 +103,17 @@
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/endGameButton"
-                android:layout_width="180dp"
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_rounded_white"
-                android:text="Done Yet?"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_replay"
+                android:visibility="gone"
+                app:backgroundTint="@android:color/white"
+                app:elevation="6dp"
+                app:fabSize="normal" />
 
         </LinearLayout>
     </LinearLayout>
