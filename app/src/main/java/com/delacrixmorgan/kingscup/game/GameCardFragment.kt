@@ -8,8 +8,6 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationSet
-import android.view.animation.AnimationUtils
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.Helper
@@ -32,7 +30,6 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
 
         fun newInstance(card: Card? = null, position: Int = 0): GameCardFragment {
-
             val fragment = GameCardFragment()
             val args = Bundle()
 
@@ -62,7 +59,6 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val suitList = activity.resources.getStringArray(R.array.suit)
         var suitDrawable: Int = R.drawable.spade_pink
 
@@ -80,17 +76,11 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         this.doneButton.setOnTouchListener(this)
         Helper.animateButtonGrow(activity, this.doneButton)
 
-        // Check Win
         if (GameEngine.getInstance()?.checkWin(this.card)!!) {
             val handler = Handler()
-            handler.post {
-                val animGrow = AnimationSet(true)
-                animGrow.addAnimation(AnimationUtils.loadAnimation(activity, R.anim.pop_out))
-                lightCenterImageView.startAnimation(animGrow)
-            }
+
             handler.postDelayed({
-                val fragmentTag = GameBoardFragment().javaClass.simpleName
-                val fragment = fragmentManager.findFragmentByTag(fragmentTag) as GameBoardFragment
+                val fragment = fragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
 
                 fragment.removeCardFromDeck(this.position)
                 fragmentManager.popBackStack()
@@ -101,8 +91,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
         when (motionEvent.action) {
             MotionEvent.ACTION_DOWN -> {
-                val fragmentTag = GameBoardFragment().javaClass.simpleName
-                val fragment = fragmentManager.findFragmentByTag(fragmentTag) as GameBoardFragment
+                val fragment = fragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
 
                 fragment.removeCardFromDeck(this.position)
                 fragmentManager.popBackStack()
