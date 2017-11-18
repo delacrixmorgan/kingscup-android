@@ -49,8 +49,6 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
         this.statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
         this.quitButton.setOnClickListener { activity.onBackPressed() }
         this.volumeImageView.setImageResource(R.drawable.cup_whole)
-
-
     }
 
     override fun onCardSelected(position: Int) {

@@ -25,6 +25,7 @@ class MenuListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         rateButton.setOnClickListener {
+            Helper.showAddFragmentSlideDown(activity, MenuRateFragment())
             rateButton.isEnabled = false
         }
 
