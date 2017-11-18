@@ -12,14 +12,14 @@
         <import type="android.view.View" />
     </data>
 
-    <RelativeLayout
+    <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:clickable="true"
         android:focusable="true"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        app:corner_radius="16dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -135,5 +135,5 @@
                 android:tint="@color/colorPrimary" />
 
         </LinearLayout>
-    </RelativeLayout>
+    </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
 </layout>

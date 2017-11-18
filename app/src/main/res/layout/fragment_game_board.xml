@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:corner_radius="16dp">
 
     <RelativeLayout
         android:id="@+id/fragment_select_accent_card"
@@ -84,7 +85,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-        <ImageView
+            <ImageView
                 android:id="@+id/volumeImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,4 +139,4 @@
             android:max="52"
             android:progress="15" />
     </LinearLayout>
-</RelativeLayout>
+</com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
