@@ -12,7 +12,6 @@ import com.delacrixmorgan.kingscup.common.Helper
 import com.delacrixmorgan.kingscup.common.setupProgressBar
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
-
 /**
  * Created by Delacrix Morgan on 04/03/2017.
  */
