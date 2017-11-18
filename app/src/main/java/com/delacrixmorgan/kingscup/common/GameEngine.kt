@@ -20,16 +20,16 @@ class GameEngine private constructor(context: Context) {
 
     val deckList = ArrayList<Card>()
     val guideList = ArrayList<String>()
-    val tauntList = ArrayList<String>()
-    var kingCounter: Int = 4
-    var kingRank: String = "K"
-    var vibrator: Vibrator
+    private val tauntList = ArrayList<String>()
+    private var kingCounter: Int = 4
+    private var kingRank: String = "K"
+    private var vibrator: Vibrator
 
     companion object : SingletonHolder<GameEngine, Context>(::GameEngine) {
-        const val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
         const val GAME_ENGINE_TAUNT = "GAME_ENGINE_TAUNT"
-        const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
+        const val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
         const val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
+        const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
     }
 
     init {

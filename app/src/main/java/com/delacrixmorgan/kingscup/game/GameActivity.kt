@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseActivity
+import com.delacrixmorgan.kingscup.common.GameEngine
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -24,6 +25,7 @@ class GameActivity : BaseActivity() {
 
 //        val fragment = GuideListFragment()
         val fragment = GameBoardFragment.newInstance()
+        GameEngine.newInstance(this)
 
         fragmentManager.inTransaction {
             add(mainContainer.id, fragment, fragment.javaClass.simpleName)
