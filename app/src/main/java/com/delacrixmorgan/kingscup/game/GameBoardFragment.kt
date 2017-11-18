@@ -25,7 +25,13 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
     private var isCardSelected: Boolean = false
 
     companion object {
-        fun newInstance(): GameBoardFragment = GameBoardFragment()
+        lateinit var FRAGMENT_TAG: String
+        fun newInstance(): GameBoardFragment {
+            val fragment = GameBoardFragment()
+
+            this.FRAGMENT_TAG = fragment.javaClass.simpleName
+            return GameBoardFragment()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
