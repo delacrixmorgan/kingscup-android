@@ -25,7 +25,7 @@ class GameActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
 //        val fragment = GuideListFragment()
-        val fragment = GameBoardFragment()
+        val fragment = GameBoardFragment.newInstance()
 
         fragmentManager.inTransaction {
             add(mainContainer.id, fragment, fragment.javaClass.simpleName)
