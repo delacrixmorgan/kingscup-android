@@ -2,6 +2,7 @@ package com.delacrixmorgan.kingscup.game
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,7 +56,7 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
             val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
             this.isCardSelected = true
 
-            showAddFragmentSlideDown(activity, fragment)
+            showFragmentWithSlide(activity, fragment, Gravity.BOTTOM)
             GameEngine.getInstance()?.vibrateFeedback()
         }
     }
