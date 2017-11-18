@@ -15,9 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class GameActivity : BaseActivity() {
 
     companion object {
-        fun newIntent(context: Context): Intent {
-            return Intent(context, GameActivity::class.java)
-        }
+        fun newIntent(context: Context): Intent = Intent(context, GameActivity::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

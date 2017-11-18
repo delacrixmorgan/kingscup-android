@@ -1,7 +1,10 @@
 package com.delacrixmorgan.kingscup.common
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.widget.ProgressBar
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.game.GameCardAdapter
@@ -20,6 +23,7 @@ class GameEngine private constructor(context: Context) {
     val tauntList = ArrayList<String>()
     var kingCounter: Int = 4
     var kingRank: String = "K"
+    var vibrator: Vibrator
 
     companion object : SingletonHolder<GameEngine, Context>(::GameEngine) {
         const val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
@@ -31,6 +35,8 @@ class GameEngine private constructor(context: Context) {
     init {
         this.kingCounter = 4
         this.kingRank = context.resources.getStringArray(R.array.rank).last()
+        this.vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
         this.buildGame(context)
     }
 
@@ -110,5 +116,15 @@ class GameEngine private constructor(context: Context) {
         args.putInt(GAME_ENGINE_CUP_VOLUME, volume)
 
         return args
+    }
+
+    fun vibrateFeedback() {
+        val vibrateDuration = 250L
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            this.vibrator.vibrate(VibrationEffect.createOneShot(vibrateDuration, -1))
+        } else {
+            this.vibrator.vibrate(vibrateDuration)
+        }
     }
 }
