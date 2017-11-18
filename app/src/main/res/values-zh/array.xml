@@ -73,4 +73,11 @@
         <item>由任意一人开始游戏，抽取一张卡，\n按照上面的指示完成动作。\n\n之后大家按顺时针轮流抽牌。</item>
         <item>当抽到国王时，\n选择一种饮料倒进桌子\n中央的国王之杯。\n\n抽到最后一个国王的人要\n一口干掉国王之杯中的混合物。</item>
     </string-array>
+
+    <string-array name="language">
+        <item>本机语言</item>
+        <item>英文</item>
+        <item>简体中文</item>
+    </string-array>
+
 </resources>

@@ -73,4 +73,11 @@
         <item>Pick a person to start the game, select a card and do what it says.\n\nThere is no escape!\nPass to the next person when you are done.</item>
         <item>Draw a King from the deck,\nyou can choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</item>
     </string-array>
+
+    <string-array name="language">
+        <item>Default Language</item>
+        <item>English</item>
+        <item>Simplified Chinese</item>
+    </string-array>
+
 </resources>

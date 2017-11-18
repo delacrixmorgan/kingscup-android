@@ -1,14 +1,13 @@
 package com.delacrixmorgan.kingscup.game
 
-import android.app.Fragment
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.Helper
 import com.delacrixmorgan.kingscup.common.setupProgressBar
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
@@ -16,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-class GameBoardFragment : Fragment(), GameCardSelectionListener {
+class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
     private lateinit var cardAdapter: GameCardAdapter
     private var isCardSelected: Boolean = false
 
@@ -56,7 +55,7 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
             val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
             this.isCardSelected = true
 
-            Helper.showAddFragmentSlideDown(activity, fragment)
+            showAddFragmentSlideDown(activity, fragment)
             GameEngine.getInstance()?.vibrateFeedback()
         }
     }

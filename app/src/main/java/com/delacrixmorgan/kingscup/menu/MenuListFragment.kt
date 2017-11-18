@@ -1,50 +1,30 @@
 package com.delacrixmorgan.kingscup.menu
 
-import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.Helper
 import com.delacrixmorgan.kingscup.game.GameActivity
-import kotlinx.android.synthetic.main.fragment_menu.*
+import kotlinx.android.synthetic.main.fragment_menu_list.*
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
  */
 
-class MenuListFragment : Fragment() {
+class MenuListFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_menu, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+            inflater.inflate(R.layout.fragment_menu_list, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        GameEngine.newInstance(activity)
 
-        rateButton.setOnClickListener {
-            Helper.showAddFragmentSlideDown(activity, MenuRateFragment())
-            rateButton.isEnabled = false
-        }
-
-        startButton.setOnClickListener {
-            GameEngine.newInstance(activity)
-            startActivity(GameActivity.newIntent(activity))
-        }
-
-        settingButton.setOnClickListener {
-            settingButton.isEnabled = false
-            Helper.showFragment(activity, MenuSettingFragment())
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        rateButton.isEnabled = true
-        startButton.isEnabled = true
-        settingButton.isEnabled = true
+        rateButton.setOnClickListener { showAddFragmentSlideDown(activity, MenuRateFragment()) }
+        startButton.setOnClickListener { startActivity(GameActivity.newIntent(activity)) }
+        settingButton.setOnClickListener { showAddFragmentSlideDown(activity, MenuSettingFragment()) }
     }
 }
