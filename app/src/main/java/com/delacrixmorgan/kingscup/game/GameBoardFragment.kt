@@ -22,6 +22,11 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
 
 class GameBoardFragment : Fragment(), GameCardSelectionListener {
     private lateinit var cardAdapter: GameCardAdapter
+    private var isCardSelected: Boolean = false
+
+    companion object {
+        fun newInstance(): GameBoardFragment = GameBoardFragment()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_game_board, container, false)
@@ -31,31 +36,37 @@ class GameBoardFragment : Fragment(), GameCardSelectionListener {
 
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
-        cardAdapter = GameCardAdapter(this)
-        quitButton.setOnClickListener { activity.onBackPressed() }
+        this.cardAdapter = GameCardAdapter(this)
+        this.isCardSelected = false
 
-        recyclerView.layoutManager = manager
-        recyclerView.adapter = cardAdapter
+        this.recyclerView.layoutManager = manager
+        this.recyclerView.adapter = this.cardAdapter
 
-        statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
-
-        volumeImageView.setImageResource(R.drawable.cup_whole)
         setupProgressBar(manager, recyclerView, progressBar)
+
+        this.statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
+        this.quitButton.setOnClickListener { activity.onBackPressed() }
+        this.volumeImageView.setImageResource(R.drawable.cup_whole)
     }
 
     override fun onCardSelected(position: Int) {
-        val vibrator = activity.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibrator.vibrate(VibrationEffect.createOneShot(250, -1))
-        } else {
-            vibrator.vibrate(250)
+        if (!this.isCardSelected) {
+            this.isCardSelected = true
+
+            val vibrator = activity.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(250, -1))
+            } else {
+                vibrator.vibrate(250)
+            }
+
+            val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
+            Helper.showAddFragmentSlideDown(activity, fragment)
         }
-        
-        val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
-        Helper.showAddFragmentSlideDown(activity, fragment)
     }
 
     fun removeCardFromDeck(position: Int) {
+        this.isCardSelected = false
         GameEngine.getInstance()?.removeCard(position, cardAdapter, progressBar)
 
         val args: Bundle? = GameEngine.getInstance()?.updateGraphicStatus(activity)
