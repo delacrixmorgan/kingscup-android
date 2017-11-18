@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +24,8 @@ class MenuListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         GameEngine.newInstance(activity)
 
-        rateButton.setOnClickListener { showAddFragmentSlideDown(activity, MenuRateFragment()) }
+        rateButton.setOnClickListener { showFragmentWithSlide(activity, MenuRateFragment(), Gravity.BOTTOM) }
         startButton.setOnClickListener { startActivity(GameActivity.newIntent(activity)) }
-        settingButton.setOnClickListener { showAddFragmentSlideDown(activity, MenuSettingFragment()) }
+        settingButton.setOnClickListener { showFragmentWithSlide(activity, MenuSettingFragment(), Gravity.TOP) }
     }
 }
