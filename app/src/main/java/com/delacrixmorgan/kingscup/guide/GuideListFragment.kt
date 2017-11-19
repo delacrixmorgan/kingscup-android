@@ -59,7 +59,7 @@ class GuideListFragment : Fragment() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val rootView = LayoutInflater.from(activity).inflate(R.layout.view_guide_list, collection, false)
 
-            rootView.findViewById<TextView>(R.id.guideTextView).text = GameEngine.getInstance()?.guideList!![position]
+            rootView.findViewById<TextView>(R.id.guideTextView).text = GameEngine.getInstance().guideList[position]
             collection.addView(rootView)
 
             return rootView
@@ -69,12 +69,7 @@ class GuideListFragment : Fragment() {
             container.removeView(`object` as TextView)
         }
 
-        override fun getCount(): Int {
-            return GameEngine.getInstance()?.guideList!!.size
-        }
-
-        override fun isViewFromObject(view: View, `object`: Any): Boolean {
-            return view === `object`
-        }
+        override fun getCount(): Int = GameEngine.getInstance().guideList.size
+        override fun isViewFromObject(view: View, `object`: Any): Boolean = view === `object`
     }
 }

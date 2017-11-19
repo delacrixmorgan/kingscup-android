@@ -53,16 +53,18 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
 
     override fun onCardSelected(position: Int) {
         if (!this.isCardSelected) {
-            val fragment = GameCardFragment.newInstance(GameEngine.getInstance()?.deckList?.get(position), position)
+            val card = GameEngine.getInstance().deckList[position]
+            val fragment = GameCardFragment.newInstance(card, position)
+
             this.isCardSelected = true
 
             showFragmentWithSlide(activity, fragment, Gravity.BOTTOM)
-            GameEngine.getInstance()?.vibrateFeedback()
+            GameEngine.getInstance().vibrateFeedback()
         }
     }
 
     fun removeCardFromDeck(position: Int) {
-        GameEngine.getInstance()?.removeCard(position, cardAdapter, progressBar)
+        GameEngine.getInstance().removeCard(position, cardAdapter, progressBar)
 
         val args: Bundle? = GameEngine.getInstance()?.updateGraphicStatus(activity)
         this.isCardSelected = false

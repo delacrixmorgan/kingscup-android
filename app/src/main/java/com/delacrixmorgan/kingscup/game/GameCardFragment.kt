@@ -76,7 +76,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         this.doneButton.setOnTouchListener(this)
         Helper.animateButtonGrow(activity, this.doneButton)
 
-        if (GameEngine.getInstance()?.checkWin(this.card)!!) {
+        if (GameEngine.getInstance().checkWin(this.card)) {
             this.doneButton.visibility = View.GONE
 
             Handler().postDelayed({
