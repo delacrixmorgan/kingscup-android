@@ -14,12 +14,16 @@ import kotlinx.android.synthetic.main.fragment_menu_rate.*
 
 class MenuRateFragment : Fragment() {
 
+    companion object {
+        fun newInstance(): MenuRateFragment = MenuRateFragment()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(R.layout.fragment_menu_rate, container, false)
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         this.backButton.setOnClickListener {
             fragmentManager.popBackStack()
         }

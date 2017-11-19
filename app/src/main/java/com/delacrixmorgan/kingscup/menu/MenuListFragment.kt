@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.game.GameActivity
+import com.delacrixmorgan.kingscup.game.GameBoardFragment
 import kotlinx.android.synthetic.main.fragment_menu_list.*
 
 /**
@@ -24,8 +24,10 @@ class MenuListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         GameEngine.newInstance(activity)
 
-        rateButton.setOnClickListener { showFragmentWithSlide(activity, MenuRateFragment(), Gravity.BOTTOM) }
-        startButton.setOnClickListener { startActivity(GameActivity.newIntent(activity)) }
-        settingButton.setOnClickListener { showFragmentWithSlide(activity, MenuSettingFragment(), Gravity.TOP) }
+        rateButton.setOnClickListener { showFragmentWithSlide(activity, MenuRateFragment.newInstance(), Gravity.BOTTOM) }
+        startButton.setOnClickListener { showFragmentWithSlide(activity, GameBoardFragment.newInstance(), Gravity.RIGHT) }
+        settingButton.setOnClickListener { showFragmentWithSlide(activity, MenuSettingFragment.newInstance(), Gravity.TOP) }
+
+
     }
 }
