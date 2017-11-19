@@ -25,7 +25,6 @@ class GameActivity : BaseActivity() {
 
 //        val fragment = GuideListFragment()
         val fragment = GameBoardFragment.newInstance()
-        GameEngine.newInstance(this)
 
         fragmentManager.inTransaction {
             add(mainContainer.id, fragment, fragment.javaClass.simpleName)

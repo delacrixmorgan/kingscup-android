@@ -26,7 +26,7 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
             val fragment = GameBoardFragment()
             this.FRAGMENT_TAG = fragment.javaClass.simpleName
 
-            return GameBoardFragment()
+            return fragment
         }
     }
 
