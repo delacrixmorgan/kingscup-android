@@ -24,9 +24,9 @@ class MenuListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         GameEngine.newInstance(activity)
 
-        rateButton.setOnClickListener { showFragmentWithSlide(activity, MenuRateFragment.newInstance(), Gravity.BOTTOM) }
-        startButton.setOnClickListener { showFragmentWithSlide(activity, GameBoardFragment.newInstance(), Gravity.RIGHT) }
-        settingButton.setOnClickListener { showFragmentWithSlide(activity, MenuSettingFragment.newInstance(), Gravity.TOP) }
+        rateButton.setOnClickListener { showFragmentWithSlide(activity, MenuRateFragment.newInstance(), Gravity.START) }
+        startButton.setOnClickListener { showFragmentWithSlide(activity, GameBoardFragment.newInstance(), Gravity.BOTTOM) }
+        settingButton.setOnClickListener { showFragmentWithSlide(activity, MenuSettingFragment.newInstance(), Gravity.END) }
 
 
     }
