@@ -18,25 +18,37 @@ import kotlin.collections.ArrayList
 
 class GameEngine private constructor(context: Context) {
 
-    val deckList = ArrayList<Card>()
-    val guideList = ArrayList<String>()
-    private val tauntList = ArrayList<String>()
-    private var kingCounter: Int = 4
-    private var kingRank: String = "K"
-    private var vibrator: Vibrator
-
-    companion object : SingletonHolder<GameEngine, Context>(::GameEngine) {
+    companion object {
         const val GAME_ENGINE_TAUNT = "GAME_ENGINE_TAUNT"
         const val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
         const val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
         const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
+
+        @Volatile private lateinit var GameEngineInstance: GameEngine
+
+        fun newInstance(context: Context): GameEngine {
+            this.GameEngineInstance = GameEngine(context)
+            return this.GameEngineInstance
+        }
+
+        fun getInstance(): GameEngine = this.GameEngineInstance
     }
+
+    val deckList = ArrayList<Card>()
+    val guideList = ArrayList<String>()
+
+    private val tauntList = ArrayList<String>()
+    private var kingCounter: Int = 4
+    private var kingRank: String = "K"
+    private var vibrator: Vibrator
 
     init {
         this.kingCounter = 4
         this.kingRank = context.resources.getStringArray(R.array.rank).last()
         this.vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
+        this.deckList.clear()
+        this.guideList.clear()
         this.buildGame(context)
     }
 

@@ -16,7 +16,7 @@ class GameCardAdapter(private val selectionListener: GameCardSelectionListener) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder = GameCardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_game_card, parent, false))
 
-    override fun getItemCount(): Int = GameEngine.getInstance()?.deckList!!.size
+    override fun getItemCount(): Int = GameEngine.getInstance().deckList.size
 
     override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
         holder.selectCard.setOnClickListener { this.selectionListener.onCardSelected(holder.adapterPosition) }
