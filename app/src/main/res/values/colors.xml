@@ -5,7 +5,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorPinkTheme">#ae275f</color>
-
+    <color name="colorDivider">#EFEBE9</color>
+    
     <color name="yellow">#ffeb3b</color>
     <color name="red">#dd5044</color>
     <color name="green">#4CAF50</color>
