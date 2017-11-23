@@ -63,8 +63,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="14dp"
-                    android:text="Settings"
+                    android:paddingTop="14dp"
+                    android:text="@string/preference_title"
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="@color/colorPrimary"
@@ -88,10 +88,11 @@
                             android:src="@drawable/heart_pink" />
 
                         <TextView
+                            android:id="@+id/creditTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="Hearts and Kisses"
+                            android:text="@string/preference_credits_summary"
                             android:textSize="16sp" />
 
                         <ImageView
@@ -117,10 +118,11 @@
                             android:src="@drawable/club_pink" />
 
                         <TextView
+                            android:id="@+id/shareTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="Tell a Drinking Buddy"
+                            android:text="@string/preference_share_friend"
                             android:textSize="16sp" />
 
                         <ImageView
@@ -145,6 +147,7 @@
                         android:src="@drawable/ic_lightbulb_outline_black_48dp" />
 
                     <ImageView
+                        android:id="@+id/globeImageView"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_marginEnd="26dp"
@@ -159,6 +162,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/languageTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
