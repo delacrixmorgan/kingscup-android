@@ -5,11 +5,14 @@ import android.app.Activity
 import android.app.ActivityManager
 import android.app.FragmentManager
 import android.app.FragmentTransaction
+import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.View
 import com.delacrixmorgan.kingscup.R
+import java.util.*
 
 /**
  * Created by Delacrix Morgan on 08/11/2017.

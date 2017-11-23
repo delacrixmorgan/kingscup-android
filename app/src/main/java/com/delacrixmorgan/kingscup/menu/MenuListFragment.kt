@@ -17,6 +17,10 @@ import kotlinx.android.synthetic.main.fragment_menu_list.*
 
 class MenuListFragment : BaseFragment() {
 
+    companion object {
+        fun newInstance(): MenuListFragment = MenuListFragment()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_menu_list, container, false)
 

@@ -27,4 +27,6 @@
     <string name="sound_effects">音响</string>
 
     <string name="language">语言</string>
+    <string name="preference_share_friend">酒伴分享</string>
+    <string name="preference_title">设置</string>
 </resources>

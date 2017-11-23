@@ -15,7 +15,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         fragmentManager.inTransaction {
-            add(mainContainer.id, MenuListFragment())
+            add(mainContainer.id, MenuListFragment.newInstance())
         }
     }
 }
