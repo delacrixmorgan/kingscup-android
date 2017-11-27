@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.delacrixmorgan.kingscup.R
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 import java.util.*
@@ -18,8 +17,6 @@ class MenuSettingFragment : Fragment() {
     companion object {
         fun newInstance(): MenuSettingFragment = MenuSettingFragment()
     }
-
-    val languageList = arrayListOf("en", "zh")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(R.layout.fragment_menu_setting, container, false)
@@ -37,11 +34,12 @@ class MenuSettingFragment : Fragment() {
     }
 
     private fun changeLanguage() {
+        val languageCodeList = arrayListOf("en", "zh")
         val currentLanguage = Locale.getDefault().language
         val locale = Locale(when (currentLanguage) {
-            languageList[0] -> languageList[1]
-            languageList[1] -> languageList[0]
-            else -> languageList[0]
+            languageCodeList[0] -> languageCodeList[1]
+            languageCodeList[1] -> languageCodeList[0]
+            else -> languageCodeList[0]
         })
 
         with(resources) {
@@ -51,37 +49,18 @@ class MenuSettingFragment : Fragment() {
             onConfigurationChanged(configuration)
         }
 
-        this.updateSettingLanguage()
         Locale.setDefault(locale)
-
-        Toast.makeText(activity, "Language Updated", Toast.LENGTH_SHORT).show()
+        this.updateSettingLanguage()
     }
 
     private fun updateSettingLanguage() {
+        this.titleTextView.text = activity.getString(R.string.app_name)
+        this.settingTextView.text = activity.getString(R.string.preference_title)
         this.creditTextView.text = activity.getString(R.string.preference_credits_summary)
         this.shareTextView.text = activity.getString(R.string.preference_share_friend)
-        this.languageTextView.text = Locale.getDefault().language
-    }
 
-//    @SuppressLint("ObsoleteSdkInt")
-//    private fun setLocale(locale: Locale) {
-//        val resources = resources
-//        val configuration = resources.configuration
-//        val displayMetrics = resources.displayMetrics
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-//            configuration.setLocale(locale)
-//
-//            activity.createConfigurationContext(configuration)
-//
-//
-//            Toast.makeText(activity, "Language Updated", Toast.LENGTH_SHORT).show()
-//        } else {
-//            configuration.locale = locale
-//            resources.updateConfiguration(configuration, displayMetrics)
-//        }
-//
-//        Locale.setDefault(locale)
-//    }
+        this.languageTextView.text = Locale.getDefault().displayLanguage
+    }
 
     private fun legacyCode() {
 //        mLanguage!!.summary = Helper.mLanguageItems[activity.getSharedPreferences(Helper.SHARED_PREFERENCE, MODE_PRIVATE).getInt(Helper.LANGUAGE_PREFERENCE, 0)]
