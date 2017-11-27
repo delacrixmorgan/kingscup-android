@@ -9,20 +9,20 @@ import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.game.GameBoardFragment
-import kotlinx.android.synthetic.main.fragment_menu_list.*
+import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
  */
 
-class MenuListFragment : BaseFragment() {
+class MenuFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(): MenuListFragment = MenuListFragment()
+        fun newInstance(): MenuFragment = MenuFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.fragment_menu_list, container, false)
+            inflater.inflate(R.layout.fragment_menu, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

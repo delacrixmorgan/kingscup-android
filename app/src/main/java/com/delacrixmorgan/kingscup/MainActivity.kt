@@ -2,7 +2,7 @@ package com.delacrixmorgan.kingscup
 
 import android.os.Bundle
 import com.delacrixmorgan.kingscup.common.BaseActivity
-import com.delacrixmorgan.kingscup.menu.MenuListFragment
+import com.delacrixmorgan.kingscup.menu.MenuFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -15,7 +15,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         fragmentManager.inTransaction {
-            add(mainContainer.id, MenuListFragment.newInstance())
+            add(mainContainer.id, MenuFragment.newInstance())
         }
     }
 }
