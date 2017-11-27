@@ -1,10 +1,16 @@
 package com.delacrixmorgan.kingscup.menu
 
+import android.app.Dialog
 import android.app.Fragment
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.Button
+import android.widget.ImageView
 import com.delacrixmorgan.kingscup.R
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 import java.util.*
@@ -28,8 +34,12 @@ class MenuSettingFragment : Fragment() {
             fragmentManager.popBackStack()
         }
 
+        this.creditLayout.setOnClickListener {
+            this@MenuSettingFragment.displayCredits()
+        }
+
         this.languageTextView.setOnClickListener {
-            this.changeLanguage()
+            this@MenuSettingFragment.changeLanguage()
         }
     }
 
@@ -60,6 +70,33 @@ class MenuSettingFragment : Fragment() {
         this.shareTextView.text = activity.getString(R.string.preference_share_friend)
 
         this.languageTextView.text = Locale.getDefault().displayLanguage
+    }
+
+    private fun displayCredits() {
+        val creditDialog = Dialog(activity)
+
+        creditDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        creditDialog.setContentView(R.layout.view_credit)
+
+        creditDialog.show()
+
+        val spartanImageView = creditDialog.findViewById<ImageView>(R.id.spartanImageView)
+        val kornerImageView = creditDialog.findViewById<ImageView>(R.id.kornerImageView)
+        val doneButton = creditDialog.findViewById<Button>(R.id.doneButton)
+
+        spartanImageView.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://github.com/theleagueof/league-spartan")
+            startActivity(intent)
+        }
+
+        kornerImageView.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://github.com/JcMinarro/RoundKornerLayouts")
+            startActivity(intent)
+        }
+
+        doneButton.setOnClickListener { creditDialog.dismiss() }
     }
 
     private fun legacyCode() {
