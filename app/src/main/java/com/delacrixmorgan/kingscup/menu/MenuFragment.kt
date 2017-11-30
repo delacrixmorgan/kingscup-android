@@ -32,7 +32,6 @@ class MenuFragment : BaseFragment(), FragmentListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        GameEngine.newInstance(activity)
 
         this.rateButton.setOnClickListener {
             showFragmentWithSlide(activity, MenuRateFragment.newInstance(this), Gravity.START)
@@ -43,6 +42,7 @@ class MenuFragment : BaseFragment(), FragmentListener {
         }
 
         this.startButton.setOnClickListener {
+            GameEngine.newInstance(activity)
             showFragmentWithSlide(activity, GameBoardFragment.newInstance(), Gravity.BOTTOM)
         }
     }
