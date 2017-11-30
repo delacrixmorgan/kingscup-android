@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
+import com.delacrixmorgan.kingscup.common.FragmentListener
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.game.GameBoardFragment
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -15,8 +16,7 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  * Created by Delacrix Morgan on 09/10/2016.
  */
 
-class MenuFragment : BaseFragment() {
-
+class MenuFragment : BaseFragment(), FragmentListener {
     companion object {
         fun newInstance(): MenuFragment = MenuFragment()
     }
@@ -27,12 +27,22 @@ class MenuFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rateButton.setOnClickListener { showFragmentWithSlide(activity, MenuRateFragment.newInstance(), Gravity.START) }
-        settingButton.setOnClickListener { showFragmentWithSlide(activity, MenuSettingFragment.newInstance(), Gravity.END) }
+        this.rateButton.setOnClickListener {
+            showFragmentWithSlide(activity, MenuRateFragment.newInstance(this), Gravity.START)
+        }
 
-        startButton.setOnClickListener {
+        this.settingButton.setOnClickListener {
+            showFragmentWithSlide(activity, MenuSettingFragment.newInstance(this), Gravity.END)
+        }
+
+        this.startButton.setOnClickListener {
             GameEngine.newInstance(activity)
             showFragmentWithSlide(activity, GameBoardFragment.newInstance(), Gravity.BOTTOM)
         }
+    }
+
+    override fun onBackPressed() {
+        this.appNameTextView.text = getString(R.string.app_name)
+        fragmentManager.popBackStack()
     }
 }
