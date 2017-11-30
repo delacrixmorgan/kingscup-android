@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.Helper
+import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.fragment_game_card.*
@@ -74,7 +74,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         this.darkRightImageView.setImageResource(suitDrawable)
 
         this.doneButton.setOnTouchListener(this)
-        Helper.animateButtonGrow(activity, this.doneButton)
+        animateButtonGrow(activity, this.doneButton)
 
         if (GameEngine.getInstance().checkWin(this.card)) {
             this.doneButton.visibility = View.GONE

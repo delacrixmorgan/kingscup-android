@@ -27,6 +27,7 @@
     <string name="sound_effects">Sound Effects</string>
 
     <string name="language">Language</string>
+    <string name="current_language">English</string>
     <string name="preference_share_friend">Tell a Drinking Buddy</string>
     <string name="preference_title">Settings</string>
 </resources>
