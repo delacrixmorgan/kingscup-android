@@ -1,7 +1,6 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.app.Dialog
-import android.app.Fragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +11,8 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.BaseFragment
+import com.delacrixmorgan.kingscup.common.FragmentListener
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 import java.util.*
 
@@ -19,10 +20,17 @@ import java.util.*
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-class MenuSettingFragment : Fragment() {
+class MenuSettingFragment : BaseFragment() {
     companion object {
-        fun newInstance(): MenuSettingFragment = MenuSettingFragment()
+        fun newInstance(fragmentListener: FragmentListener? = null): MenuSettingFragment {
+            val fragment = MenuSettingFragment()
+            fragment.fragmentListener = fragmentListener
+
+            return fragment
+        }
     }
+
+    var fragmentListener: FragmentListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(R.layout.fragment_menu_setting, container, false)
@@ -31,7 +39,7 @@ class MenuSettingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.backButton.setOnClickListener {
-            fragmentManager.popBackStack()
+            this@MenuSettingFragment.fragmentListener?.onBackPressed()
         }
 
         this.creditLayout.setOnClickListener {

@@ -1,22 +1,30 @@
 package com.delacrixmorgan.kingscup.menu
 
-import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.BaseFragment
+import com.delacrixmorgan.kingscup.common.FragmentListener
 import kotlinx.android.synthetic.main.fragment_menu_rate.*
 
 /**
  * Created by Delacrix Morgan on 11/11/2017.
  */
 
-class MenuRateFragment : Fragment() {
+class MenuRateFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(): MenuRateFragment = MenuRateFragment()
+        fun newInstance(fragmentListener: FragmentListener? = null): MenuRateFragment {
+            val fragment = MenuRateFragment()
+            fragment.fragmentListener = fragmentListener
+
+            return fragment
+        }
     }
+
+    var fragmentListener: FragmentListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(R.layout.fragment_menu_rate, container, false)
@@ -25,7 +33,7 @@ class MenuRateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.backButton.setOnClickListener {
-            fragmentManager.popBackStack()
+            this@MenuRateFragment.fragmentListener?.onBackPressed()
         }
     }
 }

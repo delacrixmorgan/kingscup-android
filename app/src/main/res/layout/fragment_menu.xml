@@ -22,6 +22,7 @@
             android:src="@drawable/kingscup_logo_no_bg" />
 
         <TextView
+            android:id="@+id/appNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/fragment_menu_logo"

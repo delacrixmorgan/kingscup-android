@@ -2,6 +2,7 @@ package com.delacrixmorgan.kingscup.common
 
 import android.app.Activity
 import android.app.Fragment
+import android.content.Context
 import android.transition.Slide
 import com.delacrixmorgan.kingscup.R
 
@@ -19,5 +20,9 @@ open class BaseFragment : Fragment() {
                     .addToBackStack(fragment.javaClass.simpleName)
                     .commit()
         }
+    }
+
+    override fun getContext(): Context {
+        return activity.baseContext
     }
 }
