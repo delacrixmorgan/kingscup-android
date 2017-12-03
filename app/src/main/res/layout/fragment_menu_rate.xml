@@ -21,27 +21,37 @@
         app:elevation="6dp"
         app:fabSize="normal" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:padding="16dp"
         android:orientation="vertical">
-
-        <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="14dp"
-            app:fabSize="normal" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Say Hello!"
+            android:text="Hey there"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp" />
+            android:textAllCaps="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I don’t mean to pull you out from your drinking session."
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="King’s Cup is designed, coded and put together by a single person.Hence, every rating really means a lot to me."
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The well-being of this game rest entirely on your reviews. Have a great one mate!"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
