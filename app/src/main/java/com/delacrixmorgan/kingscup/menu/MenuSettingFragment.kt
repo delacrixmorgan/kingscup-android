@@ -70,10 +70,10 @@ class MenuSettingFragment : BaseFragment() {
     }
 
     private fun updateSettingLanguage() {
-        this.titleTextView.text = activity.getString(R.string.app_name)
-        this.settingTextView.text = activity.getString(R.string.preference_title)
-        this.creditTextView.text = activity.getString(R.string.preference_credits_summary)
-        this.shareTextView.text = activity.getString(R.string.preference_share_friend)
+        this.settingTextView.text = getString(R.string.preference_title)
+        this.quickGuideTextView.text = getString(R.string.quick_guide)
+        this.creditTextView.text = getString(R.string.preference_credits_summary)
+        this.shareTextView.text = getString(R.string.preference_share_friend)
         this.languageTextView.text = getString(R.string.current_language)
     }
 

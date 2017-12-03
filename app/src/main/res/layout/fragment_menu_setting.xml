@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.jcminarro.roundkornerlayout.RoundKornerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,194 +8,183 @@
     android:focusable="true"
     app:corner_radius="16dp">
 
-    <ScrollView
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:adjustViewBounds="true"
+        android:rotation="-180"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_arrow_back"
+        app:backgroundTint="@android:color/white"
+        app:elevation="6dp"
+        app:fabSize="normal" />
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="240dp"
+        android:background="@color/green"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/settingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preference_title"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/headerLayout">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/backButton"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:adjustViewBounds="true"
-                android:rotation="-180"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_arrow_back"
-                app:backgroundTint="@android:color/white"
-                app:elevation="6dp"
-                app:fabSize="normal" />
-
-            <LinearLayout
-                android:id="@+id/headerLayout"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/kingscup_logo_no_bg" />
-
-                <TextView
-                    android:id="@+id/titleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/app_name"
-                    android:textAllCaps="true"
-                    android:textColor="@android:color/white"
-                    android:textSize="22sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/headerLayout"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/settingTextView"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="14dp"
-                    android:text="@string/preference_title"
-                    android:textAlignment="center"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="38dp"
-                    android:layout_marginStart="38dp"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:id="@+id/creditLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:src="@drawable/heart_pink" />
-
-                        <TextView
-                            android:id="@+id/creditTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="@string/preference_credits_summary"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_alignParentEnd="true"
-                            android:src="@drawable/ic_chevron_right_black_48dp" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/colorDivider" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:src="@drawable/club_pink" />
-
-                        <TextView
-                            android:id="@+id/shareTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="@string/preference_share_friend"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_alignParentEnd="true"
-                            android:src="@drawable/ic_chevron_right_black_48dp" />
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/ic_lightbulb_outline_black_48dp" />
-
-                    <ImageView
-                        android:id="@+id/globeImageView"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:layout_marginEnd="26dp"
-                        android:layout_marginStart="26dp"
-                        android:src="@drawable/ic_language_black_48dp" />
-
-                    <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/ic_volume_up_black_48dp" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/languageTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/current_language"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:orientation="vertical">
-
-                    <android.support.design.widget.FloatingActionButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="14dp"
-                        app:fabSize="normal" />
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/diamond_pink" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/quickGuideTextView"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="German Translation Needed"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="12sp" />
+                        android:layout_centerInParent="true"
+                        android:text="@string/quick_guide"
+                        android:textSize="16sp" />
 
-                </LinearLayout>
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_chevron_right_black_48dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorDivider" />
+
+                <RelativeLayout
+                    android:id="@+id/creditLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/heart_pink" />
+
+                    <TextView
+                        android:id="@+id/creditTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/preference_credits_summary"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_chevron_right_black_48dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorDivider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/club_pink" />
+
+                    <TextView
+                        android:id="@+id/shareTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/preference_share_friend"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_chevron_right_black_48dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorDivider" />
+
             </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
-</com.jcminarro.roundkornerlayout.RoundKornerFrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="16dp"
+                android:text="Remove Ads"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/languageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="16dp"
+                android:text="@string/current_language"
+                android:textAlignment="textEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

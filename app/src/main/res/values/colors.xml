@@ -6,8 +6,11 @@
 
     <color name="colorPinkTheme">#ae275f</color>
     <color name="colorDivider">#EFEBE9</color>
-    
+
+    <color name="orange">#f47709</color>
+    <color name="blue">#109cfb</color>
+    <color name="green">#4CAF50</color>
+
     <color name="yellow">#ffeb3b</color>
     <color name="red">#dd5044</color>
-    <color name="green">#4CAF50</color>
 </resources>
