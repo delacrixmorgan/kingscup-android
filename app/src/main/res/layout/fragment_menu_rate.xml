@@ -40,38 +40,59 @@
             android:textSize="22sp" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/headerLayout">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hey there"
-            android:textAlignment="center"
-            android:textAllCaps="true" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hello"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Didn’t mean to pull you out from the great time you're having."
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:text="King’s Cup is designed, coded and put together by a single person. Hence, every rating really means a lot to me."
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The well-being of this game rest entirely on your reviews. Have a great one mate!"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/doneButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="I don’t mean to pull you out from your drinking session."
-            android:textAlignment="center" />
+            android:layout_alignParentBottom="true"
+            android:layout_margin="24dp"
+            android:background="@drawable/btn_rounded_orange"
+            android:text="Be Awesome"
+            android:textColor="@android:color/white" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="King’s Cup is designed, coded and put together by a single person.Hence, every rating really means a lot to me."
-            android:textAlignment="center" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="The well-being of this game rest entirely on your reviews. Have a great one mate!"
-            android:textAlignment="center" />
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
