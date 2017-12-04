@@ -51,6 +51,11 @@ class MenuSettingFragment : BaseFragment() {
             this@MenuSettingFragment.changeLanguage()
         }
 
+
+        this.guideLayout.setOnClickListener {
+            showFragmentWithSlide(activity, MenuGuideFragment.newInstance(), Gravity.TOP)
+        }
+
         this.unlockButton.setOnClickListener {
             showFragmentWithSlide(activity, MenuUnlockFragment.newInstance(), Gravity.BOTTOM)
         }

@@ -23,7 +23,7 @@ class GameActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val fragment = GuideListFragment()
+//        val fragment = MenuGuideFragment()
         val fragment = GameBoardFragment.newInstance()
 
         fragmentManager.inTransaction {
