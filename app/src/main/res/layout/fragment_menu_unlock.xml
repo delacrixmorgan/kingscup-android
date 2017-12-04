@@ -8,6 +8,19 @@
     android:focusable="true"
     app:corner_radius="16dp">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:adjustViewBounds="true"
+        android:rotation="-90"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_arrow_back"
+        app:backgroundTint="@android:color/white"
+        app:elevation="6dp"
+        app:fabSize="normal" />
+
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
@@ -21,86 +34,90 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="@string/app_name"
+            android:text="King's Cup Patron"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="22sp" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerLayout"
         android:padding="16dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="King's Cup Patron"
-            android:textAlignment="center"
-            android:textAllCaps="true" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="a) Support an Indie Developer"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="a) Support an Indie Developer"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="b) Unlock Theme Selection"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="b) Unlock Theme Selection"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="c) Remove Ads"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="c) Remove Ads"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pay What You Want"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Pay What You Want"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Not everyone can support a mate in the same way, so just donate what you think is fair. Any purchase unlocks everything."
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Not everyone can support a mate in the same way, so just donate what you think is fair. Any purchase unlocks everything."
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="i) USD 1.99 Buys me a shot of beer"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="i) USD 1.99 Buys me a shot of beer"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ii) USD 2.99 Buys me a pint of beer"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ii) USD 2.99 Buys me a pint of beer"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="iii) USD 4.99 Buys me a six pack beer"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="iii) USD 4.99 Buys me a six pack beer"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="iv) USD 6.99 Buys me a barrel of beer"
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="iv) USD 6.99 Buys me a barrel of beer"
+                android:textAlignment="center" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="You’ve guessed it, that’s how much I love beer. Keep turning beer into code."
-            android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="You’ve guessed it, that’s how much I love beer. Keep turning beer into code."
+                android:textAlignment="center" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

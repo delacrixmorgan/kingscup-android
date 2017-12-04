@@ -4,10 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
+import android.view.*
 import android.widget.Button
 import android.widget.ImageView
 import com.delacrixmorgan.kingscup.R
@@ -50,8 +47,12 @@ class MenuSettingFragment : BaseFragment() {
             this@MenuSettingFragment.displayCredits()
         }
 
-        this.languageTextView.setOnClickListener {
+        this.languageButton.setOnClickListener {
             this@MenuSettingFragment.changeLanguage()
+        }
+
+        this.unlockButton.setOnClickListener {
+            showFragmentWithSlide(activity, MenuUnlockFragment.newInstance(), Gravity.BOTTOM)
         }
     }
 
@@ -74,7 +75,7 @@ class MenuSettingFragment : BaseFragment() {
         this.quickGuideTextView.text = getString(R.string.quick_guide)
         this.creditTextView.text = getString(R.string.preference_credits_summary)
         this.shareTextView.text = getString(R.string.preference_share_friend)
-        this.languageTextView.text = getString(R.string.current_language)
+        this.languageButton.text = getString(R.string.current_language)
     }
 
     private fun displayCredits() {
