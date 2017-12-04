@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello"
+                android:text="Hey There"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimary"
@@ -64,23 +64,66 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Didn’t mean to pull you out from the great time you're having."
+                android:text="Didn’t mean to pull you out from your game."
                 android:textAlignment="center" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
                 android:layout_marginTop="12dp"
-                android:text="King’s Cup is designed, coded and put together by a single person. Hence, every rating really means a lot to me."
+                android:text="King’s Cup is designed, coded and put together by a single person. Making every single rating a big boost for me."
                 android:textAlignment="center" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:text="The well-being of this game rest entirely on your reviews. Have a great one mate!"
                 android:textAlignment="center" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="62dp"
+                android:layout_marginStart="62dp"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_rate_star"
+                    android:tint="@color/orange" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_rate_star"
+                    android:tint="@color/orange" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_rate_star"
+                    android:tint="@color/orange" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_rate_star"
+                    android:tint="@color/orange" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_rate_star" />
+            </LinearLayout>
         </LinearLayout>
 
         <Button
