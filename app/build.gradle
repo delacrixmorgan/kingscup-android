@@ -25,11 +25,6 @@ android {
     }
 }
 
-ext {
-    supportLib = '26.1.0'
-    roundKornerLib = '0.2.2'
-}
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -42,10 +37,10 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
-    implementation "com.android.support:recyclerview-v7:${supportLib}"
-    implementation "com.android.support:design:${supportLib}"
+    implementation "com.android.support:recyclerview-v7:$support_library"
+    implementation "com.android.support:design:$support_library"
 
-    implementation "com.jcminarro:RoundKornerLayouts:${roundKornerLib}"
+    implementation "com.jcminarro:RoundKornerLayouts:$roundKorner_library"
 }
 
 repositories {
