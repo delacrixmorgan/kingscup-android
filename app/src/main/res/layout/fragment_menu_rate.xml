@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="24dp"
-            android:background="@drawable/btn_rounded_orange"
+            android:background="@drawable/button_rounded_orange"
             android:text="Be Awesome"
             android:textColor="@android:color/white" />
 

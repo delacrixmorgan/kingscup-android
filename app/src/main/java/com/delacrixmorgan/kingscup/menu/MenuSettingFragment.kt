@@ -107,6 +107,6 @@ class MenuSettingFragment : BaseFragment() {
             startActivity(intent)
         }
 
-        doneButton.setOnClickListener { creditDialog.dismiss() }
+        doneButton.setOnClickListener { activity.fragmentManager.popBackStack() }
     }
 }

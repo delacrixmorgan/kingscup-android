@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.jcminarro.roundkornerlayout.RoundKornerLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_card_layout"
     android:layout_width="170dp"
     android:layout_height="300dp"
     android:layout_marginStart="5dp"
-    android:background="@drawable/select_deck"
+    android:background="@color/colorPrimaryDark"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:corner_radius="16dp">
 
     <ImageView
         android:layout_width="25dp"
@@ -23,4 +25,5 @@
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="22sp" />
-</LinearLayout>
+    
+</com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>

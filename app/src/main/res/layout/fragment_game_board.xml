@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/fragment_select_accent_card"
-        android:background="@color/colorPrimaryDark" />
+        android:background="@color/colorPrimary" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -143,6 +143,6 @@
             android:indeterminate="false"
             android:max="51"
             android:progress="15"
-            android:progressDrawable="@drawable/progress_bar_game_board" />
+            android:progressDrawable="@drawable/progressbar_game_board" />
     </LinearLayout>
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

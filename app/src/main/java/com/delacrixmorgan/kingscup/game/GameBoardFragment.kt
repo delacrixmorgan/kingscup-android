@@ -1,11 +1,13 @@
 package com.delacrixmorgan.kingscup.game
 
+import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
+import android.widget.ImageView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
@@ -17,9 +19,6 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  */
 
 class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
-    private lateinit var cardAdapter: GameCardAdapter
-    private var isCardSelected: Boolean = false
-
     companion object {
         lateinit var FRAGMENT_TAG: String
         fun newInstance(): GameBoardFragment {
@@ -30,8 +29,12 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.fragment_game_board, container, false)
+    private lateinit var cardAdapter: GameCardAdapter
+    private var isCardSelected: Boolean = false
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_game_board, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,11 +47,14 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
         this.recyclerView.layoutManager = manager
         this.recyclerView.adapter = this.cardAdapter
 
-        setupProgressBar(manager, recyclerView, progressBar)
-
         this.statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
-        this.quitButton.setOnClickListener { activity.onBackPressed() }
         this.volumeImageView.setImageResource(R.drawable.cup_whole)
+
+        this.quitButton.setOnClickListener {
+            this@GameBoardFragment.showMenuDialog()
+        }
+
+        setupProgressBar(manager, recyclerView, progressBar)
     }
 
     override fun onCardSelected(position: Int) {
@@ -60,6 +66,36 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
 
             showFragmentWithSlide(activity, fragment, Gravity.BOTTOM)
             GameEngine.getInstance().vibrateFeedback()
+        }
+    }
+
+    private fun showMenuDialog() {
+        val menuDialog = Dialog(activity)
+
+        menuDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        menuDialog.setContentView(R.layout.view_credit)
+
+        menuDialog.show()
+
+        val spartanImageView = menuDialog.findViewById<ImageView>(R.id.spartanImageView)
+        val kornerImageView = menuDialog.findViewById<ImageView>(R.id.kornerImageView)
+        val doneButton = menuDialog.findViewById<Button>(R.id.doneButton)
+
+        spartanImageView.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://github.com/theleagueof/league-spartan")
+            startActivity(intent)
+        }
+
+        kornerImageView.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://github.com/JcMinarro/RoundKornerLayouts")
+            startActivity(intent)
+        }
+
+        doneButton.setOnClickListener {
+            menuDialog.dismiss()
+            this.activity.fragmentManager.popBackStack()
         }
     }
 

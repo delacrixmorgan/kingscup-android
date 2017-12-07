@@ -20,11 +20,6 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
  */
 
 class GameCardFragment : Fragment(), View.OnTouchListener {
-
-    private lateinit var card: Card
-    private var dataBinding: FragmentGameCardBinding? = null
-    private var position: Int = 0
-
     companion object {
         private const val GAME_CARD_FRAGMENT_CARD = "Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "Position"
@@ -40,6 +35,10 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
             return fragment
         }
     }
+
+    private lateinit var card: Card
+    private var dataBinding: FragmentGameCardBinding? = null
+    private var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
