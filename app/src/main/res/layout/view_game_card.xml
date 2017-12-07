@@ -5,7 +5,7 @@
     android:layout_width="170dp"
     android:layout_height="300dp"
     android:layout_marginStart="5dp"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimary"
     android:gravity="center"
     android:orientation="vertical"
     app:corner_radius="16dp">
@@ -25,5 +25,5 @@
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="22sp" />
-    
+
 </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
