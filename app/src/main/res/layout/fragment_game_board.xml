@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark" />
+        android:background="@color/pink" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/fragment_select_accent_card"
-        android:background="@color/colorPinkTheme" />
+        android:background="@color/colorPrimaryDark" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -137,11 +137,12 @@
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="6dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:indeterminate="false"
-            android:max="52"
-            android:progress="15" />
+            android:max="51"
+            android:progress="15"
+            android:progressDrawable="@drawable/progress_bar_game_board" />
     </LinearLayout>
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

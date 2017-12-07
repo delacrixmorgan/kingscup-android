@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/fragment_menu_accent_card"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimaryDark">
 
         <ImageView
             android:id="@+id/fragment_menu_logo"

@@ -66,7 +66,7 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
     fun removeCardFromDeck(position: Int) {
         GameEngine.getInstance().removeCard(position, cardAdapter, progressBar)
 
-        val args: Bundle? = GameEngine.getInstance()?.updateGraphicStatus(activity)
+        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(activity)
         this.isCardSelected = false
 
         statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
