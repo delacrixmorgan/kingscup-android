@@ -28,7 +28,7 @@
             android:layout_alignParentEnd="true"
             android:adjustViewBounds="true"
             android:src="@drawable/card_accent"
-            android:tint="@color/blue" />
+            android:tint="@color/pink" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@{card.rank}"
-                android:textColor="@color/blue"
+                android:textColor="@color/pink"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 tool:text="3" />
@@ -55,7 +55,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/heart_pink"
-                android:tint="@color/blue" />
+                android:tint="@color/pink" />
 
         </LinearLayout>
 
@@ -71,7 +71,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/heart_pink"
-                android:tint="@color/blue" />
+                android:tint="@color/pink" />
 
             <TextView
                 android:id="@+id/nameTextView"

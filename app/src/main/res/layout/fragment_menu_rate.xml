@@ -43,7 +43,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/headerLayout">
+        android:layout_below="@+id/headerLayout"
+        android:background="@color/colorPrimaryDark">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +58,7 @@
                 android:text="Hey There"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@android:color/white"
                 android:textSize="18sp" />
 
             <TextView
@@ -65,21 +66,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="Didn’t mean to pull you out from your game."
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="King’s Cup is designed, coded and put together by a single person. Making every single rating a big boost for me."
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="The well-being of this game rest entirely on your reviews. Have a great one mate!"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@android:color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -122,7 +126,8 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_weight="1"
-                    android:src="@drawable/ic_rate_star" />
+                    android:src="@drawable/ic_rate_star"
+                    android:tint="@color/colorPrimary" />
             </LinearLayout>
         </LinearLayout>
 

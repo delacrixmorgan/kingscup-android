@@ -87,7 +87,7 @@ class MenuSettingFragment : BaseFragment() {
         val creditDialog = Dialog(activity)
 
         creditDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        creditDialog.setContentView(R.layout.view_credit)
+        creditDialog.setContentView(R.layout.dialog_credit)
 
         creditDialog.show()
 

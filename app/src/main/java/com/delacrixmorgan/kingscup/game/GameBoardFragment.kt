@@ -73,7 +73,7 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
         val menuDialog = Dialog(activity)
 
         menuDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        menuDialog.setContentView(R.layout.view_credit)
+        menuDialog.setContentView(R.layout.dialog_credit)
 
         menuDialog.show()
 
