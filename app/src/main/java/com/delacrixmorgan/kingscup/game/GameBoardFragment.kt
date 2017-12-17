@@ -73,7 +73,11 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
         menuDialog.setContentView(R.layout.dialog_pause)
         menuDialog.show()
 
-        menuDialog.quitButton.setOnClickListener {
+        menuDialog.resumeDialogButton.setOnClickListener {
+            menuDialog.dismiss()
+        }
+
+        menuDialog.quitDialogButton.setOnClickListener {
             menuDialog.dismiss()
             this.activity.fragmentManager.popBackStack()
         }
