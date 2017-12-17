@@ -1,17 +1,14 @@
 package com.delacrixmorgan.kingscup.game
 
 import android.app.Dialog
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
-import android.widget.Button
-import android.widget.ImageView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.setupProgressBar
+import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
 /**
@@ -50,7 +47,7 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
         this.statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
         this.volumeImageView.setImageResource(R.drawable.cup_whole)
 
-        this.quitButton.setOnClickListener {
+        this.menuButton.setOnClickListener {
             this@GameBoardFragment.showMenuDialog()
         }
 
@@ -73,27 +70,10 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
         val menuDialog = Dialog(activity)
 
         menuDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        menuDialog.setContentView(R.layout.dialog_credit)
-
+        menuDialog.setContentView(R.layout.dialog_pause)
         menuDialog.show()
 
-        val spartanImageView = menuDialog.findViewById<ImageView>(R.id.spartanImageView)
-        val kornerImageView = menuDialog.findViewById<ImageView>(R.id.kornerImageView)
-        val doneButton = menuDialog.findViewById<Button>(R.id.doneButton)
-
-        spartanImageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://github.com/theleagueof/league-spartan")
-            startActivity(intent)
-        }
-
-        kornerImageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://github.com/JcMinarro/RoundKornerLayouts")
-            startActivity(intent)
-        }
-
-        doneButton.setOnClickListener {
+        menuDialog.quitButton.setOnClickListener {
             menuDialog.dismiss()
             this.activity.fragmentManager.popBackStack()
         }

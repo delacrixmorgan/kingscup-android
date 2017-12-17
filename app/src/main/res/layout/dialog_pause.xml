@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimary">
 
     <LinearLayout
@@ -21,95 +22,55 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/rateButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="The League Of, League Spartan"
-                android:textColor="@android:color/white" />
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_favorite_black_48dp"
+                app:backgroundTint="@android:color/white"
+                app:elevation="6dp"
+                app:fabSize="normal" />
 
-            <TextView
-                android:layout_width="match_parent"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/startButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Font Library"
-                android:textColor="@color/red"
-                android:textSize="12sp" />
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/play_button"
+                app:backgroundTint="@android:color/white"
+                app:elevation="0dp"
+                app:fabSize="mini" />
 
-            <ImageView
-                android:id="@+id/spartanImageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:src="@drawable/github" />
-
-            <TextView
-                android:layout_width="match_parent"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/settingButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="Jc Miñarro, RoundKornerLayouts"
-                android:textColor="@android:color/white" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Android Library"
-                android:textColor="@color/red"
-                android:textSize="12sp" />
-
-            <ImageView
-                android:id="@+id/kornerImageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:src="@drawable/github" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="Balys Valentukevicius, Material Ripple"
-                android:textColor="@android:color/white" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Android Library"
-                android:textColor="@color/red"
-                android:textSize="12sp" />
-
-            <ImageView
-                android:id="@+id/iv_balys_github"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:src="@drawable/github" />
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_settings_black_48dp"
+                app:backgroundTint="@android:color/white"
+                app:elevation="6dp"
+                app:fabSize="normal" />
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/doneButton"
+            android:id="@+id/quitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/button_rounded_green"
-            android:text="@string/preference_done"
+            android:layout_margin="24dp"
+            android:background="@drawable/button_rounded_red"
+            android:text="Quit Game"
             android:textColor="@android:color/white" />
+
     </LinearLayout>
 </ScrollView>
