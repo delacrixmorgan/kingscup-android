@@ -9,4 +9,8 @@
         <item name="android:windowBackground">@android:color/black</item>
     </style>
 
+    <style name="CardTheme" parent="AppTheme">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

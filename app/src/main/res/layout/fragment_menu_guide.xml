@@ -6,6 +6,7 @@
     android:background="@android:color/white"
     android:clickable="true"
     android:focusable="true"
+    android:theme="@style/CardTheme"
     app:corner_radius="16dp">
 
     <android.support.design.widget.FloatingActionButton
@@ -14,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:adjustViewBounds="true"
-        android:rotation="-90"
+        android:rotation="90"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_arrow_back"
         app:backgroundTint="@android:color/white"
@@ -35,14 +36,14 @@
             android:layout_height="wrap_content"
             android:text="@string/quick_guide"
             android:textAllCaps="true"
-            android:textColor="@android:color/white"
             android:textSize="22sp" />
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/headerLayout">
+        android:layout_below="@+id/headerLayout"
+        android:background="@color/colorPrimary">
 
         <RelativeLayout
             android:layout_width="match_parent"

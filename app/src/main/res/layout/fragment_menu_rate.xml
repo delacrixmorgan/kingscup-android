@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/headerLayout"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/colorPrimary">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -127,7 +127,7 @@
                     android:layout_height="36dp"
                     android:layout_weight="1"
                     android:src="@drawable/ic_rate_star"
-                    android:tint="@color/colorPrimary" />
+                    android:tint="@color/colorPrimaryDark" />
             </LinearLayout>
         </LinearLayout>
 

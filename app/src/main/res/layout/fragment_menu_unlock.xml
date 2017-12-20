@@ -6,6 +6,7 @@
     android:background="@android:color/white"
     android:clickable="true"
     android:focusable="true"
+    android:theme="@style/CardTheme"
     app:corner_radius="16dp">
 
     <android.support.design.widget.FloatingActionButton
@@ -36,7 +37,6 @@
             android:padding="10dp"
             android:text="Pay What You Want"
             android:textAllCaps="true"
-            android:textColor="@android:color/white"
             android:textSize="22sp" />
     </LinearLayout>
 
@@ -44,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/headerLayout"
+        android:background="@color/colorPrimary"
         android:padding="16dp">
 
         <LinearLayout

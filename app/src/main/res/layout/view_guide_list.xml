@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:textColor="@color/colorPrimary"
+    android:textColor="@android:color/white"
     android:textSize="18sp"
     tool:text="@tools:sample/lorem" />
