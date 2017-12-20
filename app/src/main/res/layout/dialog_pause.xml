@@ -1,57 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:minWidth="320dp"
+    android:orientation="vertical"
+    android:paddingBottom="36dp"
+    android:paddingTop="36dp">
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/kingscup_logo_no_bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:text="Bathroom Break"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="500dp"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:layout_margin="12dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="8dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/kingscup_logo_no_bg" />
-
-        <TextView
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/restartDialogButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="12dp"
-            android:text="@string/app_name"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_replay"
+            app:backgroundTint="@android:color/white"
+            app:elevation="6dp"
+            app:fabSize="normal" />
 
-        <Button
-            android:id="@+id/resumeDialogButton"
-            android:layout_width="match_parent"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/rateDialogButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/button_rounded_green"
-            android:text="Resume"
-            android:textColor="@android:color/white" />
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/heart_pink"
+            app:backgroundTint="@android:color/white"
+            app:elevation="0dp"
+            app:fabSize="normal" />
 
-        <Button
-            android:id="@+id/quitDialogButton"
-            android:layout_width="match_parent"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/volumeDialogButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/button_rounded_red"
-            android:text="Quit"
-            android:textColor="@android:color/white" />
-
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_volume_up_black_48dp"
+            app:backgroundTint="@android:color/white"
+            app:elevation="6dp"
+            app:fabSize="normal" />
     </LinearLayout>
-</ScrollView>
+
+    <Button
+        android:id="@+id/resumeDialogButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_rounded_green"
+        android:padding="16dp"
+        android:text="Resume"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/quitDialogButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_rounded_red"
+        android:padding="16dp"
+        android:text="Quit"
+        android:textColor="@android:color/white" />
+</LinearLayout>
