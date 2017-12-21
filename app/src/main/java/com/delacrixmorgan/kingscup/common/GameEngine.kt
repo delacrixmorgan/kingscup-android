@@ -51,6 +51,10 @@ class GameEngine private constructor(context: Context) {
         this.buildGame(context)
     }
 
+    fun getSize():Int{
+        return deckList.size
+    }
+
     private fun buildGame(context: Context) {
         val cardSuits = context.resources.getStringArray(R.array.suit)
         val cardRanks = context.resources.getStringArray(R.array.rank)

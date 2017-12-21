@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  */
 
 class MenuFragment : BaseFragment(), FragmentListener {
+    
     companion object {
         fun newInstance(): MenuFragment = MenuFragment()
     }

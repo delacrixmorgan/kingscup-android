@@ -15,9 +15,10 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  * Created by Delacrix Morgan on 04/03/2017.
  */
 
-class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
+class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
     companion object {
         lateinit var FRAGMENT_TAG: String
+
         fun newInstance(): GameBoardFragment {
             val fragment = GameBoardFragment()
             this.FRAGMENT_TAG = fragment.javaClass.simpleName
@@ -27,6 +28,7 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
     }
 
     private lateinit var cardAdapter: GameCardAdapter
+    private lateinit var menuDialog: Dialog
     private var isCardSelected: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,21 +37,33 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        this.setupView()
 
+        this.restartButton.setOnClickListener {
+            this.startNewGame()
+        }
+
+        this.menuButton.setOnClickListener {
+            this.showMenuDialog()
+        }
+    }
+
+    private fun setupView() {
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         this.cardAdapter = GameCardAdapter(this)
         this.isCardSelected = false
 
+        this.recyclerView.removeAllViews()
         this.recyclerView.layoutManager = manager
         this.recyclerView.adapter = this.cardAdapter
 
         this.statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
         this.volumeImageView.setImageResource(R.drawable.cup_whole)
 
-        this.menuButton.setOnClickListener {
-            this@GameBoardFragment.showMenuDialog()
-        }
+        this.menuDialog = Dialog(activity)
+        this.menuDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        this.menuDialog.setContentView(R.layout.dialog_pause)
 
         setupProgressBar(manager, recyclerView, progressBar)
     }
@@ -66,21 +80,46 @@ class GameBoardFragment : BaseFragment(), GameCardSelectionListener {
         }
     }
 
+
     private fun showMenuDialog() {
-        val menuDialog = Dialog(activity)
+        this.menuDialog.show()
 
-        menuDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        menuDialog.setContentView(R.layout.dialog_pause)
-        menuDialog.show()
+        this.menuDialog.restartDialogButton.setOnClickListener(this)
+        this.menuDialog.rateDialogButton.setOnClickListener(this)
+        this.menuDialog.volumeDialogButton.setOnClickListener(this)
+        this.menuDialog.resumeDialogButton.setOnClickListener(this)
+        this.menuDialog.quitDialogButton.setOnClickListener(this)
+    }
 
-        menuDialog.resumeDialogButton.setOnClickListener {
-            menuDialog.dismiss()
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.restartDialogButton -> {
+                menuDialog.dismiss()
+                this.startNewGame()
+            }
+
+            R.id.rateDialogButton -> {
+
+            }
+
+            R.id.volumeDialogButton -> {
+
+            }
+
+            R.id.resumeDialogButton -> {
+                menuDialog.dismiss()
+            }
+
+            R.id.quitDialogButton -> {
+                menuDialog.dismiss()
+                this.activity.fragmentManager.popBackStack()
+            }
         }
+    }
 
-        menuDialog.quitDialogButton.setOnClickListener {
-            menuDialog.dismiss()
-            this.activity.fragmentManager.popBackStack()
-        }
+    private fun startNewGame() {
+        GameEngine.newInstance(activity)
+        this.setupView()
     }
 
     fun removeCardFromDeck(position: Int) {

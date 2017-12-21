@@ -21,9 +21,9 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
 class MenuSettingFragment : BaseFragment() {
     companion object {
-        fun newInstance(fragmentListener: FragmentListener? = null): MenuSettingFragment {
+        fun newInstance(listener: FragmentListener? = null): MenuSettingFragment {
             val fragment = MenuSettingFragment()
-            fragment.fragmentListener = fragmentListener
+            fragment.fragmentListener = listener
 
             return fragment
         }
