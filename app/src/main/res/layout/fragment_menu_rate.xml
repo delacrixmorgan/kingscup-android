@@ -138,6 +138,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="24dp"
             android:background="@drawable/button_rounded_orange"
+            android:padding="16dp"
             android:text="Be Awesome"
             android:textColor="@android:color/white" />
 
