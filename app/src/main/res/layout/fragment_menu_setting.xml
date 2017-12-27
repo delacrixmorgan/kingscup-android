@@ -56,7 +56,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/guideLayout"
+                    android:id="@+id/guideViewGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -90,7 +90,7 @@
                     android:background="@color/colorDivider" />
 
                 <RelativeLayout
-                    android:id="@+id/creditLayout"
+                    android:id="@+id/creditViewGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
@@ -124,6 +124,7 @@
                     android:background="@color/colorDivider" />
 
                 <RelativeLayout
+                    android:id="@+id/shareViewGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"

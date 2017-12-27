@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
- */
+ **/
 
 class MenuSettingFragment : BaseFragment() {
     companion object {
@@ -39,25 +39,38 @@ class MenuSettingFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.backButton.setOnClickListener {
-            this@MenuSettingFragment.fragmentListener?.onBackPressed()
+            this.fragmentListener?.onBackPressed()
         }
 
-        this.creditLayout.setOnClickListener {
-            this@MenuSettingFragment.displayCredits()
-        }
-
-        this.languageButton.setOnClickListener {
-            this@MenuSettingFragment.changeLanguage()
-        }
-
-
-        this.guideLayout.setOnClickListener {
+        this.guideViewGroup.setOnClickListener {
             showFragmentSliding(activity, MenuGuideFragment.newInstance(), Gravity.TOP)
+        }
+
+        this.creditViewGroup.setOnClickListener {
+            this.displayCredits()
+        }
+
+        this.shareViewGroup.setOnClickListener {
+            this.launchShareGameIntent()
         }
 
         this.unlockButton.setOnClickListener {
             showFragmentSliding(activity, MenuUnlockFragment.newInstance(), Gravity.BOTTOM)
         }
+
+        this.languageButton.setOnClickListener {
+            this.changeLanguage()
+        }
+    }
+
+    private fun launchShareGameIntent() {
+        val message = "Found the perfect drinking game \"King's Cup\". No beverages included!\n" + "https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup"
+        val intent = Intent(Intent.ACTION_SEND)
+        
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, message)
+
+        startActivity(Intent.createChooser(intent, context.getString(R.string.preference_share_friend)))
     }
 
     private fun changeLanguage() {
