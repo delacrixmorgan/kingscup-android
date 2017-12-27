@@ -54,10 +54,6 @@ class MenuSettingFragment : BaseFragment() {
             this.launchShareGameIntent()
         }
 
-        this.unlockButton.setOnClickListener {
-            showFragmentSliding(activity, MenuUnlockFragment.newInstance(), Gravity.BOTTOM)
-        }
-
         this.languageButton.setOnClickListener {
             this.changeLanguage()
         }
