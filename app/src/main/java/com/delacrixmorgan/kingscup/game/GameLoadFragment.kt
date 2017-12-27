@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
+import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
  * Created by Delacrix Morgan on 25/12/2017.
@@ -16,7 +17,24 @@ import com.delacrixmorgan.kingscup.common.GameEngine
 
 class GameLoadFragment : BaseFragment() {
     companion object {
-        fun newInstance(): GameLoadFragment = GameLoadFragment()
+        private const val GAME_LOAD_TYPE = "Type"
+
+        fun newInstance(loadType: LoadType): GameLoadFragment {
+            val fragment = GameLoadFragment()
+            val args = Bundle()
+
+            args.putSerializable(GAME_LOAD_TYPE, loadType)
+            fragment.arguments = args
+
+            return fragment
+        }
+    }
+
+    private lateinit var loadType: LoadType
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loadType = arguments.getSerializable(GAME_LOAD_TYPE) as LoadType
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -26,6 +44,8 @@ class GameLoadFragment : BaseFragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         GameEngine.newInstance(activity)
+
+        this.loadingTextView.text = this.loadType.statusText
 
         Handler().postDelayed({
             run {

@@ -22,12 +22,14 @@
             android:src="@drawable/kingscup_logo_no_bg" />
 
         <TextView
+            android:id="@+id/loadingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="Now Loading"
             android:textAllCaps="true"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
         <ProgressBar
             android:layout_width="wrap_content"

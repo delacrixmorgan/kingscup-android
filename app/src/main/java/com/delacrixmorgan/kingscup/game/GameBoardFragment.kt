@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
- */
+ **/
 
 class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
     companion object {
@@ -107,7 +107,7 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
             }
 
             R.id.resumeDialogButton -> {
-                
+
             }
 
             R.id.quitDialogButton -> {
@@ -118,7 +118,7 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
     private fun startNewGame() {
         this.activity.fragmentManager.popBackStack()
-        showFragmentSliding(activity, GameLoadFragment.newInstance(), Gravity.BOTTOM)
+        showFragmentSliding(activity, GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
     }
 
     fun removeCardFromDeck(position: Int) {

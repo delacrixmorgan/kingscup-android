@@ -12,6 +12,7 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.game.GameLoadFragment
+import com.delacrixmorgan.kingscup.game.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
@@ -45,7 +46,7 @@ class MenuFragment : BaseFragment(), FragmentListener {
         }
 
         this.startButton.setOnClickListener {
-            showFragmentSliding(activity, GameLoadFragment.newInstance(), Gravity.BOTTOM)
+            showFragmentSliding(activity, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
         }
     }
 
