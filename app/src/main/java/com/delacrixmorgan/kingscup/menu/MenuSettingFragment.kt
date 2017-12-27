@@ -66,7 +66,7 @@ class MenuSettingFragment : BaseFragment() {
     private fun launchShareGameIntent() {
         val message = "Found the perfect drinking game \"King's Cup\". No beverages included!\n" + "https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup"
         val intent = Intent(Intent.ACTION_SEND)
-        
+
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_TEXT, message)
 
