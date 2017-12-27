@@ -1,5 +1,6 @@
 package com.delacrixmorgan.kingscup
 
+import android.media.AudioManager
 import android.os.Bundle
 import com.delacrixmorgan.kingscup.common.BaseActivity
 import com.delacrixmorgan.kingscup.menu.MenuFragment
@@ -14,6 +15,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        volumeControlStream = AudioManager.STREAM_MUSIC
         fragmentManager.inTransaction {
             add(mainContainer.id, MenuFragment.newInstance())
         }
