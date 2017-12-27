@@ -75,11 +75,10 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
             this.isCardSelected = true
 
-            showFragmentWithSlide(activity, fragment, Gravity.BOTTOM)
+            showFragmentSliding(activity, fragment, Gravity.BOTTOM)
             GameEngine.getInstance().vibrateFeedback()
         }
     }
-
 
     private fun showMenuDialog() {
         this.menuDialog.show()
@@ -92,9 +91,10 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
     }
 
     override fun onClick(view: View) {
+        menuDialog.dismiss()
+
         when (view.id) {
             R.id.restartDialogButton -> {
-                menuDialog.dismiss()
                 this.startNewGame()
             }
 
@@ -107,19 +107,18 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
             }
 
             R.id.resumeDialogButton -> {
-                menuDialog.dismiss()
+                
             }
 
             R.id.quitDialogButton -> {
-                menuDialog.dismiss()
                 this.activity.fragmentManager.popBackStack()
             }
         }
     }
 
     private fun startNewGame() {
-        GameEngine.newInstance(activity)
-        this.setupView()
+        this.activity.fragmentManager.popBackStack()
+        showFragmentSliding(activity, GameLoadFragment.newInstance(), Gravity.BOTTOM)
     }
 
     fun removeCardFromDeck(position: Int) {

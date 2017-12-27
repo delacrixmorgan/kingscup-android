@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Created by Delacrix Morgan on 26/03/2017.
- */
+ **/
 
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

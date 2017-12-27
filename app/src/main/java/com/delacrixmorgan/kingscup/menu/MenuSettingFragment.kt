@@ -52,11 +52,11 @@ class MenuSettingFragment : BaseFragment() {
 
 
         this.guideLayout.setOnClickListener {
-            showFragmentWithSlide(activity, MenuGuideFragment.newInstance(), Gravity.TOP)
+            showFragmentSliding(activity, MenuGuideFragment.newInstance(), Gravity.TOP)
         }
 
         this.unlockButton.setOnClickListener {
-            showFragmentWithSlide(activity, MenuUnlockFragment.newInstance(), Gravity.BOTTOM)
+            showFragmentSliding(activity, MenuUnlockFragment.newInstance(), Gravity.BOTTOM)
         }
     }
 

@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.BaseFragment
+import com.delacrixmorgan.kingscup.common.FragmentListener
+import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
-import com.delacrixmorgan.kingscup.game.GameBoardFragment
+import com.delacrixmorgan.kingscup.common.setLocale
+import com.delacrixmorgan.kingscup.game.GameLoadFragment
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
@@ -16,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  */
 
 class MenuFragment : BaseFragment(), FragmentListener {
-    
     companion object {
         fun newInstance(): MenuFragment = MenuFragment()
     }
@@ -35,16 +37,15 @@ class MenuFragment : BaseFragment(), FragmentListener {
         super.onViewCreated(view, savedInstanceState)
 
         this.rateButton.setOnClickListener {
-            showFragmentWithSlide(activity, MenuRateFragment.newInstance(this), Gravity.START)
+            showFragmentSliding(activity, MenuRateFragment.newInstance(this), Gravity.START)
         }
 
         this.settingButton.setOnClickListener {
-            showFragmentWithSlide(activity, MenuSettingFragment.newInstance(this), Gravity.END)
+            showFragmentSliding(activity, MenuSettingFragment.newInstance(this), Gravity.END)
         }
 
         this.startButton.setOnClickListener {
-            GameEngine.newInstance(activity)
-            showFragmentWithSlide(activity, GameBoardFragment.newInstance(), Gravity.BOTTOM)
+            showFragmentSliding(activity, GameLoadFragment.newInstance(), Gravity.BOTTOM)
         }
     }
 
