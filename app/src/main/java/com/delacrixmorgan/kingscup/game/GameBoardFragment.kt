@@ -7,6 +7,7 @@ import android.view.*
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.launchPlayStore
 import com.delacrixmorgan.kingscup.common.setupProgressBar
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
@@ -44,7 +45,7 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
         }
 
         this.menuButton.setOnClickListener {
-            this.showMenuDialog()
+            this.menuDialog.show()
         }
     }
 
@@ -60,11 +61,8 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
         this.statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
         this.volumeImageView.setImageResource(R.drawable.cup_whole)
-
-        this.menuDialog = Dialog(activity)
-        this.menuDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        this.menuDialog.setContentView(R.layout.dialog_pause)
-
+        
+        this.setupMenuDialog()
         setupProgressBar(manager, recyclerView, progressBar)
     }
 
@@ -80,14 +78,16 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
         }
     }
 
-    private fun showMenuDialog() {
-        this.menuDialog.show()
+    private fun setupMenuDialog() {
+        this.menuDialog = Dialog(activity)
+        this.menuDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        this.menuDialog.setContentView(R.layout.dialog_pause)
 
-        this.menuDialog.restartDialogButton.setOnClickListener(this)
+        this.menuDialog.quitDialogButton.setOnClickListener(this)
         this.menuDialog.rateDialogButton.setOnClickListener(this)
         this.menuDialog.volumeDialogButton.setOnClickListener(this)
         this.menuDialog.resumeDialogButton.setOnClickListener(this)
-        this.menuDialog.quitDialogButton.setOnClickListener(this)
+        this.menuDialog.restartDialogButton.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -99,7 +99,7 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
             }
 
             R.id.rateDialogButton -> {
-
+                context.launchPlayStore()
             }
 
             R.id.volumeDialogButton -> {
@@ -107,7 +107,6 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
             }
 
             R.id.resumeDialogButton -> {
-
             }
 
             R.id.quitDialogButton -> {

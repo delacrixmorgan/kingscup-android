@@ -1,7 +1,10 @@
 package com.delacrixmorgan.kingscup.common
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
+import android.net.Uri
 import android.os.Build
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.LinearLayoutManager
@@ -15,7 +18,7 @@ import java.util.*
 
 /**
  * Created by Delacrix Morgan on 13/11/2017.
- */
+ **/
 
 fun setLocale(language: String?, resources: Resources) {
     val locale = Locale(language)
@@ -47,4 +50,9 @@ fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, p
     } else {
         progressBar.visibility = View.GONE
     }
+}
+
+fun Context.launchPlayStore() {
+    val url = "https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup"
+    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
 }

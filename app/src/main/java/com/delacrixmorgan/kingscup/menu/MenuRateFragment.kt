@@ -1,7 +1,5 @@
 package com.delacrixmorgan.kingscup.menu
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
@@ -10,6 +8,7 @@ import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.FragmentListener
+import com.delacrixmorgan.kingscup.common.launchPlayStore
 import kotlinx.android.synthetic.main.fragment_menu_rate.*
 
 /**
@@ -41,16 +40,11 @@ class MenuRateFragment : BaseFragment() {
 
         this.starImageView.setOnClickListener {
             this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
-            this.launchPlayStore()
+            context.launchPlayStore()
         }
 
         this.rateButton.setOnClickListener {
-            this.launchPlayStore()
+            context.launchPlayStore()
         }
-    }
-
-    private fun launchPlayStore() {
-        val url = "https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup"
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
     }
 }
