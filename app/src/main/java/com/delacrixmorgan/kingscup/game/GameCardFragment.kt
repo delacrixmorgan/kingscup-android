@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
 
 /**
  * Created by Delacrix Morgan on 09/10/2016.
- */
+ **/
 
 class GameCardFragment : Fragment(), View.OnTouchListener {
     companion object {
@@ -60,6 +60,28 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.setupView()
+        this.doneButton.setOnTouchListener(this)
+
+        animateButtonGrow(activity, this.doneButton)
+
+        if (GameEngine.getInstance().checkWin(this.card)) {
+            this.doneButton.visibility = View.GONE
+
+            GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
+            SoundEngine.getInstance().playSound(SoundType.GAME_OVER)
+
+            Handler().postDelayed({
+                this.backToBoardFragment()
+            }, 2000)
+        }
+
+        if (this.card.rank == "K") {
+            SoundEngine.getInstance().playSound(SoundType.OOOH)
+        }
+    }
+
+    private fun setupView() {
         val suitList = activity.resources.getStringArray(R.array.suit)
         var suitDrawable: Int = R.drawable.spade_pink
 
@@ -73,27 +95,6 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         this.lightCenterImageView.setImageResource(suitDrawable)
         this.lightLeftImageView.setImageResource(suitDrawable)
         this.darkRightImageView.setImageResource(suitDrawable)
-
-        this.doneButton.setOnTouchListener(this)
-        animateButtonGrow(activity, this.doneButton)
-
-        if (GameEngine.getInstance().checkWin(this.card)) {
-            this.doneButton.visibility = View.GONE
-
-            GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
-            SoundEngine.getInstance().playSound(SoundType.GAME_OVER)
-
-            Handler().postDelayed({
-                this.backToBoardFragment()
-            }, 2000)
-        }
-    }
-
-    override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
-        when (motionEvent.action) {
-            MotionEvent.ACTION_DOWN -> this.backToBoardFragment()
-        }
-        return true
     }
 
     private fun backToBoardFragment() {
@@ -102,5 +103,12 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         fragmentManager.popBackStack()
 
         SoundEngine.getInstance().playSound(SoundType.WHOOSH)
+    }
+
+    override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
+        when (motionEvent.action) {
+            MotionEvent.ACTION_DOWN -> this.backToBoardFragment()
+        }
+        return true
     }
 }
