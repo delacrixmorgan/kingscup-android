@@ -8,13 +8,14 @@ import android.os.Vibrator
 import android.widget.ProgressBar
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.game.GameCardAdapter
+import com.delacrixmorgan.kingscup.game.VibrateType
 import com.delacrixmorgan.kingscup.model.Card
 import java.util.*
 import kotlin.collections.ArrayList
 
 /**
- * Created by Delacrix Morgan on 09/10/2016.
- */
+* Created by Delacrix Morgan on 09/10/2016.
+**/
 
 class GameEngine private constructor(context: Context) {
     companion object {
@@ -88,11 +89,11 @@ class GameEngine private constructor(context: Context) {
 
     fun updateGraphicStatus(context: Context): Bundle {
         Collections.shuffle(tauntList, Random(System.nanoTime()))
-        val args = Bundle()
 
-        val status: String
-        var taunt = tauntList.first()
         val volume: Int
+        val status: String
+        val args = Bundle()
+        var taunt = tauntList.first()
 
         when (kingCounter) {
             0 -> {
@@ -122,21 +123,19 @@ class GameEngine private constructor(context: Context) {
             }
         }
 
-        args.putString(GAME_ENGINE_STATUS, status)
         args.putString(GAME_ENGINE_TAUNT, taunt)
-        args.putInt(GAME_ENGINE_KING_COUNTER, kingCounter)
+        args.putString(GAME_ENGINE_STATUS, status)
         args.putInt(GAME_ENGINE_CUP_VOLUME, volume)
+        args.putInt(GAME_ENGINE_KING_COUNTER, kingCounter)
 
         return args
     }
 
-    fun vibrateFeedback() {
-        val vibrateDuration = 250L
-
+    fun vibrateFeedback(vibrateType: VibrateType) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            this.vibrator.vibrate(VibrationEffect.createOneShot(vibrateDuration, -1))
+            this.vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
         } else {
-            this.vibrator.vibrate(vibrateDuration)
+            this.vibrator.vibrate(vibrateType.duration)
         }
     }
 }

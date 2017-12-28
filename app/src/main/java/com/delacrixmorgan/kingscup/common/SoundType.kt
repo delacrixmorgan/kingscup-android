@@ -6,9 +6,9 @@ import com.delacrixmorgan.kingscup.R
  * Created by Delacrix Morgan on 28/12/2017.
  **/
 
-enum class SoundType(var resourceID: Int) {
-    KING(R.raw.king),
-    FLIP(R.raw.flip),
-    WHOOSH(R.raw.whoosh),
-    GAME_OVER(R.raw.game_over);
+enum class SoundType(var rawID: Int, var resourceID: Int) {
+    KING(R.raw.king, 0),
+    FLIP(R.raw.flip, 0),
+    WHOOSH(R.raw.whoosh, 0),
+    GAME_OVER(R.raw.game_over, 0);
 }

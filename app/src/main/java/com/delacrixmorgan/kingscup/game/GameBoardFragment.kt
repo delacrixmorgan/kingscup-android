@@ -56,7 +56,6 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
         this.recyclerView.layoutManager = manager
         this.recyclerView.adapter = this.cardAdapter
 
-        this.statusTextView.text = "Let's Begin"
         this.volumeImageView.setImageResource(R.drawable.cup_whole)
 
         this.setupMenuDialog()
@@ -69,11 +68,10 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
             val fragment = GameCardFragment.newInstance(card, position)
 
             this.isCardSelected = true
-
             showFragmentSliding(activity, fragment, Gravity.BOTTOM)
-            GameEngine.getInstance().vibrateFeedback()
 
-            SoundEngine.getInstance().playSound(SoundType.WHOOSH)
+            GameEngine.getInstance().vibrateFeedback(VibrateType.SHORT)
+            SoundEngine.getInstance().playSound(SoundType.FLIP)
         }
     }
 
@@ -103,9 +101,6 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
             R.id.volumeDialogButton -> {
 
-            }
-
-            R.id.resumeDialogButton -> {
             }
 
             R.id.quitDialogButton -> {

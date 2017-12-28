@@ -41,10 +41,9 @@ class SoundEngine private constructor(context: Context) {
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                     .build()
 
-            val builder = SoundPool.Builder().setAudioAttributes(audioAttributes)
-                    .setMaxStreams(5)
-
-            builder.build()
+            SoundPool.Builder()
+                    .setAudioAttributes(audioAttributes)
+                    .setMaxStreams(5).build()
         } else {
             SoundPool(5, AudioManager.STREAM_MUSIC, 0)
         }
@@ -54,7 +53,7 @@ class SoundEngine private constructor(context: Context) {
         }
 
         SoundType.values().forEach {
-            it.resourceID = this.soundPool.load(context, it.resourceID, 1)
+            it.resourceID = this.soundPool.load(context, it.rawID, 1)
         }
     }
 

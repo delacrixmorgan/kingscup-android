@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.SoundType
 import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
@@ -78,6 +80,9 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         if (GameEngine.getInstance().checkWin(this.card)) {
             this.doneButton.visibility = View.GONE
 
+            GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
+            SoundEngine.getInstance().playSound(SoundType.GAME_OVER)
+
             Handler().postDelayed({
                 this.backToBoardFragment()
             }, 2000)
@@ -95,5 +100,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         val fragment = fragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
         fragment.removeCardFromDeck(this.position)
         fragmentManager.popBackStack()
+
+        SoundEngine.getInstance().playSound(SoundType.WHOOSH)
     }
 }
