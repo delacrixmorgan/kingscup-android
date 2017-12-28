@@ -6,6 +6,7 @@ import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.SoundPool
 import android.os.Build
+import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 
 /**
  * Created by Delacrix Morgan on 28/12/2017.
@@ -57,8 +58,11 @@ class SoundEngine private constructor(context: Context) {
         }
     }
 
-    fun playSound(soundType: SoundType) {
-        if (isLoaded) {
+    fun playSound(context: Context, soundType: SoundType) {
+        val preference = PreferenceHelper.getPreference(context)
+        val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
+
+        if (isLoaded && soundPreference) {
             val volume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC).toFloat() / audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC).toFloat()
             soundPool.play(soundType.resourceID, volume, volume, 1, 0, 1f)
         }

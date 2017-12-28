@@ -48,7 +48,7 @@ class GameLoadFragment : BaseFragment() {
         this.loadingTextView.text = this.loadType.statusText
 
         GameEngine.newInstance(activity)
-        SoundEngine.getInstance().playSound(SoundType.KING)
+        SoundEngine.getInstance().playSound(context, SoundType.KING)
 
         Handler().postDelayed({
             run {

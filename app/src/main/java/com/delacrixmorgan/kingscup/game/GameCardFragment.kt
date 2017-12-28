@@ -1,6 +1,5 @@
 package com.delacrixmorgan.kingscup.game
 
-import android.app.Fragment
 import android.databinding.DataBindingUtil.bind
 import android.os.Bundle
 import android.os.Handler
@@ -9,10 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.delacrixmorgan.kingscup.common.SoundType
-import com.delacrixmorgan.kingscup.common.animateButtonGrow
+import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.fragment_game_card.*
@@ -21,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
  * Created by Delacrix Morgan on 09/10/2016.
  **/
 
-class GameCardFragment : Fragment(), View.OnTouchListener {
+class GameCardFragment : BaseFragment(), View.OnTouchListener {
     companion object {
         private const val GAME_CARD_FRAGMENT_CARD = "Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "Position"
@@ -69,7 +65,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
             this.doneButton.visibility = View.GONE
 
             GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
-            SoundEngine.getInstance().playSound(SoundType.GAME_OVER)
+            SoundEngine.getInstance().playSound(context, SoundType.GAME_OVER)
 
             Handler().postDelayed({
                 this.backToBoardFragment()
@@ -77,7 +73,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         }
 
         if (this.card.rank == "K") {
-            SoundEngine.getInstance().playSound(SoundType.OOOH)
+            SoundEngine.getInstance().playSound(context, SoundType.OOOH)
         }
     }
 
@@ -102,7 +98,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         fragment.removeCardFromDeck(this.position)
         fragmentManager.popBackStack()
 
-        SoundEngine.getInstance().playSound(SoundType.WHOOSH)
+        SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {

@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
+import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
@@ -73,7 +75,7 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
             showFragmentSliding(activity, fragment, Gravity.BOTTOM)
 
             GameEngine.getInstance().vibrateFeedback(VibrateType.SHORT)
-            SoundEngine.getInstance().playSound(SoundType.FLIP)
+            SoundEngine.getInstance().playSound(context, SoundType.FLIP)
         }
     }
 
@@ -87,13 +89,21 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
         this.menuDialog.volumeDialogButton.setOnClickListener(this)
         this.menuDialog.resumeDialogButton.setOnClickListener(this)
         this.menuDialog.restartDialogButton.setOnClickListener(this)
+
+        val preference = PreferenceHelper.getPreference(context)
+        val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
+
+        if (soundPreference) {
+            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_up_black_48dp)
+        } else {
+            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_off_black_48dp)
+        }
     }
 
     override fun onClick(view: View) {
-        menuDialog.dismiss()
-
         when (view.id) {
             R.id.restartDialogButton -> {
+                menuDialog.dismiss()
                 this.startNewGame()
             }
 
@@ -102,10 +112,15 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
             }
 
             R.id.volumeDialogButton -> {
+                this.updateSoundPreference()
+            }
 
+            R.id.resumeDialogButton -> {
+                menuDialog.dismiss()
             }
 
             R.id.quitDialogButton -> {
+                menuDialog.dismiss()
                 this.activity.fragmentManager.popBackStack()
             }
         }
@@ -114,6 +129,19 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
     private fun startNewGame() {
         this.activity.fragmentManager.popBackStack()
         showFragmentSliding(activity, GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
+    }
+
+    private fun updateSoundPreference() {
+        val preference = PreferenceHelper.getPreference(context)
+        val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
+
+        if (soundPreference) {
+            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_off_black_48dp)
+        } else {
+            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_up_black_48dp)
+        }
+
+        preference[PreferenceHelper.SOUND] = !soundPreference
     }
 
     fun removeCardFromDeck(position: Int) {
