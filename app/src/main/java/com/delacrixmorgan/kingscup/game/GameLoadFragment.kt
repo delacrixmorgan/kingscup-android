@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.SoundType
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
@@ -43,15 +45,16 @@ class GameLoadFragment : BaseFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        GameEngine.newInstance(activity)
-
         this.loadingTextView.text = this.loadType.statusText
+
+        GameEngine.newInstance(activity)
+        SoundEngine.getInstance().playSound(SoundType.KING)
 
         Handler().postDelayed({
             run {
                 activity.fragmentManager.popBackStack()
                 showFragmentSliding(activity = activity, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
             }
-        }, 1000)
+        }, 2000)
     }
 }

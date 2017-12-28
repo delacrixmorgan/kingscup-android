@@ -3,6 +3,7 @@ package com.delacrixmorgan.kingscup
 import android.media.AudioManager
 import android.os.Bundle
 import com.delacrixmorgan.kingscup.common.BaseActivity
+import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.menu.MenuFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,7 +14,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+        SoundEngine.newInstance(this)
 
         volumeControlStream = AudioManager.STREAM_MUSIC
         fragmentManager.inTransaction {

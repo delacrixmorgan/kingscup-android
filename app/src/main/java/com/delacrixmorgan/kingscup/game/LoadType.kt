@@ -7,7 +7,6 @@ import android.content.Context
  **/
 
 enum class LoadType(val statusText: String) {
-
     NEW_GAME("Hold my Beer"),
     RESTART_GAME("Setting up New Game");
 

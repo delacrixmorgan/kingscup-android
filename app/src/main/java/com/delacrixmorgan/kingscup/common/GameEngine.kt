@@ -1,11 +1,6 @@
 package com.delacrixmorgan.kingscup.common
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Context.AUDIO_SERVICE
-import android.media.AudioAttributes
-import android.media.AudioManager
-import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -55,7 +50,6 @@ class GameEngine private constructor(context: Context) {
         this.guideList.clear()
 
         this.buildGameEngine(context)
-        this.buildSoundEngine(context)
     }
 
     private fun buildGameEngine(context: Context) {
@@ -72,39 +66,6 @@ class GameEngine private constructor(context: Context) {
         gameTaunts.forEach { gameTaunt -> tauntList.add(gameTaunt) }
 
         Collections.shuffle(deckList, Random(System.nanoTime()))
-    }
-
-    @SuppressLint("NewApi")
-    private fun buildSoundEngine(context: Context) {
-        lateinit var soundPool: SoundPool
-
-        val audioManager = context.getSystemService(AUDIO_SERVICE) as AudioManager
-        val volume:Float = (audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) / audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)).toFloat()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val audioAttributes = AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_GAME)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build()
-
-            val builder = SoundPool.Builder().setAudioAttributes(audioAttributes)
-                    .setMaxStreams(7)
-
-            soundPool = builder.build()
-
-        } else {
-            soundPool = SoundPool(5, AudioManager.STREAM_MUSIC, 0)
-        }
-
-        val soundKing = soundPool.load(context, R.raw.king, 1)
-        val soundFlip = soundPool.load(context, R.raw.flip, 1)
-        val soundWhoosh = soundPool.load(context, R.raw.whoosh, 1)
-        val soundGameOver = soundPool.load(context, R.raw.game_over, 1)
-
-
-        soundPool.setOnLoadCompleteListener { _, _, _ ->
-            soundPool.play(soundWhoosh, volume, volume, 1, 0, 1f)
-        }
     }
 
     fun checkWin(card: Card): Boolean {

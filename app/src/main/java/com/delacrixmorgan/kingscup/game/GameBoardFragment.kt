@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
-import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.launchPlayStore
-import com.delacrixmorgan.kingscup.common.setupProgressBar
+import com.delacrixmorgan.kingscup.common.*
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
@@ -59,9 +56,9 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
         this.recyclerView.layoutManager = manager
         this.recyclerView.adapter = this.cardAdapter
 
-        this.statusTextView.text = activity.resources.getStringArray(R.array.taunt).first()
+        this.statusTextView.text = "Let's Begin"
         this.volumeImageView.setImageResource(R.drawable.cup_whole)
-        
+
         this.setupMenuDialog()
         setupProgressBar(manager, recyclerView, progressBar)
     }
@@ -75,6 +72,8 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
             showFragmentSliding(activity, fragment, Gravity.BOTTOM)
             GameEngine.getInstance().vibrateFeedback()
+
+            SoundEngine.getInstance().playSound(SoundType.WHOOSH)
         }
     }
 
