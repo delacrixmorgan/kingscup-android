@@ -29,15 +29,14 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
+
+        <ImageView
+            android:id="@+id/personImageView"
+            android:layout_width="64dp"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/app_name"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="22sp" />
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_working" />
+
     </LinearLayout>
 
     <ScrollView
@@ -55,6 +54,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:text="Hey There"
                 android:textAlignment="center"
                 android:textAllCaps="true"
@@ -93,9 +93,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="62dp"
                 android:layout_marginStart="62dp"
-                android:layout_marginTop="22dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="22dp">
 
                 <ImageView
                     android:layout_width="36dp"
@@ -138,7 +138,8 @@
                 android:id="@+id/rateButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
                 android:background="@drawable/button_rounded_orange"
                 android:padding="16dp"
                 android:text="Be Awesome"
