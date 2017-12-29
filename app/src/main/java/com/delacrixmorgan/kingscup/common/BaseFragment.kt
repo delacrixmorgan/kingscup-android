@@ -11,6 +11,7 @@ import com.delacrixmorgan.kingscup.R
  **/
 
 open class BaseFragment : Fragment() {
+
     fun showFragmentSliding(activity: Activity, fragment: Fragment, gravity: Int) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             fragment.enterTransition = Slide(gravity).setDuration(200)

@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
  **/
 
 class MenuSettingFragment : BaseFragment() {
+
     companion object {
         fun newInstance(listener: FragmentListener? = null): MenuSettingFragment {
             val fragment = MenuSettingFragment()
@@ -29,8 +30,9 @@ class MenuSettingFragment : BaseFragment() {
     var fragmentListener: FragmentListener? = null
     private val languageCodeList = arrayListOf("en", "zh")
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
-            inflater.inflate(R.layout.fragment_menu_setting, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        return inflater.inflate(R.layout.fragment_menu_setting, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

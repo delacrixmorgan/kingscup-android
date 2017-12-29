@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_menu_unlock.*
 
 /**
  * Created by Delacrix Morgan on 04/12/2017.
- */
+ **/
 
 class MenuUnlockFragment : BaseFragment() {
     companion object {
@@ -19,8 +19,9 @@ class MenuUnlockFragment : BaseFragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
-            inflater.inflate(R.layout.fragment_menu_unlock, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        return inflater.inflate(R.layout.fragment_menu_unlock, container, false)
+    }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

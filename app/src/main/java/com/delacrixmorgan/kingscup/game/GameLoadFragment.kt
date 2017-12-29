@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_game_load.*
  **/
 
 class GameLoadFragment : BaseFragment() {
+
     companion object {
         private const val GAME_LOAD_TYPE = "Type"
 

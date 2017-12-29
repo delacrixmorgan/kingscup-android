@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.BaseFragment
+import com.delacrixmorgan.kingscup.common.FragmentListener
+import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
+import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.game.GameLoadFragment
 import com.delacrixmorgan.kingscup.game.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -17,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  **/
 
 class MenuFragment : BaseFragment(), FragmentListener {
+
     companion object {
         fun newInstance(): MenuFragment = MenuFragment()
     }
@@ -28,8 +32,9 @@ class MenuFragment : BaseFragment(), FragmentListener {
         setLocale(preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT], resources)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.fragment_menu, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_menu, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

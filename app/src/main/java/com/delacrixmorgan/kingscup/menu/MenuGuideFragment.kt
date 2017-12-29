@@ -13,9 +13,10 @@ import kotlinx.android.synthetic.main.view_guide_list.view.*
 
 /**
  * Created by Delacrix Morgan on 04/03/2017.
- */
+ **/
 
 class MenuGuideFragment : BaseFragment() {
+
     companion object {
         fun newInstance(): MenuGuideFragment {
             return MenuGuideFragment()
@@ -24,8 +25,9 @@ class MenuGuideFragment : BaseFragment() {
 
     lateinit var guideList: List<String>
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.fragment_menu_guide, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_menu_guide, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

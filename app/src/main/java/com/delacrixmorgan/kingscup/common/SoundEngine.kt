@@ -13,6 +13,7 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
  **/
 
 class SoundEngine private constructor(context: Context) {
+
     companion object {
         @Volatile private lateinit var SoundEngineInstance: SoundEngine
 

@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
  **/
 
 class GameCardFragment : BaseFragment(), View.OnTouchListener {
+
     companion object {
         private const val GAME_CARD_FRAGMENT_CARD = "Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "Position"

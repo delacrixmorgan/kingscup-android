@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  **/
 
 class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
+
     companion object {
         lateinit var FRAGMENT_TAG: String
 

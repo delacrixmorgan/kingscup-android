@@ -9,6 +9,7 @@ import android.preference.PreferenceManager
  **/
 
 object PreferenceHelper {
+    
     const val LANGUAGE = "Preference.Language"
     const val SOUND = "Preference.Sound"
 

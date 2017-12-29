@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_menu_rate.*
  **/
 
 class MenuRateFragment : BaseFragment() {
+
     companion object {
         fun newInstance(fragmentListener: FragmentListener? = null): MenuRateFragment {
             val fragment = MenuRateFragment()

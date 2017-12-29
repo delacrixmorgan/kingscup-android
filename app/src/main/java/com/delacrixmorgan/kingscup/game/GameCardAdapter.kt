@@ -10,7 +10,7 @@ import com.delacrixmorgan.kingscup.common.GameEngine
 
 /**
  * Created by Delacrix Morgan on 17/03/2017.
- */
+ **/
 
 class GameCardAdapter(private val selectionListener: CardListener) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
 

@@ -16,10 +16,11 @@ import java.util.*
 
 /**
  * Created by Delacrix Morgan on 08/11/2017.
- */
+ **/
 
 @SuppressLint("Registered")
 open class BaseActivity : Activity() {
+
     inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
         val fragmentTransaction = beginTransaction()
         fragmentTransaction.func()
