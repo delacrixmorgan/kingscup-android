@@ -1,80 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">King\'s Cup</string>
-    <string name="start_game">Game On</string>
-    <string name="deck_selector">Deck Selector</string>
-    <string name="preferences">Preferences</string>
-
-    <string name="suit_1">Spade</string>
-    <string name="suit_2">Heart</string>
-    <string name="suit_3">Club</string>
-    <string name="suit_4">Diamond</string>
-
-    <string name="name_1">Waterfall</string>
-    <string name="name_2">You</string>
-    <string name="name_3">Me</string>
-    <string name="name_4">Thumb Master</string>
-    <string name="name_5">Dudes</string>
-    <string name="name_6">Chicks</string>
-    <string name="name_7">Heaven</string>
-    <string name="name_8">Mate</string>
-    <string name="name_9">Snake Eyes</string>
-    <string name="name_10">Category</string>
-    <string name="name_11">Jack</string>
-    <string name="name_12">Questions</string>
-    <string name="name_13">King</string>
-
-    <string name="action_1">Everyone starts drinking until the person who draw the card stopped.</string>
-    <string name="action_2">Choose a mate\nAnd drink together!</string>
-    <string name="action_3">Only you. Drink!</string>
-    <string name="action_4">Place your thumb\non the table.\nLast to do so, drinks!</string>
-    <string name="action_5">All guys drink!</string>
-    <string name="action_6">All ladies drink!</string>
-    <string name="action_7">Everyone reach for the sky with both hands.\nLast player drinks!</string>
-    <string name="action_8">Choose a partner and drinks whenever the player drinks!</string>
-    <string name="action_9">Nobody can make\neye contact with you.\nIf caught, drink!</string>
-    <string name="action_10">Choose a category.\nSay something that fits until whoever can\'t think of any, drink!</string>
-    <string name="action_11">Complete the sentence,\n "Never have I ever.." \nAnyone who has, drink!</string>
-    <string name="action_12">Ask a player a question.\nThey must respond with another question to the next person.\n\nFirst to fail, drink!</string>
-    <string name="action_13">Set a new rule.\nFill the King\'s Cup!</string>
-
-    <string name="next_1">Hit Me</string>
-    <string name="next_2">Coming Up</string>
-    <string name="next_3">Just One More</string>
-    <string name="next_4">This Is It</string>
-    <string name="next_5">Don\'t Think</string>
-    <string name="next_6">Drink Me</string>
-    <string name="next_7">Faster Mate</string>
-    <string name="next_8">You Sure?</string>
-    <string name="next_9">Alright Buddy?</string>
-    <string name="next_10">Come On</string>
-
-    <string name="guide_1">Yes, this a drinking game.\nDoesn\'t has to be alcoholic.\n\nEveryone have your own drinking cup and place a cup in the middle to be the King\'s Cup.</string>
-    <string name="guide_2">Pick a person to start the game, select a card and do what it says.\n\nThere is no escape!\nPass to the next person when you are done.</string>
-    <string name="guide_3">Draw a King from the deck,\nyou can choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</string>
-
-    <string name="quit_title">Quit Game</string>
-    <string name="quit_header">Are you sure that you want to quit?</string>
-    <string name="quit_yes">I am afraid to go on</string>
-    <string name="quit_no">But, I refused to give in</string>
-
-    <string name="quick_guide">Quick Guide</string>
-    <string name="skip">Skip</string>
-    <string name="game_over_header">Game Over Mate</string>
     <string name="game_over_body">Drink it up!</string>
-    <string name="counter_king_left">King Left</string>
-    <string name="counter_kings_left">Kings Left</string>
 
-    <string name="preference_engineer">Engineer</string>
-    <string name="preference_designer">Designer</string>
-    <string name="preference_source_code">Source Code</string>
-    <string name="preference_credits">Credits</string>
-    <string name="preference_credits_summary">Hearts and Kisses</string>
-    <string name="preference_version">Version</string>
-    <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
-    <string name="sound_effects">Sound Effects</string>
+    <string name="preference_title">Settings</string>
+    <string name="preference_title_quick_guide">Quick Guide</string>
+    <string name="preference_title_credits_summary">Hearts and Kisses</string>
+    <string name="preference_title_share_friend">Tell a Drinking Buddy</string>
+    <string name="preference_current_language">English</string>
+    <string name="preference_button_done">Done</string>
+    <string name="preference_message_share_friend">Found the perfect drinking game "King's Cup". No beverages included!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
 
-    <string name="language">Language</string>
-    <string name="designer_vocation">Designer on Vacation</string>
+    <string name="board_title_lets_begin">Let\'s Begin</string>
 
+    <string name="dialog_pause_title">Bathroom Break</string>
+    <string name="dialog_pause_button_resume">Resume</string>
+    <string name="dialog_pause_button_quit">Quit</string>
+
+    <string name="rate_title">Hey There</string>
+    <string name="rate_paragraph_1">Didn’t mean to pull you out from your game.</string>
+    <string name="rate_paragraph_2">King’s Cup is designed, coded and put together by a single person. Making every single rating a big boost for me.</string>
+    <string name="rate_paragraph_3">The well-being of this game rest entirely on your reviews. Have a great one mate!</string>
+    <string name="rate_button_awesome">Be Awesome</string>
+
+    <string name="load_type_new_game">Hold my Beer</string>
+    <string name="load_type_restart_game">Setting up New Game</string>
 </resources>

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#28324e</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#1e2339</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="colorPinkTheme">#E63A74</color>
+    <color name="colorPinkTheme">#ae275f</color>
+    <color name="colorDivider">#209E9E9E</color>
 
-    <color name="colorBlack">#000000</color>
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="pink">#E63A74</color>
+    <color name="orange">#f47709</color>
+    <color name="blue">#109cfb</color>
+    <color name="green">#4CAF50</color>
 
-    <color name="colorFacebook">#3b5998</color>
-    <color name="colorYellow">#ffeb3b</color>
-    <color name="colorRed">#dd5044</color>
-    <color name="colorGreen">#4CAF50</color>
+    <color name="yellow">#ffeb3b</color>
+    <color name="red">#dd5044</color>
 </resources>

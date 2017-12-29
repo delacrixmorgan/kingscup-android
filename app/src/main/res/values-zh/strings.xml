@@ -1,80 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">国王之杯</string>
-    <string name="start_game">开动</string>
-    <string name="deck_selector">卡牌选择</string>
-    <string name="preferences">设置</string>
 
-    <string name="suit_1">Spade</string>
-    <string name="suit_2">Heart</string>
-    <string name="suit_3">Club</string>
-    <string name="suit_4">Diamond</string>
-
-    <string name="name_1">瀑布</string>
-    <string name="name_2">你</string>
-    <string name="name_3">我</string>
-    <string name="name_4">拇指大师</string>
-    <string name="name_5">帅哥</string>
-    <string name="name_6">美女</string>
-    <string name="name_7">天堂</string>
-    <string name="name_8">伙伴</string>
-    <string name="name_9">蛇眼</string>
-    <string name="name_10">类型</string>
-    <string name="name_11">从来没有</string>
-    <string name="name_12">问卷博士</string>
-    <string name="name_13">国王之杯</string>
-
-    <string name="action_1">抽牌的人先开始喝，\n大家跟着喝直到他停止。</string>
-    <string name="action_2">和一个伴，一起干杯。</string>
-    <string name="action_3">自己单独喝吧！</string>
-    <string name="action_4">每次他将拇指放在\n桌子上时，所有人都必须照做，\n最后一个完成的人喝酒。</string>
-    <string name="action_5">在座所有的男性必须喝酒！</string>
-    <string name="action_6">在座所有的女性必须喝酒！</string>
-    <string name="action_7">在场所有人都要马上举起双手，最后举的人要喝。</string>
-    <string name="action_8">选个伴。每当你喝酒的时候，被选中的人也要喝。\n\n一直持续到下一次有人抽到伴。\n如果忘记在“伙伴”喝酒时喝酒，两个人都必须罚酒。</string>
-    <string name="action_9">每一次 “蛇眼” \n跟某个人发生眼神接触，\n那个人就要喝酒。</string>
-    <string name="action_10">选个类型，大家说个适当的。\n直到一方想不到的，喝！</string>
-    <string name="action_11">完成以下，“我没做过..”\n当中谁有，喝！</string>
-    <string name="action_12">问一个人一个问题。\n他要同样问下一方，\n直到一方停止的。喝！</string>
-    <string name="action_13">设定新规矩。\n填你所愿入王杯！</string>
-
-    <string name="next_1">放马过来</string>
-    <string name="next_2">要来了啊</string>
-    <string name="next_3">再来一个</string>
-    <string name="next_4">这就是了</string>
-    <string name="next_5">别想了嘛</string>
-    <string name="next_6">来灌我啊</string>
-    <string name="next_7">快开牌啦</string>
-    <string name="next_8">睡了觉喔</string>
-    <string name="next_9">还行吗你?</string>
-    <string name="next_10">等什么你？</string>
-
-    <string name="guide_1">这是饮酒时一种助兴取乐的游戏，\n不会喝酒也可以用其他饮料代替。\n\n每个人都有自己的杯子，并且在中央放置一个杯子称为国王之杯。</string>
-    <string name="guide_2">由任意一人开始游戏，抽取一张卡，\n按照上面的指示完成动作。\n\n之后大家按顺时针轮流抽牌。</string>
-    <string name="guide_3">当抽到国王时，\n选择一种饮料倒进桌子\n中央的国王之杯。\n\n抽到最后一个国王的人要\n一口干掉国王之杯中的混合物。</string>
-
-    <string name="quit_title">退出游戏</string>
-    <string name="quit_header">你确定要退出吗？</string>
-    <string name="quit_yes">我很怕继续下去</string>
-    <string name="quit_no">但是，我拒绝放弃</string>
-
-    <string name="quick_guide">游戏规则</string>
-    <string name="skip">开始</string>
-    <string name="game_over_header">游戏结束</string>
+    <string name="preference_title_quick_guide">游戏的规则</string>
     <string name="game_over_body">一人灌给它完!</string>
-    <string name="counter_king_left">个剩下的国王</string>
-    <string name="counter_kings_left">个剩下的国王</string>
 
-    <string name="preference_engineer">工程师</string>
-    <string name="preference_designer">设计师</string>
-    <string name="preference_source_code">代码</string>
-    <string name="preference_credits">感激</string>
-    <string name="preference_credits_summary">XOXO</string>
-    <string name="preference_version">版本</string>
-    <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
-    <string name="sound_effects">音响</string>
+    <string name="preference_title_credits_summary">参考数据库</string>
+    <string name="preference_button_done">好的</string>
 
-    <string name="language">语言</string>
-    <string name="designer_vocation">设计师假期中</string>
+    <string name="preference_current_language">简体中文</string>
+    <string name="preference_title_share_friend">分享给酒伴</string>
+    <string name="preference_title">设置</string>
+    <string name="board_title_lets_begin">来开动吧</string>
+    <string name="dialog_pause_title">浴室休息</string>
+    <string name="dialog_pause_button_resume">继续</string>
+    <string name="dialog_pause_button_quit">退出</string>
 
+    <string name="load_type_new_game">抓紧你的酒瓶</string>
+    <string name="load_type_restart_game">建立新的游戏</string>
+
+    <string name="rate_title">哈喽好友</string>
+    <string name="rate_paragraph_1">不是故意把你从游戏中拉出来。</string>
+    <string name="rate_paragraph_2"> 国王之杯是由一个人设计，编写代码兴建起来的。\n所以，每人的评论都很重要。</string>
+    <string name="rate_paragraph_3">这个游戏的命运就掌握在你的评论。谢了！</string>
+    <string name="rate_button_awesome">你最棒了</string>
+
+    <string name="preference_message_share_friend">找到个愉快的饮酒游戏“国王之杯”。 不包括饮料！\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
 </resources>

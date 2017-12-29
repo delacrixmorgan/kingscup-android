@@ -1,93 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper_pink"
-    android:gravity="center_vertical"
-    android:orientation="vertical"
-    android:paddingLeft="50dp"
-    android:paddingRight="50dp">
+    app:corner_radius="16dp">
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:src="@drawable/kingscup_logo_no_bg" />
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:gravity="center_horizontal"
-        android:padding="20dp"
-        android:text="@string/app_name"
-        android:textAllCaps="true"
-        android:textColor="@color/colorWhite"
-        android:textSize="22sp" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fragment_menu_accent_card"
+        android:background="@color/colorPrimary">
 
-    <com.balysv.materialripple.MaterialRippleLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        app:mrl_rippleOverlay="true"
-        app:mrl_rippleRoundedCorners="50dp">
-
-        <Button
-            android:id="@+id/button_start"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/btn_rounded_red"
-            android:stateListAnimator="@null"
-            android:text="@string/start_game"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            tools:targetApi="lollipop" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
-    </com.balysv.materialripple.MaterialRippleLayout>
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="18dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/kingscup_logo_no_bg" />
 
-    <com.balysv.materialripple.MaterialRippleLayout
+            <TextView
+                android:id="@+id/appNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="34sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragment_menu_accent_card"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/pink" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        app:mrl_rippleOverlay="true"
-        app:mrl_rippleRoundedCorners="50dp">
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button_deck"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/btn_rounded_red"
-            android:stateListAnimator="@null"
-            android:text="@string/deck_selector"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            tools:targetApi="lollipop" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/rateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_favorite_black_48dp"
+            app:backgroundTint="@android:color/white"
+            app:elevation="6dp"
+            app:fabSize="normal" />
 
-    </com.balysv.materialripple.MaterialRippleLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/play_button"
+            app:backgroundTint="@android:color/white"
+            app:elevation="0dp"
+            app:fabSize="mini" />
 
-    <com.balysv.materialripple.MaterialRippleLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        app:mrl_rippleOverlay="true"
-        app:mrl_rippleRoundedCorners="50dp">
-
-        <Button
-            android:id="@+id/button_about"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/btn_rounded_red"
-            android:stateListAnimator="@null"
-            android:text="@string/preferences"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            tools:targetApi="lollipop" />
-
-    </com.balysv.materialripple.MaterialRippleLayout>
-
-
-</LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/settingButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_settings_black_48dp"
+            app:backgroundTint="@android:color/white"
+            app:elevation="6dp"
+            app:fabSize="normal" />
+    </LinearLayout>
+</com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
