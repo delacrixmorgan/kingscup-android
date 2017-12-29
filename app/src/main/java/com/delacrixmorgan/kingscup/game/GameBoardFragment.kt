@@ -104,7 +104,9 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
         when (view.id) {
             R.id.restartDialogButton -> {
                 menuDialog.dismiss()
+
                 this.startNewGame()
+                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
 
             R.id.rateDialogButton -> {
@@ -113,15 +115,19 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
             R.id.volumeDialogButton -> {
                 this.updateSoundPreference()
+                SoundEngine.getInstance().playSound(context, SoundType.CLICK)
             }
 
             R.id.resumeDialogButton -> {
                 menuDialog.dismiss()
+                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
 
             R.id.quitDialogButton -> {
                 menuDialog.dismiss()
+
                 this.activity.fragmentManager.popBackStack()
+                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
         }
     }
