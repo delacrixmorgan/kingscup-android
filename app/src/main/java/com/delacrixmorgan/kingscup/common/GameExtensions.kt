@@ -3,6 +3,7 @@ package com.delacrixmorgan.kingscup.common
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
@@ -54,7 +55,10 @@ fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, p
 
 fun Context.launchPlayStore() {
     val url = "https://play.google.com/store/apps/details?id=${this.packageName}"
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
 
+    intent.flags = FLAG_ACTIVITY_NEW_TASK
+    startActivity(intent)
+    
     SoundEngine.getInstance().playSound(this, SoundType.OOOH)
-    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
 }
