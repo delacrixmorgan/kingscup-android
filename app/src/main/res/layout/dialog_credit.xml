@@ -82,24 +82,74 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="Balys Valentukevicius, Material Ripple"
+                android:text="Yuki Sora, Chinese Translation"
                 android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Android Library"
+                android:text="GitHub Page"
                 android:textColor="@color/pink"
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@+id/iv_balys_github"
+                android:id="@+id/poiImageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:src="@drawable/github" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Freesound, Sound Effects"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Sound Resource"
+                android:textColor="@color/pink"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/freesoundImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:src="@drawable/freesound" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Freepik, Computer Worker"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Graphic Resource"
+                android:textColor="@color/pink"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/freepikImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:src="@drawable/freepik" />
 
         </LinearLayout>
 

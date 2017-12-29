@@ -9,6 +9,7 @@
     <string name="preference_title_share_friend">Tell a Drinking Buddy</string>
     <string name="preference_current_language">English</string>
     <string name="preference_button_done">Done</string>
+    <string name="preference_message_share_friend">Found the perfect drinking game "King's Cup". No beverages included!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
 
     <string name="board_title_lets_begin">Let\'s Begin</string>
 

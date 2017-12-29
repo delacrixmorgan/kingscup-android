@@ -6,12 +6,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
-import com.delacrixmorgan.kingscup.common.FragmentListener
-import com.delacrixmorgan.kingscup.common.PreferenceHelper
+import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
-import com.delacrixmorgan.kingscup.common.setLocale
 import kotlinx.android.synthetic.main.dialog_credit.*
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
@@ -60,7 +57,7 @@ class MenuSettingFragment : BaseFragment() {
     }
 
     private fun launchShareGameIntent() {
-        val message = "Found the perfect drinking game \"King's Cup\". No beverages included!\n" + "https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup"
+        val message = context.getString(R.string.preference_message_share_friend)
         val intent = Intent(Intent.ACTION_SEND)
 
         intent.type = "text/plain"
@@ -94,22 +91,27 @@ class MenuSettingFragment : BaseFragment() {
     private fun displayCredits() {
         val creditDialog = Dialog(activity)
 
-        creditDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        creditDialog.setContentView(R.layout.dialog_credit)
-        creditDialog.show()
+        with(creditDialog) {
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setContentView(R.layout.dialog_credit)
+            show()
 
-        creditDialog.spartanImageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://github.com/theleagueof/league-spartan")
-            startActivity(intent)
+            spartanImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/theleagueof/league-spartan") }
+            kornerImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
+            poiImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/YukiSora") }
+            freesoundImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://freesound.org/") }
+            freepikImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://www.freepik.com") }
+
+            doneButton.setOnClickListener {
+                creditDialog.dismiss()
+                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+            }
         }
+    }
 
-        creditDialog.kornerImageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://github.com/JcMinarro/RoundKornerLayouts")
-            startActivity(intent)
-        }
-
-        creditDialog.doneButton.setOnClickListener { creditDialog.dismiss() }
+    private fun launchWebsite(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
     }
 }
