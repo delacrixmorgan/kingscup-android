@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/preference_credits_summary"
+            android:text="@string/preference_title_credits_summary"
             android:textColor="@color/yellow"
             android:textSize="22sp" />
 
@@ -111,7 +111,7 @@
             android:layout_marginStart="20dp"
             android:background="@drawable/button_rounded_green"
             android:padding="16dp"
-            android:text="@string/preference_done"
+            android:text="@string/preference_button_done"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </ScrollView>

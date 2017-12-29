@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="4dp"
-        android:text="Bathroom Break"
+        android:text="@string/dialog_pause_title"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
@@ -80,7 +80,7 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/button_rounded_green"
         android:padding="16dp"
-        android:text="Resume"
+        android:text="@string/dialog_pause_button_resume"
         android:textColor="@android:color/white" />
 
     <Button
@@ -93,6 +93,6 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/button_rounded_red"
         android:padding="16dp"
-        android:text="Quit"
+        android:text="@string/dialog_pause_button_quit"
         android:textColor="@android:color/white" />
 </LinearLayout>

@@ -66,7 +66,7 @@ class MenuSettingFragment : BaseFragment() {
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_TEXT, message)
 
-        startActivity(Intent.createChooser(intent, context.getString(R.string.preference_share_friend)))
+        startActivity(Intent.createChooser(intent, context.getString(R.string.preference_title_share_friend)))
     }
 
     private fun changeLanguage() {
@@ -85,10 +85,10 @@ class MenuSettingFragment : BaseFragment() {
 
     private fun updateSettingLanguage() {
         this.settingTextView.text = getString(R.string.preference_title)
-        this.quickGuideTextView.text = getString(R.string.quick_guide)
-        this.creditTextView.text = getString(R.string.preference_credits_summary)
-        this.shareTextView.text = getString(R.string.preference_share_friend)
-        this.languageButton.text = getString(R.string.current_language)
+        this.quickGuideTextView.text = getString(R.string.preference_title_quick_guide)
+        this.creditTextView.text = getString(R.string.preference_title_credits_summary)
+        this.shareTextView.text = getString(R.string.preference_title_share_friend)
+        this.languageButton.text = getString(R.string.preference_current_language)
     }
 
     private fun displayCredits() {

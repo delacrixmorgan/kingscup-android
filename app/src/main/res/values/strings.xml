@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">King\'s Cup</string>
-
-    <string name="quit_title">Quit Game</string>
-    <string name="quit_header">Are you sure that you want to quit?</string>
-    <string name="quit_yes">I am afraid to go on</string>
-    <string name="quit_no">But, I refused to give in</string>
-
-    <string name="quick_guide">Quick Guide</string>
-    <string name="skip">Skip</string>
-    <string name="game_over_header">Game Over Mate</string>
     <string name="game_over_body">Drink it up!</string>
-    <string name="counter_1_king_left">1 King Left</string>
-    <string name="counter_2_king_left">2 Kings Left</string>
-    <string name="counter_3_king_left">3 Kings Left</string>
-    <string name="counter_4_king_left">4 Kings Left</string>
 
-    <string name="preference_engineer">Engineer</string>
-    <string name="preference_source_code">Source Code</string>
-    <string name="preference_credits">Credits</string>
-    <string name="preference_credits_summary">Hearts and Kisses</string>
-    <string name="preference_version">Version</string>
-    <string name="preference_done">Done</string>
-    <string name="creator_engineer_morgan_github">https://github.com/delacrixmorgan</string>
-    <string name="github_sourcecode">https://github.com/delacrixmorgan/kingscup-android</string>
-    <string name="sound_effects">Sound Effects</string>
-
-    <string name="language">Language</string>
-    <string name="current_language">English</string>
-    <string name="preference_share_friend">Tell a Drinking Buddy</string>
     <string name="preference_title">Settings</string>
+    <string name="preference_title_quick_guide">Quick Guide</string>
+    <string name="preference_title_credits_summary">Hearts and Kisses</string>
+    <string name="preference_title_share_friend">Tell a Drinking Buddy</string>
+    <string name="preference_current_language">English</string>
+    <string name="preference_button_done">Done</string>
+
+    <string name="board_title_lets_begin">Let\'s Begin</string>
+
+    <string name="dialog_pause_title">Bathroom Break</string>
+    <string name="dialog_pause_button_resume">Resume</string>
+    <string name="dialog_pause_button_quit">Quit</string>
+
+    <string name="rate_title">Hey There</string>
+    <string name="rate_paragraph_1">Didn’t mean to pull you out from your game.</string>
+    <string name="rate_paragraph_2">King’s Cup is designed, coded and put together by a single person. Making every single rating a big boost for me.</string>
+    <string name="rate_paragraph_3">The well-being of this game rest entirely on your reviews. Have a great one mate!</string>
+    <string name="rate_button_awesome">Be Awesome</string>
+
+    <string name="load_type_new_game">Hold my Beer</string>
+    <string name="load_type_restart_game">Setting up New Game</string>
 </resources>

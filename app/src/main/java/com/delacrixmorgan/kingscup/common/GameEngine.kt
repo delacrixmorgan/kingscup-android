@@ -14,13 +14,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 /**
-* Created by Delacrix Morgan on 09/10/2016.
-**/
+ * Created by Delacrix Morgan on 09/10/2016.
+ **/
 
 class GameEngine private constructor(context: Context) {
     companion object {
         const val GAME_ENGINE_TAUNT = "GAME_ENGINE_TAUNT"
-        const val GAME_ENGINE_STATUS = "GAME_ENGINE_STATUS"
         const val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
         const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
 
@@ -91,40 +90,22 @@ class GameEngine private constructor(context: Context) {
         Collections.shuffle(tauntList, Random(System.nanoTime()))
 
         val volume: Int
-        val status: String
         val args = Bundle()
         var taunt = tauntList.first()
 
         when (kingCounter) {
             0 -> {
-                status = context.getString(R.string.game_over_header)
                 taunt = context.getString(R.string.game_over_body)
                 volume = R.drawable.cup_volume_4
             }
 
-            1 -> {
-                status = context.getString(R.string.counter_1_king_left)
-                volume = R.drawable.cup_volume_3
-            }
-
-            2 -> {
-                status = context.getString(R.string.counter_2_king_left)
-                volume = R.drawable.cup_volume_2
-            }
-
-            3 -> {
-                status = context.getString(R.string.counter_3_king_left)
-                volume = R.drawable.cup_volume_1
-            }
-
-            else -> {
-                status = context.getString(R.string.counter_4_king_left)
-                volume = R.drawable.cup_whole
-            }
+            1 -> volume = R.drawable.cup_volume_3
+            2 -> volume = R.drawable.cup_volume_2
+            3 -> volume = R.drawable.cup_volume_1
+            else -> volume = R.drawable.cup_whole
         }
 
         args.putString(GAME_ENGINE_TAUNT, taunt)
-        args.putString(GAME_ENGINE_STATUS, status)
         args.putInt(GAME_ENGINE_CUP_VOLUME, volume)
         args.putInt(GAME_ENGINE_KING_COUNTER, kingCounter)
 

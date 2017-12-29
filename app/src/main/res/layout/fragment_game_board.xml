@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tool="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -80,7 +80,8 @@
                 android:src="@drawable/menu"
                 app:backgroundTint="@android:color/white"
                 app:elevation="6dp"
-                app:fabSize="normal" />
+                app:fabSize="normal"
+                tools:ignore="RelativeOverlap" />
         </RelativeLayout>
 
         <LinearLayout
@@ -101,12 +102,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Let's Begin"
+                android:text="@string/board_title_lets_begin"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                tool:text="Just One More" />
+                android:textSize="24sp" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/restartButton"

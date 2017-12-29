@@ -45,7 +45,7 @@ class GameLoadFragment : BaseFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.loadingTextView.text = this.loadType.statusText
+        this.loadingTextView.text = this.loadType.localisedDisplayStatusText(context)
 
         GameEngine.newInstance(activity)
         SoundEngine.getInstance().playSound(context, SoundType.KING)

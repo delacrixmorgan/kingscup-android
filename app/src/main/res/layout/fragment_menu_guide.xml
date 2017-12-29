@@ -34,7 +34,7 @@
             android:id="@+id/settingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/quick_guide"
+            android:text="@string/preference_title_quick_guide"
             android:textAllCaps="true"
             android:textSize="22sp" />
     </LinearLayout>
