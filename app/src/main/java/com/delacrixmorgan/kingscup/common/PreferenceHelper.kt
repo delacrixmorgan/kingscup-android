@@ -6,7 +6,7 @@ import android.preference.PreferenceManager
 
 /**
  * Created by Delacrix Morgan on 30/11/2017.
- */
+ **/
 
 object PreferenceHelper {
     const val LANGUAGE = "Preference.Language"

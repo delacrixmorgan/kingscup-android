@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
-import android.media.SoundPool
 import android.net.Uri
 import android.os.Build
 import android.support.design.widget.FloatingActionButton
@@ -54,6 +53,8 @@ fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, p
 }
 
 fun Context.launchPlayStore() {
-    val url = "https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup"
+    val url = "https://play.google.com/store/apps/details?id=${this.packageName}"
+
+    SoundEngine.getInstance().playSound(this, SoundType.OOOH)
     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
 }

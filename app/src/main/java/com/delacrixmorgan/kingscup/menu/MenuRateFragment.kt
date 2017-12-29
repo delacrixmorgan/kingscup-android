@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.fragment_menu_rate.*
  **/
 
 class MenuRateFragment : BaseFragment() {
-
     companion object {
         fun newInstance(fragmentListener: FragmentListener? = null): MenuRateFragment {
             val fragment = MenuRateFragment()
@@ -35,15 +34,18 @@ class MenuRateFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.backButton.setOnClickListener {
-            this@MenuRateFragment.fragmentListener?.onBackPressed()
+            this.fragmentListener?.onBackPressed()
         }
 
         this.starImageView.setOnClickListener {
             this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
+
+            this.fragmentListener?.onBackPressed()
             context.launchPlayStore()
         }
 
         this.rateButton.setOnClickListener {
+            this.fragmentListener?.onBackPressed()
             context.launchPlayStore()
         }
     }
