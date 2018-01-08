@@ -127,14 +127,14 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
             R.id.quitDialogButton -> {
                 menuDialog.dismiss()
 
-                this.activity.fragmentManager.popBackStack()
+                this.activity.supportFragmentManager.popBackStack()
                 SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
         }
     }
 
     private fun startNewGame() {
-        this.activity.fragmentManager.popBackStack()
+        this.activity.supportFragmentManager.popBackStack()
         showFragmentSliding(activity, GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
     }
 

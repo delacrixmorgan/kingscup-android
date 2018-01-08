@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
-import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.common.*
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
@@ -53,7 +50,7 @@ class GameLoadFragment : BaseFragment() {
 
         Handler().postDelayed({
             run {
-                activity.fragmentManager.popBackStack()
+                activity.supportFragmentManager.popBackStack()
                 showFragmentSliding(activity = activity, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
             }
         }, 2000)

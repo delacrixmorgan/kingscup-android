@@ -6,11 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
-import com.delacrixmorgan.kingscup.common.FragmentListener
-import com.delacrixmorgan.kingscup.common.PreferenceHelper
+import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
-import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.game.GameLoadFragment
 import com.delacrixmorgan.kingscup.game.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*

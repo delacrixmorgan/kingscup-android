@@ -8,8 +8,12 @@ import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
 import android.support.design.widget.FloatingActionButton
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.transition.Slide
 import android.view.View
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
@@ -20,6 +24,18 @@ import java.util.*
 /**
  * Created by Delacrix Morgan on 13/11/2017.
  **/
+
+fun showFragmentSliding(activity: FragmentActivity, fragment: Fragment, gravity: Int) {
+    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+        fragment.enterTransition = Slide(gravity).setDuration(200)
+    }
+
+    activity.supportFragmentManager
+            .beginTransaction()
+            .add(R.id.mainContainer, fragment, fragment.javaClass.simpleName)
+            .addToBackStack(fragment.javaClass.simpleName)
+            .commit()
+}
 
 fun setLocale(language: String?, resources: Resources) {
     val locale = Locale(language)
@@ -59,6 +75,6 @@ fun Context.launchPlayStore() {
 
     intent.flags = FLAG_ACTIVITY_NEW_TASK
     startActivity(intent)
-    
+
     SoundEngine.getInstance().playSound(this, SoundType.OOOH)
 }
