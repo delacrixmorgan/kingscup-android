@@ -1,18 +1,18 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
 import kotlinx.android.synthetic.main.fragment_menu_unlock.*
 
 /**
  * Created by Delacrix Morgan on 04/12/2017.
  **/
 
-class MenuUnlockFragment : BaseFragment() {
+class MenuUnlockFragment : Fragment() {
     companion object {
         fun newInstance(): MenuUnlockFragment {
             return MenuUnlockFragment()

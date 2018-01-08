@@ -2,6 +2,7 @@ package com.delacrixmorgan.kingscup.game
 
 import android.app.Dialog
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import com.delacrixmorgan.kingscup.R
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  * Created by Delacrix Morgan on 04/03/2017.
  **/
 
-class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
+class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
     companion object {
         lateinit var FRAGMENT_TAG: String

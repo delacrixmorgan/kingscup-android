@@ -3,6 +3,7 @@ package com.delacrixmorgan.kingscup.game
 import android.databinding.DataBindingUtil.bind
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
  * Created by Delacrix Morgan on 09/10/2016.
  **/
 
-class GameCardFragment : BaseFragment(), View.OnTouchListener {
+class GameCardFragment : Fragment(), View.OnTouchListener {
 
     companion object {
         private const val GAME_CARD_FRAGMENT_CARD = "Card"

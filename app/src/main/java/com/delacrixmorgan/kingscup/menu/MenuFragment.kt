@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  * Created by Delacrix Morgan on 09/10/2016.
  **/
 
-class MenuFragment : BaseFragment(), FragmentListener {
+class MenuFragment : Fragment(), FragmentListener {
 
     companion object {
         fun newInstance(): MenuFragment = MenuFragment()

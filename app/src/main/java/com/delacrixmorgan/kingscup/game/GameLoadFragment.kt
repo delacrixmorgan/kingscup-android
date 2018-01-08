@@ -2,6 +2,7 @@ package com.delacrixmorgan.kingscup.game
 
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_game_load.*
  * Created by Delacrix Morgan on 25/12/2017.
  **/
 
-class GameLoadFragment : BaseFragment() {
+class GameLoadFragment : Fragment() {
 
     companion object {
         private const val GAME_LOAD_TYPE = "Type"

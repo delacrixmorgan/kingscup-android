@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.*
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
  * Created by Delacrix Morgan on 04/03/2017.
  **/
 
-class MenuSettingFragment : BaseFragment() {
+class MenuSettingFragment : Fragment() {
 
     companion object {
         fun newInstance(listener: FragmentListener? = null): MenuSettingFragment {
