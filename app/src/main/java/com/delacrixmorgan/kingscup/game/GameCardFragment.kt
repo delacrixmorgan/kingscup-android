@@ -9,7 +9,10 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.fragment_game_card.*
@@ -28,7 +31,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
             val fragment = GameCardFragment()
             val args = Bundle()
 
-            args.putSerializable(GAME_CARD_FRAGMENT_CARD, card)
+            args.putParcelable(GAME_CARD_FRAGMENT_CARD, card)
             args.putInt(GAME_CARD_FRAGMENT_POSITION, position)
 
             fragment.arguments = args
@@ -42,7 +45,8 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.card = arguments.getSerializable(GAME_CARD_FRAGMENT_CARD) as Card
+
+        this.card = arguments.getParcelable(GAME_CARD_FRAGMENT_CARD)
         this.position = arguments.getInt(GAME_CARD_FRAGMENT_POSITION)
     }
 
