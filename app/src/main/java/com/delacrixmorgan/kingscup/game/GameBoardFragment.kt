@@ -2,7 +2,6 @@ package com.delacrixmorgan.kingscup.game
 
 import android.app.Dialog
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import com.delacrixmorgan.kingscup.R
@@ -16,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  * Created by Delacrix Morgan on 04/03/2017.
  **/
 
-class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
+class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
     companion object {
         lateinit var FRAGMENT_TAG: String
@@ -41,6 +40,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         this.setupView()
 
         this.restartButton.setOnClickListener {
@@ -74,10 +74,10 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             val fragment = GameCardFragment.newInstance(card, position)
 
             this.isCardSelected = true
-            showFragmentSliding(activity, fragment, Gravity.BOTTOM)
+            showFragmentSliding(this.baseContext, fragment, Gravity.BOTTOM)
 
             GameEngine.getInstance().vibrateFeedback(VibrateType.SHORT)
-            SoundEngine.getInstance().playSound(context, SoundType.FLIP)
+            SoundEngine.getInstance().playSound(this.baseContext, SoundType.FLIP)
         }
     }
 
@@ -92,7 +92,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         this.menuDialog.resumeDialogButton.setOnClickListener(this)
         this.menuDialog.restartDialogButton.setOnClickListener(this)
 
-        val preference = PreferenceHelper.getPreference(context)
+        val preference = PreferenceHelper.getPreference(this.baseContext)
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
         if (soundPreference) {
@@ -108,39 +108,39 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                 menuDialog.dismiss()
 
                 this.startNewGame()
-                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                SoundEngine.getInstance().playSound(this.baseContext, SoundType.WHOOSH)
             }
 
             R.id.rateDialogButton -> {
-                context.launchPlayStore()
+                this.baseContext.launchPlayStore()
             }
 
             R.id.volumeDialogButton -> {
                 this.updateSoundPreference()
-                SoundEngine.getInstance().playSound(context, SoundType.CLICK)
+                SoundEngine.getInstance().playSound(this.baseContext, SoundType.CLICK)
             }
 
             R.id.resumeDialogButton -> {
                 menuDialog.dismiss()
-                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                SoundEngine.getInstance().playSound(this.baseContext, SoundType.WHOOSH)
             }
 
             R.id.quitDialogButton -> {
                 menuDialog.dismiss()
 
-                this.activity.supportFragmentManager.popBackStack()
-                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                this.baseActivity.supportFragmentManager.popBackStack()
+                SoundEngine.getInstance().playSound(this.baseContext, SoundType.WHOOSH)
             }
         }
     }
 
     private fun startNewGame() {
-        this.activity.supportFragmentManager.popBackStack()
-        showFragmentSliding(activity, GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
+        this.baseActivity.supportFragmentManager.popBackStack()
+        showFragmentSliding(this.baseContext, GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
     }
 
     private fun updateSoundPreference() {
-        val preference = PreferenceHelper.getPreference(context)
+        val preference = PreferenceHelper.getPreference(this.baseContext)
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
         if (soundPreference) {
@@ -155,7 +155,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     fun removeCardFromDeck(position: Int) {
         GameEngine.getInstance().removeCard(position, cardAdapter, progressBar)
 
-        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(activity)
+        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(this.baseContext)
         this.isCardSelected = false
 
         statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)

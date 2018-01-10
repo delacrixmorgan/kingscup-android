@@ -1,6 +1,5 @@
 package com.delacrixmorgan.kingscup.common
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
@@ -8,11 +7,11 @@ import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
 import android.support.design.widget.FloatingActionButton
+import android.support.transition.Slide
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.transition.Slide
 import android.view.View
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
@@ -24,10 +23,10 @@ import java.util.*
  * Created by Delacrix Morgan on 13/11/2017.
  **/
 
-fun showFragmentSliding(activity: FragmentActivity, fragment: Fragment, gravity: Int) {
-    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-        fragment.enterTransition = Slide(gravity).setDuration(200)
-    }
+fun showFragmentSliding(context: Context, fragment: Fragment, gravity: Int) {
+    val activity = context as FragmentActivity
+
+    fragment.enterTransition = Slide(gravity).setDuration(200)
 
     activity.supportFragmentManager
             .beginTransaction()
@@ -48,9 +47,9 @@ fun setLocale(language: String?, resources: Resources) {
     Locale.setDefault(locale)
 }
 
-fun animateButtonGrow(activity: Activity, button: FloatingActionButton) {
+fun animateButtonGrow(context: Context, button: FloatingActionButton) {
     val animGrow = AnimationSet(true)
-    animGrow.addAnimation(AnimationUtils.loadAnimation(activity, R.anim.pop_out))
+    animGrow.addAnimation(AnimationUtils.loadAnimation(context, R.anim.pop_out))
     button.startAnimation(animGrow)
 }
 

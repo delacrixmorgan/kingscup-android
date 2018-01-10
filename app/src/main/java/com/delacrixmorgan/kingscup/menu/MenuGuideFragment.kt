@@ -1,13 +1,13 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.BaseFragment
 import kotlinx.android.synthetic.main.fragment_menu_guide.*
 import kotlinx.android.synthetic.main.view_guide_list.view.*
 
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.view_guide_list.view.*
  * Created by Delacrix Morgan on 04/03/2017.
  **/
 
-class MenuGuideFragment : Fragment() {
+class MenuGuideFragment : BaseFragment() {
 
     companion object {
         fun newInstance(): MenuGuideFragment {
@@ -32,13 +32,13 @@ class MenuGuideFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.guideList = context.resources.getStringArray(R.array.guide).toList()
+        this.guideList = resources.getStringArray(R.array.guide).toList()
 
         this.viewPager.adapter = GuideAdapter()
         this.tabLayout.setupWithViewPager(viewPager, true)
 
         this.backButton.setOnClickListener {
-            this.fragmentManager.popBackStack()
+            this.baseActivity.supportFragmentManager.popBackStack()
         }
     }
 

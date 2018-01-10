@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
  * Created by Delacrix Morgan on 04/03/2017.
  **/
 
-class MenuSettingFragment : Fragment() {
+class MenuSettingFragment : BaseFragment() {
 
     companion object {
         fun newInstance(listener: FragmentListener? = null): MenuSettingFragment {
@@ -43,7 +43,7 @@ class MenuSettingFragment : Fragment() {
         }
 
         this.guideViewGroup.setOnClickListener {
-            showFragmentSliding(activity, MenuGuideFragment.newInstance(), Gravity.TOP)
+            showFragmentSliding(this.baseContext, MenuGuideFragment.newInstance(), Gravity.TOP)
         }
 
         this.creditViewGroup.setOnClickListener {
@@ -60,17 +60,17 @@ class MenuSettingFragment : Fragment() {
     }
 
     private fun launchShareGameIntent() {
-        val message = context.getString(R.string.preference_message_share_friend)
+        val message = getString(R.string.preference_message_share_friend)
         val intent = Intent(Intent.ACTION_SEND)
 
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_TEXT, message)
 
-        startActivity(Intent.createChooser(intent, context.getString(R.string.preference_title_share_friend)))
+        startActivity(Intent.createChooser(intent, getString(R.string.preference_title_share_friend)))
     }
 
     private fun changeLanguage() {
-        val preference = PreferenceHelper.getPreference(context)
+        val preference = PreferenceHelper.getPreference(this.baseContext)
         val currentLanguage = if (preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT] == PreferenceHelper.LANGUAGE_DEFAULT) {
             this.languageCodeList[1]
         } else {

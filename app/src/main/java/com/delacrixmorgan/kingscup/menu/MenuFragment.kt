@@ -1,7 +1,6 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  * Created by Delacrix Morgan on 09/10/2016.
  **/
 
-class MenuFragment : Fragment(), FragmentListener {
+class MenuFragment : BaseFragment(), FragmentListener {
 
     companion object {
         fun newInstance(): MenuFragment = MenuFragment()
@@ -26,7 +25,7 @@ class MenuFragment : Fragment(), FragmentListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val preference = PreferenceHelper.getPreference(context)
+        val preference = PreferenceHelper.getPreference(this.baseContext)
         setLocale(preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT], resources)
     }
 
@@ -38,20 +37,20 @@ class MenuFragment : Fragment(), FragmentListener {
         super.onViewCreated(view, savedInstanceState)
 
         this.rateButton.setOnClickListener {
-            showFragmentSliding(activity, MenuRateFragment.newInstance(this), Gravity.START)
+            showFragmentSliding(this.baseContext, MenuRateFragment.newInstance(this), Gravity.START)
         }
 
         this.settingButton.setOnClickListener {
-            showFragmentSliding(activity, MenuSettingFragment.newInstance(this), Gravity.END)
+            showFragmentSliding(this.baseContext, MenuSettingFragment.newInstance(this), Gravity.END)
         }
 
         this.startButton.setOnClickListener {
-            showFragmentSliding(activity, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+            showFragmentSliding(this.baseContext, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
         }
     }
 
     override fun onBackPressed() {
         this.appNameTextView.text = getString(R.string.app_name)
-        fragmentManager.popBackStack()
+        this.baseActivity.supportFragmentManager.popBackStack()
     }
 }

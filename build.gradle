@@ -3,7 +3,7 @@
 buildscript {
     ext.kotlinVersion = '1.2.10'
     ext.buildToolsVersion = '3.0.1'
-    ext.supportLibraryVersion = '26.1.0'
+    ext.supportLibraryVersion = '27.0.2'
     ext.roundKornerLibraryVersion = '0.2.2'
 
     repositories {
