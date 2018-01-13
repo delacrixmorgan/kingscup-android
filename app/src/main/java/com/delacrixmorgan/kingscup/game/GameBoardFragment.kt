@@ -54,8 +54,8 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
     private fun setupView() {
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-
-        this.cardAdapter = GameCardAdapter(this)
+        
+        this.cardAdapter = GameCardAdapter(this, GameEngine.getInstance().deckList.size)
         this.isCardSelected = false
 
         this.recyclerView.removeAllViews()
