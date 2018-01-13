@@ -54,7 +54,7 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
     private fun setupView() {
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        
+
         this.cardAdapter = GameCardAdapter(this, GameEngine.getInstance().deckList.size)
         this.isCardSelected = false
 
@@ -82,23 +82,22 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
     }
 
     private fun setupMenuDialog() {
-        this.menuDialog = Dialog(activity)
-        this.menuDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        this.menuDialog.setContentView(R.layout.dialog_pause)
-
-        this.menuDialog.quitDialogButton.setOnClickListener(this)
-        this.menuDialog.rateDialogButton.setOnClickListener(this)
-        this.menuDialog.volumeDialogButton.setOnClickListener(this)
-        this.menuDialog.resumeDialogButton.setOnClickListener(this)
-        this.menuDialog.restartDialogButton.setOnClickListener(this)
-
         val preference = PreferenceHelper.getPreference(this.baseContext)
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
-        if (soundPreference) {
-            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_up_black_48dp)
-        } else {
-            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_off_black_48dp)
+        this.menuDialog = Dialog(this.baseContext)
+
+        with(this.menuDialog) {
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setContentView(R.layout.dialog_pause)
+
+            quitDialogButton.setOnClickListener(this@GameBoardFragment)
+            rateDialogButton.setOnClickListener(this@GameBoardFragment)
+            volumeDialogButton.setOnClickListener(this@GameBoardFragment)
+            resumeDialogButton.setOnClickListener(this@GameBoardFragment)
+            restartDialogButton.setOnClickListener(this@GameBoardFragment)
+
+            volumeDialogButton.setImageResource(if (soundPreference) R.drawable.ic_volume_up_black_48dp else R.drawable.ic_volume_off_black_48dp)
         }
     }
 
