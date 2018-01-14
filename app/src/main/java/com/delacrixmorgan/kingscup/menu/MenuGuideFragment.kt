@@ -32,13 +32,13 @@ class MenuGuideFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.guideList = context.resources.getStringArray(R.array.guide).toList()
+        this.guideList = resources.getStringArray(R.array.guide).toList()
 
         this.viewPager.adapter = GuideAdapter()
         this.tabLayout.setupWithViewPager(viewPager, true)
 
         this.backButton.setOnClickListener {
-            this.fragmentManager.popBackStack()
+            this.baseActivity.supportFragmentManager.popBackStack()
         }
     }
 

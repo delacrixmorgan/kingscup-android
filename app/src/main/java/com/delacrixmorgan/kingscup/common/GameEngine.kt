@@ -54,17 +54,20 @@ class GameEngine private constructor(context: Context) {
     }
 
     private fun buildGameEngine(context: Context) {
-        val cardSuits = context.resources.getStringArray(R.array.suit)
-        val cardRanks = context.resources.getStringArray(R.array.rank)
-        val cardHeaders = context.resources.getStringArray(R.array.header)
-        val cardBody = context.resources.getStringArray(R.array.body)
 
-        val gameGuides = context.resources.getStringArray(R.array.guide)
-        val gameTaunts = context.resources.getStringArray(R.array.taunt)
+        with(context.resources) {
+            val cardSuits = getStringArray(R.array.suit)
+            val cardRanks = getStringArray(R.array.rank)
+            val cardHeaders = getStringArray(R.array.header)
+            val cardBody = getStringArray(R.array.body)
 
-        cardSuits.forEach { cardSuit -> cardHeaders.indices.mapTo(deckList) { Card(cardSuit, cardRanks[it], cardHeaders[it], cardBody[it]) } }
-        gameGuides.forEach { gameGuide -> guideList.add(gameGuide) }
-        gameTaunts.forEach { gameTaunt -> tauntList.add(gameTaunt) }
+            val gameGuides = getStringArray(R.array.guide)
+            val gameTaunts = getStringArray(R.array.taunt)
+
+            cardSuits.forEach { cardSuit -> cardHeaders.indices.mapTo(deckList) { Card(cardSuit, cardRanks[it], cardHeaders[it], cardBody[it]) } }
+            gameGuides.forEach { gameGuide -> guideList.add(gameGuide) }
+            gameTaunts.forEach { gameTaunt -> tauntList.add(gameTaunt) }
+        }
 
         Collections.shuffle(deckList, Random(System.nanoTime()))
     }

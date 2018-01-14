@@ -23,11 +23,11 @@ class MenuUnlockFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_menu_unlock, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         this.backButton.setOnClickListener {
-            this.fragmentManager.popBackStack()
+            this.baseActivity.supportFragmentManager.popBackStack()
         }
     }
 }

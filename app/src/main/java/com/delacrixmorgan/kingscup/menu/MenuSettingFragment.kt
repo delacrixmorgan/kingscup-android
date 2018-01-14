@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.*
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
@@ -42,7 +43,7 @@ class MenuSettingFragment : BaseFragment() {
         }
 
         this.guideViewGroup.setOnClickListener {
-            showFragmentSliding(activity, MenuGuideFragment.newInstance(), Gravity.TOP)
+            showFragmentSliding(this.baseContext, MenuGuideFragment.newInstance(), Gravity.TOP)
         }
 
         this.creditViewGroup.setOnClickListener {
@@ -59,17 +60,17 @@ class MenuSettingFragment : BaseFragment() {
     }
 
     private fun launchShareGameIntent() {
-        val message = context.getString(R.string.preference_message_share_friend)
+        val message = getString(R.string.preference_message_share_friend)
         val intent = Intent(Intent.ACTION_SEND)
 
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_TEXT, message)
 
-        startActivity(Intent.createChooser(intent, context.getString(R.string.preference_title_share_friend)))
+        startActivity(Intent.createChooser(intent, getString(R.string.preference_title_share_friend)))
     }
 
     private fun changeLanguage() {
-        val preference = PreferenceHelper.getPreference(context)
+        val preference = PreferenceHelper.getPreference(this.baseContext)
         val currentLanguage = if (preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT] == PreferenceHelper.LANGUAGE_DEFAULT) {
             this.languageCodeList[1]
         } else {

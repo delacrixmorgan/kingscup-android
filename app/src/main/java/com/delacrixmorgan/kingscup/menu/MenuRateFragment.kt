@@ -32,7 +32,7 @@ class MenuRateFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_menu_rate, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         this.backButton.setOnClickListener {
@@ -41,16 +41,16 @@ class MenuRateFragment : BaseFragment() {
 
         this.starImageView.setOnClickListener {
             this.personImageView.setImageResource(R.drawable.happy)
-            this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
+            this.starImageView.setColorFilter(ContextCompat.getColor(this.baseContext, R.color.orange))
 
             this.fragmentListener?.onBackPressed()
-            context.launchPlayStore()
+            this.baseContext.launchPlayStore()
         }
 
         this.rateButton.setOnClickListener {
             this.personImageView.setImageResource(R.drawable.happy)
             this.fragmentListener?.onBackPressed()
-            context.launchPlayStore()
+            this.baseContext.launchPlayStore()
         }
     }
 }

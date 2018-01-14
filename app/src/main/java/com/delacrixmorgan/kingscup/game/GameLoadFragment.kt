@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
-import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.common.*
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
@@ -37,24 +34,24 @@ class GameLoadFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadType = arguments.getSerializable(GAME_LOAD_TYPE) as LoadType
+        loadType = arguments?.getSerializable(GAME_LOAD_TYPE) as LoadType
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_game_load, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.loadingTextView.text = this.loadType.localisedDisplayStatusText(context)
+        this.loadingTextView.text = this.loadType.localisedDisplayStatusText(this.baseContext)
 
-        GameEngine.newInstance(activity)
-        SoundEngine.getInstance().playSound(context, SoundType.KING)
+        GameEngine.newInstance(this.baseActivity)
+        SoundEngine.getInstance().playSound(this.baseContext, SoundType.KING)
 
         Handler().postDelayed({
             run {
-                activity.fragmentManager.popBackStack()
-                showFragmentSliding(activity = activity, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
+                this.baseActivity.supportFragmentManager.popBackStack()
+                showFragmentSliding(context = this.baseContext, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
             }
         }, 2000)
     }

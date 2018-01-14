@@ -2,16 +2,21 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
+
+androidExtensions {
+    experimental = true
+}
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.2'
     defaultConfig {
         applicationId "com.delacrixmorgan.kingscup"
         minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 11
-        versionName "2.0.0"
+        targetSdkVersion 27
+        versionCode 12
+        versionName "2.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

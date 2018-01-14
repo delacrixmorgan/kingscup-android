@@ -6,11 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
-import com.delacrixmorgan.kingscup.common.FragmentListener
-import com.delacrixmorgan.kingscup.common.PreferenceHelper
+import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
-import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.game.GameLoadFragment
 import com.delacrixmorgan.kingscup.game.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -28,7 +25,7 @@ class MenuFragment : BaseFragment(), FragmentListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val preference = PreferenceHelper.getPreference(context)
+        val preference = PreferenceHelper.getPreference(this.baseContext)
         setLocale(preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT], resources)
     }
 
@@ -40,20 +37,20 @@ class MenuFragment : BaseFragment(), FragmentListener {
         super.onViewCreated(view, savedInstanceState)
 
         this.rateButton.setOnClickListener {
-            showFragmentSliding(activity, MenuRateFragment.newInstance(this), Gravity.START)
+            showFragmentSliding(this.baseContext, MenuRateFragment.newInstance(this), Gravity.START)
         }
 
         this.settingButton.setOnClickListener {
-            showFragmentSliding(activity, MenuSettingFragment.newInstance(this), Gravity.END)
+            showFragmentSliding(this.baseContext, MenuSettingFragment.newInstance(this), Gravity.END)
         }
 
         this.startButton.setOnClickListener {
-            showFragmentSliding(activity, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+            showFragmentSliding(this.baseContext, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
         }
     }
 
     override fun onBackPressed() {
         this.appNameTextView.text = getString(R.string.app_name)
-        fragmentManager.popBackStack()
+        this.baseActivity.supportFragmentManager.popBackStack()
     }
 }

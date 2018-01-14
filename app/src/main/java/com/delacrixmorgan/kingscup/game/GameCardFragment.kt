@@ -27,7 +27,7 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
             val fragment = GameCardFragment()
             val args = Bundle()
 
-            args.putSerializable(GAME_CARD_FRAGMENT_CARD, card)
+            args.putParcelable(GAME_CARD_FRAGMENT_CARD, card)
             args.putInt(GAME_CARD_FRAGMENT_POSITION, position)
 
             fragment.arguments = args
@@ -41,8 +41,11 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.card = arguments.getSerializable(GAME_CARD_FRAGMENT_CARD) as Card
-        this.position = arguments.getInt(GAME_CARD_FRAGMENT_POSITION)
+
+        arguments?.let {
+            this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD)
+            this.position = it.getInt(GAME_CARD_FRAGMENT_POSITION)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -60,13 +63,13 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
         this.setupView()
         this.doneButton.setOnTouchListener(this)
 
-        animateButtonGrow(activity, this.doneButton)
+        animateButtonGrow(this.baseContext, this.doneButton)
 
         if (GameEngine.getInstance().checkWin(this.card)) {
             this.doneButton.visibility = View.GONE
 
             GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
-            SoundEngine.getInstance().playSound(context, SoundType.GAME_OVER)
+            SoundEngine.getInstance().playSound(this.baseContext, SoundType.GAME_OVER)
 
             Handler().postDelayed({
                 this.backToBoardFragment()
@@ -74,12 +77,12 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
         }
 
         if (this.card.rank == "K") {
-            SoundEngine.getInstance().playSound(context, SoundType.OOOH)
+            SoundEngine.getInstance().playSound(this.baseContext, SoundType.OOOH)
         }
     }
 
     private fun setupView() {
-        val suitList = activity.resources.getStringArray(R.array.suit)
+        val suitList = resources.getStringArray(R.array.suit)
         var suitDrawable: Int = R.drawable.spade_pink
 
         when (this.card.suit) {
@@ -95,11 +98,11 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
     }
 
     private fun backToBoardFragment() {
-        val fragment = fragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
+        val fragment = this.baseActivity.supportFragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
         fragment.removeCardFromDeck(this.position)
-        fragmentManager.popBackStack()
+        this.baseActivity.supportFragmentManager.popBackStack()
 
-        SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+        SoundEngine.getInstance().playSound(this.baseContext, SoundType.WHOOSH)
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {

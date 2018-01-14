@@ -1,30 +1,21 @@
 package com.delacrixmorgan.kingscup.common
 
-import android.app.Activity
-import android.app.Fragment
 import android.content.Context
-import android.transition.Slide
-import com.delacrixmorgan.kingscup.R
+import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 
 /**
- * Created by Delacrix Morgan on 18/11/2017.
+ * Created by Delacrix Morgan on 10/01/2018.
  **/
 
 open class BaseFragment : Fragment() {
+    lateinit var baseActivity: AppCompatActivity
+    lateinit var baseContext: Context
 
-    fun showFragmentSliding(activity: Activity, fragment: Fragment, gravity: Int) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            fragment.enterTransition = Slide(gravity).setDuration(200)
-        }
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
 
-        activity.fragmentManager
-                .beginTransaction()
-                .add(R.id.mainContainer, fragment, fragment.javaClass.simpleName)
-                .addToBackStack(fragment.javaClass.simpleName)
-                .commit()
-    }
-
-    override fun getContext(): Context {
-        return activity.baseContext
+        activity?.let { this.baseActivity = it as AppCompatActivity }
+        context?.let { this.baseContext = it }
     }
 }
