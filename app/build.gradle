@@ -3,6 +3,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
+apply plugin: 'io.fabric'
 
 androidExtensions {
     experimental = true
@@ -37,6 +38,10 @@ dependencies {
     })
 
     testCompile 'junit:junit:4.12'
+    compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
+        transitive = true;
+    }
+
     kapt "com.android.databinding:compiler:$buildToolsVersion"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
@@ -46,8 +51,10 @@ dependencies {
     implementation "com.android.support:design:$supportLibraryVersion"
 
     implementation "com.jcminarro:RoundKornerLayouts:$roundKornerLibraryVersion"
+
 }
 
 repositories {
     mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
 }

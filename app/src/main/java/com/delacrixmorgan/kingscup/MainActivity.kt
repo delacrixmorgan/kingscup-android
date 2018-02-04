@@ -11,9 +11,11 @@ import android.support.v7.app.AppCompatActivity
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
+import com.crashlytics.android.Crashlytics
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.showFragmentSliding
 import com.delacrixmorgan.kingscup.menu.MenuFragment
+import io.fabric.sdk.android.Fabric
 
 /**
  * Created by Delacrix Morgan on 26/03/2017.
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Fabric.with(this, Crashlytics())
 
         setContentView(R.layout.activity_main)
         showFragmentSliding(this@MainActivity, MenuFragment.newInstance(), Gravity.BOTTOM)
