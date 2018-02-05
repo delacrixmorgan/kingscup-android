@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlinVersion = '1.2.10'
+    ext.kotlinVersion = '1.2.21'
     ext.buildToolsVersion = '3.0.1'
     ext.supportLibraryVersion = '27.0.2'
     ext.roundKornerLibraryVersion = '0.2.2'
@@ -12,7 +12,7 @@ buildscript {
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
+        classpath 'io.fabric.tools:gradle:1.25.1'
         classpath "com.android.tools.build:gradle:$buildToolsVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion"

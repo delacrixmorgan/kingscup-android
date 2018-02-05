@@ -16,8 +16,8 @@ android {
         applicationId "com.delacrixmorgan.kingscup"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 13
-        versionName "2.0.2"
+        versionCode 14
+        versionName "2.1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -51,7 +51,6 @@ dependencies {
     implementation "com.android.support:design:$supportLibraryVersion"
 
     implementation "com.jcminarro:RoundKornerLayouts:$roundKornerLibraryVersion"
-
 }
 
 repositories {
