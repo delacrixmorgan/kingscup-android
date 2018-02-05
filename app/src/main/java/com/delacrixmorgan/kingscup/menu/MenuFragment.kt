@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.common.showFragmentSliding
+import com.delacrixmorgan.kingscup.game.GameBoardFragment
 import com.delacrixmorgan.kingscup.game.GameLoadFragment
 import com.delacrixmorgan.kingscup.game.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -25,6 +27,8 @@ class MenuFragment : Fragment(), FragmentListener {
     companion object {
         fun newInstance(): MenuFragment = MenuFragment()
     }
+
+    private var isGameStarted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +54,15 @@ class MenuFragment : Fragment(), FragmentListener {
             }
 
             startButton.setOnClickListener {
-                showFragmentSliding(context, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+                if (!isGameStarted) {
+                    isGameStarted = !isGameStarted
+                    showFragmentSliding(context, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+                    Handler().postDelayed({
+                        run {
+                            isGameStarted = false
+                        }
+                    }, 2000)
+                }
             }
         }
     }
