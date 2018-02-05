@@ -15,14 +15,15 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 class SoundEngine private constructor(context: Context) {
 
     companion object {
-        @Volatile private lateinit var SoundEngineInstance: SoundEngine
+        @Volatile
+        private lateinit var SoundEngineInstance: SoundEngine
 
         fun newInstance(context: Context): SoundEngine {
-            this.SoundEngineInstance = SoundEngine(context)
-            return this.SoundEngineInstance
+            SoundEngineInstance = SoundEngine(context)
+            return SoundEngineInstance
         }
 
-        fun getInstance(): SoundEngine = this.SoundEngineInstance
+        fun getInstance(): SoundEngine = SoundEngineInstance
     }
 
     private lateinit var soundPool: SoundPool
@@ -31,13 +32,13 @@ class SoundEngine private constructor(context: Context) {
     private var isLoaded = false
 
     init {
-        this.buildSoundEngine(context)
+        buildSoundEngine(context)
     }
 
     @SuppressLint("NewApi")
     private fun buildSoundEngine(context: Context) {
-        this.audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        this.soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val audioAttributes = AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_GAME)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -50,12 +51,12 @@ class SoundEngine private constructor(context: Context) {
             SoundPool(5, AudioManager.STREAM_MUSIC, 0)
         }
 
-        this.soundPool.setOnLoadCompleteListener { _, _, _ ->
-            this.isLoaded = true
+        soundPool.setOnLoadCompleteListener { _, _, _ ->
+            isLoaded = true
         }
 
         SoundType.values().forEach {
-            it.resourceID = this.soundPool.load(context, it.rawID, 1)
+            it.resourceID = soundPool.load(context, it.rawID, 1)
         }
     }
 

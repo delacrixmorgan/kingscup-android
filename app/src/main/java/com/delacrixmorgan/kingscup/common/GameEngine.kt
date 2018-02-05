@@ -28,8 +28,8 @@ class GameEngine private constructor(context: Context) {
         private lateinit var GameEngineInstance: GameEngine
 
         fun newInstance(context: Context): GameEngine {
-            this.GameEngineInstance = GameEngine(context)
-            return this.GameEngineInstance
+            GameEngineInstance = GameEngine(context)
+            return GameEngineInstance
         }
 
         fun getInstance(): GameEngine = this.GameEngineInstance
@@ -44,14 +44,14 @@ class GameEngine private constructor(context: Context) {
     private var vibrator: Vibrator
 
     init {
-        this.kingCounter = 4
-        this.kingRank = context.resources.getStringArray(R.array.rank).last()
-        this.vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        kingCounter = 4
+        kingRank = context.resources.getStringArray(R.array.rank).last()
+        vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-        this.deckList.clear()
-        this.guideList.clear()
+        deckList.clear()
+        guideList.clear()
 
-        this.buildGameEngine(context)
+        buildGameEngine(context)
     }
 
     private fun buildGameEngine(context: Context) {
@@ -74,18 +74,15 @@ class GameEngine private constructor(context: Context) {
     }
 
     fun checkWin(card: Card): Boolean {
-        if (card.rank == this.kingRank && kingCounter == 1) {
-            return true
-        }
-        return false
+        return card.rank == kingRank && kingCounter == 1
     }
 
     fun removeCard(position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
-        if (this.deckList[position].rank == this.kingRank) {
-            this.kingCounter--
+        if (deckList[position].rank == kingRank) {
+            kingCounter--
         }
 
-        this.deckList.removeAt(position)
+        deckList.removeAt(position)
 
         cardAdapter.notifyItemRemoved(position)
         progressBar.max--
@@ -119,9 +116,9 @@ class GameEngine private constructor(context: Context) {
 
     fun vibrateFeedback(vibrateType: VibrateType) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            this.vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
+            vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
         } else {
-            this.vibrator.vibrate(vibrateType.duration)
+            vibrator.vibrate(vibrateType.duration)
         }
     }
 }
