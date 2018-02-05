@@ -24,7 +24,8 @@ class GameEngine private constructor(context: Context) {
         const val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
         const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
 
-        @Volatile private lateinit var GameEngineInstance: GameEngine
+        @Volatile
+        private lateinit var GameEngineInstance: GameEngine
 
         fun newInstance(context: Context): GameEngine {
             this.GameEngineInstance = GameEngine(context)

@@ -3,12 +3,16 @@ package com.delacrixmorgan.kingscup.game
 import android.databinding.DataBindingUtil.bind
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.fragment_game_card.*
@@ -17,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
  * Created by Delacrix Morgan on 09/10/2016.
  **/
 
-class GameCardFragment : BaseFragment(), View.OnTouchListener {
+class GameCardFragment : Fragment(), View.OnTouchListener {
 
     companion object {
         private const val GAME_CARD_FRAGMENT_CARD = "Card"
@@ -51,8 +55,8 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_game_card, container, false)
 
-        this.dataBinding = bind(rootView)
-        this.dataBinding?.card = this.card
+        dataBinding = bind(rootView)
+        dataBinding?.card = this.card
 
         return rootView
     }
@@ -60,24 +64,26 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.setupView()
-        this.doneButton.setOnTouchListener(this)
+        setupView()
+        doneButton.setOnTouchListener(this)
 
-        animateButtonGrow(this.baseContext, this.doneButton)
+        context?.let {
+            animateButtonGrow(it, doneButton)
 
-        if (GameEngine.getInstance().checkWin(this.card)) {
-            this.doneButton.visibility = View.GONE
+            if (GameEngine.getInstance().checkWin(card)) {
+                doneButton.visibility = View.GONE
 
-            GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
-            SoundEngine.getInstance().playSound(this.baseContext, SoundType.GAME_OVER)
+                GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
+                SoundEngine.getInstance().playSound(it, SoundType.GAME_OVER)
 
-            Handler().postDelayed({
-                this.backToBoardFragment()
-            }, 2000)
-        }
+                Handler().postDelayed({
+                    backToBoardFragment()
+                }, 2000)
+            }
 
-        if (this.card.rank == "K") {
-            SoundEngine.getInstance().playSound(this.baseContext, SoundType.OOOH)
+            if (card.rank == "K") {
+                SoundEngine.getInstance().playSound(it, SoundType.OOOH)
+            }
         }
     }
 
@@ -85,7 +91,7 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
         val suitList = resources.getStringArray(R.array.suit)
         var suitDrawable: Int = R.drawable.spade_pink
 
-        when (this.card.suit) {
+        when (card.suit) {
             suitList[0] -> suitDrawable = R.drawable.spade_pink
             suitList[1] -> suitDrawable = R.drawable.heart_pink
             suitList[2] -> suitDrawable = R.drawable.club_pink
@@ -98,11 +104,11 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
     }
 
     private fun backToBoardFragment() {
-        val fragment = this.baseActivity.supportFragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
+        val fragment = activity?.supportFragmentManager?.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
         fragment.removeCardFromDeck(this.position)
-        this.baseActivity.supportFragmentManager.popBackStack()
+        activity?.supportFragmentManager?.popBackStack()
 
-        SoundEngine.getInstance().playSound(this.baseContext, SoundType.WHOOSH)
+        SoundEngine.getInstance().playSound(context!!, SoundType.WHOOSH)
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {

@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
  * Created by Delacrix Morgan on 04/03/2017.
  **/
 
-class MenuSettingFragment : BaseFragment() {
+class MenuSettingFragment : Fragment() {
 
     companion object {
         fun newInstance(listener: FragmentListener? = null): MenuSettingFragment {
@@ -43,7 +43,7 @@ class MenuSettingFragment : BaseFragment() {
         }
 
         this.guideViewGroup.setOnClickListener {
-            showFragmentSliding(this.baseContext, MenuGuideFragment.newInstance(), Gravity.TOP)
+            showFragmentSliding(context!!, MenuGuideFragment.newInstance(), Gravity.TOP)
         }
 
         this.creditViewGroup.setOnClickListener {
@@ -70,7 +70,7 @@ class MenuSettingFragment : BaseFragment() {
     }
 
     private fun changeLanguage() {
-        val preference = PreferenceHelper.getPreference(this.baseContext)
+        val preference = PreferenceHelper.getPreference(context!!)
         val currentLanguage = if (preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT] == PreferenceHelper.LANGUAGE_DEFAULT) {
             this.languageCodeList[1]
         } else {

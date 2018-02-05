@@ -56,7 +56,7 @@ class GameLoadFragment : Fragment() {
 
         Handler().postDelayed({
             run {
-                activity?.supportFragmentManager.popBackStack()
+                activity?.supportFragmentManager?.popBackStack()
                 context?.let {
                     showFragmentSliding(context = it, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
                 }

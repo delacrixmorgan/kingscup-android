@@ -19,13 +19,13 @@ class GameCardAdapter(private val selectionListener: CardListener, private var d
 
     override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
         holder.selectCard.setOnClickListener {
-            this.deckSize--
-            this.selectionListener.onCardSelected(holder.adapterPosition)
+            deckSize--
+            selectionListener.onCardSelected(holder.adapterPosition)
         }
     }
 
     override fun getItemCount(): Int {
-        return this.deckSize
+        return deckSize
     }
 
     class GameCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

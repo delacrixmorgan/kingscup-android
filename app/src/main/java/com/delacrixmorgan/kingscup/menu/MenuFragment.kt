@@ -1,13 +1,17 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.FragmentListener
+import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
+import com.delacrixmorgan.kingscup.common.setLocale
+import com.delacrixmorgan.kingscup.common.showFragmentSliding
 import com.delacrixmorgan.kingscup.game.GameLoadFragment
 import com.delacrixmorgan.kingscup.game.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -16,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  * Created by Delacrix Morgan on 09/10/2016.
  **/
 
-class MenuFragment : BaseFragment(), FragmentListener {
+class MenuFragment : Fragment(), FragmentListener {
 
     companion object {
         fun newInstance(): MenuFragment = MenuFragment()
@@ -25,7 +29,7 @@ class MenuFragment : BaseFragment(), FragmentListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val preference = PreferenceHelper.getPreference(this.baseContext)
+        val preference = PreferenceHelper.getPreference(context!!)
         setLocale(preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT], resources)
     }
 
@@ -36,21 +40,23 @@ class MenuFragment : BaseFragment(), FragmentListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.rateButton.setOnClickListener {
-            showFragmentSliding(this.baseContext, MenuRateFragment.newInstance(this), Gravity.START)
-        }
+        context?.let { context ->
+            rateButton.setOnClickListener {
+                showFragmentSliding(context, MenuRateFragment.newInstance(this), Gravity.START)
+            }
 
-        this.settingButton.setOnClickListener {
-            showFragmentSliding(this.baseContext, MenuSettingFragment.newInstance(this), Gravity.END)
-        }
+            settingButton.setOnClickListener {
+                showFragmentSliding(context, MenuSettingFragment.newInstance(this), Gravity.END)
+            }
 
-        this.startButton.setOnClickListener {
-            showFragmentSliding(this.baseContext, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+            startButton.setOnClickListener {
+                showFragmentSliding(context, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+            }
         }
     }
 
     override fun onBackPressed() {
-        this.appNameTextView.text = getString(R.string.app_name)
-        this.baseActivity.supportFragmentManager.popBackStack()
+        appNameTextView.text = getString(R.string.app_name)
+        activity?.supportFragmentManager?.popBackStack()
     }
 }

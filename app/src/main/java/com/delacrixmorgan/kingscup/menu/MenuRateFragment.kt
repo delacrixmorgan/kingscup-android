@@ -1,12 +1,12 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.FragmentListener
 import com.delacrixmorgan.kingscup.common.launchPlayStore
 import kotlinx.android.synthetic.main.fragment_menu_rate.*
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_menu_rate.*
  * Created by Delacrix Morgan on 11/11/2017.
  **/
 
-class MenuRateFragment : BaseFragment() {
+class MenuRateFragment : Fragment() {
 
     companion object {
         fun newInstance(fragmentListener: FragmentListener? = null): MenuRateFragment {
@@ -35,22 +35,24 @@ class MenuRateFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.backButton.setOnClickListener {
-            this.fragmentListener?.onBackPressed()
-        }
+        context?.let { context ->
+            backButton.setOnClickListener {
+                fragmentListener?.onBackPressed()
+            }
 
-        this.starImageView.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.happy)
-            this.starImageView.setColorFilter(ContextCompat.getColor(this.baseContext, R.color.orange))
+            starImageView.setOnClickListener {
+                personImageView.setImageResource(R.drawable.happy)
+                starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
 
-            this.fragmentListener?.onBackPressed()
-            this.baseContext.launchPlayStore()
-        }
+                fragmentListener?.onBackPressed()
+                context.launchPlayStore()
+            }
 
-        this.rateButton.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.happy)
-            this.fragmentListener?.onBackPressed()
-            this.baseContext.launchPlayStore()
+            rateButton.setOnClickListener {
+                personImageView.setImageResource(R.drawable.happy)
+                fragmentListener?.onBackPressed()
+                context.launchPlayStore()
+            }
         }
     }
 }
