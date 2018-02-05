@@ -7,9 +7,9 @@ import com.delacrixmorgan.kingscup.R
  * Created by Delacrix Morgan on 27/12/2017.
  **/
 
-enum class LoadType(val statusText: String) {
-    NEW_GAME("Hold my Beer"),
-    RESTART_GAME("Setting up New Game");
+enum class LoadType {
+    NEW_GAME,
+    RESTART_GAME;
 
     fun localisedDisplayStatusText(context: Context): String {
         return when (this) {
