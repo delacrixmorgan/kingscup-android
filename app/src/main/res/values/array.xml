@@ -74,10 +74,4 @@
         <item>Draw a King from the deck,\nyou can choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</item>
     </string-array>
 
-    <string-array name="language">
-        <item>Default Language</item>
-        <item>English</item>
-        <item>Simplified Chinese</item>
-    </string-array>
-
 </resources>
