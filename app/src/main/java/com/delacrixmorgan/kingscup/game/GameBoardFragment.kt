@@ -8,6 +8,7 @@ import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
+import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
@@ -70,14 +71,19 @@ class GameBoardFragment : BaseFragment(), View.OnClickListener, CardListener {
 
     override fun onCardSelected(position: Int) {
         if (!this.isCardSelected && !this.isGameOver) {
-            val card = GameEngine.getInstance().deckList[position]
-            val fragment = GameCardFragment.newInstance(card, position)
+            val card: Card? = GameEngine.getInstance().deckList[position]
 
-            this.isCardSelected = true
-            showFragmentSliding(this.baseContext, fragment, Gravity.BOTTOM)
+            if (card != null) {
+                val fragment = GameCardFragment.newInstance(card, position)
+                this.isCardSelected = true
+                showFragmentSliding(this.baseContext, fragment, Gravity.BOTTOM)
 
-            GameEngine.getInstance().vibrateFeedback(VibrateType.SHORT)
-            SoundEngine.getInstance().playSound(this.baseContext, SoundType.FLIP)
+                GameEngine.getInstance().vibrateFeedback(VibrateType.SHORT)
+                SoundEngine.getInstance().playSound(this.baseContext, SoundType.FLIP)
+            } else {
+                this.baseActivity.supportFragmentManager.popBackStack()
+                SoundEngine.getInstance().playSound(this.baseContext, SoundType.WHOOSH)
+            }
         }
     }
 
