@@ -2,19 +2,23 @@ package com.delacrixmorgan.kingscup.game
 
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.common.showFragmentSliding
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
  * Created by Delacrix Morgan on 25/12/2017.
  **/
 
-class GameLoadFragment : BaseFragment() {
+class GameLoadFragment : Fragment() {
 
     companion object {
         private const val GAME_LOAD_TYPE = "Type"
@@ -43,15 +47,19 @@ class GameLoadFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.loadingTextView.text = this.loadType.localisedDisplayStatusText(this.baseContext)
 
-        GameEngine.newInstance(this.baseActivity)
-        SoundEngine.getInstance().playSound(this.baseContext, SoundType.KING)
+        context?.let {
+            this.loadingTextView.text = this.loadType.localisedDisplayStatusText(it)
+            GameEngine.newInstance(it)
+            SoundEngine.getInstance().playSound(it, SoundType.KING)
+        }
 
         Handler().postDelayed({
             run {
-                this.baseActivity.supportFragmentManager.popBackStack()
-                showFragmentSliding(context = this.baseContext, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
+                activity?.supportFragmentManager.popBackStack()
+                context?.let {
+                    showFragmentSliding(context = it, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
+                }
             }
         }, 2000)
     }
