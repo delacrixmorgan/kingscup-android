@@ -29,7 +29,6 @@ class MenuSettingFragment : Fragment() {
     }
 
     var fragmentListener: FragmentListener? = null
-    private val languageCodeList = arrayListOf("en", "zh")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_menu_setting, container, false)
@@ -71,16 +70,17 @@ class MenuSettingFragment : Fragment() {
 
     private fun changeLanguage() {
         val preference = PreferenceHelper.getPreference(context!!)
-        val currentLanguage = if (preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT] == PreferenceHelper.LANGUAGE_DEFAULT) {
-            this.languageCodeList[1]
-        } else {
-            this.languageCodeList[0]
+        val currentLanguage: LanguageType = when (preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]) {
+            LanguageType.ENGLISH.countryIso -> LanguageType.CHINESE
+            LanguageType.CHINESE.countryIso -> LanguageType.PORTUGUESE_BRAZIL
+            LanguageType.PORTUGUESE_BRAZIL.countryIso -> LanguageType.ENGLISH
+            else -> LanguageType.ENGLISH
         }
 
-        preference[PreferenceHelper.LANGUAGE] = currentLanguage
-        setLocale(currentLanguage, resources)
+        preference[PreferenceHelper.LANGUAGE] = currentLanguage.countryIso
+        setLocale(currentLanguage.countryIso, resources)
 
-        this.updateSettingLanguage()
+        updateSettingLanguage()
     }
 
     private fun updateSettingLanguage() {

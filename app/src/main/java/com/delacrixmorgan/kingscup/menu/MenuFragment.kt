@@ -8,12 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.FragmentListener
-import com.delacrixmorgan.kingscup.common.PreferenceHelper
+import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
-import com.delacrixmorgan.kingscup.common.setLocale
-import com.delacrixmorgan.kingscup.common.showFragmentSliding
-import com.delacrixmorgan.kingscup.game.GameBoardFragment
 import com.delacrixmorgan.kingscup.game.GameLoadFragment
 import com.delacrixmorgan.kingscup.game.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -34,7 +30,11 @@ class MenuFragment : Fragment(), FragmentListener {
         super.onCreate(savedInstanceState)
 
         val preference = PreferenceHelper.getPreference(context!!)
-        setLocale(preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT], resources)
+        val selectedLanguage = LanguageType.values().asList().first {
+            it.countryIso == preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
+        }
+
+        setLocale(selectedLanguage.countryIso, resources)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -69,6 +69,7 @@ class MenuFragment : Fragment(), FragmentListener {
 
     override fun onBackPressed() {
         appNameTextView.text = getString(R.string.app_name)
+        activity?.title = getString(R.string.app_name)
         activity?.supportFragmentManager?.popBackStack()
     }
 }
