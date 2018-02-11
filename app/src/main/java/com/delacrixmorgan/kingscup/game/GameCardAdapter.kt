@@ -19,8 +19,10 @@ class GameCardAdapter(private val selectionListener: CardListener, private var d
 
     override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
         holder.selectCard.setOnClickListener {
-            deckSize--
-            selectionListener.onCardSelected(holder.adapterPosition)
+            if (deckSize != 0) {
+                deckSize--
+                selectionListener.onCardSelected(holder.adapterPosition)
+            }
         }
     }
 
