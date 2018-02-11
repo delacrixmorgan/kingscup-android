@@ -102,6 +102,7 @@ class MenuSettingFragment : Fragment() {
             spartanImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/theleagueof/league-spartan") }
             kornerImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
             poiImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/YukiSora") }
+            laysImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
             freesoundImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://freesound.org/") }
             freepikImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://www.freepik.com") }
 
