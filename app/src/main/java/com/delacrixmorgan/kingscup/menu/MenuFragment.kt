@@ -68,8 +68,11 @@ class MenuFragment : Fragment(), FragmentListener {
     }
 
     override fun onBackPressed() {
-        appNameTextView.text = getString(R.string.app_name)
-        activity?.title = getString(R.string.app_name)
+        getString(R.string.app_name).let {
+            appNameTextView.text = it
+            activity?.title = it
+        }
+
         activity?.supportFragmentManager?.popBackStack()
     }
 }

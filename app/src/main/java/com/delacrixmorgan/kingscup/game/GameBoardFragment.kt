@@ -20,13 +20,8 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
 class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
     companion object {
-        lateinit var FRAGMENT_TAG: String
-
         fun newInstance(): GameBoardFragment {
-            val fragment = GameBoardFragment()
-            this.FRAGMENT_TAG = fragment.javaClass.simpleName
-
-            return fragment
+            return GameBoardFragment()
         }
     }
 
