@@ -11,7 +11,7 @@ import com.delacrixmorgan.kingscup.R
  * Created by Delacrix Morgan on 17/03/2017.
  **/
 
-class GameCardAdapter(private val selectionListener: CardListener, private var deckSize: Int) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
+class GameCardAdapter(private val cardListener: CardListener, private var deckSize: Int) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder {
         return GameCardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_game_card, parent, false))
@@ -21,7 +21,7 @@ class GameCardAdapter(private val selectionListener: CardListener, private var d
         holder.selectCard.setOnClickListener {
             if (deckSize != 0) {
                 deckSize--
-                selectionListener.onCardSelected(holder.adapterPosition)
+                cardListener.onCardSelected(holder.adapterPosition)
             }
         }
     }

@@ -27,17 +27,20 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         private const val GAME_CARD_FRAGMENT_CARD = "Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "Position"
 
-        fun newInstance(card: Card? = null, position: Int = 0): GameCardFragment {
+        fun newInstance(card: Card? = null, position: Int = 0, cardListener: CardListener): GameCardFragment {
             val fragment = GameCardFragment()
             val args = Bundle()
 
             args.putParcelable(GAME_CARD_FRAGMENT_CARD, card)
             args.putInt(GAME_CARD_FRAGMENT_POSITION, position)
 
+            fragment.cardListener = cardListener
             fragment.arguments = args
             return fragment
         }
     }
+
+    var cardListener: CardListener? = null
 
     private lateinit var card: Card
     private var dataBinding: FragmentGameCardBinding? = null
@@ -104,8 +107,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     }
 
     private fun backToBoardFragment() {
-        val fragment = activity?.supportFragmentManager?.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
-        fragment.removeCardFromDeck(this.position)
+        cardListener?.onCardDismissed(position)
         activity?.supportFragmentManager?.popBackStack()
 
         SoundEngine.getInstance().playSound(context!!, SoundType.WHOOSH)

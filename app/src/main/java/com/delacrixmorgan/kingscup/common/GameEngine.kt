@@ -5,9 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.widget.ProgressBar
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.game.GameCardAdapter
 import com.delacrixmorgan.kingscup.game.VibrateType
 import com.delacrixmorgan.kingscup.model.Card
 import java.util.*
@@ -76,15 +74,12 @@ class GameEngine private constructor(context: Context) {
         return card.rank == kingRank && kingCounter == 1
     }
 
-    fun removeCard(position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
+    fun removeCard(position: Int) {
         if (deckList[position].rank == kingRank) {
             kingCounter--
         }
 
         deckList.removeAt(position)
-
-        cardAdapter.notifyItemRemoved(position)
-        progressBar.max--
     }
 
     fun updateGraphicStatus(context: Context): Bundle {

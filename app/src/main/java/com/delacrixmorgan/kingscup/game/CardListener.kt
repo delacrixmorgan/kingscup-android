@@ -6,4 +6,5 @@ package com.delacrixmorgan.kingscup.game
 
 interface CardListener {
     fun onCardSelected(position: Int)
+    fun onCardDismissed(position: Int)
 }

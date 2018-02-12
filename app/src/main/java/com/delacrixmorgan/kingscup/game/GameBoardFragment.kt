@@ -76,7 +76,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
             if (card != null) {
                 context?.let {
-                    val fragment = GameCardFragment.newInstance(card, position)
+                    val fragment = GameCardFragment.newInstance(card, position, this)
                     isCardSelected = true
                     showFragmentSliding(it, fragment, Gravity.BOTTOM)
 
@@ -86,6 +86,30 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             } else {
                 activity?.supportFragmentManager?.popBackStack()
                 SoundEngine.getInstance().playSound(context!!, SoundType.WHOOSH)
+            }
+        }
+    }
+
+    override fun onCardDismissed(position: Int) {
+        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(context!!)
+        this.isCardSelected = false
+
+        GameEngine.getInstance().removeCard(position)
+        cardAdapter.notifyItemRemoved(position)
+
+        progressBar.max--
+        statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
+
+        args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
+
+        when (args?.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
+            3 -> this.kingFourImageView.visibility = View.GONE
+            2 -> this.kingThreeImageView.visibility = View.GONE
+            1 -> this.kingTwoImageView.visibility = View.GONE
+            0 -> {
+                this.kingOneImageView.visibility = View.GONE
+                this.restartButton.visibility = View.VISIBLE
+                this.isGameOver = true
             }
         }
     }
@@ -160,26 +184,5 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         }
 
         preference[PreferenceHelper.SOUND] = !soundPreference
-    }
-
-    fun removeCardFromDeck(position: Int) {
-        GameEngine.getInstance().removeCard(position, cardAdapter, progressBar)
-
-        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(context!!)
-        this.isCardSelected = false
-
-        statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
-        args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
-
-        when (args?.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
-            3 -> this.kingFourImageView.visibility = View.GONE
-            2 -> this.kingThreeImageView.visibility = View.GONE
-            1 -> this.kingTwoImageView.visibility = View.GONE
-            0 -> {
-                this.kingOneImageView.visibility = View.GONE
-                this.restartButton.visibility = View.VISIBLE
-                this.isGameOver = true
-            }
-        }
     }
 }
