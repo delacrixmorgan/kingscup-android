@@ -57,7 +57,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     private fun setupView() {
         val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
-        cardAdapter = GameCardAdapter(this, GameEngine.getInstance().deckList.size)
+        cardAdapter = GameCardAdapter(this, GameEngine.getInstance().getDeckSize())
         isCardSelected = false
 
         recyclerView.removeAllViews()
@@ -72,7 +72,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
     override fun onCardSelected(position: Int) {
         if (!isCardSelected && !isGameOver) {
-            val card: Card? = GameEngine.getInstance().deckList[position]
+            val card: Card? = GameEngine.getInstance().getCardByPosition(position)
 
             if (card != null) {
                 context?.let {

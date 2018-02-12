@@ -35,10 +35,9 @@ class GameEngine private constructor(context: Context) {
         fun getInstance(): GameEngine = this.GameEngineInstance
     }
 
-    val deckList = ArrayList<Card>()
-
     private val guideList = ArrayList<String>()
     private val tauntList = ArrayList<String>()
+    private val deckList = ArrayList<Card>()
     private var kingCounter: Int = 4
     private var kingRank: String = "K"
     private var vibrator: Vibrator
@@ -120,5 +119,13 @@ class GameEngine private constructor(context: Context) {
         } else {
             vibrator.vibrate(vibrateType.duration)
         }
+    }
+
+    fun getCardByPosition(position: Int): Card {
+        return deckList[position]
+    }
+
+    fun getDeckSize(): Int {
+        return deckList.size
     }
 }
