@@ -11,7 +11,7 @@ import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.game.GameLoadFragment
-import com.delacrixmorgan.kingscup.game.LoadType
+import com.delacrixmorgan.kingscup.model.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**

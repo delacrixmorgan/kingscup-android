@@ -15,6 +15,7 @@ import com.delacrixmorgan.kingscup.common.SoundType
 import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.fragment_game_card.*
 
 /**

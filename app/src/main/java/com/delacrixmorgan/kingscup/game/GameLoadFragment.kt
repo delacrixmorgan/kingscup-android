@@ -12,6 +12,7 @@ import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.SoundType
 import com.delacrixmorgan.kingscup.common.showFragmentSliding
+import com.delacrixmorgan.kingscup.model.LoadType
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
@@ -49,7 +50,7 @@ class GameLoadFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         context?.let {
-            this.loadingTextView.text = this.loadType.localisedDisplayStatusText(it)
+            this.loadingTextView.text = this.loadType.getLocalisedText(it)
             GameEngine.newInstance(it)
             SoundEngine.getInstance().playSound(it, SoundType.KING)
         }
