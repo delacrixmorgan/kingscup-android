@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.model.GuideType
 import kotlinx.android.synthetic.main.fragment_menu_guide.*
 import kotlinx.android.synthetic.main.view_guide_list.view.*
 
@@ -23,7 +24,7 @@ class MenuGuideFragment : Fragment() {
         }
     }
 
-    lateinit var guideList: List<String>
+    private var guideList: ArrayList<String> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu_guide, container, false)
@@ -32,7 +33,9 @@ class MenuGuideFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.guideList = resources.getStringArray(R.array.guide).toList()
+        GuideType.values().forEach {
+            this.guideList.add(it.getLocalisedText(context!!))
+        }
 
         this.viewPager.adapter = GuideAdapter()
         this.tabLayout.setupWithViewPager(viewPager, true)

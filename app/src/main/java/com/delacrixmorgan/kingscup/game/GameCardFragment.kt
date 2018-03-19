@@ -15,6 +15,7 @@ import com.delacrixmorgan.kingscup.common.SoundType
 import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.model.SuitType
 import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.fragment_game_card.*
 
@@ -25,8 +26,8 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
 class GameCardFragment : Fragment(), View.OnTouchListener {
 
     companion object {
-        private const val GAME_CARD_FRAGMENT_CARD = "Card"
-        private const val GAME_CARD_FRAGMENT_POSITION = "Position"
+        private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
+        private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
 
         fun newInstance(card: Card? = null, position: Int = 0, cardListener: CardListener): GameCardFragment {
             val fragment = GameCardFragment()
@@ -92,14 +93,15 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     }
 
     private fun setupView() {
-        val suitList = resources.getStringArray(R.array.suit)
+        val suitList = SuitType.values()
+
         var suitDrawable: Int = R.drawable.spade_pink
 
         when (card.suit) {
-            suitList[0] -> suitDrawable = R.drawable.spade_pink
-            suitList[1] -> suitDrawable = R.drawable.heart_pink
-            suitList[2] -> suitDrawable = R.drawable.club_pink
-            suitList[3] -> suitDrawable = R.drawable.diamond_pink
+            suitList[0].getLocalisedText(context!!) -> suitDrawable = R.drawable.spade_pink
+            suitList[1].getLocalisedText(context!!) -> suitDrawable = R.drawable.heart_pink
+            suitList[2].getLocalisedText(context!!) -> suitDrawable = R.drawable.club_pink
+            suitList[3].getLocalisedText(context!!) -> suitDrawable = R.drawable.diamond_pink
         }
 
         this.lightCenterImageView.setImageResource(suitDrawable)

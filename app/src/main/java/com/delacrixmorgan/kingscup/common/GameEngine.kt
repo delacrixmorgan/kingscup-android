@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.game.VibrateType
-import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.model.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -42,7 +41,7 @@ class GameEngine private constructor(context: Context) {
 
     init {
         kingCounter = 4
-        kingRank = context.resources.getStringArray(R.array.rank).last()
+        kingRank = ActionType.values().last().getRankText()
         vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
         deckList.clear()
@@ -53,21 +52,28 @@ class GameEngine private constructor(context: Context) {
 
     private fun buildGameEngine(context: Context) {
 
-        with(context.resources) {
-            val cardSuits = getStringArray(R.array.suit)
-            val cardRanks = getStringArray(R.array.rank)
-            val cardHeaders = getStringArray(R.array.header)
-            val cardBody = getStringArray(R.array.body)
+        val actionTypes = ActionType.values()
 
-            val gameGuides = getStringArray(R.array.guide)
-            val gameTaunts = getStringArray(R.array.taunt)
+        SuitType.values().forEach { suit ->
+            suit.getLocalisedText(context)
 
-            cardSuits.forEach { cardSuit -> cardHeaders.indices.mapTo(deckList) { Card(cardSuit, cardRanks[it], cardHeaders[it], cardBody[it]) } }
-            gameGuides.forEach { gameGuide -> guideList.add(gameGuide) }
-            gameTaunts.forEach { gameTaunt -> tauntList.add(gameTaunt) }
+            actionTypes.indices.mapTo(deckList) {
+                Card(suit.getLocalisedText(context),
+                        actionTypes[it].getRankText(),
+                        actionTypes[it].getLocalisedHeaderText(context),
+                        actionTypes[it].getLocalisedBodyText(context))
+            }
         }
 
-        Collections.shuffle(deckList, Random(System.nanoTime()))
+        GuideType.values().forEach { guide ->
+            guideList.add(guide.getLocalisedText(context))
+        }
+
+        TauntType.values().forEach { taunt ->
+            tauntList.add(taunt.getLocalisedText(context))
+        }
+
+        deckList.shuffle(Random(System.nanoTime()))
     }
 
     fun checkWin(card: Card): Boolean {
@@ -83,7 +89,7 @@ class GameEngine private constructor(context: Context) {
     }
 
     fun updateGraphicStatus(context: Context): Bundle {
-        Collections.shuffle(tauntList, Random(System.nanoTime()))
+        tauntList.shuffle(Random(System.nanoTime()))
 
         val volume: Int
         val args = Bundle()

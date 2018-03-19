@@ -42,37 +42,37 @@ enum class ActionType {
 
     fun getLocalisedHeaderText(context: Context): String {
         return when (this) {
-            WATERFALL -> context.getString(R.string.load_type_new_game)
-            YOU -> context.getString(R.string.load_type_new_game)
-            ME -> context.getString(R.string.load_type_new_game)
-            THUMB_MASTER -> context.getString(R.string.load_type_new_game)
-            DUDES -> context.getString(R.string.load_type_new_game)
-            CHICKS -> context.getString(R.string.load_type_new_game)
-            HEAVEN -> context.getString(R.string.load_type_new_game)
-            MATE -> context.getString(R.string.load_type_new_game)
-            SNAKE_EYES -> context.getString(R.string.load_type_new_game)
-            CATEGORY -> context.getString(R.string.load_type_new_game)
-            JACK -> context.getString(R.string.load_type_new_game)
-            QUESTIONS -> context.getString(R.string.load_type_new_game)
-            KING -> context.getString(R.string.load_type_new_game)
+            WATERFALL -> context.getString(R.string.header_waterfall)
+            YOU -> context.getString(R.string.header_you)
+            ME -> context.getString(R.string.header_me)
+            THUMB_MASTER -> context.getString(R.string.header_thumb_master)
+            DUDES -> context.getString(R.string.header_dudes)
+            CHICKS -> context.getString(R.string.header_chicks)
+            HEAVEN -> context.getString(R.string.header_heaven)
+            MATE -> context.getString(R.string.header_mate)
+            SNAKE_EYES -> context.getString(R.string.header_snake_eyes)
+            CATEGORY -> context.getString(R.string.header_category)
+            JACK -> context.getString(R.string.header_jack)
+            QUESTIONS -> context.getString(R.string.header_questions)
+            KING -> context.getString(R.string.header_king)
         }
     }
 
     fun getLocalisedBodyText(context: Context): String {
         return when (this) {
-            WATERFALL -> context.getString(R.string.load_type_new_game)
-            YOU -> context.getString(R.string.load_type_new_game)
-            ME -> context.getString(R.string.load_type_new_game)
-            THUMB_MASTER -> context.getString(R.string.load_type_new_game)
-            DUDES -> context.getString(R.string.load_type_new_game)
-            CHICKS -> context.getString(R.string.load_type_new_game)
-            HEAVEN -> context.getString(R.string.load_type_new_game)
-            MATE -> context.getString(R.string.load_type_new_game)
-            SNAKE_EYES -> context.getString(R.string.load_type_new_game)
-            CATEGORY -> context.getString(R.string.load_type_new_game)
-            JACK -> context.getString(R.string.load_type_new_game)
-            QUESTIONS -> context.getString(R.string.load_type_new_game)
-            KING -> context.getString(R.string.load_type_new_game)
+            WATERFALL -> context.getString(R.string.body_waterfall)
+            YOU -> context.getString(R.string.body_you)
+            ME -> context.getString(R.string.body_me)
+            THUMB_MASTER -> context.getString(R.string.body_thumb_master)
+            DUDES -> context.getString(R.string.body_dudes)
+            CHICKS -> context.getString(R.string.body_chicks)
+            HEAVEN -> context.getString(R.string.body_heaven)
+            MATE -> context.getString(R.string.body_mate)
+            SNAKE_EYES -> context.getString(R.string.body_snake_eyes)
+            CATEGORY -> context.getString(R.string.body_category)
+            JACK -> context.getString(R.string.body_jack)
+            QUESTIONS -> context.getString(R.string.body_questions)
+            KING -> context.getString(R.string.body_king)
         }
     }
 }

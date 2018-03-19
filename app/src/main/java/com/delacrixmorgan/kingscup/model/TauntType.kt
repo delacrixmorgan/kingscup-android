@@ -21,16 +21,16 @@ enum class TauntType {
 
     fun getLocalisedText(context: Context): String {
         return when (this) {
-            ONE -> context.getString(R.string.load_type_new_game)
-            TWO -> context.getString(R.string.load_type_new_game)
-            THREE -> context.getString(R.string.load_type_new_game)
-            FOUR -> context.getString(R.string.load_type_new_game)
-            FIVE -> context.getString(R.string.load_type_new_game)
-            SIX -> context.getString(R.string.load_type_new_game)
-            SEVEN -> context.getString(R.string.load_type_new_game)
-            EIGHT -> context.getString(R.string.load_type_new_game)
-            NINE -> context.getString(R.string.load_type_new_game)
-            TEN -> context.getString(R.string.load_type_new_game)
+            ONE -> context.getString(R.string.taunt_one)
+            TWO -> context.getString(R.string.taunt_two)
+            THREE -> context.getString(R.string.taunt_three)
+            FOUR -> context.getString(R.string.taunt_four)
+            FIVE -> context.getString(R.string.taunt_five)
+            SIX -> context.getString(R.string.taunt_six)
+            SEVEN -> context.getString(R.string.taunt_seven)
+            EIGHT -> context.getString(R.string.taunt_eight)
+            NINE -> context.getString(R.string.taunt_nine)
+            TEN -> context.getString(R.string.taunt_ten)
         }
     }
 }

@@ -15,10 +15,10 @@ enum class SuitType {
 
     fun getLocalisedText(context: Context): String {
         return when (this) {
-            SPADE -> context.getString(R.string.load_type_new_game)
-            HEART -> context.getString(R.string.load_type_new_game)
-            CLUB -> context.getString(R.string.load_type_new_game)
-            DIAMOND -> context.getString(R.string.load_type_new_game)
+            SPADE -> context.getString(R.string.suit_spade)
+            HEART -> context.getString(R.string.suit_heart)
+            CLUB -> context.getString(R.string.suit_club)
+            DIAMOND -> context.getString(R.string.suit_diamond)
         }
     }
 }
