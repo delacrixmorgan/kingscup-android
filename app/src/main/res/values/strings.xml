@@ -25,4 +25,53 @@
 
     <string name="load_type_new_game">Hold my Beer</string>
     <string name="load_type_restart_game">Setting up New Game</string>
+
+    <string name="suit_spade">Spade</string>
+    <string name="suit_heart">Heart</string>
+    <string name="suit_club">Club</string>
+    <string name="suit_diamond">Diamond</string>
+
+    <string name="body_waterfall">Everyone starts drinking until the person who drew the card has stopped.</string>
+    <string name="body_you">Choose a mate\nAnd drink together!</string>
+    <string name="body_me">Only you. Drink!</string>
+    <string name="body_thumb_master">Place your thumb\non the table.\nLast to do so, drinks!</string>
+    <string name="body_dudes">All guys drink!</string>
+    <string name="body_chicks">All ladies drink!</string>
+    <string name="body_heaven">Everyone reach for the sky with both hands.\nLast player drinks!</string>
+    <string name="body_mate">Choose a partner and drink whenever that player drinks!</string>
+    <string name="body_snake_eyes">Nobody can make\neye contact with you.\nIf caught, drink!</string>
+    <string name="body_category">Choose a category.\nSay something that fits until whoever can\'t think of any, drink!</string>
+    <string name="body_jack">Complete the sentence,\n "Never have I ever.." \nAnyone who has, drink!</string>
+    <string name="body_questions">Ask a player a question.\nThey must respond with another question to the next person.\n\nFirst to fail, drink!</string>
+    <string name="body_king">Set a new rule.\nFill the King\'s Cup!</string>
+
+    <string name="header_waterfall">Waterfall</string>
+    <string name="header_you">You</string>
+    <string name="header_me">Me</string>
+    <string name="header_thumb_master">Thumb Master</string>
+    <string name="header_dudes">Dudes</string>
+    <string name="header_chicks">Chicks</string>
+    <string name="header_heaven">Heaven</string>
+    <string name="header_mate">Mate</string>
+    <string name="header_snake_eyes">Snake Eyes</string>
+    <string name="header_category">Category</string>
+    <string name="header_jack">Jack</string>
+    <string name="header_questions">Questions</string>
+    <string name="header_king">King</string>
+
+    <string name="guide_page_one">Yes, this a drinking game.\nDoesn\'t has to be alcoholic.\n\nEveryone must have their own drinking cup and place a cup in the middle to be the King\'s Cup.</string>
+    <string name="guide_page_two">Pick a person to start the game, select a card and do what it says.\n\nThere is no escape!\nPass to the next person when you are done.</string>
+    <string name="guide_page_three">Draw a King from the deck,\nyou can choose any drinks to pour into the King\'s Cup.\n\nPerson with the last King will have to finish the cup in one shot!\nCheers mate.</string>
+
+    <string name="taunt_one">Seriously</string>
+    <string name="taunt_two">Coming Up</string>
+    <string name="taunt_three">Just One More</string>
+    <string name="taunt_four">This Is It</string>
+    <string name="taunt_five">Don\'t Think</string>
+    <string name="taunt_six">Drink Me</string>
+    <string name="taunt_seven">Faster Mate</string>
+    <string name="taunt_eight">You Sure?</string>
+    <string name="taunt_nine">Alright Buddy?</string>
+    <string name="taunt_ten">Come On</string>
+
 </resources>
