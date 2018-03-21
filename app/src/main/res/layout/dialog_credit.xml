@@ -99,7 +99,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:src="@drawable/github" />
+                android:src="@drawable/ic_credit_china" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -125,6 +125,31 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:src="@drawable/ic_credit_brazil" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Kasper Nooteboom, Dutch Translation"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Kaspernooteboom"
+                android:textColor="@color/pink"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/kasperImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_credit_netherlands" />
 
             <TextView
                 android:layout_width="match_parent"
