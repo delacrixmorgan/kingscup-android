@@ -73,7 +73,8 @@ class MenuSettingFragment : Fragment() {
         val currentLanguage: LanguageType = when (preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]) {
             LanguageType.ENGLISH.countryIso -> LanguageType.CHINESE
             LanguageType.CHINESE.countryIso -> LanguageType.PORTUGUESE_BRAZIL
-            LanguageType.PORTUGUESE_BRAZIL.countryIso -> LanguageType.ENGLISH
+            LanguageType.PORTUGUESE_BRAZIL.countryIso -> LanguageType.DUTCH
+            LanguageType.DUTCH.countryIso -> LanguageType.ENGLISH
             else -> LanguageType.ENGLISH
         }
 

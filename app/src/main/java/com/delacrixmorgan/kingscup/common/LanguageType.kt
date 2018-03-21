@@ -7,5 +7,6 @@ package com.delacrixmorgan.kingscup.common
 enum class LanguageType(var countryIso: String) {
     ENGLISH("en"),
     CHINESE("zh"),
-    PORTUGUESE_BRAZIL("pt")
+    PORTUGUESE_BRAZIL("pt"),
+    DUTCH("nl")
 }
