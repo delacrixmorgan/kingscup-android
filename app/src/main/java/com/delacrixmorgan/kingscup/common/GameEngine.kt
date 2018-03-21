@@ -51,17 +51,15 @@ class GameEngine private constructor(context: Context) {
     }
 
     private fun buildGameEngine(context: Context) {
-
-        val actionTypes = ActionType.values()
-
+        
         SuitType.values().forEach { suit ->
-            suit.getLocalisedText(context)
-
-            actionTypes.indices.mapTo(deckList) {
-                Card(suit.getLocalisedText(context),
-                        actionTypes[it].getRankText(),
-                        actionTypes[it].getLocalisedHeaderText(context),
-                        actionTypes[it].getLocalisedBodyText(context))
+            ActionType.values().let { actionTypes ->
+                actionTypes.indices.mapTo(deckList) {
+                    Card(suit.getLocalisedText(context),
+                            actionTypes[it].getRankText(),
+                            actionTypes[it].getLocalisedHeaderText(context),
+                            actionTypes[it].getLocalisedBodyText(context))
+                }
             }
         }
 
