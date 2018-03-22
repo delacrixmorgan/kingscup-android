@@ -8,5 +8,6 @@ enum class LanguageType(var countryIso: String) {
     ENGLISH("en"),
     CHINESE("zh"),
     PORTUGUESE_BRAZIL("pt"),
-    DUTCH("nl")
+    DUTCH("nl"),
+    SPANISH("es")
 }

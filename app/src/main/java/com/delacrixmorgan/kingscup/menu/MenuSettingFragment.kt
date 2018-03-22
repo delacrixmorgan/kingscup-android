@@ -74,7 +74,8 @@ class MenuSettingFragment : Fragment() {
             LanguageType.ENGLISH.countryIso -> LanguageType.CHINESE
             LanguageType.CHINESE.countryIso -> LanguageType.PORTUGUESE_BRAZIL
             LanguageType.PORTUGUESE_BRAZIL.countryIso -> LanguageType.DUTCH
-            LanguageType.DUTCH.countryIso -> LanguageType.ENGLISH
+            LanguageType.DUTCH.countryIso -> LanguageType.SPANISH
+            LanguageType.SPANISH.countryIso -> LanguageType.ENGLISH
             else -> LanguageType.ENGLISH
         }
 
