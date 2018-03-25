@@ -7,4 +7,4 @@
     android:gravity="center"
     android:textColor="@android:color/white"
     android:textSize="18sp"
-    tool:text="@tools:sample/lorem" />
+    tool:text="@tools:sample/lorem"/>

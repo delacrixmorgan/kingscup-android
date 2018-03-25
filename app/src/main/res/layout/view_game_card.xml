@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:src="@drawable/ic_kingscup_logo" />
+        android:src="@drawable/ic_kingscup_logo"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -27,6 +27,6 @@
         android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="22sp"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="uniform"/>
 
 </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
