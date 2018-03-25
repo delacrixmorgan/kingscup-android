@@ -63,6 +63,13 @@ fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, p
     })
 }
 
+fun Context.launchWebsite(url: String) {
+    val intent = Intent(Intent.ACTION_VIEW)
+
+    intent.data = Uri.parse(url)
+    startActivity(intent)
+}
+
 fun Context.launchPlayStore() {
     val url = "https://play.google.com/store/apps/details?id=${this.packageName}"
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))

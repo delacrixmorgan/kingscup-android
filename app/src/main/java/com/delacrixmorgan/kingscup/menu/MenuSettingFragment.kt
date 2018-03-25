@@ -2,7 +2,6 @@ package com.delacrixmorgan.kingscup.menu
 
 import android.app.Dialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
@@ -42,7 +41,7 @@ class MenuSettingFragment : Fragment() {
         }
 
         this.guideViewGroup.setOnClickListener {
-            showFragmentSliding(context!!, MenuGuideFragment.newInstance(), Gravity.TOP)
+            showFragmentSliding(this.context!!, MenuGuideFragment.newInstance(), Gravity.TOP)
         }
 
         this.creditViewGroup.setOnClickListener {
@@ -70,19 +69,21 @@ class MenuSettingFragment : Fragment() {
 
     private fun changeLanguage() {
         val preference = PreferenceHelper.getPreference(context!!)
-        val currentLanguage: LanguageType = when (preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]) {
-            LanguageType.ENGLISH.countryIso -> LanguageType.CHINESE
-            LanguageType.CHINESE.countryIso -> LanguageType.PORTUGUESE_BRAZIL
-            LanguageType.PORTUGUESE_BRAZIL.countryIso -> LanguageType.DUTCH
-            LanguageType.DUTCH.countryIso -> LanguageType.SPANISH
-            LanguageType.SPANISH.countryIso -> LanguageType.ENGLISH
-            else -> LanguageType.ENGLISH
+        val languageTypes = LanguageType.values()
+        var currentLanguage: LanguageType = languageTypes.first {
+            it.countryIso == preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
+        }
+
+        currentLanguage = if (currentLanguage == languageTypes.last()) {
+            languageTypes.first()
+        } else {
+            languageTypes[currentLanguage.ordinal + 1]
         }
 
         preference[PreferenceHelper.LANGUAGE] = currentLanguage.countryIso
         setLocale(currentLanguage.countryIso, resources)
 
-        updateSettingLanguage()
+        this.updateSettingLanguage()
     }
 
     private fun updateSettingLanguage() {
@@ -94,33 +95,27 @@ class MenuSettingFragment : Fragment() {
     }
 
     private fun displayCredits() {
-        val creditDialog = Dialog(activity)
+        val creditDialog = Dialog(this.activity)
 
         with(creditDialog) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             setContentView(R.layout.dialog_credit)
             show()
 
-            spartanImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/theleagueof/league-spartan") }
-            kornerImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
+            spartanImageView.setOnClickListener { this.context.launchWebsite("https://github.com/theleagueof/league-spartan") }
+            kornerImageView.setOnClickListener { this.context.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
 
-            poiImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/YukiSora") }
-            laysImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
-            kasperImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("http://kaspernooteboom.nl/khas") }
+            poiImageView.setOnClickListener { this.context.launchWebsite("https://github.com/YukiSora") }
+            laysImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
+            kasperImageView.setOnClickListener { this.context.launchWebsite("http://kaspernooteboom.nl/khas") }
 
-            freesoundImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://freesound.org/") }
-            freepikImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://www.freepik.com") }
+            freesoundImageView.setOnClickListener { this.context.launchWebsite("https://freesound.org/") }
+            freepikImageView.setOnClickListener { this.context.launchWebsite("https://www.freepik.com") }
 
             doneButton.setOnClickListener {
                 creditDialog.dismiss()
                 SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
         }
-    }
-
-    private fun launchWebsite(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse(url)
-        startActivity(intent)
     }
 }
