@@ -45,7 +45,7 @@ class MenuRateFragment : Fragment() {
             }
 
             starImageView.setOnClickListener {
-                personImageView.setImageResource(R.drawable.happy)
+                personImageView.setImageResource(R.drawable.ic_human_happy)
                 starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
 
                 fragmentListener?.onBackPressed()
@@ -53,7 +53,7 @@ class MenuRateFragment : Fragment() {
             }
 
             rateButton.setOnClickListener {
-                personImageView.setImageResource(R.drawable.happy)
+                personImageView.setImageResource(R.drawable.ic_human_happy)
                 fragmentListener?.onBackPressed()
                 context.launchPlayStore()
             }

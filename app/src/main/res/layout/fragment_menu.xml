@@ -23,7 +23,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="18dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/kingscup_logo_no_bg" />
+                android:src="@drawable/ic_kingscup_logo" />
 
             <TextView
                 android:id="@+id/appNameTextView"
@@ -58,7 +58,8 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_favorite_black_48dp"
+            android:src="@drawable/ic_card_heart"
+            android:tint="@android:color/black"
             app:backgroundTint="@android:color/white"
             app:elevation="6dp"
             app:fabSize="normal" />
@@ -71,7 +72,7 @@
             android:layout_marginStart="30dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/play_button"
+            android:src="@drawable/ic_play"
             app:backgroundTint="@android:color/white"
             app:elevation="0dp"
             app:fabSize="mini" />
@@ -82,7 +83,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_settings_black_48dp"
+            android:src="@drawable/ic_settings"
             app:backgroundTint="@android:color/white"
             app:elevation="6dp"
             app:fabSize="normal" />

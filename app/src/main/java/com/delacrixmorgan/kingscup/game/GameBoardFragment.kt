@@ -56,7 +56,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         recyclerView.layoutManager = manager
         recyclerView.adapter = cardAdapter
 
-        volumeImageView.setImageResource(R.drawable.cup_whole)
+        volumeImageView.setImageResource(R.drawable.ic_cup_whole)
 
         setupMenuDialog()
         setupProgressBar(manager, recyclerView, progressBar)
@@ -130,7 +130,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             resumeDialogButton.setOnClickListener(this@GameBoardFragment)
             restartDialogButton.setOnClickListener(this@GameBoardFragment)
 
-            volumeDialogButton.setImageResource(if (soundPreference) R.drawable.ic_volume_up_black_48dp else R.drawable.ic_volume_off_black_48dp)
+            volumeDialogButton.setImageResource(if (soundPreference) R.drawable.ic_volume_up else R.drawable.ic_volume_off)
         }
     }
 
@@ -178,9 +178,9 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
         if (soundPreference) {
-            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_off_black_48dp)
+            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_off)
         } else {
-            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_up_black_48dp)
+            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_up)
         }
 
         preference[PreferenceHelper.SOUND] = !soundPreference

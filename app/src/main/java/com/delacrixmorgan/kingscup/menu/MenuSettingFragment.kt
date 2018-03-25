@@ -106,15 +106,15 @@ class MenuSettingFragment : Fragment() {
             setContentView(R.layout.dialog_credit)
             show()
 
-            spartanImageView.setOnClickListener { this.context.launchWebsite("https://github.com/theleagueof/league-spartan") }
-            kornerImageView.setOnClickListener { this.context.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
+            spartanImageView.setOnClickListener { this.context.launchWebsite("https://ic_github.com/theleagueof/league-spartan") }
+            kornerImageView.setOnClickListener { this.context.launchWebsite("https://ic_github.com/JcMinarro/RoundKornerLayouts") }
 
-            poiImageView.setOnClickListener { this.context.launchWebsite("https://github.com/YukiSora") }
+            poiImageView.setOnClickListener { this.context.launchWebsite("https://ic_github.com/YukiSora") }
             laysImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
             kasperImageView.setOnClickListener { this.context.launchWebsite("http://kaspernooteboom.nl/khas") }
 
-            freesoundImageView.setOnClickListener { this.context.launchWebsite("https://freesound.org/") }
-            freepikImageView.setOnClickListener { this.context.launchWebsite("https://www.freepik.com") }
+            freesoundImageView.setOnClickListener { this.context.launchWebsite("https://ic_freesound.org/") }
+            freepikImageView.setOnClickListener { this.context.launchWebsite("https://www.ic_freepik.com") }
 
             doneButton.setOnClickListener {
                 creditDialog.dismiss()

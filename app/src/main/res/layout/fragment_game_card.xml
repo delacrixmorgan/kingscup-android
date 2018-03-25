@@ -27,7 +27,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:adjustViewBounds="true"
-            android:src="@drawable/card_accent"
+            android:src="@drawable/bg_card_accent"
             android:tint="@color/pink" />
 
         <LinearLayout
@@ -54,7 +54,7 @@
                 android:id="@+id/lightLeftImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/heart_pink"
+                android:src="@drawable/ic_card_heart"
                 android:tint="@color/pink" />
 
         </LinearLayout>
@@ -70,7 +70,7 @@
                 android:id="@+id/lightCenterImageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/heart_pink"
+                android:src="@drawable/ic_card_heart"
                 android:tint="@color/pink" />
 
             <TextView
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/checked"
+                android:src="@drawable/ic_checked_mark"
                 app:backgroundTint="@android:color/white"
                 app:elevation="0dp"
                 app:fabSize="mini" />
@@ -137,7 +137,7 @@
                 android:id="@+id/darkRightImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/heart_pink"
+                android:src="@drawable/ic_card_heart"
                 android:tint="@color/colorPrimary" />
 
         </LinearLayout>

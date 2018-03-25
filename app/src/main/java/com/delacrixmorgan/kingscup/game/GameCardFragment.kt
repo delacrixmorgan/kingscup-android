@@ -99,13 +99,13 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     private fun setupView() {
         val suitList = SuitType.values()
 
-        var suitDrawable: Int = R.drawable.spade_pink
+        var suitDrawable: Int = R.drawable.ic_card_spade
 
         when (card.suit) {
-            suitList[0].getLocalisedText(context!!) -> suitDrawable = R.drawable.spade_pink
-            suitList[1].getLocalisedText(context!!) -> suitDrawable = R.drawable.heart_pink
-            suitList[2].getLocalisedText(context!!) -> suitDrawable = R.drawable.club_pink
-            suitList[3].getLocalisedText(context!!) -> suitDrawable = R.drawable.diamond_pink
+            suitList[0].getLocalisedText(context!!) -> suitDrawable = R.drawable.ic_card_spade
+            suitList[1].getLocalisedText(context!!) -> suitDrawable = R.drawable.ic_card_heart
+            suitList[2].getLocalisedText(context!!) -> suitDrawable = R.drawable.ic_card_club
+            suitList[3].getLocalisedText(context!!) -> suitDrawable = R.drawable.ic_card_diamond
         }
 
         this.lightCenterImageView.setImageResource(suitDrawable)

@@ -100,13 +100,13 @@ class GameEngine private constructor(context: Context) {
         when (kingCounter) {
             0 -> {
                 taunt = context.getString(R.string.game_over_body)
-                volume = R.drawable.cup_volume_4
+                volume = R.drawable.ic_cup_volume_4
             }
 
-            1 -> volume = R.drawable.cup_volume_3
-            2 -> volume = R.drawable.cup_volume_2
-            3 -> volume = R.drawable.cup_volume_1
-            else -> volume = R.drawable.cup_whole
+            1 -> volume = R.drawable.ic_cup_volume_3
+            2 -> volume = R.drawable.ic_cup_volume_2
+            3 -> volume = R.drawable.ic_cup_volume_1
+            else -> volume = R.drawable.ic_cup_whole
         }
 
         args.putString(GAME_ENGINE_TAUNT, taunt)

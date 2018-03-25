@@ -49,7 +49,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:src="@drawable/github" />
+                android:src="@drawable/ic_github" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:src="@drawable/github" />
+                android:src="@drawable/ic_github" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -174,7 +174,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:src="@drawable/freesound" />
+                android:src="@drawable/ic_freesound" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -199,7 +199,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:src="@drawable/freepik" />
+                android:src="@drawable/ic_freepik" />
 
         </LinearLayout>
 

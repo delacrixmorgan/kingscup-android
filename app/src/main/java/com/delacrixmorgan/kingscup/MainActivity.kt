@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTaskDescription(ActivityManager.TaskDescription(
                     getString(R.string.app_name),
-                    BitmapFactory.decodeResource(resources, R.drawable.kingscup_logo_icon),
+                    BitmapFactory.decodeResource(resources, R.drawable.ic_kingscup_logo),
                     ContextCompat.getColor(this, R.color.colorPrimary)))
         }
 
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val typedValue = TypedValue()
             val colour = typedValue.data
-            val bitmap = BitmapFactory.decodeResource(activity.resources, R.drawable.kingscup_logo_no_bg)
+            val bitmap = BitmapFactory.decodeResource(activity.resources, R.drawable.ic_kingscup_logo)
             activity.setTaskDescription(ActivityManager.TaskDescription(null, bitmap, colour))
             theme.resolveAttribute(R.attr.colorPrimary, typedValue, true)
             bitmap.recycle()
