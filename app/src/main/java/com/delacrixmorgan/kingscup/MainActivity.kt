@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTaskDescription(ActivityManager.TaskDescription(
                     getString(R.string.app_name),
-                    BitmapFactory.decodeResource(resources, R.drawable.ic_kingscup_logo),
+                    BitmapFactory.decodeResource(resources, R.drawable.ic_kingscup_logo_overview_bar),
                     ContextCompat.getColor(this, R.color.colorPrimary)))
         }
 
