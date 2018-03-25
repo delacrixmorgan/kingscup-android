@@ -11,8 +11,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 /**
- * Created by Delacrix Morgan on 09/10/2016.
- **/
+ * GameEngine
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class GameEngine private constructor(context: Context) {
 

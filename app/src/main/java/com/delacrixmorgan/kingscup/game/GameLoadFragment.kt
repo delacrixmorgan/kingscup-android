@@ -16,8 +16,12 @@ import com.delacrixmorgan.kingscup.model.LoadType
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
- * Created by Delacrix Morgan on 25/12/2017.
- **/
+ * GameLoadFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class GameLoadFragment : Fragment() {
 
@@ -59,7 +63,7 @@ class GameLoadFragment : Fragment() {
             run {
                 activity?.supportFragmentManager?.popBackStack()
                 context?.let {
-                    showFragmentSliding(context = it, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
+                    it.showFragmentSliding(fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
                 }
             }
         }, 2000)

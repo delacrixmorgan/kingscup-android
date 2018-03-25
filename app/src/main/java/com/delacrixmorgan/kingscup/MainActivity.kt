@@ -18,8 +18,12 @@ import com.delacrixmorgan.kingscup.menu.MenuFragment
 import io.fabric.sdk.android.Fabric
 
 /**
- * Created by Delacrix Morgan on 26/03/2017.
- **/
+ * MainActivity
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         Fabric.with(this, Crashlytics())
 
         setContentView(R.layout.activity_main)
-        showFragmentSliding(this@MainActivity, MenuFragment.newInstance(), Gravity.BOTTOM)
+        this.showFragmentSliding(MenuFragment.newInstance(), Gravity.BOTTOM)
 
         SoundEngine.newInstance(this)
         volumeControlStream = AudioManager.STREAM_MUSIC

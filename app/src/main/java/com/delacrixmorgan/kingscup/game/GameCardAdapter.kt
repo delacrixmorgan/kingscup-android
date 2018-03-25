@@ -8,8 +8,12 @@ import android.widget.LinearLayout
 import com.delacrixmorgan.kingscup.R
 
 /**
- * Created by Delacrix Morgan on 17/03/2017.
- **/
+ * GameCardAdapter
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class GameCardAdapter(private val cardListener: CardListener, private var deckSize: Int) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
 

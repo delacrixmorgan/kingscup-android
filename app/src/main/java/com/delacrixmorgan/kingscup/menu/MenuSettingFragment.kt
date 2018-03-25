@@ -13,8 +13,12 @@ import kotlinx.android.synthetic.main.dialog_credit.*
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
 /**
- * Created by Delacrix Morgan on 04/03/2017.
- **/
+ * MenuSettingFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class MenuSettingFragment : Fragment() {
 
@@ -41,7 +45,7 @@ class MenuSettingFragment : Fragment() {
         }
 
         this.guideViewGroup.setOnClickListener {
-            showFragmentSliding(this.context!!, MenuGuideFragment.newInstance(), Gravity.TOP)
+            this.context?.showFragmentSliding(MenuGuideFragment.newInstance(), Gravity.TOP)
         }
 
         this.creditViewGroup.setOnClickListener {

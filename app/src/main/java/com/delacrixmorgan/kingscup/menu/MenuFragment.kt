@@ -15,8 +15,12 @@ import com.delacrixmorgan.kingscup.model.LoadType
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
- * Created by Delacrix Morgan on 09/10/2016.
- **/
+ * MenuFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class MenuFragment : Fragment(), FragmentListener {
 
@@ -46,17 +50,17 @@ class MenuFragment : Fragment(), FragmentListener {
 
         context?.let { context ->
             rateButton.setOnClickListener {
-                showFragmentSliding(context, MenuRateFragment.newInstance(this), Gravity.START)
+                this.context?.showFragmentSliding(MenuRateFragment.newInstance(this), Gravity.START)
             }
 
             settingButton.setOnClickListener {
-                showFragmentSliding(context, MenuSettingFragment.newInstance(this), Gravity.END)
+                this.context?.showFragmentSliding(MenuSettingFragment.newInstance(this), Gravity.END)
             }
 
             startButton.setOnClickListener {
                 if (!isGameStarted) {
                     isGameStarted = !isGameStarted
-                    showFragmentSliding(context, GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+                    this.context?.showFragmentSliding(GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
                     Handler().postDelayed({
                         run {
                             isGameStarted = false
@@ -68,11 +72,10 @@ class MenuFragment : Fragment(), FragmentListener {
     }
 
     override fun onBackPressed() {
+        activity?.supportFragmentManager?.popBackStack()
         getString(R.string.app_name).let {
-            appNameTextView.text = it
+            this.appNameTextView.text = it
             activity?.title = it
         }
-
-        activity?.supportFragmentManager?.popBackStack()
     }
 }

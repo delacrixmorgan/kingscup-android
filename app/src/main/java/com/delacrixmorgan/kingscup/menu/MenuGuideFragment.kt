@@ -13,8 +13,12 @@ import kotlinx.android.synthetic.main.fragment_menu_guide.*
 import kotlinx.android.synthetic.main.view_guide_list.view.*
 
 /**
- * Created by Delacrix Morgan on 04/03/2017.
- **/
+ * MenuGuideFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class MenuGuideFragment : Fragment() {
 

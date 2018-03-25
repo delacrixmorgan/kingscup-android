@@ -16,8 +16,12 @@ import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
 /**
- * Created by Delacrix Morgan on 04/03/2017.
- **/
+* GameBoardFragment
+* kingscup-android
+*
+* Created by Delacrix Morgan on 25/03/2018.
+* Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+*/
 
 class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
@@ -39,20 +43,11 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setupView()
-
-        restartButton.setOnClickListener {
-            startNewGame()
-        }
-
-        menuButton.setOnClickListener {
-            menuDialog.show()
-        }
+        this.setupView()
     }
 
     private fun setupView() {
-        val manager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val manager = LinearLayoutManager(this.activity, LinearLayoutManager.HORIZONTAL, false)
 
         cardAdapter = GameCardAdapter(this, GameEngine.getInstance().getDeckSize())
         isCardSelected = false
@@ -65,6 +60,14 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
         setupMenuDialog()
         setupProgressBar(manager, recyclerView, progressBar)
+
+        this.restartButton.setOnClickListener {
+            this.startNewGame()
+        }
+
+        this.menuButton.setOnClickListener {
+            this.menuDialog.show()
+        }
     }
 
     override fun onCardSelected(position: Int) {
@@ -75,7 +78,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                 context?.let {
                     val fragment = GameCardFragment.newInstance(card, position, this)
                     isCardSelected = true
-                    showFragmentSliding(it, fragment, Gravity.BOTTOM)
+                    it.showFragmentSliding(fragment, Gravity.BOTTOM)
 
                     GameEngine.getInstance().vibrateFeedback(VibrateType.SHORT)
                     SoundEngine.getInstance().playSound(it, SoundType.FLIP)
@@ -166,12 +169,12 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     private fun startNewGame() {
-        activity?.supportFragmentManager?.popBackStack()
-        showFragmentSliding(context!!, GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
+        this.activity?.supportFragmentManager?.popBackStack()
+        this.context?.showFragmentSliding(GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
     }
 
     private fun updateSoundPreference() {
-        val preference = PreferenceHelper.getPreference(context!!)
+        val preference = PreferenceHelper.getPreference(this.context!!)
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
         if (soundPreference) {
