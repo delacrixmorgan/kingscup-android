@@ -41,21 +41,22 @@ class MenuRateFragment : Fragment() {
 
         context?.let { context ->
             backButton.setOnClickListener {
-                fragmentListener?.onBackPressed()
+                this.fragmentListener?.onBackPressed()
             }
 
             starImageView.setOnClickListener {
-                personImageView.setImageResource(R.drawable.ic_human_happy)
-                starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
+                this.personImageView.setImageResource(R.drawable.ic_human_happy)
+                this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
 
-                fragmentListener?.onBackPressed()
-                context.launchPlayStore()
+                this.fragmentListener?.onBackPressed()
+                this.context?.launchPlayStore()
             }
 
             rateButton.setOnClickListener {
-                personImageView.setImageResource(R.drawable.ic_human_happy)
-                fragmentListener?.onBackPressed()
-                context.launchPlayStore()
+                this.personImageView.setImageResource(R.drawable.ic_human_happy)
+
+                this.fragmentListener?.onBackPressed()
+                this.context?.launchPlayStore()
             }
         }
     }

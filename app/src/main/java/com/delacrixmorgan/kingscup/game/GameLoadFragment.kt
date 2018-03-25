@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_game_load.*
 class GameLoadFragment : Fragment() {
 
     companion object {
-        private const val GAME_LOAD_TYPE = "Type"
+        private const val GAME_LOAD_TYPE = "GameLoadFragment.Type"
 
         fun newInstance(loadType: LoadType): GameLoadFragment {
             val fragment = GameLoadFragment()
@@ -43,7 +43,7 @@ class GameLoadFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadType = arguments?.getSerializable(GAME_LOAD_TYPE) as LoadType
+        this.loadType = arguments?.getSerializable(GAME_LOAD_TYPE) as LoadType
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -61,10 +61,8 @@ class GameLoadFragment : Fragment() {
 
         Handler().postDelayed({
             run {
-                activity?.supportFragmentManager?.popBackStack()
-                context?.let {
-                    it.showFragmentSliding(fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
-                }
+                this.activity?.supportFragmentManager?.popBackStack()
+                this.context?.showFragmentSliding(GameBoardFragment.newInstance(), Gravity.TOP)
             }
         }, 2000)
     }

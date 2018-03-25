@@ -64,8 +64,8 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_game_card, container, false)
 
-        dataBinding = bind(rootView)
-        dataBinding?.card = this.card
+        this.dataBinding = bind(rootView)
+        this.dataBinding?.card = this.card
 
         return rootView
     }
@@ -73,8 +73,8 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupView()
-        doneButton.setOnTouchListener(this)
+        this.setupView()
+        this.doneButton.setOnTouchListener(this)
 
         context?.let {
             animateButtonGrow(it, doneButton)
@@ -98,7 +98,6 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     private fun setupView() {
         val suitList = SuitType.values()
-
         var suitDrawable: Int = R.drawable.ic_card_spade
 
         when (card.suit) {
@@ -114,8 +113,8 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     }
 
     private fun backToBoardFragment() {
-        cardListener?.onCardDismissed(position)
-        activity?.supportFragmentManager?.popBackStack()
+        this.cardListener?.onCardDismissed(position)
+        this.activity?.supportFragmentManager?.popBackStack()
 
         SoundEngine.getInstance().playSound(context!!, SoundType.WHOOSH)
     }

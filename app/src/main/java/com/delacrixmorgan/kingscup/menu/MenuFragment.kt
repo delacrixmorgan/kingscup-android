@@ -48,34 +48,33 @@ class MenuFragment : Fragment(), FragmentListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        context?.let { context ->
-            rateButton.setOnClickListener {
-                this.context?.showFragmentSliding(MenuRateFragment.newInstance(this), Gravity.START)
-            }
+        rateButton.setOnClickListener {
+            this.context?.showFragmentSliding(MenuRateFragment.newInstance(this), Gravity.START)
+        }
 
-            settingButton.setOnClickListener {
-                this.context?.showFragmentSliding(MenuSettingFragment.newInstance(this), Gravity.END)
-            }
+        settingButton.setOnClickListener {
+            this.context?.showFragmentSliding(MenuSettingFragment.newInstance(this), Gravity.END)
+        }
 
-            startButton.setOnClickListener {
-                if (!isGameStarted) {
-                    isGameStarted = !isGameStarted
-                    this.context?.showFragmentSliding(GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
-                    Handler().postDelayed({
-                        run {
-                            isGameStarted = false
-                        }
-                    }, 2000)
-                }
+        startButton.setOnClickListener {
+            if (!this.isGameStarted) {
+                this.isGameStarted = !this.isGameStarted
+                this.context?.showFragmentSliding(GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+
+                Handler().postDelayed({
+                    run {
+                        isGameStarted = false
+                    }
+                }, 2000)
             }
         }
     }
 
     override fun onBackPressed() {
-        activity?.supportFragmentManager?.popBackStack()
+        this.activity?.supportFragmentManager?.popBackStack()
         getString(R.string.app_name).let {
             this.appNameTextView.text = it
-            activity?.title = it
+            this.activity?.title = it
         }
     }
 }

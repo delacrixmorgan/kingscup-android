@@ -16,12 +16,12 @@ import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
 /**
-* GameBoardFragment
-* kingscup-android
-*
-* Created by Delacrix Morgan on 25/03/2018.
-* Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-*/
+ * GameBoardFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
@@ -49,16 +49,16 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     private fun setupView() {
         val manager = LinearLayoutManager(this.activity, LinearLayoutManager.HORIZONTAL, false)
 
-        cardAdapter = GameCardAdapter(this, GameEngine.getInstance().getDeckSize())
-        isCardSelected = false
+        this.cardAdapter = GameCardAdapter(this, GameEngine.getInstance().getDeckSize())
+        this.isCardSelected = false
 
-        recyclerView.removeAllViews()
-        recyclerView.layoutManager = manager
-        recyclerView.adapter = cardAdapter
+        this.recyclerView.removeAllViews()
+        this.recyclerView.layoutManager = manager
+        this.recyclerView.adapter = cardAdapter
 
-        volumeImageView.setImageResource(R.drawable.ic_cup_whole)
+        this.volumeImageView.setImageResource(R.drawable.ic_cup_whole)
+        this.setupMenuDialog()
 
-        setupMenuDialog()
         setupProgressBar(manager, recyclerView, progressBar)
 
         this.restartButton.setOnClickListener {
@@ -77,7 +77,8 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             if (card != null) {
                 context?.let {
                     val fragment = GameCardFragment.newInstance(card, position, this)
-                    isCardSelected = true
+
+                    this.isCardSelected = true
                     it.showFragmentSliding(fragment, Gravity.BOTTOM)
 
                     GameEngine.getInstance().vibrateFeedback(VibrateType.SHORT)
@@ -95,10 +96,10 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         this.isCardSelected = false
 
         GameEngine.getInstance().removeCard(position)
-        cardAdapter.notifyItemRemoved(position)
+        this.cardAdapter.notifyItemRemoved(position)
 
-        progressBar.max--
-        statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
+        this.progressBar.max--
+        this.statusTextView.text = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
 
         args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
 
@@ -118,9 +119,9 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         val preference = PreferenceHelper.getPreference(context!!)
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
-        menuDialog = Dialog(context!!)
+        this.menuDialog = Dialog(context!!)
 
-        with(menuDialog) {
+        with(this.menuDialog) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             setContentView(R.layout.dialog_pause)
 
@@ -140,7 +141,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                 R.id.restartDialogButton -> {
                     menuDialog.dismiss()
 
-                    startNewGame()
+                    this.startNewGame()
                     SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
                 }
 
@@ -149,19 +150,19 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                 }
 
                 R.id.volumeDialogButton -> {
-                    updateSoundPreference()
+                    this.updateSoundPreference()
                     SoundEngine.getInstance().playSound(it, SoundType.CLICK)
                 }
 
                 R.id.resumeDialogButton -> {
-                    menuDialog.dismiss()
+                    this.menuDialog.dismiss()
                     SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
                 }
 
                 R.id.quitDialogButton -> {
-                    menuDialog.dismiss()
+                    this.menuDialog.dismiss()
+                    this.activity?.supportFragmentManager?.popBackStack()
 
-                    activity?.supportFragmentManager?.popBackStack()
                     SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
                 }
             }
