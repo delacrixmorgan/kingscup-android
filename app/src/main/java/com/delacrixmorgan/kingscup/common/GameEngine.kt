@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.model.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -55,7 +56,7 @@ class GameEngine private constructor(context: Context) {
     }
 
     private fun buildGameEngine(context: Context) {
-        
+
         SuitType.values().forEach { suit ->
             ActionType.values().let { actionTypes ->
                 actionTypes.indices.mapTo(deckList) {
@@ -116,11 +117,16 @@ class GameEngine private constructor(context: Context) {
         return args
     }
 
-    fun vibrateFeedback(vibrateType: VibrateType) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
-        } else {
-            vibrator.vibrate(vibrateType.duration)
+    fun vibrateFeedback(context: Context, vibrateType: VibrateType) {
+        val preference = PreferenceHelper.getPreference(context)
+        val vibratePreference = preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
+
+        if (vibratePreference) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
+            } else {
+                vibrator.vibrate(vibrateType.duration)
+            }
         }
     }
 

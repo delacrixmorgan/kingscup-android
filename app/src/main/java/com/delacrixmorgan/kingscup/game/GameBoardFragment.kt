@@ -81,7 +81,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                     this.isCardSelected = true
                     it.showFragmentSliding(fragment, Gravity.BOTTOM)
 
-                    GameEngine.getInstance().vibrateFeedback(VibrateType.SHORT)
+                    GameEngine.getInstance().vibrateFeedback(it, VibrateType.SHORT)
                     SoundEngine.getInstance().playSound(it, SoundType.FLIP)
                 }
             } else {
@@ -117,6 +117,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
     private fun setupMenuDialog() {
         val preference = PreferenceHelper.getPreference(context!!)
+        val vibratePreference = preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
         this.menuDialog = Dialog(context!!)
@@ -125,41 +126,43 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             setContentView(R.layout.dialog_pause)
 
-            quitDialogButton.setOnClickListener(this@GameBoardFragment)
-            rateDialogButton.setOnClickListener(this@GameBoardFragment)
-            volumeDialogButton.setOnClickListener(this@GameBoardFragment)
-            resumeDialogButton.setOnClickListener(this@GameBoardFragment)
-            restartDialogButton.setOnClickListener(this@GameBoardFragment)
+            quitButton.setOnClickListener(this@GameBoardFragment)
+            vibrateButton.setOnClickListener(this@GameBoardFragment)
+            volumeButton.setOnClickListener(this@GameBoardFragment)
+            resumeButton.setOnClickListener(this@GameBoardFragment)
+            startNewGameButton.setOnClickListener(this@GameBoardFragment)
 
-            volumeDialogButton.setImageResource(if (soundPreference) R.drawable.ic_volume_up else R.drawable.ic_volume_off)
+            vibrateButton.setImageResource(if (vibratePreference) R.drawable.ic_vibration_enable else R.drawable.ic_vibration_disable)
+            volumeButton.setImageResource(if (soundPreference) R.drawable.ic_volume_up else R.drawable.ic_volume_off)
         }
     }
 
     override fun onClick(view: View) {
         context?.let {
             when (view.id) {
-                R.id.restartDialogButton -> {
+                R.id.startNewGameButton -> {
                     menuDialog.dismiss()
 
                     this.startNewGame()
                     SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
                 }
 
-                R.id.rateDialogButton -> {
-                    it.launchPlayStore()
+                R.id.vibrateButton -> {
+                    this.updateVibratePreference()
+                    GameEngine.getInstance().vibrateFeedback(it, VibrateType.SHORT)
                 }
 
-                R.id.volumeDialogButton -> {
+                R.id.volumeButton -> {
                     this.updateSoundPreference()
                     SoundEngine.getInstance().playSound(it, SoundType.CLICK)
                 }
 
-                R.id.resumeDialogButton -> {
+                R.id.resumeButton -> {
                     this.menuDialog.dismiss()
                     SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
                 }
 
-                R.id.quitDialogButton -> {
+                R.id.quitButton -> {
                     this.menuDialog.dismiss()
                     this.activity?.supportFragmentManager?.popBackStack()
 
@@ -174,14 +177,27 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         this.context?.showFragmentSliding(GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
     }
 
+    private fun updateVibratePreference() {
+        val preference = PreferenceHelper.getPreference(this.context!!)
+        val vibratePreference = preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
+
+        if (vibratePreference) {
+            this.menuDialog.vibrateButton.setImageResource(R.drawable.ic_vibration_disable)
+        } else {
+            this.menuDialog.vibrateButton.setImageResource(R.drawable.ic_vibration_enable)
+        }
+
+        preference[PreferenceHelper.VIBRATE] = !vibratePreference
+    }
+
     private fun updateSoundPreference() {
         val preference = PreferenceHelper.getPreference(this.context!!)
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
         if (soundPreference) {
-            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_off)
+            this.menuDialog.volumeButton.setImageResource(R.drawable.ic_volume_off)
         } else {
-            this.menuDialog.volumeDialogButton.setImageResource(R.drawable.ic_volume_up)
+            this.menuDialog.volumeButton.setImageResource(R.drawable.ic_volume_up)
         }
 
         preference[PreferenceHelper.SOUND] = !soundPreference

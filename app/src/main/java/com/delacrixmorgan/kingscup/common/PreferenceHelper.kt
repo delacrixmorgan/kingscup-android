@@ -15,9 +15,11 @@ import android.preference.PreferenceManager
 object PreferenceHelper {
 
     const val LANGUAGE = "Preference.Language"
+    const val VIBRATE = "Preference.Vibrate"
     const val SOUND = "Preference.Sound"
 
     const val LANGUAGE_DEFAULT = "en"
+    const val VIBRATE_DEFAULT = true
     const val SOUND_DEFAULT = true
 
     fun getPreference(context: Context): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)

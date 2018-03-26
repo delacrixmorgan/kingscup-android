@@ -82,7 +82,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
             if (GameEngine.getInstance().checkWin(card)) {
                 doneButton.visibility = View.GONE
 
-                GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
+                GameEngine.getInstance().vibrateFeedback(it, VibrateType.LONG)
                 SoundEngine.getInstance().playSound(it, SoundType.GAME_OVER)
 
                 Handler().postDelayed({
