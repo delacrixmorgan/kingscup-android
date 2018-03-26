@@ -41,8 +41,8 @@ class SoundEngine private constructor(context: Context) {
 
     @SuppressLint("NewApi")
     private fun buildSoundEngine(context: Context) {
-        audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        this.audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        this.soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val audioAttributes = AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_GAME)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -55,12 +55,12 @@ class SoundEngine private constructor(context: Context) {
             SoundPool(5, AudioManager.STREAM_MUSIC, 0)
         }
 
-        soundPool.setOnLoadCompleteListener { _, _, _ ->
-            isLoaded = true
+        this.soundPool.setOnLoadCompleteListener { _, _, _ ->
+            this.isLoaded = true
         }
 
         SoundType.values().forEach {
-            it.resourceID = soundPool.load(context, it.rawID, 1)
+            it.resourceID = this.soundPool.load(context, it.rawID, 1)
         }
     }
 
@@ -68,9 +68,9 @@ class SoundEngine private constructor(context: Context) {
         val preference = PreferenceHelper.getPreference(context)
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
-        if (isLoaded && soundPreference) {
-            val volume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC).toFloat() / audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC).toFloat()
-            soundPool.play(soundType.resourceID, volume, volume, 1, 0, 1f)
+        if (this.isLoaded && soundPreference) {
+            val volume = this.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC).toFloat() / this.audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC).toFloat()
+            this.soundPool.play(soundType.resourceID, volume, volume, 1, 0, 1f)
         }
     }
 }
