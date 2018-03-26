@@ -36,7 +36,7 @@
         android:orientation="horizontal">
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/restartDialogButton"
+            android:id="@+id/startNewGameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -47,20 +47,20 @@
             app:fabSize="normal"/>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/rateDialogButton"
+            android:id="@+id/vibrateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_marginStart="15dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_card_heart"
+            android:src="@drawable/ic_vibration_enable"
             app:backgroundTint="@android:color/white"
             app:elevation="0dp"
             app:fabSize="normal"/>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/volumeDialogButton"
+            android:id="@+id/volumeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -72,7 +72,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/resumeDialogButton"
+        android:id="@+id/resumeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
@@ -84,7 +84,7 @@
         android:textColor="@android:color/white"/>
 
     <Button
-        android:id="@+id/quitDialogButton"
+        android:id="@+id/quitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
