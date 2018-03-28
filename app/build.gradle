@@ -11,7 +11,6 @@ androidExtensions {
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.2'
     defaultConfig {
         applicationId "com.delacrixmorgan.kingscup"
         minSdkVersion 19
@@ -32,23 +31,20 @@ android {
 }
 
 dependencies {
-    kapt "com.android.databinding:compiler:$buildToolsVersion"
-
-    androidTestCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') { transitive = true }
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
-    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation "com.android.support:recyclerview-v7:$support_library_version"
+    implementation "com.android.support:design:$support_library_version"
 
-    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
-    implementation "com.android.support:design:$supportLibraryVersion"
-
-    implementation "com.jcminarro:RoundKornerLayouts:$roundKornerLibraryVersion"
+    implementation "com.jcminarro:RoundKornerLayouts:$korner_library_version"
 }
 
 repositories {
