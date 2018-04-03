@@ -7,9 +7,9 @@
 
         <variable
             name="card"
-            type="com.delacrixmorgan.kingscup.model.Card"/>
+            type="com.delacrixmorgan.kingscup.model.Card" />
 
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
     </data>
 
     <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
@@ -28,7 +28,7 @@
             android:layout_alignParentEnd="true"
             android:adjustViewBounds="true"
             android:src="@drawable/bg_card_accent"
-            android:tint="@color/pink"/>
+            android:tint="@color/pink" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -48,13 +48,13 @@
                 android:textColor="@color/pink"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                tool:text="3"/>
+                tool:text="9" />
 
             <ImageView
                 android:id="@+id/lightLeftImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_card_heart"/>
+                android:src="@drawable/ic_card_heart" />
 
         </LinearLayout>
 
@@ -69,18 +69,22 @@
                 android:id="@+id/lightCenterImageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/ic_card_heart"/>
+                android:src="@drawable/ic_card_heart" />
 
             <TextView
                 android:id="@+id/nameTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:maxLines="1"
                 android:text="@{card.header}"
+                android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="30sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform"
+                tool:text="Ojos de serpiente" />
 
             <TextView
                 android:id="@+id/actionTextView"
@@ -93,7 +97,8 @@
                 android:gravity="center"
                 android:text="@{card.body}"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                tool:text="Nadie puede hacer contacto visual contigo, si alguien lo hace, bebe!" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/doneButton"
@@ -104,7 +109,7 @@
                 android:src="@drawable/ic_checked_mark"
                 app:backgroundTint="@android:color/white"
                 app:elevation="0dp"
-                app:fabSize="mini"/>
+                app:fabSize="mini" />
 
         </LinearLayout>
 
@@ -129,14 +134,14 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                tool:text="3"/>
+                tool:text="9" />
 
             <ImageView
                 android:id="@+id/darkRightImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_card_heart"
-                android:tint="@color/colorPrimary"/>
+                android:tint="@color/colorPrimary" />
 
         </LinearLayout>
     </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
