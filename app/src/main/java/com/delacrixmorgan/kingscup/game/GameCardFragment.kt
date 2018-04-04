@@ -32,6 +32,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     companion object {
         private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
+        private const val GAME_CARD_KING = "K"
 
         fun newInstance(card: Card? = null, position: Int = 0, cardListener: CardListener): GameCardFragment {
             val fragment = GameCardFragment()
@@ -55,7 +56,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        arguments?.let {
+        this.arguments?.let {
             this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD)
             this.position = it.getInt(GAME_CARD_FRAGMENT_POSITION)
         }
@@ -76,7 +77,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         this.setupView()
         this.doneButton.setOnTouchListener(this)
 
-        context?.let {
+        this.context?.let {
             animateButtonGrow(it, doneButton)
 
             if (GameEngine.getInstance().checkWin(card)) {
@@ -90,7 +91,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
                 }, 2000)
             }
 
-            if (card.rank == "K") {
+            if (card.rank == GAME_CARD_KING) {
                 SoundEngine.getInstance().playSound(it, SoundType.OOOH)
             }
         }
@@ -100,11 +101,13 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         val suitList = SuitType.values()
         var suitDrawable: Int = R.drawable.ic_card_spade
 
-        when (card.suit) {
-            suitList[0].getLocalisedText(context!!) -> suitDrawable = R.drawable.ic_card_spade
-            suitList[1].getLocalisedText(context!!) -> suitDrawable = R.drawable.ic_card_heart
-            suitList[2].getLocalisedText(context!!) -> suitDrawable = R.drawable.ic_card_club
-            suitList[3].getLocalisedText(context!!) -> suitDrawable = R.drawable.ic_card_diamond
+        this.context?.let {
+            when (card.suit) {
+                suitList[0].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_spade
+                suitList[1].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_heart
+                suitList[2].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_club
+                suitList[3].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_diamond
+            }
         }
 
         this.lightCenterImageView.setImageResource(suitDrawable)
@@ -113,10 +116,10 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     }
 
     private fun backToBoardFragment() {
-        this.cardListener?.onCardDismissed(position)
+        this.cardListener?.onCardDismissed(this.position)
         this.activity?.supportFragmentManager?.popBackStack()
 
-        SoundEngine.getInstance().playSound(context!!, SoundType.WHOOSH)
+        SoundEngine.getInstance().playSound(this.context!!, SoundType.WHOOSH)
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {

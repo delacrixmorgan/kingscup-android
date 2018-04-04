@@ -71,31 +71,31 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     override fun onCardSelected(position: Int) {
-        if (!isCardSelected && !isGameOver) {
+        if (!this.isCardSelected && !this.isGameOver) {
             val card: Card? = GameEngine.getInstance().getCardByPosition(position)
 
-            if (card != null) {
-                context?.let {
-                    val fragment = GameCardFragment.newInstance(card, position, this)
-
+            this.context?.let {
+                if (card != null) {
                     this.isCardSelected = true
+
+                    val fragment = GameCardFragment.newInstance(card, position, this)
                     it.showFragmentSliding(fragment, Gravity.BOTTOM)
 
                     GameEngine.getInstance().vibrateFeedback(it, VibrateType.SHORT)
                     SoundEngine.getInstance().playSound(it, SoundType.FLIP)
+                } else {
+                    this.activity?.supportFragmentManager?.popBackStack()
+                    SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
                 }
-            } else {
-                activity?.supportFragmentManager?.popBackStack()
-                SoundEngine.getInstance().playSound(context!!, SoundType.WHOOSH)
             }
         }
     }
 
     override fun onCardDismissed(position: Int) {
-        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(context!!)
-        this.isCardSelected = false
-
         GameEngine.getInstance().removeCard(position)
+        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(this.context!!)
+
+        this.isCardSelected = false
         this.cardAdapter.notifyItemRemoved(position)
 
         this.progressBar.max--
@@ -116,7 +116,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     private fun setupMenuDialog() {
-        val preference = PreferenceHelper.getPreference(context!!)
+        val preference = PreferenceHelper.getPreference(this.context!!)
         val vibratePreference = preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
@@ -138,7 +138,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     override fun onClick(view: View) {
-        context?.let {
+        this.context?.let {
             when (view.id) {
                 R.id.startNewGameButton -> {
                     menuDialog.dismiss()
