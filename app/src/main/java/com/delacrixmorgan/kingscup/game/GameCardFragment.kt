@@ -89,10 +89,10 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
                 Handler().postDelayed({
                     backToBoardFragment()
                 }, 2000)
-            }
-
-            if (card.rank == GAME_CARD_KING) {
+            } else if (card.rank == GAME_CARD_KING) {
                 SoundEngine.getInstance().playSound(it, SoundType.OOOH)
+            } else {
+
             }
         }
     }

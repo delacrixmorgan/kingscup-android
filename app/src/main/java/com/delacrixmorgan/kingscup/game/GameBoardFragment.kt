@@ -35,7 +35,6 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     private lateinit var menuDialog: Dialog
 
     private var isCardSelected: Boolean = false
-    private var isGameOver: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_game_board, container, false)
@@ -71,7 +70,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     override fun onCardSelected(position: Int) {
-        if (!this.isCardSelected && !this.isGameOver) {
+        if (!this.isCardSelected) {
             val card: Card? = GameEngine.getInstance().getCardByPosition(position)
 
             this.context?.let {
@@ -110,7 +109,6 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             0 -> {
                 this.kingOneImageView.visibility = View.GONE
                 this.restartButton.visibility = View.VISIBLE
-                this.isGameOver = true
             }
         }
     }
