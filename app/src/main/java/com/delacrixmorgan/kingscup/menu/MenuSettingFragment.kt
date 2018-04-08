@@ -109,9 +109,10 @@ class MenuSettingFragment : Fragment() {
             spartanImageView.setOnClickListener { this.context.launchWebsite("https://ic_github.com/theleagueof/league-spartan") }
             kornerImageView.setOnClickListener { this.context.launchWebsite("https://ic_github.com/JcMinarro/RoundKornerLayouts") }
 
-            poiImageView.setOnClickListener { this.context.launchWebsite("https://ic_github.com/YukiSora") }
-            laysImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
-            kasperImageView.setOnClickListener { this.context.launchWebsite("http://kaspernooteboom.nl/khas") }
+            chineseImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/China") }
+            portugueseImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
+            netherlandsImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Netherlands") }
+            spanishImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Spain") }
 
             freesoundImageView.setOnClickListener { this.context.launchWebsite("https://ic_freesound.org/") }
             freepikImageView.setOnClickListener { this.context.launchWebsite("https://www.ic_freepik.com") }
