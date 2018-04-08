@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="app_name">King\'s Cup</string>
+    <string name="app_name">King's Cup</string>
     <string name="game_over_body">Bébelo!</string>
     <string name="preference_title">Ajustes</string>
     <string name="preference_title_quick_guide">Guía Rápida</string>
     <string name="preference_title_credits_summary">Besos y corazones</string>
     <string name="preference_title_share_friend">Cuéntale a tu mala influencia</string>
     <string name="preference_current_language">Español</string>
-    <string name="preference_button_done">Listo</string>
-    <string name="preference_message_share_friend">Encontré el juego perfecto para beber. King\'s Cup. No hay bebidas incluidas https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
+    <string name="preference_button_done">Hecho</string>
+    <string name="preference_message_share_friend">Encontré el juego perfecto para beber. King's Cup. No hay bebidas incluidas https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
     <string name="board_title_lets_begin">Empecemos ya!</string>
     <string name="dialog_pause_title">Pueden ir al baño, rápido.</string>
     <string name="dialog_pause_button_resume">Continuar</string>
     <string name="dialog_pause_button_quit">Salir</string>
     <string name="rate_title">Hola a todos!</string>
     <string name="rate_paragraph_1">No fue para sacarte de tu juego.</string>
-    <string name="rate_paragraph_2">King\'s Cup está diseñado, codificado y creado por una sola persona. Haciendo que cada clasificación sea un gran estímulo para mí.</string>
+    <string name="rate_paragraph_2">King's Cup está diseñado, codificado y creado por una sola persona. Haciendo que cada clasificación sea un gran estímulo para mí.</string>
     <string name="rate_paragraph_3">El bienestar de este juego depende completamente de tus comentarios. ¡Tengan una buena pareja!</string>
     <string name="rate_button_awesome">Sé impresionante</string>
     <string name="load_type_new_game">Sostén mi cerveza</string>
-    <string name="load_type_restart_game">Ajustando una nueva ronda</string>
+    <string name="load_type_restart_game">Configurando una nueva ronda</string>
     <string name="suit_spade">Espada</string>
     <string name="suit_heart">Corazón</string>
     <string name="suit_club">Trébol</string>
@@ -60,7 +60,7 @@
     <string name="taunt_five">No pienses</string>
     <string name="taunt_six">Bébeme!</string>
     <string name="taunt_seven">Un compañero más rápido</string>
-    <string name="taunt_eight">Estás seguro?</string>
-    <string name="taunt_nine">Todo bien amigo?</string>
-    <string name="taunt_ten">Vamos!</string>
+    <string name="taunt_eight">¿Estás seguro?</string>
+    <string name="taunt_nine">¿Todo bien amigo?</string>
+    <string name="taunt_ten">¡Vamos!</string>
 </resources>
