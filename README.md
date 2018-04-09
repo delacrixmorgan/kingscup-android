@@ -39,6 +39,7 @@ More to come. In the meantime, go nuts!
 [Google Play Store - King's Cup](https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup)
 
 **What’s New**
+
 Dessert Update 🍰
 
 Dutch Translation Added - Kasper Nooteboom 🌷
