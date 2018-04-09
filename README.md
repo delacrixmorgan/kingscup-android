@@ -27,7 +27,7 @@ ii) Brazilian Portuguese - Lays Correia
 
 iii) Dutch - Kasper Nooteboom
 
-iv) Spanish - Santos Martinez
+iv) Spanish - Santos Martinez, Gonzo Fernandez
 
 Drop me a message if you are excited to translate and help bring King’s Cup to your native tongue. MORE the merrier!
 
