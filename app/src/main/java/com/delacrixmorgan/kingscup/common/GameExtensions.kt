@@ -18,20 +18,12 @@ import com.delacrixmorgan.kingscup.R
 import java.util.*
 
 /**
- * Created by Delacrix Morgan on 13/11/2017.
- **/
-
-fun showFragmentSliding(context: Context, fragment: Fragment, gravity: Int) {
-    val activity = context as FragmentActivity
-
-    fragment.enterTransition = Slide(gravity).setDuration(200)
-
-    activity.supportFragmentManager
-            .beginTransaction()
-            .add(R.id.mainContainer, fragment, fragment.javaClass.simpleName)
-            .addToBackStack(fragment.javaClass.simpleName)
-            .commit()
-}
+ * GameExtensions
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 fun setLocale(language: String?, resources: Resources) {
     val locale = Locale(language)
@@ -63,6 +55,25 @@ fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, p
     })
 }
 
+// Context
+
+fun Context.showFragmentSliding(fragment: Fragment, gravity: Int) {
+    fragment.enterTransition = Slide(gravity).setDuration(200)
+
+    (this as FragmentActivity).supportFragmentManager
+            .beginTransaction()
+            .add(R.id.mainContainer, fragment, fragment.javaClass.simpleName)
+            .addToBackStack(fragment.javaClass.simpleName)
+            .commit()
+}
+
+fun Context.launchWebsite(url: String) {
+    val intent = Intent(Intent.ACTION_VIEW)
+
+    intent.data = Uri.parse(url)
+    startActivity(intent)
+}
+
 fun Context.launchPlayStore() {
     val url = "https://play.google.com/store/apps/details?id=${this.packageName}"
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
@@ -72,3 +83,5 @@ fun Context.launchPlayStore() {
 
     SoundEngine.getInstance().playSound(this, SoundType.OOOH)
 }
+
+// End - Context

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.delacrixmorgan.kingscup">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -20,6 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="34f5cbf3182f76b1607fe8a4914f126e4699b6ab" />
     </application>
 </manifest>

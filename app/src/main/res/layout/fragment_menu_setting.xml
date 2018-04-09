@@ -19,7 +19,7 @@
         android:src="@drawable/ic_arrow_back"
         app:backgroundTint="@android:color/white"
         app:elevation="6dp"
-        app:fabSize="normal" />
+        app:fabSize="normal"/>
 
     <LinearLayout
         android:id="@+id/headerLayout"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="@string/preference_title"
             android:textAllCaps="true"
-            android:textSize="22sp" />
+            android:textSize="22sp"/>
     </LinearLayout>
 
     <RelativeLayout
@@ -66,7 +66,7 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/diamond_pink" />
+                        android:src="@drawable/ic_card_diamond"/>
 
                     <TextView
                         android:id="@+id/quickGuideTextView"
@@ -74,20 +74,20 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/preference_title_quick_guide"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_alignParentEnd="true"
-                        android:src="@drawable/ic_chevron_right_black_48dp"
-                        android:tint="@android:color/white" />
+                        android:src="@drawable/ic_chevron_right_black"
+                        android:tint="@android:color/white"/>
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/colorDivider" />
+                    android:background="@color/colorDivider"/>
 
                 <RelativeLayout
                     android:id="@+id/creditViewGroup"
@@ -100,7 +100,7 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/heart_pink" />
+                        android:src="@drawable/ic_card_heart"/>
 
                     <TextView
                         android:id="@+id/creditTextView"
@@ -108,20 +108,20 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/preference_title_credits_summary"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_alignParentEnd="true"
-                        android:src="@drawable/ic_chevron_right_black_48dp"
-                        android:tint="@android:color/white" />
+                        android:src="@drawable/ic_chevron_right_black"
+                        android:tint="@android:color/white"/>
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/colorDivider" />
+                    android:background="@color/colorDivider"/>
 
                 <RelativeLayout
                     android:id="@+id/shareViewGroup"
@@ -134,7 +134,7 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/club_pink" />
+                        android:src="@drawable/ic_card_club"/>
 
                     <TextView
                         android:id="@+id/shareTextView"
@@ -142,20 +142,20 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/preference_title_share_friend"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_alignParentEnd="true"
-                        android:src="@drawable/ic_chevron_right_black_48dp"
-                        android:tint="@android:color/white" />
+                        android:src="@drawable/ic_chevron_right_black"
+                        android:tint="@android:color/white"/>
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/colorDivider" />
+                    android:background="@color/colorDivider"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -171,7 +171,7 @@
             android:text="@string/preference_current_language"
             android:textAlignment="textEnd"
             android:textAllCaps="true"
-            android:textSize="16sp" />
+            android:textSize="16sp"/>
 
     </RelativeLayout>
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

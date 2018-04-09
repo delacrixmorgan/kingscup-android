@@ -1,21 +1,26 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
+import com.delacrixmorgan.kingscup.model.GuideType
 import kotlinx.android.synthetic.main.fragment_menu_guide.*
 import kotlinx.android.synthetic.main.view_guide_list.view.*
 
 /**
- * Created by Delacrix Morgan on 04/03/2017.
- **/
+ * MenuGuideFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
-class MenuGuideFragment : BaseFragment() {
+class MenuGuideFragment : Fragment() {
 
     companion object {
         fun newInstance(): MenuGuideFragment {
@@ -23,7 +28,7 @@ class MenuGuideFragment : BaseFragment() {
         }
     }
 
-    lateinit var guideList: List<String>
+    private var guideList: ArrayList<String> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu_guide, container, false)
@@ -32,13 +37,15 @@ class MenuGuideFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.guideList = resources.getStringArray(R.array.guide).toList()
+        GuideType.values().forEach {
+            this.guideList.add(it.getLocalisedText(context!!))
+        }
 
         this.viewPager.adapter = GuideAdapter()
         this.tabLayout.setupWithViewPager(viewPager, true)
 
         this.backButton.setOnClickListener {
-            this.baseActivity.supportFragmentManager.popBackStack()
+            activity?.supportFragmentManager?.popBackStack()
         }
     }
 

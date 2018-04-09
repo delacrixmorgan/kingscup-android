@@ -5,15 +5,21 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 
 /**
- * Created by Delacrix Morgan on 30/11/2017.
- **/
+ * PreferenceHelper
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 object PreferenceHelper {
-    
+
     const val LANGUAGE = "Preference.Language"
+    const val VIBRATE = "Preference.Vibrate"
     const val SOUND = "Preference.Sound"
 
     const val LANGUAGE_DEFAULT = "en"
+    const val VIBRATE_DEFAULT = true
     const val SOUND_DEFAULT = true
 
     fun getPreference(context: Context): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)

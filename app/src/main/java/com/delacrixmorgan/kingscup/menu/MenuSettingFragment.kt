@@ -2,7 +2,6 @@ package com.delacrixmorgan.kingscup.menu
 
 import android.app.Dialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
@@ -14,10 +13,14 @@ import kotlinx.android.synthetic.main.dialog_credit.*
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
 /**
- * Created by Delacrix Morgan on 04/03/2017.
- **/
+ * MenuSettingFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
-class MenuSettingFragment : BaseFragment() {
+class MenuSettingFragment : Fragment() {
 
     companion object {
         fun newInstance(listener: FragmentListener? = null): MenuSettingFragment {
@@ -29,7 +32,6 @@ class MenuSettingFragment : BaseFragment() {
     }
 
     var fragmentListener: FragmentListener? = null
-    private val languageCodeList = arrayListOf("en", "zh")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_menu_setting, container, false)
@@ -43,7 +45,7 @@ class MenuSettingFragment : BaseFragment() {
         }
 
         this.guideViewGroup.setOnClickListener {
-            showFragmentSliding(this.baseContext, MenuGuideFragment.newInstance(), Gravity.TOP)
+            this.context?.showFragmentSliding(MenuGuideFragment.newInstance(), Gravity.TOP)
         }
 
         this.creditViewGroup.setOnClickListener {
@@ -70,15 +72,20 @@ class MenuSettingFragment : BaseFragment() {
     }
 
     private fun changeLanguage() {
-        val preference = PreferenceHelper.getPreference(this.baseContext)
-        val currentLanguage = if (preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT] == PreferenceHelper.LANGUAGE_DEFAULT) {
-            this.languageCodeList[1]
-        } else {
-            this.languageCodeList[0]
+        val preference = PreferenceHelper.getPreference(context!!)
+        val languageTypes = LanguageType.values()
+        var currentLanguage: LanguageType = languageTypes.first {
+            it.countryIso == preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
         }
 
-        preference[PreferenceHelper.LANGUAGE] = currentLanguage
-        setLocale(currentLanguage, resources)
+        currentLanguage = if (currentLanguage == languageTypes.last()) {
+            languageTypes.first()
+        } else {
+            languageTypes[currentLanguage.ordinal + 1]
+        }
+
+        preference[PreferenceHelper.LANGUAGE] = currentLanguage.countryIso
+        setLocale(currentLanguage.countryIso, resources)
 
         this.updateSettingLanguage()
     }
@@ -92,29 +99,28 @@ class MenuSettingFragment : BaseFragment() {
     }
 
     private fun displayCredits() {
-        val creditDialog = Dialog(activity)
+        val creditDialog = Dialog(this.activity)
 
         with(creditDialog) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             setContentView(R.layout.dialog_credit)
             show()
 
-            spartanImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/theleagueof/league-spartan") }
-            kornerImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
-            poiImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://github.com/YukiSora") }
-            freesoundImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://freesound.org/") }
-            freepikImageView.setOnClickListener { this@MenuSettingFragment.launchWebsite("https://www.freepik.com") }
+            spartanImageView.setOnClickListener { this.context.launchWebsite("https://ic_github.com/theleagueof/league-spartan") }
+            kornerImageView.setOnClickListener { this.context.launchWebsite("https://ic_github.com/JcMinarro/RoundKornerLayouts") }
+
+            chineseImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/China") }
+            portugueseImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
+            netherlandsImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Netherlands") }
+            spanishImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Spain") }
+
+            freesoundImageView.setOnClickListener { this.context.launchWebsite("https://ic_freesound.org/") }
+            freepikImageView.setOnClickListener { this.context.launchWebsite("https://www.ic_freepik.com") }
 
             doneButton.setOnClickListener {
                 creditDialog.dismiss()
                 SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
         }
-    }
-
-    private fun launchWebsite(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse(url)
-        startActivity(intent)
     }
 }

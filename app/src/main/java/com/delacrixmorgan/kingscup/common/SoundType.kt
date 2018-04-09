@@ -3,8 +3,12 @@ package com.delacrixmorgan.kingscup.common
 import com.delacrixmorgan.kingscup.R
 
 /**
- * Created by Delacrix Morgan on 28/12/2017.
- **/
+ * SoundType
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 enum class SoundType(var rawID: Int, var resourceID: Int) {
     KING(R.raw.king, 0),

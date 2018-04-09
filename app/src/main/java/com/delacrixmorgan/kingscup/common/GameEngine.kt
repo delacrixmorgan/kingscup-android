@@ -5,17 +5,19 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.widget.ProgressBar
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.game.GameCardAdapter
-import com.delacrixmorgan.kingscup.game.VibrateType
-import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
+import com.delacrixmorgan.kingscup.model.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 /**
- * Created by Delacrix Morgan on 09/10/2016.
- **/
+ * GameEngine
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class GameEngine private constructor(context: Context) {
 
@@ -24,74 +26,73 @@ class GameEngine private constructor(context: Context) {
         const val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
         const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
 
-        @Volatile private lateinit var GameEngineInstance: GameEngine
+        @Volatile
+        private lateinit var GameEngineInstance: GameEngine
 
         fun newInstance(context: Context): GameEngine {
-            this.GameEngineInstance = GameEngine(context)
-            return this.GameEngineInstance
+            GameEngineInstance = GameEngine(context)
+            return GameEngineInstance
         }
 
         fun getInstance(): GameEngine = this.GameEngineInstance
     }
 
-    val deckList = ArrayList<Card>()
-
     private val guideList = ArrayList<String>()
     private val tauntList = ArrayList<String>()
+    private val deckList = ArrayList<Card>()
     private var kingCounter: Int = 4
     private var kingRank: String = "K"
     private var vibrator: Vibrator
 
     init {
-        this.kingCounter = 4
-        this.kingRank = context.resources.getStringArray(R.array.rank).last()
-        this.vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        kingCounter = 4
+        kingRank = ActionType.values().last().getRankText()
+        vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-        this.deckList.clear()
-        this.guideList.clear()
+        deckList.clear()
+        guideList.clear()
 
-        this.buildGameEngine(context)
+        buildGameEngine(context)
     }
 
     private fun buildGameEngine(context: Context) {
 
-        with(context.resources) {
-            val cardSuits = getStringArray(R.array.suit)
-            val cardRanks = getStringArray(R.array.rank)
-            val cardHeaders = getStringArray(R.array.header)
-            val cardBody = getStringArray(R.array.body)
-
-            val gameGuides = getStringArray(R.array.guide)
-            val gameTaunts = getStringArray(R.array.taunt)
-
-            cardSuits.forEach { cardSuit -> cardHeaders.indices.mapTo(deckList) { Card(cardSuit, cardRanks[it], cardHeaders[it], cardBody[it]) } }
-            gameGuides.forEach { gameGuide -> guideList.add(gameGuide) }
-            gameTaunts.forEach { gameTaunt -> tauntList.add(gameTaunt) }
+        SuitType.values().forEach { suit ->
+            ActionType.values().let { actionTypes ->
+                actionTypes.indices.mapTo(deckList) {
+                    Card(suit.getLocalisedText(context),
+                            actionTypes[it].getRankText(),
+                            actionTypes[it].getLocalisedHeaderText(context),
+                            actionTypes[it].getLocalisedBodyText(context))
+                }
+            }
         }
 
-        Collections.shuffle(deckList, Random(System.nanoTime()))
+        GuideType.values().forEach { guide ->
+            guideList.add(guide.getLocalisedText(context))
+        }
+
+        TauntType.values().forEach { taunt ->
+            tauntList.add(taunt.getLocalisedText(context))
+        }
+
+        deckList.shuffle(Random(System.nanoTime()))
     }
 
     fun checkWin(card: Card): Boolean {
-        if (card.rank == this.kingRank && kingCounter == 1) {
-            return true
-        }
-        return false
+        return card.rank == kingRank && kingCounter == 1
     }
 
-    fun removeCard(position: Int, cardAdapter: GameCardAdapter, progressBar: ProgressBar) {
-        if (this.deckList[position].rank == this.kingRank) {
-            this.kingCounter--
+    fun removeCard(position: Int) {
+        if (deckList[position].rank == kingRank) {
+            kingCounter--
         }
 
-        this.deckList.removeAt(position)
-
-        cardAdapter.notifyItemRemoved(position)
-        progressBar.max--
+        deckList.removeAt(position)
     }
 
     fun updateGraphicStatus(context: Context): Bundle {
-        Collections.shuffle(tauntList, Random(System.nanoTime()))
+        tauntList.shuffle(Random(System.nanoTime()))
 
         val volume: Int
         val args = Bundle()
@@ -100,13 +101,13 @@ class GameEngine private constructor(context: Context) {
         when (kingCounter) {
             0 -> {
                 taunt = context.getString(R.string.game_over_body)
-                volume = R.drawable.cup_volume_4
+                volume = R.drawable.ic_cup_volume_4
             }
 
-            1 -> volume = R.drawable.cup_volume_3
-            2 -> volume = R.drawable.cup_volume_2
-            3 -> volume = R.drawable.cup_volume_1
-            else -> volume = R.drawable.cup_whole
+            1 -> volume = R.drawable.ic_cup_volume_3
+            2 -> volume = R.drawable.ic_cup_volume_2
+            3 -> volume = R.drawable.ic_cup_volume_1
+            else -> volume = R.drawable.ic_cup_whole
         }
 
         args.putString(GAME_ENGINE_TAUNT, taunt)
@@ -116,11 +117,24 @@ class GameEngine private constructor(context: Context) {
         return args
     }
 
-    fun vibrateFeedback(vibrateType: VibrateType) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            this.vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
-        } else {
-            this.vibrator.vibrate(vibrateType.duration)
+    fun vibrateFeedback(context: Context, vibrateType: VibrateType) {
+        val preference = PreferenceHelper.getPreference(context)
+        val vibratePreference = preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
+
+        if (vibratePreference) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
+            } else {
+                vibrator.vibrate(vibrateType.duration)
+            }
         }
+    }
+
+    fun getCardByPosition(position: Int): Card {
+        return deckList[position]
+    }
+
+    fun getDeckSize(): Int {
+        return deckList.size
     }
 }

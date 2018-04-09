@@ -9,20 +9,25 @@ import android.os.Build
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 
 /**
- * Created by Delacrix Morgan on 28/12/2017.
- **/
+ * SoundEngine
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
 class SoundEngine private constructor(context: Context) {
 
     companion object {
-        @Volatile private lateinit var SoundEngineInstance: SoundEngine
+        @Volatile
+        private lateinit var SoundEngineInstance: SoundEngine
 
         fun newInstance(context: Context): SoundEngine {
-            this.SoundEngineInstance = SoundEngine(context)
-            return this.SoundEngineInstance
+            SoundEngineInstance = SoundEngine(context)
+            return SoundEngineInstance
         }
 
-        fun getInstance(): SoundEngine = this.SoundEngineInstance
+        fun getInstance(): SoundEngine = SoundEngineInstance
     }
 
     private lateinit var soundPool: SoundPool
@@ -31,7 +36,7 @@ class SoundEngine private constructor(context: Context) {
     private var isLoaded = false
 
     init {
-        this.buildSoundEngine(context)
+        buildSoundEngine(context)
     }
 
     @SuppressLint("NewApi")
@@ -63,9 +68,9 @@ class SoundEngine private constructor(context: Context) {
         val preference = PreferenceHelper.getPreference(context)
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
-        if (isLoaded && soundPreference) {
-            val volume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC).toFloat() / audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC).toFloat()
-            soundPool.play(soundType.resourceID, volume, volume, 1, 0, 1f)
+        if (this.isLoaded && soundPreference) {
+            val volume = this.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC).toFloat() / this.audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC).toFloat()
+            this.soundPool.play(soundType.resourceID, volume, volume, 1, 0, 1f)
         }
     }
 }

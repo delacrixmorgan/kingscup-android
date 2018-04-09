@@ -1,29 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">国王之杯</string>
-
-    <string name="preference_title_quick_guide">游戏的规则</string>
     <string name="game_over_body">一人灌给它完!</string>
-
-    <string name="preference_title_credits_summary">参考数据库</string>
-    <string name="preference_button_done">好的</string>
-
-    <string name="preference_current_language">简体中文</string>
-    <string name="preference_title_share_friend">分享给酒伴</string>
     <string name="preference_title">设置</string>
+    <string name="preference_title_quick_guide">游戏的规则</string>
+    <string name="preference_title_credits_summary">参考数据库</string>
+    <string name="preference_title_share_friend">分享给酒伴</string>
+    <string name="preference_current_language">简体中文</string>
+    <string name="preference_button_done">好的</string>
+    <string name="preference_message_share_friend">找到个愉快的饮酒游戏“国王之杯”。 不包括饮料！ https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
     <string name="board_title_lets_begin">来开动吧</string>
     <string name="dialog_pause_title">浴室休息</string>
     <string name="dialog_pause_button_resume">继续</string>
     <string name="dialog_pause_button_quit">退出</string>
-
-    <string name="load_type_new_game">抓紧你的酒瓶</string>
-    <string name="load_type_restart_game">建立新的游戏</string>
-
     <string name="rate_title">哈喽好友</string>
     <string name="rate_paragraph_1">不是故意把你从游戏中拉出来。</string>
-    <string name="rate_paragraph_2"> 国王之杯是由一个人设计，编写代码兴建起来的。\n所以，每人的评论都很重要。</string>
+    <string name="rate_paragraph_2">国王之杯是由一个人设计，编写代码兴建起来的。 所以，每人的评论都很重要。</string>
     <string name="rate_paragraph_3">这个游戏的命运就掌握在你的评论。谢了！</string>
     <string name="rate_button_awesome">你最棒了</string>
-
-    <string name="preference_message_share_friend">找到个愉快的饮酒游戏“国王之杯”。 不包括饮料！\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
+    <string name="load_type_new_game">抓紧你的酒瓶</string>
+    <string name="load_type_restart_game">建立新的游戏</string>
+    <string name="suit_spade">黑桃</string>
+    <string name="suit_heart">红心</string>
+    <string name="suit_club">梅花</string>
+    <string name="suit_diamond">方块</string>
+    <string name="body_waterfall">抽牌的人先开始喝， 大家跟着喝直到他停止。</string>
+    <string name="body_you">和一个伴，一起干杯。</string>
+    <string name="body_me">自己单独喝吧！</string>
+    <string name="body_thumb_master">每次他将拇指放在 桌子上时，所有人都必须照做， 最后一个完成的人喝酒。</string>
+    <string name="body_dudes">在座所有的男性必须喝酒！</string>
+    <string name="body_chicks">在座所有的女性必须喝酒！</string>
+    <string name="body_heaven">在场所有人都要马上举起双手，最后举的人要喝。</string>
+    <string name="body_mate">选个伴。每当你喝酒的时候，被选中的人也要喝。 一直持续到下一次有人抽到伴。 如果忘记在“伙伴”喝酒时喝酒，两个人都必须罚酒。</string>
+    <string name="body_snake_eyes">每一次 “蛇眼” 跟某个人发生眼神接触， 那个人就要喝酒。</string>
+    <string name="body_category">选个类型，大家说个适当的。 直到一方想不到的，喝！</string>
+    <string name="body_jack">完成以下，“我没做过..” 当中谁有，喝！</string>
+    <string name="body_questions">问一个人一个问题。他要同样问下一方, 直到一方停止的。喝！</string>
+    <string name="body_king">设定新规矩。 填你所愿入王杯！</string>
+    <string name="header_waterfall">瀑布</string>
+    <string name="header_you">你</string>
+    <string name="header_me">我</string>
+    <string name="header_thumb_master">拇指大师</string>
+    <string name="header_dudes">帅哥</string>
+    <string name="header_chicks">美女</string>
+    <string name="header_heaven">天堂</string>
+    <string name="header_mate">伙伴</string>
+    <string name="header_snake_eyes">蛇眼</string>
+    <string name="header_category">类型</string>
+    <string name="header_jack">从来没有</string>
+    <string name="header_questions">问卷博士</string>
+    <string name="header_king">国王</string>
+    <string name="guide_page_one">这是饮酒时一种助兴取乐的游戏， 不会喝酒也可以用其他饮料代替。 每个人都有自己的杯子，并且在中央放置一个杯子称为国王之杯。</string>
+    <string name="guide_page_two">由任意一人开始游戏，抽取一张卡， 按照上面的指示完成动作。 之后大家按顺时针轮流抽牌。</string>
+    <string name="guide_page_three">当抽到国王时， 选择一种饮料倒进桌子 中央的国王之杯。 抽到最后一个国王的人要 一口干掉国王之杯中的混合物。</string>
+    <string name="taunt_one">放马过来</string>
+    <string name="taunt_two">要来了啊</string>
+    <string name="taunt_three">再来一个</string>
+    <string name="taunt_four">这就是了</string>
+    <string name="taunt_five">别想了嘛</string>
+    <string name="taunt_six">来灌我啊</string>
+    <string name="taunt_seven">快开牌啦</string>
+    <string name="taunt_eight">睡了觉喔</string>
+    <string name="taunt_nine">还行吗你?</string>
+    <string name="taunt_ten">等什么你？</string>
 </resources>

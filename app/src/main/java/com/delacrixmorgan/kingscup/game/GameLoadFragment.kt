@@ -2,22 +2,31 @@ package com.delacrixmorgan.kingscup.game
 
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.common.showFragmentSliding
+import com.delacrixmorgan.kingscup.model.LoadType
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
- * Created by Delacrix Morgan on 25/12/2017.
- **/
+ * GameLoadFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
-class GameLoadFragment : BaseFragment() {
+class GameLoadFragment : Fragment() {
 
     companion object {
-        private const val GAME_LOAD_TYPE = "Type"
+        private const val GAME_LOAD_TYPE = "GameLoadFragment.Type"
 
         fun newInstance(loadType: LoadType): GameLoadFragment {
             val fragment = GameLoadFragment()
@@ -34,7 +43,7 @@ class GameLoadFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadType = arguments?.getSerializable(GAME_LOAD_TYPE) as LoadType
+        this.loadType = arguments?.getSerializable(GAME_LOAD_TYPE) as LoadType
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -43,15 +52,17 @@ class GameLoadFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.loadingTextView.text = this.loadType.localisedDisplayStatusText(this.baseContext)
 
-        GameEngine.newInstance(this.baseActivity)
-        SoundEngine.getInstance().playSound(this.baseContext, SoundType.KING)
+        context?.let {
+            this.loadingTextView.text = this.loadType.getLocalisedText(it)
+            GameEngine.newInstance(it)
+            SoundEngine.getInstance().playSound(it, SoundType.KING)
+        }
 
         Handler().postDelayed({
             run {
-                this.baseActivity.supportFragmentManager.popBackStack()
-                showFragmentSliding(context = this.baseContext, fragment = GameBoardFragment.newInstance(), gravity = Gravity.TOP)
+                this.activity?.supportFragmentManager?.popBackStack()
+                this.context?.showFragmentSliding(GameBoardFragment.newInstance(), Gravity.TOP)
             }
         }, 2000)
     }

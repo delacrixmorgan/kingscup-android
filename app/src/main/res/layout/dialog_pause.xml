@@ -16,7 +16,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/kingscup_logo_no_bg" />
+        android:src="@drawable/ic_kingscup_logo"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
         android:text="@string/dialog_pause_title"
         android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
         android:orientation="horizontal">
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/restartDialogButton"
+            android:id="@+id/startNewGameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -44,35 +44,35 @@
             android:src="@drawable/ic_replay"
             app:backgroundTint="@android:color/white"
             app:elevation="6dp"
-            app:fabSize="normal" />
+            app:fabSize="normal"/>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/rateDialogButton"
+            android:id="@+id/vibrateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_marginStart="15dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/heart_pink"
+            android:src="@drawable/ic_vibration_enable"
             app:backgroundTint="@android:color/white"
             app:elevation="0dp"
-            app:fabSize="normal" />
+            app:fabSize="normal"/>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/volumeDialogButton"
+            android:id="@+id/volumeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_volume_up_black_48dp"
+            android:src="@drawable/ic_volume_up"
             app:backgroundTint="@android:color/white"
             app:elevation="6dp"
-            app:fabSize="normal" />
+            app:fabSize="normal"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/resumeDialogButton"
+        android:id="@+id/resumeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
@@ -81,10 +81,10 @@
         android:background="@drawable/button_rounded_green"
         android:padding="16dp"
         android:text="@string/dialog_pause_button_resume"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"/>
 
     <Button
-        android:id="@+id/quitDialogButton"
+        android:id="@+id/quitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -94,5 +94,5 @@
         android:background="@drawable/button_rounded_red"
         android:padding="16dp"
         android:text="@string/dialog_pause_button_quit"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"/>
 </LinearLayout>

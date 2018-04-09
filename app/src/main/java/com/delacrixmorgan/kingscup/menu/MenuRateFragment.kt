@@ -1,21 +1,25 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.BaseFragment
 import com.delacrixmorgan.kingscup.common.FragmentListener
 import com.delacrixmorgan.kingscup.common.launchPlayStore
 import kotlinx.android.synthetic.main.fragment_menu_rate.*
 
 /**
- * Created by Delacrix Morgan on 11/11/2017.
- **/
+ * MenuRateFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
-class MenuRateFragment : BaseFragment() {
+class MenuRateFragment : Fragment() {
 
     companion object {
         fun newInstance(fragmentListener: FragmentListener? = null): MenuRateFragment {
@@ -35,22 +39,25 @@ class MenuRateFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.backButton.setOnClickListener {
-            this.fragmentListener?.onBackPressed()
-        }
+        context?.let { context ->
+            backButton.setOnClickListener {
+                this.fragmentListener?.onBackPressed()
+            }
 
-        this.starImageView.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.happy)
-            this.starImageView.setColorFilter(ContextCompat.getColor(this.baseContext, R.color.orange))
+            starImageView.setOnClickListener {
+                this.personImageView.setImageResource(R.drawable.ic_human_happy)
+                this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
 
-            this.fragmentListener?.onBackPressed()
-            this.baseContext.launchPlayStore()
-        }
+                this.fragmentListener?.onBackPressed()
+                this.context?.launchPlayStore()
+            }
 
-        this.rateButton.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.happy)
-            this.fragmentListener?.onBackPressed()
-            this.baseContext.launchPlayStore()
+            rateButton.setOnClickListener {
+                this.personImageView.setImageResource(R.drawable.ic_human_happy)
+
+                this.fragmentListener?.onBackPressed()
+                this.context?.launchPlayStore()
+            }
         }
     }
 }

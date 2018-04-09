@@ -46,28 +46,28 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/crown" />
+                    android:src="@drawable/ic_kingscup_crown" />
 
                 <ImageView
                     android:id="@+id/kingTwoImageView"
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/crown" />
+                    android:src="@drawable/ic_kingscup_crown" />
 
                 <ImageView
                     android:id="@+id/kingThreeImageView"
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/crown" />
+                    android:src="@drawable/ic_kingscup_crown" />
 
                 <ImageView
                     android:id="@+id/kingFourImageView"
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/crown" />
+                    android:src="@drawable/ic_kingscup_crown" />
             </LinearLayout>
 
             <android.support.design.widget.FloatingActionButton
@@ -77,7 +77,7 @@
                 android:layout_alignParentEnd="true"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/menu"
+                android:src="@drawable/ic_menu"
                 app:backgroundTint="@android:color/white"
                 app:elevation="6dp"
                 app:fabSize="normal"
@@ -95,18 +95,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/cup_whole" />
+                android:background="@drawable/ic_cup_whole" />
 
             <TextView
                 android:id="@+id/statusTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:maxLines="1"
                 android:text="@string/board_title_lets_begin"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:autoSizeTextType="uniform" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/restartButton"

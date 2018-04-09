@@ -3,37 +3,51 @@ package com.delacrixmorgan.kingscup.game
 import android.databinding.DataBindingUtil.bind
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.model.SuitType
+import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.fragment_game_card.*
 
 /**
- * Created by Delacrix Morgan on 09/10/2016.
- **/
+ * GameCardFragment
+ * kingscup-android
+ *
+ * Created by Delacrix Morgan on 25/03/2018.
+ * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ */
 
-class GameCardFragment : BaseFragment(), View.OnTouchListener {
+class GameCardFragment : Fragment(), View.OnTouchListener {
 
     companion object {
-        private const val GAME_CARD_FRAGMENT_CARD = "Card"
-        private const val GAME_CARD_FRAGMENT_POSITION = "Position"
+        private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
+        private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
+        private const val GAME_CARD_KING = "K"
 
-        fun newInstance(card: Card? = null, position: Int = 0): GameCardFragment {
+        fun newInstance(card: Card? = null, position: Int = 0, cardListener: CardListener): GameCardFragment {
             val fragment = GameCardFragment()
             val args = Bundle()
 
             args.putParcelable(GAME_CARD_FRAGMENT_CARD, card)
             args.putInt(GAME_CARD_FRAGMENT_POSITION, position)
 
+            fragment.cardListener = cardListener
             fragment.arguments = args
             return fragment
         }
     }
+
+    var cardListener: CardListener? = null
 
     private lateinit var card: Card
     private var dataBinding: FragmentGameCardBinding? = null
@@ -42,7 +56,7 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        arguments?.let {
+        this.arguments?.let {
             this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD)
             this.position = it.getInt(GAME_CARD_FRAGMENT_POSITION)
         }
@@ -63,33 +77,37 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
         this.setupView()
         this.doneButton.setOnTouchListener(this)
 
-        animateButtonGrow(this.baseContext, this.doneButton)
+        this.context?.let {
+            animateButtonGrow(it, doneButton)
 
-        if (GameEngine.getInstance().checkWin(this.card)) {
-            this.doneButton.visibility = View.GONE
+            if (GameEngine.getInstance().checkWin(card)) {
+                doneButton.visibility = View.GONE
 
-            GameEngine.getInstance().vibrateFeedback(VibrateType.LONG)
-            SoundEngine.getInstance().playSound(this.baseContext, SoundType.GAME_OVER)
+                GameEngine.getInstance().vibrateFeedback(it, VibrateType.LONG)
+                SoundEngine.getInstance().playSound(it, SoundType.GAME_OVER)
 
-            Handler().postDelayed({
-                this.backToBoardFragment()
-            }, 2000)
-        }
+                Handler().postDelayed({
+                    backToBoardFragment()
+                }, 2000)
+            } else if (card.rank == GAME_CARD_KING) {
+                SoundEngine.getInstance().playSound(it, SoundType.OOOH)
+            } else {
 
-        if (this.card.rank == "K") {
-            SoundEngine.getInstance().playSound(this.baseContext, SoundType.OOOH)
+            }
         }
     }
 
     private fun setupView() {
-        val suitList = resources.getStringArray(R.array.suit)
-        var suitDrawable: Int = R.drawable.spade_pink
+        val suitList = SuitType.values()
+        var suitDrawable: Int = R.drawable.ic_card_spade
 
-        when (this.card.suit) {
-            suitList[0] -> suitDrawable = R.drawable.spade_pink
-            suitList[1] -> suitDrawable = R.drawable.heart_pink
-            suitList[2] -> suitDrawable = R.drawable.club_pink
-            suitList[3] -> suitDrawable = R.drawable.diamond_pink
+        this.context?.let {
+            when (card.suit) {
+                suitList[0].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_spade
+                suitList[1].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_heart
+                suitList[2].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_club
+                suitList[3].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_diamond
+            }
         }
 
         this.lightCenterImageView.setImageResource(suitDrawable)
@@ -98,11 +116,10 @@ class GameCardFragment : BaseFragment(), View.OnTouchListener {
     }
 
     private fun backToBoardFragment() {
-        val fragment = this.baseActivity.supportFragmentManager.findFragmentByTag(GameBoardFragment.FRAGMENT_TAG) as GameBoardFragment
-        fragment.removeCardFromDeck(this.position)
-        this.baseActivity.supportFragmentManager.popBackStack()
+        this.cardListener?.onCardDismissed(this.position)
+        this.activity?.supportFragmentManager?.popBackStack()
 
-        SoundEngine.getInstance().playSound(this.baseContext, SoundType.WHOOSH)
+        SoundEngine.getInstance().playSound(this.context!!, SoundType.WHOOSH)
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
