@@ -6,7 +6,6 @@ buildscript {
         support_library_version = '27.1.1'
         korner_library_version = '0.2.2'
     }
-
     repositories {
         jcenter()
         google()
