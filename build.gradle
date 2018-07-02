@@ -14,6 +14,7 @@ buildscript {
     dependencies {
         classpath 'com.google.gms:google-services:4.0.0'
         classpath "io.fabric.tools:gradle:$fabric_version"
+        classpath 'com.google.firebase:firebase-plugins:1.1.5'
         classpath "com.android.tools.build:gradle:$android_studio_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"

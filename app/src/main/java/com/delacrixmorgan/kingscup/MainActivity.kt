@@ -14,8 +14,7 @@ import android.view.View
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.showFragmentSliding
 import com.delacrixmorgan.kingscup.menu.MenuFragment
-import com.crashlytics.android.Crashlytics
-import io.fabric.sdk.android.Fabric
+import com.google.firebase.analytics.FirebaseAnalytics
 
 /**
  * MainActivity
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Fabric.with(this, Crashlytics())
+        FirebaseAnalytics.getInstance(this)
 
         setContentView(R.layout.activity_main)
         this.showFragmentSliding(MenuFragment.newInstance(), Gravity.BOTTOM)
