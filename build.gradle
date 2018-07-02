@@ -12,6 +12,7 @@ buildscript {
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
+        classpath 'com.google.gms:google-services:4.0.0'
         classpath "io.fabric.tools:gradle:$fabric_version"
         classpath "com.android.tools.build:gradle:$android_studio_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -22,7 +23,7 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://maven.google.com/' }
         google()
         jcenter()
     }

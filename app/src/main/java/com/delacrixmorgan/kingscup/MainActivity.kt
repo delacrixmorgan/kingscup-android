@@ -11,10 +11,10 @@ import android.support.v7.app.AppCompatActivity
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
-import com.crashlytics.android.Crashlytics
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.showFragmentSliding
 import com.delacrixmorgan.kingscup.menu.MenuFragment
+import com.crashlytics.android.Crashlytics
 import io.fabric.sdk.android.Fabric
 
 /**
@@ -28,6 +28,7 @@ import io.fabric.sdk.android.Fabric
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         Fabric.with(this, Crashlytics())
 
         setContentView(R.layout.activity_main)
