@@ -48,7 +48,6 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     private fun setupView() {
-        val manager = LinearLayoutManager(this.activity, LinearLayoutManager.HORIZONTAL, false)
         val animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_slide_right)
 
         this.cardAdapter = GameCardAdapter(this, GameEngine.getInstance().getDeckSize())
@@ -57,14 +56,13 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         with(this.recyclerView) {
             removeAllViews()
             adapter = cardAdapter
-            layoutManager = manager
             layoutAnimation = animation
             scheduleLayoutAnimation()
             GravitySnapHelper(Gravity.START).attachToRecyclerView(this)
         }
 
         setupMenuDialog()
-        setupProgressBar(manager, recyclerView, progressBar)
+        setupProgressBar(this.recyclerView.layoutManager as LinearLayoutManager, recyclerView, progressBar)
 
         this.volumeImageView.setImageResource(R.drawable.ic_cup_whole)
 
