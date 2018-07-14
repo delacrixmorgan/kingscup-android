@@ -1,7 +1,7 @@
 buildscript {
     ext {
         kotlin_version = '1.2.51'
-        android_studio_version = '3.2.0-beta02'
+        android_studio_version = '3.2.0-beta03'
         support_library_version = '27.1.1'
         korner_library_version = '0.2.2'
     }
@@ -13,7 +13,7 @@ buildscript {
     dependencies {
         classpath 'com.google.gms:google-services:4.0.0'
         classpath 'com.google.firebase:firebase-plugins:1.1.5'
-        classpath 'com.android.tools.build:gradle:3.2.0-beta02'
+        classpath "com.android.tools.build:gradle:$android_studio_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
     }
