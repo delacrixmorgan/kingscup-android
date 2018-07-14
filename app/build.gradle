@@ -50,6 +50,7 @@ dependencies {
     implementation "com.android.support:design:$support_library_version"
 
     implementation "com.jcminarro:RoundKornerLayouts:$korner_library_version"
+    implementation "com.github.rubensousa:gravitysnaphelper:1.5"
 }
 
 apply plugin: 'com.google.gms.google-services'
