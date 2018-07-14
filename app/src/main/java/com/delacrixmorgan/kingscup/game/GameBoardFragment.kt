@@ -44,13 +44,20 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.setupView()
+        setupView()
     }
 
     private fun setupView() {
         val animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_slide_right)
+        val cellHeight = (resources.displayMetrics.heightPixels / 2.5).toInt()
+        val cellWidth = (cellHeight * (10.0 / 16.0)).toInt()
 
-        this.cardAdapter = GameCardAdapter(this, GameEngine.getInstance().getDeckSize())
+        this.cardAdapter = GameCardAdapter(
+                cellHeight = cellHeight,
+                cellWidth = cellWidth,
+                deckSize = GameEngine.getInstance().getDeckSize(),
+                listener = this
+        )
         this.isCardSelected = false
 
         with(this.recyclerView) {
@@ -66,13 +73,8 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
         this.volumeImageView.setImageResource(R.drawable.ic_cup_whole)
 
-        this.restartButton.setOnClickListener {
-            this.startNewGame()
-        }
-
-        this.menuButton.setOnClickListener {
-            this.menuDialog.show()
-        }
+        this.restartButton.setOnClickListener { startNewGame() }
+        this.menuButton.setOnClickListener { this.menuDialog.show() }
     }
 
     override fun onCardSelected(position: Int) {
