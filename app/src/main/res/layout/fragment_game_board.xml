@@ -103,12 +103,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:maxLines="1"
-                android:text="@string/board_title_lets_begin"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
-                app:autoSizeTextType="uniform"/>
+                app:autoSizeTextType="uniform"
+                tools:text="@string/board_title_lets_begin"/>
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/restartButton"
