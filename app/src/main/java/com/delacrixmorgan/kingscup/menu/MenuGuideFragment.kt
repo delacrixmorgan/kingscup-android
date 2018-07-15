@@ -23,9 +23,7 @@ import kotlinx.android.synthetic.main.view_guide_list.view.*
 class MenuGuideFragment : Fragment() {
 
     companion object {
-        fun newInstance(): MenuGuideFragment {
-            return MenuGuideFragment()
-        }
+        fun newInstance() = MenuGuideFragment()
     }
 
     private var guideList: ArrayList<String> = ArrayList()

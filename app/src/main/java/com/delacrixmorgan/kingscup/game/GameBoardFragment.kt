@@ -26,11 +26,8 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  */
 
 class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
-
     companion object {
-        fun newInstance(): GameBoardFragment {
-            return GameBoardFragment()
-        }
+        fun newInstance() = GameBoardFragment()
     }
 
     private lateinit var cardAdapter: GameCardAdapter
@@ -78,22 +75,21 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     override fun onCardSelected(position: Int) {
+        val context = this.context ?: return
+
         if (!this.isCardSelected) {
             val card: Card? = GameEngine.getInstance().getCardByPosition(position)
+            if (card != null) {
+                this.isCardSelected = true
 
-            this.context?.let {
-                if (card != null) {
-                    this.isCardSelected = true
+                val fragment = GameCardFragment.newInstance(card, position, this)
+                context.showFragmentSliding(fragment, Gravity.BOTTOM)
 
-                    val fragment = GameCardFragment.newInstance(card, position, this)
-                    it.showFragmentSliding(fragment, Gravity.BOTTOM)
-
-                    GameEngine.getInstance().vibrateFeedback(it, VibrateType.SHORT)
-                    SoundEngine.getInstance().playSound(it, SoundType.FLIP)
-                } else {
-                    this.activity?.supportFragmentManager?.popBackStack()
-                    SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
-                }
+                GameEngine.getInstance().vibrateFeedback(context, VibrateType.SHORT)
+                SoundEngine.getInstance().playSound(context, SoundType.FLIP)
+            } else {
+                this.activity?.supportFragmentManager?.popBackStack()
+                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
         }
     }

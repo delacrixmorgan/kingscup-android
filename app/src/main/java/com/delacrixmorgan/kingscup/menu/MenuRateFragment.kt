@@ -38,26 +38,25 @@ class MenuRateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val context = this.context ?: return
 
-        context?.let { context ->
-            backButton.setOnClickListener {
-                this.fragmentListener?.onBackPressed()
-            }
+        backButton.setOnClickListener {
+            this.fragmentListener?.onBackPressed()
+        }
 
-            starImageView.setOnClickListener {
-                this.personImageView.setImageResource(R.drawable.ic_human_happy)
-                this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
+        starImageView.setOnClickListener {
+            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+            this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
 
-                this.fragmentListener?.onBackPressed()
-                this.context?.launchPlayStore()
-            }
+            this.fragmentListener?.onBackPressed()
+            context.launchPlayStore()
+        }
 
-            rateButton.setOnClickListener {
-                this.personImageView.setImageResource(R.drawable.ic_human_happy)
+        rateButton.setOnClickListener {
+            this.personImageView.setImageResource(R.drawable.ic_human_happy)
 
-                this.fragmentListener?.onBackPressed()
-                this.context?.launchPlayStore()
-            }
+            this.fragmentListener?.onBackPressed()
+            context.launchPlayStore()
         }
     }
 }

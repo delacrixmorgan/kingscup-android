@@ -49,15 +49,15 @@ class MenuSettingFragment : Fragment() {
         }
 
         this.creditViewGroup.setOnClickListener {
-            this.displayCredits()
+            displayCredits()
         }
 
         this.shareViewGroup.setOnClickListener {
-            this.launchShareGameIntent()
+            launchShareGameIntent()
         }
 
         this.languageButton.setOnClickListener {
-            this.changeLanguage()
+            changeLanguage()
         }
     }
 
