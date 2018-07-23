@@ -1,19 +1,18 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
-    ext.kotlin_version = '1.2.31'
-    ext.fabric_version = '1.25.1'
-    ext.android_studio_version = '3.1.0'
-    ext.support_library_version = '27.1.1'
-    ext.korner_library_version = '0.2.2'
-
+    ext {
+        kotlin_version = '1.2.51'
+        android_studio_version = '3.2.0-beta04'
+        support_library_version = '27.1.1'
+        korner_library_version = '0.2.2'
+    }
     repositories {
         jcenter()
         google()
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath "io.fabric.tools:gradle:$fabric_version"
+        classpath 'com.google.gms:google-services:4.0.0'
+        classpath 'com.google.firebase:firebase-plugins:1.1.5'
         classpath "com.android.tools.build:gradle:$android_studio_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
@@ -22,8 +21,10 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
+        maven { url 'https://maven.google.com/' }
         google()
+        jcenter()
     }
 }
 

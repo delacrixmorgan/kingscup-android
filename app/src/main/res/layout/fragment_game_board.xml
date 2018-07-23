@@ -14,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/pink" />
+        android:background="@color/pink"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/fragment_select_accent_card"
-        android:background="@color/colorPrimaryDark" />
+        android:background="@color/colorPrimaryDark"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,28 +46,28 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_kingscup_crown" />
+                    android:src="@drawable/ic_kingscup_crown"/>
 
                 <ImageView
                     android:id="@+id/kingTwoImageView"
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_kingscup_crown" />
+                    android:src="@drawable/ic_kingscup_crown"/>
 
                 <ImageView
                     android:id="@+id/kingThreeImageView"
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_kingscup_crown" />
+                    android:src="@drawable/ic_kingscup_crown"/>
 
                 <ImageView
                     android:id="@+id/kingFourImageView"
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_kingscup_crown" />
+                    android:src="@drawable/ic_kingscup_crown"/>
             </LinearLayout>
 
             <android.support.design.widget.FloatingActionButton
@@ -81,7 +81,7 @@
                 app:backgroundTint="@android:color/white"
                 app:elevation="6dp"
                 app:fabSize="normal"
-                tools:ignore="RelativeOverlap" />
+                tools:ignore="RelativeOverlap"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -95,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_cup_whole" />
+                android:background="@drawable/ic_cup_whole"/>
 
             <TextView
                 android:id="@+id/statusTextView"
@@ -103,12 +103,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:maxLines="1"
-                android:text="@string/board_title_lets_begin"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
-                app:autoSizeTextType="uniform" />
+                app:autoSizeTextType="uniform"
+                tools:text="@string/board_title_lets_begin"/>
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/restartButton"
@@ -121,7 +121,7 @@
                 android:visibility="gone"
                 app:backgroundTint="@android:color/white"
                 app:elevation="6dp"
-                app:fabSize="normal" />
+                app:fabSize="normal"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -136,18 +136,24 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingEnd="12dp"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:listitem="@layout/view_game_card"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="6dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:indeterminate="false"
             android:max="51"
             android:progress="15"
-            android:progressDrawable="@drawable/progressbar_game_board" />
+            android:progressDrawable="@drawable/progressbar_game_board"/>
     </LinearLayout>
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

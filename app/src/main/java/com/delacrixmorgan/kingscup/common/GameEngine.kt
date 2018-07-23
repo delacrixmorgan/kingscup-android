@@ -56,7 +56,6 @@ class GameEngine private constructor(context: Context) {
     }
 
     private fun buildGameEngine(context: Context) {
-
         SuitType.values().forEach { suit ->
             ActionType.values().let { actionTypes ->
                 actionTypes.indices.mapTo(deckList) {
@@ -77,10 +76,6 @@ class GameEngine private constructor(context: Context) {
         }
 
         deckList.shuffle(Random(System.nanoTime()))
-    }
-
-    fun checkWin(card: Card): Boolean {
-        return card.rank == kingRank && kingCounter == 1
     }
 
     fun removeCard(position: Int) {
@@ -130,11 +125,7 @@ class GameEngine private constructor(context: Context) {
         }
     }
 
-    fun getCardByPosition(position: Int): Card {
-        return deckList[position]
-    }
-
-    fun getDeckSize(): Int {
-        return deckList.size
-    }
+    fun getDeckSize() = deckList.size
+    fun getCardByPosition(position: Int) = deckList[position]
+    fun checkWin(card: Card) = card.rank == kingRank && kingCounter == 1
 }

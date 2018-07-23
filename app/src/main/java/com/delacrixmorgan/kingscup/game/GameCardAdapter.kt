@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import com.delacrixmorgan.kingscup.R
 
 /**
@@ -15,26 +14,32 @@ import com.delacrixmorgan.kingscup.R
  * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
-class GameCardAdapter(private val cardListener: CardListener, private var deckSize: Int) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
+class GameCardAdapter(
+        private val cellHeight: Int,
+        private val cellWidth: Int,
+        private var deckSize: Int,
+        private val listener: CardListener
+) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder {
-        return GameCardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_game_card, parent, false))
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_game_card, parent, false)
+
+        itemView.layoutParams.height = cellHeight
+        itemView.layoutParams.width = cellWidth
+
+        return GameCardViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
-        holder.selectCard.setOnClickListener {
+        holder.itemView.setOnClickListener {
             if (deckSize != 0) {
                 deckSize--
-                cardListener.onCardSelected(holder.adapterPosition)
+                listener.onCardSelected(holder.adapterPosition)
             }
         }
     }
 
-    override fun getItemCount(): Int {
-        return deckSize
-    }
+    override fun getItemCount() = deckSize
 
-    class GameCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var selectCard: LinearLayout = itemView.findViewById(R.id.view_card_layout)
-    }
+    open class GameCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

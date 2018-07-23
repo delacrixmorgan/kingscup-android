@@ -73,27 +73,25 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val context = this.context ?: return
 
-        this.setupView()
         this.doneButton.setOnTouchListener(this)
 
-        this.context?.let {
-            animateButtonGrow(it, doneButton)
+        setupView()
+        animateButtonGrow(context, doneButton)
 
-            if (GameEngine.getInstance().checkWin(card)) {
+        when {
+            GameEngine.getInstance().checkWin(card) -> {
                 doneButton.visibility = View.GONE
 
-                GameEngine.getInstance().vibrateFeedback(it, VibrateType.LONG)
-                SoundEngine.getInstance().playSound(it, SoundType.GAME_OVER)
+                GameEngine.getInstance().vibrateFeedback(context, VibrateType.LONG)
+                SoundEngine.getInstance().playSound(context, SoundType.GAME_OVER)
 
                 Handler().postDelayed({
                     backToBoardFragment()
                 }, 2000)
-            } else if (card.rank == GAME_CARD_KING) {
-                SoundEngine.getInstance().playSound(it, SoundType.OOOH)
-            } else {
-
             }
+            card.rank == GAME_CARD_KING -> SoundEngine.getInstance().playSound(context, SoundType.OOOH)
         }
     }
 
