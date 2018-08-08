@@ -39,7 +39,7 @@ Set out to be a simple yet awesome party game. Even when you’re stranded in th
 
 More to come. In the meantime, go nuts!
 
-[Google Play Store - King's Cup](https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup)
+[Google Play Store - King's Cup No Beverages Included](https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup)
 
 **What’s New - Dessert Update 🍰** (09/04/2018)
 
