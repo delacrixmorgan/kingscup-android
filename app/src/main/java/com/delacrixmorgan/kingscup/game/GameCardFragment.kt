@@ -1,13 +1,13 @@
 package com.delacrixmorgan.kingscup.game
 
-import android.databinding.DataBindingUtil.bind
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil.bind
+import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
@@ -82,7 +82,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
         when {
             GameEngine.getInstance().checkWin(card) -> {
-                doneButton.visibility = View.GONE
+                doneButton.hide()
 
                 GameEngine.getInstance().vibrateFeedback(context, VibrateType.LONG)
                 SoundEngine.getInstance().playSound(context, SoundType.GAME_OVER)

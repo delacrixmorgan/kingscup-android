@@ -9,7 +9,7 @@
     android:theme="@style/CardTheme"
     app:corner_radius="16dp">
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,14 +50,14 @@
             android:layout_height="match_parent"
             android:padding="48dp">
 
-            <android.support.v4.view.ViewPager
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
                 android:layout_marginTop="20dp"/>
 
-            <android.support.design.widget.TabLayout
+            <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +66,5 @@
                 app:tabGravity="center"
                 app:tabIndicatorHeight="0dp"/>
         </RelativeLayout>
-
-
     </RelativeLayout>
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

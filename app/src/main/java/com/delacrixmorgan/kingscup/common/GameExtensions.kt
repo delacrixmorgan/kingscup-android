@@ -5,16 +5,16 @@ import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.content.res.Resources
 import android.net.Uri
-import android.support.design.widget.FloatingActionButton
-import android.support.transition.Slide
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.Slide
 import com.delacrixmorgan.kingscup.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.*
 
 /**
@@ -45,7 +45,7 @@ fun animateButtonGrow(context: Context, button: FloatingActionButton) {
 
 fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, progressBar: ProgressBar) {
     recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-        override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             if (manager.findFirstVisibleItemPosition() == 0) {
                 progressBar.progress = 0
             } else {

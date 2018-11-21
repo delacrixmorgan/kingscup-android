@@ -3,8 +3,8 @@ package com.delacrixmorgan.kingscup.menu
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.*
+import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get

@@ -2,20 +2,19 @@ package com.delacrixmorgan.kingscup.game
 
 import android.app.Dialog
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.LoadType
-import com.delacrixmorgan.kingscup.model.VibrateType
-import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
+import com.delacrixmorgan.kingscup.model.VibrateTypesna
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
@@ -73,7 +72,6 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             adapter = cardAdapter
             layoutAnimation = deckAnimation
             scheduleLayoutAnimation()
-            GravitySnapHelper(Gravity.START).attachToRecyclerView(this)
         }
 
         with(this.statusTextAnimation) {
@@ -138,7 +136,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             1 -> this.kingTwoImageView.visibility = View.GONE
             0 -> {
                 this.kingOneImageView.visibility = View.GONE
-                this.restartButton.visibility = View.VISIBLE
+                this.restartButton.show()
             }
         }
     }

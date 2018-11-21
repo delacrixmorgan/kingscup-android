@@ -1,12 +1,12 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.PagerAdapter
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.GuideType
 import kotlinx.android.synthetic.main.fragment_menu_guide.*
