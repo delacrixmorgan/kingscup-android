@@ -63,4 +63,6 @@
     <string name="taunt_eight">Weet Je Het Zeker?</string>
     <string name="taunt_nine">Alles Goed Joh?</string>
     <string name="taunt_ten">Kom Op</string>
+    <string name="fragment_support_rate_title_more_from_me">Meer dingen van mij</string>
+    <string name="fragment_support_rate_description_squark">Zero rommelige valuta-omzetter</string>
 </resources>

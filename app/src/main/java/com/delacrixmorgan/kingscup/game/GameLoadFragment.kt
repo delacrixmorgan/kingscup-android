@@ -2,11 +2,11 @@ package com.delacrixmorgan.kingscup.game
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.Fragment
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
@@ -52,12 +52,11 @@ class GameLoadFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val context = this.context ?: return
 
-        context?.let {
-            this.loadingTextView.text = this.loadType.getLocalisedText(it)
-            GameEngine.newInstance(it)
-            SoundEngine.getInstance().playSound(it, SoundType.KING)
-        }
+        this.loadingTextView.text = this.loadType.getLocalisedText(context)
+        GameEngine.newInstance(context)
+        SoundEngine.getInstance().playSound(context, SoundType.KING)
 
         Handler().postDelayed({
             run {

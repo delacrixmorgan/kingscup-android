@@ -6,11 +6,11 @@ import android.graphics.BitmapFactory
 import android.media.AudioManager
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.showFragmentSliding
 import com.delacrixmorgan.kingscup.menu.MenuFragment

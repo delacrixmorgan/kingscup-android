@@ -1,10 +1,9 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.*
+import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
@@ -39,36 +38,32 @@ class MenuSettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        val context = this.context ?: return
 
         this.backButton.setOnClickListener {
             this.fragmentListener?.onBackPressed()
         }
 
         this.guideViewGroup.setOnClickListener {
-            this.context?.showFragmentSliding(MenuGuideFragment.newInstance(), Gravity.TOP)
+            context.showFragmentSliding(MenuGuideFragment.newInstance(), Gravity.TOP)
+        }
+
+        this.shareViewGroup.setOnClickListener {
+            val message = getString(R.string.preference_message_share_friend)
+            context.launchShareGameIntent(message)
         }
 
         this.creditViewGroup.setOnClickListener {
             displayCredits()
         }
 
-        this.shareViewGroup.setOnClickListener {
-            launchShareGameIntent()
-        }
-
         this.languageButton.setOnClickListener {
             changeLanguage()
         }
-    }
-
-    private fun launchShareGameIntent() {
-        val message = getString(R.string.preference_message_share_friend)
-        val intent = Intent(Intent.ACTION_SEND)
-
-        intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT, message)
-
-        startActivity(Intent.createChooser(intent, getString(R.string.preference_title_share_friend)))
     }
 
     private fun changeLanguage() {
@@ -99,23 +94,24 @@ class MenuSettingFragment : Fragment() {
     }
 
     private fun displayCredits() {
-        val creditDialog = Dialog(this.activity)
+        val context = this.context ?: return
+        val creditDialog = Dialog(context)
 
         with(creditDialog) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             setContentView(R.layout.dialog_credit)
             show()
 
-            spartanImageView.setOnClickListener { this.context.launchWebsite("https://github.com/theleagueof/league-spartan") }
-            kornerImageView.setOnClickListener { this.context.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
+            spartanImageView.setOnClickListener { context.launchWebsite("https://github.com/theleagueof/league-spartan") }
+            kornerImageView.setOnClickListener { context.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
 
-            chineseImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/China") }
-            portugueseImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
-            netherlandsImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Netherlands") }
-            spanishImageView.setOnClickListener { this.context.launchWebsite("https://en.wikipedia.org/wiki/Spain") }
+            chineseImageView.setOnClickListener { context.launchWebsite("https://en.wikipedia.org/wiki/China") }
+            portugueseImageView.setOnClickListener { context.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
+            netherlandsImageView.setOnClickListener { context.launchWebsite("https://en.wikipedia.org/wiki/Netherlands") }
+            spanishImageView.setOnClickListener { context.launchWebsite("https://en.wikipedia.org/wiki/Spain") }
 
-            freesoundImageView.setOnClickListener { this.context.launchWebsite("https://freesound.org/") }
-            freepikImageView.setOnClickListener { this.context.launchWebsite("https://freepik.com") }
+            freesoundImageView.setOnClickListener { context.launchWebsite("https://freesound.org/") }
+            freepikImageView.setOnClickListener { context.launchWebsite("https://freepik.com") }
 
             doneButton.setOnClickListener {
                 creditDialog.dismiss()

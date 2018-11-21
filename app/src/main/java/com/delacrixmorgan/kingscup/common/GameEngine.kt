@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.view.View
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.model.*
@@ -112,15 +113,23 @@ class GameEngine private constructor(context: Context) {
         return args
     }
 
-    fun vibrateFeedback(context: Context, vibrateType: VibrateType) {
+    fun vibrateFeedback(context: Context, view: View, vibrateType: VibrateType) {
         val preference = PreferenceHelper.getPreference(context)
         val vibratePreference = preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
 
         if (vibratePreference) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
-            } else {
-                vibrator.vibrate(vibrateType.duration)
+            when (vibrateType) {
+                VibrateType.SHORT -> {
+                    view.performHapticContextClick()
+                }
+
+                VibrateType.LONG -> {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
+                    } else {
+                        vibrator.vibrate(vibrateType.duration)
+                    }
+                }
             }
         }
     }

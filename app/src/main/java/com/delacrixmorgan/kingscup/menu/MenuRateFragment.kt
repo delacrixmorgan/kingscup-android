@@ -1,11 +1,11 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.FragmentListener
 import com.delacrixmorgan.kingscup.common.launchPlayStore
@@ -22,6 +22,8 @@ import kotlinx.android.synthetic.main.fragment_menu_rate.*
 class MenuRateFragment : Fragment() {
 
     companion object {
+        private const val SQUARK_PACKAGE_NAME = "com.delacrixmorgan.squark"
+
         fun newInstance(fragmentListener: FragmentListener? = null): MenuRateFragment {
             val fragment = MenuRateFragment()
             fragment.fragmentListener = fragmentListener
@@ -40,23 +42,30 @@ class MenuRateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val context = this.context ?: return
 
-        backButton.setOnClickListener {
+        this.backButton.setOnClickListener {
             this.fragmentListener?.onBackPressed()
         }
 
-        starImageView.setOnClickListener {
+        this.starImageView.setOnClickListener {
             this.personImageView.setImageResource(R.drawable.ic_human_happy)
             this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
 
             this.fragmentListener?.onBackPressed()
-            context.launchPlayStore()
+            context.launchPlayStore(context.packageName)
         }
 
-        rateButton.setOnClickListener {
+        this.rateButton.setOnClickListener {
             this.personImageView.setImageResource(R.drawable.ic_human_happy)
 
             this.fragmentListener?.onBackPressed()
-            context.launchPlayStore()
+            context.launchPlayStore(context.packageName)
+        }
+
+        this.squarkViewGroup.setOnClickListener {
+            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+
+            this.fragmentListener?.onBackPressed()
+            context.launchPlayStore(SQUARK_PACKAGE_NAME)
         }
     }
 }

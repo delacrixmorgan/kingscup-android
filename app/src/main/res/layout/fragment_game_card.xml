@@ -13,6 +13,7 @@
     </data>
 
     <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
+        android:id="@+id/mainContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
@@ -100,7 +101,7 @@
                 android:textSize="18sp"
                 tool:text="Nadie puede hacer contacto visual contigo, si alguien lo hace, bebe!" />
 
-            <android.support.design.widget.FloatingActionButton
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/doneButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
