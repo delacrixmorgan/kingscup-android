@@ -77,6 +77,15 @@ fun Context.showFragmentSliding(fragment: Fragment, gravity: Int) {
             .commit()
 }
 
+fun Context.launchShareGameIntent(message: String) {
+    val intent = Intent(Intent.ACTION_SEND)
+
+    intent.type = "text/plain"
+    intent.putExtra(Intent.EXTRA_TEXT, message)
+
+    startActivity(Intent.createChooser(intent, getString(R.string.preference_title_share_friend)))
+}
+
 fun Context.launchWebsite(url: String) {
     val intent = Intent(Intent.ACTION_VIEW)
 
