@@ -73,5 +73,8 @@
     <string name="taunt_eight">You Sure?</string>
     <string name="taunt_nine">Alright Buddy?</string>
     <string name="taunt_ten">Come On</string>
+    <string name="fragment_support_rate_title_more_from_me">More stuff from me</string>
+    <string name="fragment_support_rate_title_squark" translatable="false">Squark</string>
+    <string name="fragment_support_rate_description_squark">Zero Cluttered Currency Converter</string>
 
 </resources>

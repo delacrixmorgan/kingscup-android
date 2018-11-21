@@ -68,4 +68,6 @@
     <string name="suit_heart">Copas</string>
     <string name="suit_club">Paus</string>
     <string name="suit_diamond">Diamond</string>
+    <string name="fragment_support_rate_title_more_from_me">Mais coisas de mim</string>
+    <string name="fragment_support_rate_description_squark">Conversor de moeda desordenado zero</string>
 </resources>
