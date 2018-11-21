@@ -14,7 +14,7 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.LoadType
-import com.delacrixmorgan.kingscup.model.VibrateTypesna
+import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
@@ -97,7 +97,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         })
     }
 
-    override fun onCardSelected(position: Int) {
+    override fun onCardSelected(view: View, position: Int) {
         val context = this.context ?: return
 
         if (!this.isCardSelected) {
@@ -108,7 +108,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                 val fragment = GameCardFragment.newInstance(card, position, this)
                 context.showFragmentSliding(fragment, Gravity.BOTTOM)
 
-                GameEngine.getInstance().vibrateFeedback(context, VibrateType.SHORT)
+                GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.SHORT)
                 SoundEngine.getInstance().playSound(context, SoundType.FLIP)
             } else {
                 this.activity?.supportFragmentManager?.popBackStack()
@@ -117,7 +117,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         }
     }
 
-    override fun onCardDismissed(position: Int) {
+    override fun onCardDismissed(view: View, position: Int) {
         GameEngine.getInstance().removeCard(position)
         val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(this.context!!)
 
@@ -166,36 +166,36 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     override fun onClick(view: View) {
-        this.context?.let {
-            when (view.id) {
-                R.id.startNewGameButton -> {
-                    menuDialog.dismiss()
+        val context = this.context ?: return
 
-                    this.startNewGame()
-                    SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
-                }
+        when (view.id) {
+            R.id.startNewGameButton -> {
+                menuDialog.dismiss()
 
-                R.id.vibrateButton -> {
-                    this.updateVibratePreference()
-                    GameEngine.getInstance().vibrateFeedback(it, VibrateType.SHORT)
-                }
+                this.startNewGame()
+                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+            }
 
-                R.id.volumeButton -> {
-                    this.updateSoundPreference()
-                    SoundEngine.getInstance().playSound(it, SoundType.CLICK)
-                }
+            R.id.vibrateButton -> {
+                this.updateVibratePreference()
+                GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.SHORT)
+            }
 
-                R.id.resumeButton -> {
-                    this.menuDialog.dismiss()
-                    SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
-                }
+            R.id.volumeButton -> {
+                this.updateSoundPreference()
+                SoundEngine.getInstance().playSound(context, SoundType.CLICK)
+            }
 
-                R.id.quitButton -> {
-                    this.menuDialog.dismiss()
-                    this.activity?.supportFragmentManager?.popBackStack()
+            R.id.resumeButton -> {
+                this.menuDialog.dismiss()
+                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+            }
 
-                    SoundEngine.getInstance().playSound(it, SoundType.WHOOSH)
-                }
+            R.id.quitButton -> {
+                this.menuDialog.dismiss()
+                this.activity?.supportFragmentManager?.popBackStack()
+
+                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
         }
     }

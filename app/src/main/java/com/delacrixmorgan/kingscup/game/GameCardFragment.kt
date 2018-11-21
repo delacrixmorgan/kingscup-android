@@ -60,6 +60,10 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
             this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD)
             this.position = it.getInt(GAME_CARD_FRAGMENT_POSITION)
         }
+
+        if (this.card == null) {
+            this.activity?.finish()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -84,7 +88,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
             GameEngine.getInstance().checkWin(card) -> {
                 doneButton.hide()
 
-                GameEngine.getInstance().vibrateFeedback(context, VibrateType.LONG)
+                GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.LONG)
                 SoundEngine.getInstance().playSound(context, SoundType.GAME_OVER)
 
                 Handler().postDelayed({
@@ -114,7 +118,7 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     }
 
     private fun backToBoardFragment() {
-        this.cardListener?.onCardDismissed(this.position)
+        this.cardListener?.onCardDismissed(this.mainContainer, this.position)
         this.activity?.supportFragmentManager?.popBackStack()
 
         SoundEngine.getInstance().playSound(this.context!!, SoundType.WHOOSH)

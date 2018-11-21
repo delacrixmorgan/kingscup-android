@@ -34,7 +34,7 @@ class GameCardAdapter(
         holder.itemView.setOnClickListener {
             if (deckSize != 0) {
                 deckSize--
-                listener.onCardSelected(holder.adapterPosition)
+                listener.onCardSelected(holder.itemView, holder.adapterPosition)
             }
         }
     }

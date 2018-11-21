@@ -5,6 +5,9 @@ import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.content.res.Resources
 import android.net.Uri
+import android.os.Build
+import android.view.HapticFeedbackConstants
+import android.view.View
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
@@ -24,6 +27,14 @@ import java.util.*
  * Created by Delacrix Morgan on 25/03/2018.
  * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
+
+fun View.performHapticContextClick() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK)
+    } else {
+        performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+    }
+}
 
 fun setLocale(language: String?, resources: Resources) {
     val locale = Locale(language)
@@ -55,8 +66,7 @@ fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, p
     })
 }
 
-// Context
-
+//region Context
 fun Context.showFragmentSliding(fragment: Fragment, gravity: Int) {
     fragment.enterTransition = Slide(gravity).setDuration(200)
 
@@ -84,4 +94,4 @@ fun Context.launchPlayStore() {
     SoundEngine.getInstance().playSound(this, SoundType.OOOH)
 }
 
-// End - Context
+//enregion

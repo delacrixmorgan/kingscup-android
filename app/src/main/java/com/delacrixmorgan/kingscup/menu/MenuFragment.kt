@@ -47,19 +47,20 @@ class MenuFragment : Fragment(), FragmentListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val context = this.context ?: return
 
         this.rateButton.setOnClickListener {
-            this.context?.showFragmentSliding(MenuRateFragment.newInstance(this), Gravity.START)
+            context.showFragmentSliding(MenuRateFragment.newInstance(this), Gravity.START)
         }
 
         this.settingButton.setOnClickListener {
-            this.context?.showFragmentSliding(MenuSettingFragment.newInstance(this), Gravity.END)
+            context.showFragmentSliding(MenuSettingFragment.newInstance(this), Gravity.END)
         }
 
         this.startButton.setOnClickListener {
             if (!this.isGameStarted) {
                 this.isGameStarted = !this.isGameStarted
-                this.context?.showFragmentSliding(GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
+                context.showFragmentSliding(GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
 
                 Handler().postDelayed({
                     run {
