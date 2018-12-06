@@ -56,7 +56,6 @@ Optimisation Patches, Bug Extermination 🐛
 ![Card](/screenshots/2_card.png?raw=true "Card")
 
 ## License
-
 ```
 King's Cup © by Delacrix Morgan
 Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
