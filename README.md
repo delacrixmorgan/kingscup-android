@@ -54,3 +54,11 @@ Optimisation Patches, Bug Extermination 🐛
 ![Menu](/screenshots/1_menu.png?raw=true "Menu")
 
 ![Card](/screenshots/2_card.png?raw=true "Card")
+
+## License
+
+```
+King's Cup © by Delacrix Morgan
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
+```
+[Creative Commons CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode)
