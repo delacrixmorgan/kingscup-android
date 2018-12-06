@@ -60,4 +60,4 @@ Optimisation Patches, Bug Extermination 🐛
 King's Cup © by Delacrix Morgan
 Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
 ```
-[Creative Commons CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode)
+[Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
