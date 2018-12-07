@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">King\'s Cup</string>
+    <string name="app_name_debug" translatable="false">King\'s Cup Debug</string>
     <string name="game_over_body">Drink it up!</string>
 
     <string name="preference_title">Settings</string>
