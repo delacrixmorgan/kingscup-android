@@ -10,13 +10,19 @@ androidExtensions {
 }
 
 android {
+    bundle {
+        language.enableSplit = false
+    }
     compileSdkVersion rootProject.ext.compileSdkVersion
+    dataBinding {
+        enabled = true
+    }
     defaultConfig {
         applicationId "com.delacrixmorgan.kingscup"
         minSdkVersion 19
         targetSdkVersion rootProject.ext.compileSdkVersion
-        versionCode 23
-        versionName "2.3.7"
+        versionCode 24
+        versionName "2.3.8"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,12 +36,6 @@ android {
             splits.density.enable = false
             ext.alwaysUpdateBuildId = false
         }
-    }
-    dataBinding {
-        enabled = true
-    }
-    bundle {
-        language.enableSplit = false
     }
 }
 
