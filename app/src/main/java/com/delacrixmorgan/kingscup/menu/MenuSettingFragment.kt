@@ -67,7 +67,8 @@ class MenuSettingFragment : Fragment() {
     }
 
     private fun changeLanguage() {
-        val preference = PreferenceHelper.getPreference(context!!)
+        val context = this.context ?: return
+        val preference = PreferenceHelper.getPreference(context)
         val languageTypes = LanguageType.values()
         var currentLanguage: LanguageType = languageTypes.first {
             it.countryIso == preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
