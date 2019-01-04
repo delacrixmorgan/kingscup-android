@@ -9,15 +9,15 @@ Gather around with your pints and let’s go for a round of King’s Cup. Bevera
 ## Description
 King's Cup is one of the most popular drinking game, also known as Oval of Fire , Ring of Fire or just simply Kings. It can be played with as MANY people as you like.
 
-a) 20 Minutes of Unlimited Fun 🎉
+__a) 20 Minutes of Unlimited Fun__ 🎉
 
 Yes, you read that right. UNLIMITED amount of fun that will make 20 minutes feel like 5. King’s Cup is and always shall be without any in app purchase.
 
-b) Gorgeous Designs with Material Design ✏️
+__b) Gorgeous Designs with Material Design__ ✏️
 
 Beautifully hand crafted with excruciating detail.
 
-c) Multiple Language Support 🌏
+__c) Multiple Language Support__ 🌏
 
 Thanks to the overwhelming support from the community, King’s Cup now supports English, Chinese, Portuguese, Dutch and Spanish!
 
