@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.delacrixmorgan.kingscup.menu.MenuFragment"
+        android:label="MenuFragment"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_menuRateFragment"
+            app:destination="@id/menuRateFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_menuSettingFragment"
+            app:destination="@id/menuSettingFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_gameLoadFragment"
+            app:destination="@id/gameLoadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuRateFragment"
+        android:name="com.delacrixmorgan.kingscup.menu.MenuRateFragment"
+        android:label="MenuRateFragment"
+        tools:layout="@layout/fragment_menu_rate" />
+    <fragment
+        android:id="@+id/menuSettingFragment"
+        android:name="com.delacrixmorgan.kingscup.menu.MenuSettingFragment"
+        android:label="MenuSettingFragment"
+        tools:layout="@layout/fragment_menu_setting">
+        <action
+            android:id="@+id/action_menuSettingFragment_to_menuGuideFragment"
+            app:destination="@id/menuGuideFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameLoadFragment"
+        android:name="com.delacrixmorgan.kingscup.game.GameLoadFragment"
+        android:label="GameLoadFragment"
+        tools:layout="@layout/fragment_game_load">
+        <action
+            android:id="@+id/action_gameLoadFragment_to_gameBoardFragment"
+            app:destination="@id/gameBoardFragment"
+            app:popUpTo="@+id/gameBoardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameBoardFragment"
+        android:name="com.delacrixmorgan.kingscup.game.GameBoardFragment"
+        android:label="GameBoardFragment"
+        tools:layout="@layout/fragment_game_board">
+        <action
+            android:id="@+id/action_gameBoardFragment_to_gameCardFragment"
+            app:destination="@id/gameCardFragment" />
+        <action
+            android:id="@+id/action_gameBoardFragment_to_menuFragment2"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameCardFragment"
+        android:name="com.delacrixmorgan.kingscup.game.GameCardFragment"
+        android:label="GameCardFragment"
+        tools:layout="@layout/fragment_game_card" />
+    <fragment
+        android:id="@+id/menuGuideFragment"
+        android:name="com.delacrixmorgan.kingscup.menu.MenuGuideFragment"
+        android:label="MenuGuideFragment"
+        tools:layout="@layout/fragment_menu_guide" />
+</navigation>
