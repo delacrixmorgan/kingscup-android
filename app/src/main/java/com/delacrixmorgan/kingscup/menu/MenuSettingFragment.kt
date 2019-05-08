@@ -2,7 +2,10 @@ package com.delacrixmorgan.kingscup.menu
 
 import android.app.Dialog
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
@@ -16,8 +19,8 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
  * MenuSettingFragment
  * kingscup-android
  *
- * Created by Delacrix Morgan on 25/03/2018.
- * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ * Created by Delacrix Morgan on 08/05/2019.
+ * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
 class MenuSettingFragment : Fragment() {
@@ -34,12 +37,13 @@ class MenuSettingFragment : Fragment() {
         }
 
         this.guideViewGroup.setOnClickListener {
-            context?.showFragmentSliding(MenuGuideFragment.newInstance(), Gravity.TOP)
+            val action = MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuGuideFragment()
+            Navigation.findNavController(view).navigate(action)
         }
 
         this.shareViewGroup.setOnClickListener {
             val message = getString(R.string.preference_message_share_friend)
-            context?.launchShareGameIntent(message)
+            this.context?.launchShareGameIntent(message)
         }
 
         this.creditViewGroup.setOnClickListener {

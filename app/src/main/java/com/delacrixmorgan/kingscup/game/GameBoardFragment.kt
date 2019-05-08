@@ -7,13 +7,14 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.model.Card
-import com.delacrixmorgan.kingscup.model.LoadType
+import com.delacrixmorgan.kingscup.model.GameType
 import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
@@ -27,9 +28,6 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  */
 
 class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
-    companion object {
-        fun newInstance() = GameBoardFragment()
-    }
 
     private lateinit var statusTextAnimation: AlphaAnimation
     private lateinit var cardAdapter: GameCardAdapter
@@ -123,7 +121,8 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
         this.isCardSelected = false
         this.cardAdapter.notifyItemRemoved(position)
-        this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT) ?: getString(R.string.board_title_lets_begin)
+        this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
+                ?: getString(R.string.board_title_lets_begin)
 
         this.progressBar.max--
         this.statusTextView.startAnimation(this.statusTextAnimation)
@@ -201,8 +200,8 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     private fun startNewGame() {
-        this.activity?.supportFragmentManager?.popBackStack()
-        this.context?.showFragmentSliding(GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
+        val action = GameBoardFragmentDirections.actionGameBoardFragmentToGameLoadFragment(GameType.RESTART_GAME)
+        Navigation.findNavController(this.rootView).navigate(action)
     }
 
     private fun updateVibratePreference() {

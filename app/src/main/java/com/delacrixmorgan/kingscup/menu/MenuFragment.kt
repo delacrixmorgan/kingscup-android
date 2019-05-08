@@ -1,31 +1,24 @@
 package com.delacrixmorgan.kingscup.menu
 
 import android.os.Bundle
-import android.os.Handler
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
-import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
-import com.delacrixmorgan.kingscup.game.GameLoadFragment
-import com.delacrixmorgan.kingscup.model.LoadType
+import com.delacrixmorgan.kingscup.model.GameType
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 /**
  * MenuFragment
  * kingscup-android
  *
- * Created by Delacrix Morgan on 25/03/2018.
- * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ * Created by Delacrix Morgan on 08/05/2019.
+ * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
-class MenuFragment : Fragment(), FragmentListener {
-
-    private var isGameStarted = false
+class MenuFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu, container, false)
@@ -33,7 +26,6 @@ class MenuFragment : Fragment(), FragmentListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val context = view.context
 
         this.rateButton.setOnClickListener {
             val action = MenuFragmentDirections.actionMenuFragmentToMenuRateFragment()
@@ -46,24 +38,8 @@ class MenuFragment : Fragment(), FragmentListener {
         }
 
         this.startButton.setOnClickListener {
-            if (!this.isGameStarted) {
-                this.isGameStarted = !this.isGameStarted
-                context.showFragmentSliding(GameLoadFragment.newInstance(LoadType.NEW_GAME), Gravity.BOTTOM)
-
-                Handler().postDelayed({
-                    run {
-                        isGameStarted = false
-                    }
-                }, 2000)
-            }
-        }
-    }
-
-    override fun onBackPressed() {
-        this.activity?.supportFragmentManager?.popBackStack()
-        getString(R.string.app_name).let {
-            this.appNameTextView.text = it
-            this.activity?.title = it
+            val action = MenuFragmentDirections.actionMenuFragmentToGameLoadFragment(GameType.NEW_GAME)
+            Navigation.findNavController(view).navigate(action)
         }
     }
 }
