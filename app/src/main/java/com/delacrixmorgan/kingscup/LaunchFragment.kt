@@ -23,6 +23,14 @@ class LaunchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // TODO Check Language
+//        val preference = PreferenceHelper.getPreference(context!!)
+//        val selectedLanguage = LanguageType.values().asList().first {
+//            it.countryIso == preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
+//        }
+//
+//        setLocale(selectedLanguage.countryIso, resources)
+
         val action = LaunchFragmentDirections.actionLaunchFragmentToMenuFragment()
         Navigation.findNavController(view).navigate(action)
     }

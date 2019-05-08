@@ -27,24 +27,13 @@ class MenuFragment : Fragment(), FragmentListener {
 
     private var isGameStarted = false
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val preference = PreferenceHelper.getPreference(context!!)
-        val selectedLanguage = LanguageType.values().asList().first {
-            it.countryIso == preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
-        }
-
-        setLocale(selectedLanguage.countryIso, resources)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val context = this.context ?: return
+        val context = view.context
 
         this.rateButton.setOnClickListener {
             val action = MenuFragmentDirections.actionMenuFragmentToMenuRateFragment()
@@ -52,7 +41,8 @@ class MenuFragment : Fragment(), FragmentListener {
         }
 
         this.settingButton.setOnClickListener {
-            context.showFragmentSliding(MenuSettingFragment.newInstance(this), Gravity.END)
+            val action = MenuFragmentDirections.actionMenuFragmentToMenuSettingFragment()
+            Navigation.findNavController(view).navigate(action)
         }
 
         this.startButton.setOnClickListener {

@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
@@ -21,40 +22,24 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
 class MenuSettingFragment : Fragment() {
 
-    companion object {
-        fun newInstance(listener: FragmentListener? = null): MenuSettingFragment {
-            val fragment = MenuSettingFragment()
-            fragment.fragmentListener = listener
-
-            return fragment
-        }
-    }
-
-    var fragmentListener: FragmentListener? = null
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_menu_setting, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupListeners()
-    }
-
-    private fun setupListeners() {
-        val context = this.context ?: return
 
         this.backButton.setOnClickListener {
-            this.fragmentListener?.onBackPressed()
+            Navigation.findNavController(view).navigateUp()
         }
 
         this.guideViewGroup.setOnClickListener {
-            context.showFragmentSliding(MenuGuideFragment.newInstance(), Gravity.TOP)
+            context?.showFragmentSliding(MenuGuideFragment.newInstance(), Gravity.TOP)
         }
 
         this.shareViewGroup.setOnClickListener {
             val message = getString(R.string.preference_message_share_friend)
-            context.launchShareGameIntent(message)
+            context?.launchShareGameIntent(message)
         }
 
         this.creditViewGroup.setOnClickListener {
