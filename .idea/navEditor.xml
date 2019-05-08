@@ -67,6 +67,32 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="launchFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-132" />
+                            <option name="y" value="149" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_launchFragment_to_menuFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_launchFragment_to_menuLanguageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="menuFragment">
                     <value>
                       <LayoutPositions>
@@ -110,13 +136,34 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="menuLanguageFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="819" />
+                            <option name="y" value="145" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_menuLanguageFragment_to_launchFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="menuRateFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="353" />
-                            <option name="y" value="464" />
+                            <option name="x" value="347" />
+                            <option name="y" value="455" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -134,6 +181,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_menuSettingFragment_to_menuGuideFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_menuSettingFragment_to_menuLanguageFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

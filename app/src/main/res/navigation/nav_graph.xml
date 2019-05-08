@@ -3,7 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/launchFragment">
+
+    <fragment
+        android:id="@+id/launchFragment"
+        android:name="com.delacrixmorgan.kingscup.LaunchFragment"
+        android:label="LaunchFragment"
+        tools:layout="@layout/fragment_launch" >
+        <action
+            android:id="@+id/action_launchFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_launchFragment_to_menuLanguageFragment"
+            app:destination="@id/menuLanguageFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/menuFragment"
@@ -33,6 +46,9 @@
         <action
             android:id="@+id/action_menuSettingFragment_to_menuGuideFragment"
             app:destination="@id/menuGuideFragment" />
+        <action
+            android:id="@+id/action_menuSettingFragment_to_menuLanguageFragment"
+            app:destination="@id/menuLanguageFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameLoadFragment"
@@ -67,4 +83,15 @@
         android:name="com.delacrixmorgan.kingscup.menu.MenuGuideFragment"
         android:label="MenuGuideFragment"
         tools:layout="@layout/fragment_menu_guide" />
+    <fragment
+        android:id="@+id/menuLanguageFragment"
+        android:name="com.delacrixmorgan.kingscup.menu.MenuLanguageFragment"
+        android:label="MenuLanguageFragment"
+        tools:layout="@layout/fragment_menu_language" >
+        <action
+            android:id="@+id/action_menuLanguageFragment_to_launchFragment"
+            app:destination="@id/launchFragment"
+            app:popUpTo="@+id/menuLanguageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
