@@ -8,15 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil.bind
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.delacrixmorgan.kingscup.common.SoundType
 import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.SuitType
 import com.delacrixmorgan.kingscup.model.VibrateType
+import kotlinx.android.synthetic.main.fragment_game_board.*
 import kotlinx.android.synthetic.main.fragment_game_card.*
 
 /**
@@ -77,12 +79,21 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val context = this.context ?: return
+        val context = view.context
 
+        when (this.card.suitType) {
+            SuitType.SPADE -> R.drawable.ic_card_spade
+            SuitType.HEART -> R.drawable.ic_card_heart
+            SuitType.CLUB -> R.drawable.ic_card_club
+            SuitType.DIAMOND -> R.drawable.ic_card_diamond
+        }.apply {
+            lightCenterImageView.setImageResource(this)
+            lightLeftImageView.setImageResource(this)
+            darkRightImageView.setImageResource(this)
+        }
+
+        this.doneButton.animateButtonGrow()
         this.doneButton.setOnTouchListener(this)
-
-        setupView()
-        animateButtonGrow(context, doneButton)
 
         when {
             GameEngine.getInstance().checkWin(card) -> {
@@ -95,33 +106,15 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
                     backToBoardFragment()
                 }, 2000)
             }
-            card.rank == GAME_CARD_KING -> SoundEngine.getInstance().playSound(context, SoundType.OOOH)
+            this.card.rank == GAME_CARD_KING -> SoundEngine.getInstance().playSound(context, SoundType.OOOH)
         }
-    }
-
-    private fun setupView() {
-        val suitList = SuitType.values()
-        var suitDrawable: Int = R.drawable.ic_card_spade
-
-        this.context?.let {
-            when (card.suit) {
-                suitList[0].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_spade
-                suitList[1].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_heart
-                suitList[2].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_club
-                suitList[3].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_diamond
-            }
-        }
-
-        this.lightCenterImageView.setImageResource(suitDrawable)
-        this.lightLeftImageView.setImageResource(suitDrawable)
-        this.darkRightImageView.setImageResource(suitDrawable)
     }
 
     private fun backToBoardFragment() {
         this.cardListener?.onCardDismissed(this.mainContainer, this.position)
-        this.activity?.supportFragmentManager?.popBackStack()
+        Navigation.findNavController(this.rootView).navigateUp()
 
-        SoundEngine.getInstance().playSound(this.context!!, SoundType.WHOOSH)
+        SoundEngine.getInstance().playSound(requireContext(), SoundType.WHOOSH)
     }
 
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {

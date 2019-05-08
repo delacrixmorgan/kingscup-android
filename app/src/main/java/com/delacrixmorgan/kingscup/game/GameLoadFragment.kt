@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**

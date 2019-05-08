@@ -15,6 +15,7 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.GameType
+import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*

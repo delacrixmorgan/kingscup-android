@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.viewpager.widget.PagerAdapter
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.GuideType
@@ -21,10 +22,6 @@ import kotlinx.android.synthetic.main.view_guide_list.view.*
  */
 
 class MenuGuideFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MenuGuideFragment()
-    }
 
     private var guideList: ArrayList<String> = ArrayList()
 
@@ -43,7 +40,7 @@ class MenuGuideFragment : Fragment() {
         this.tabLayout.setupWithViewPager(viewPager, true)
 
         this.backButton.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack()
+            Navigation.findNavController(view).navigateUp()
         }
     }
 

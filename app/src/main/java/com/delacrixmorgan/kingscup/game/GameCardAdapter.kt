@@ -30,16 +30,18 @@ class GameCardAdapter(
         return GameCardViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
-        holder.itemView.setOnClickListener {
-            if (deckSize != 0) {
-                deckSize--
-                listener.onCardSelected(holder.itemView, holder.adapterPosition)
+    override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) = Unit
+
+    override fun getItemCount() = this.deckSize
+
+    inner class GameCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            itemView.setOnClickListener {
+                if (deckSize != 0) {
+                    deckSize--
+                    listener.onCardSelected(this.itemView, this.adapterPosition)
+                }
             }
         }
     }
-
-    override fun getItemCount() = deckSize
-
-    open class GameCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

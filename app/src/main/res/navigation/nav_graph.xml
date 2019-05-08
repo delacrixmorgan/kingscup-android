@@ -12,17 +12,17 @@
         tools:layout="@layout/fragment_launch">
         <action
             android:id="@+id/action_launchFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/navigationMenuFragment" />
         <action
             android:id="@+id/action_launchFragment_to_menuLanguageFragment"
             app:destination="@id/menuLanguageFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.delacrixmorgan.kingscup.menu.MenuFragment"
+        android:id="@+id/navigationMenuFragment"
+        android:name="com.delacrixmorgan.kingscup.NavigationMenuFragment"
         android:label="MenuFragment"
-        tools:layout="@layout/fragment_menu">
+        tools:layout="@layout/fragment_navigation_menu">
         <action
             android:id="@+id/action_menuFragment_to_menuRateFragment"
             app:destination="@id/menuRateFragment"
@@ -86,7 +86,7 @@
             app:destination="@id/gameCardFragment" />
         <action
             android:id="@+id/action_gameBoardFragment_to_menuFragment2"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/navigationMenuFragment" />
         <action
             android:id="@+id/action_gameBoardFragment_to_gameLoadFragment"
             app:destination="@id/gameLoadFragment"

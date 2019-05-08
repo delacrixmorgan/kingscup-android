@@ -12,6 +12,8 @@ import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
+import com.delacrixmorgan.kingscup.model.LanguageType
+import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.dialog_credit.*
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
@@ -70,7 +72,7 @@ class MenuSettingFragment : Fragment() {
         }
 
         preference[PreferenceHelper.LANGUAGE] = currentLanguage.countryIso
-        setLocale(currentLanguage.countryIso, resources)
+        this.resources.setLocale(currentLanguage.countryIso)
 
         this.updateSettingLanguage()
     }

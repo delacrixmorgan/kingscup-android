@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.delacrixmorgan.kingscup.common.SoundType
+import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_rate.*
 
 /**
@@ -59,7 +59,7 @@ class MenuRateFragment : Fragment() {
 
         this.squarkViewGroup.setOnClickListener {
             this.personImageView.setImageResource(R.drawable.ic_human_happy)
-            
+
             launchPlayStore(SQUARK_PACKAGE_NAME)
             Navigation.findNavController(view).navigateUp()
         }

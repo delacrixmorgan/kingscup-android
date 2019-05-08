@@ -60,7 +60,7 @@ class GameEngine private constructor(context: Context) {
         SuitType.values().forEach { suit ->
             ActionType.values().let { actionTypes ->
                 actionTypes.indices.mapTo(deckList) {
-                    Card(suit.getLocalisedText(context),
+                    Card(suit,
                             actionTypes[it].getRankText(),
                             actionTypes[it].getLocalisedHeaderText(context),
                             actionTypes[it].getLocalisedBodyText(context))

@@ -2,7 +2,6 @@ package com.delacrixmorgan.kingscup.common
 
 import android.content.Context
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
@@ -17,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Slide
 import com.delacrixmorgan.kingscup.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.*
 
 /**
@@ -27,32 +25,6 @@ import java.util.*
  * Created by Delacrix Morgan on 25/03/2018.
  * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
-
-fun View.performHapticContextClick() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK)
-    } else {
-        performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-    }
-}
-
-fun setLocale(language: String?, resources: Resources) {
-    val locale = Locale(language)
-
-    with(resources) {
-        configuration.setLocale(locale)
-        configuration.setLayoutDirection(locale)
-        updateConfiguration(configuration, displayMetrics)
-    }
-
-    Locale.setDefault(locale)
-}
-
-fun animateButtonGrow(context: Context, button: FloatingActionButton) {
-    val animGrow = AnimationSet(true)
-    animGrow.addAnimation(AnimationUtils.loadAnimation(context, R.anim.pop_out))
-    button.startAnimation(animGrow)
-}
 
 fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, progressBar: ProgressBar) {
     recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -65,6 +37,34 @@ fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, p
         }
     })
 }
+
+//region Resources
+fun Resources.setLocale(language: String?) {
+    val locale = Locale(language)
+
+    configuration.setLocale(locale)
+    configuration.setLayoutDirection(locale)
+    updateConfiguration(configuration, displayMetrics)
+
+    Locale.setDefault(locale)
+}
+//endregion
+
+//region View
+fun View.performHapticContextClick() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK)
+    } else {
+        performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+    }
+}
+
+fun View.animateButtonGrow() {
+    val animGrow = AnimationSet(true)
+    animGrow.addAnimation(AnimationUtils.loadAnimation(this.context, R.anim.pop_out))
+    startAnimation(animGrow)
+}
+//endregion
 
 //region Context
 fun Context.showFragmentSliding(fragment: Fragment, gravity: Int) {
