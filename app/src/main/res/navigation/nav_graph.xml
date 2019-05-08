@@ -9,7 +9,7 @@
         android:id="@+id/launchFragment"
         android:name="com.delacrixmorgan.kingscup.LaunchFragment"
         android:label="LaunchFragment"
-        tools:layout="@layout/fragment_launch" >
+        tools:layout="@layout/fragment_launch">
         <action
             android:id="@+id/action_launchFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
@@ -25,10 +25,18 @@
         tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_menuRateFragment"
-            app:destination="@id/menuRateFragment" />
+            app:destination="@id/menuRateFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_menuFragment_to_menuSettingFragment"
-            app:destination="@id/menuSettingFragment" />
+            app:destination="@id/menuSettingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_menuFragment_to_gameLoadFragment"
             app:destination="@id/gameLoadFragment" />
@@ -87,7 +95,7 @@
         android:id="@+id/menuLanguageFragment"
         android:name="com.delacrixmorgan.kingscup.menu.MenuLanguageFragment"
         android:label="MenuLanguageFragment"
-        tools:layout="@layout/fragment_menu_language" >
+        tools:layout="@layout/fragment_menu_language">
         <action
             android:id="@+id/action_menuLanguageFragment_to_launchFragment"
             app:destination="@id/launchFragment"
