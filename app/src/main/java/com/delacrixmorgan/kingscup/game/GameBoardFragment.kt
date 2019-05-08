@@ -109,7 +109,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                 GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.SHORT)
                 SoundEngine.getInstance().playSound(context, SoundType.FLIP)
             } else {
-                this.activity?.supportFragmentManager?.popBackStack()
+                Navigation.findNavController(view).navigateUp()
                 SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
         }
