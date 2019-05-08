@@ -92,15 +92,4 @@ fun Context.launchWebsite(url: String) {
     intent.data = Uri.parse(url)
     startActivity(intent)
 }
-
-fun Context.launchPlayStore(packageName: String) {
-    val url = "https://play.google.com/store/apps/details?id=$packageName"
-    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-
-    intent.flags = FLAG_ACTIVITY_NEW_TASK
-    startActivity(intent)
-
-    SoundEngine.getInstance().playSound(this, SoundType.OOOH)
-}
-
 //enregion

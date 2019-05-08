@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
@@ -23,10 +24,6 @@ import kotlinx.android.synthetic.main.fragment_menu.*
  */
 
 class MenuFragment : Fragment(), FragmentListener {
-
-    companion object {
-        fun newInstance(): MenuFragment = MenuFragment()
-    }
 
     private var isGameStarted = false
 
@@ -50,7 +47,8 @@ class MenuFragment : Fragment(), FragmentListener {
         val context = this.context ?: return
 
         this.rateButton.setOnClickListener {
-            context.showFragmentSliding(MenuRateFragment.newInstance(this), Gravity.START)
+            val action = MenuFragmentDirections.actionMenuFragmentToMenuRateFragment()
+            Navigation.findNavController(view).navigate(action)
         }
 
         this.settingButton.setOnClickListener {
