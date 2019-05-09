@@ -67,16 +67,6 @@ fun View.animateButtonGrow() {
 //endregion
 
 //region Context
-fun Context.showFragmentSliding(fragment: Fragment, gravity: Int) {
-    fragment.enterTransition = Slide(gravity).setDuration(200)
-
-    (this as FragmentActivity).supportFragmentManager
-            .beginTransaction()
-            .add(R.id.mainContainer, fragment, fragment.javaClass.simpleName)
-            .addToBackStack(fragment.javaClass.simpleName)
-            .commit()
-}
-
 fun Context.launchShareGameIntent(message: String) {
     val intent = Intent(Intent.ACTION_SEND)
 

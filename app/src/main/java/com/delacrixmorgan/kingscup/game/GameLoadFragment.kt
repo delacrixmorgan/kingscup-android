@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
@@ -30,7 +31,6 @@ class GameLoadFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val context = view.context
-
         this.arguments?.let {
             val gameType = GameLoadFragmentArgs.fromBundle(it).gameType
             this.loadingTextView.text = gameType.getLocalisedText(context)
@@ -38,14 +38,19 @@ class GameLoadFragment : Fragment() {
             GameEngine.newInstance(context)
             SoundEngine.getInstance().playSound(context, SoundType.KING)
         }
-
-        Handler().postDelayed({
-            run {
-                if (this.isVisible) {
-                    val action = GameLoadFragmentDirections.actionGameLoadFragmentToGameBoardFragment()
-                    Navigation.findNavController(view).navigate(action)
+        
+        if (BuildConfig.DEBUG == true) {
+            val action = GameLoadFragmentDirections.actionGameLoadFragmentToGameBoardFragment()
+            Navigation.findNavController(view).navigate(action)
+        } else {
+            Handler().postDelayed({
+                run {
+                    if (this.isVisible) {
+                        val action = GameLoadFragmentDirections.actionGameLoadFragmentToGameBoardFragment()
+                        Navigation.findNavController(view).navigate(action)
+                    }
                 }
-            }
-        }, 2000)
+            }, 2000)
+        }
     }
 }

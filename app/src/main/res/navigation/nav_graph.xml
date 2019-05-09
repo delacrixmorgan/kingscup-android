@@ -82,12 +82,6 @@
         android:label="GameBoardFragment"
         tools:layout="@layout/fragment_game_board">
         <action
-            android:id="@+id/action_gameBoardFragment_to_gameCardFragment"
-            app:destination="@id/gameCardFragment" />
-        <action
-            android:id="@+id/action_gameBoardFragment_to_menuFragment2"
-            app:destination="@id/navigationMenuFragment" />
-        <action
             android:id="@+id/action_gameBoardFragment_to_gameLoadFragment"
             app:destination="@id/gameLoadFragment"
             app:popUpTo="@+id/gameBoardFragment"
@@ -97,7 +91,7 @@
         android:id="@+id/gameCardFragment"
         android:name="com.delacrixmorgan.kingscup.game.GameCardFragment"
         android:label="GameCardFragment"
-        tools:layout="@layout/fragment_game_card" />
+        tools:layout="@layout/fragment_game_card"/>
     <fragment
         android:id="@+id/menuGuideFragment"
         android:name="com.delacrixmorgan.kingscup.menu.MenuGuideFragment"

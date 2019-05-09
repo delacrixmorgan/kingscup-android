@@ -3,14 +3,13 @@ package com.delacrixmorgan.kingscup.game
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil.bind
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.GameEngine.Companion.GAME_CARD_KING
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
@@ -18,7 +17,6 @@ import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.SuitType
 import com.delacrixmorgan.kingscup.model.VibrateType
-import kotlinx.android.synthetic.main.fragment_game_board.*
 import kotlinx.android.synthetic.main.fragment_game_card.*
 
 /**
@@ -29,14 +27,13 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
  * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
-class GameCardFragment : Fragment(), View.OnTouchListener {
+class GameCardFragment : Fragment() {
 
     companion object {
         private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
-        private const val GAME_CARD_KING = "K"
 
-        fun newInstance(card: Card? = null, position: Int = 0, cardListener: CardListener): GameCardFragment {
+        fun newInstance(card: Card, position: Int = 0, cardListener: CardListener): GameCardFragment {
             val fragment = GameCardFragment()
             val args = Bundle()
 
@@ -49,22 +46,18 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         }
     }
 
-    var cardListener: CardListener? = null
-
     private lateinit var card: Card
-    private var dataBinding: FragmentGameCardBinding? = null
+
     private var position: Int = 0
+    private var cardListener: CardListener? = null
+    private var dataBinding: FragmentGameCardBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         this.arguments?.let {
-            this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD)
+            this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD) ?: throw Exception("Card Missing")
             this.position = it.getInt(GAME_CARD_FRAGMENT_POSITION)
-        }
-
-        if (this.card == null) {
-            this.activity?.finish()
         }
     }
 
@@ -93,7 +86,9 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
         }
 
         this.doneButton.animateButtonGrow()
-        this.doneButton.setOnTouchListener(this)
+        this.doneButton.setOnClickListener {
+            backToBoardFragment()
+        }
 
         when {
             GameEngine.getInstance().checkWin(card) -> {
@@ -111,16 +106,8 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
     }
 
     private fun backToBoardFragment() {
-        this.cardListener?.onCardDismissed(this.mainContainer, this.position)
-        Navigation.findNavController(this.rootView).navigateUp()
-
         SoundEngine.getInstance().playSound(requireContext(), SoundType.WHOOSH)
-    }
-
-    override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
-        when (motionEvent.action) {
-            MotionEvent.ACTION_DOWN -> this.backToBoardFragment()
-        }
-        return true
+        this.cardListener?.onCardDismissed(this.position)
+        this.activity?.supportFragmentManager?.popBackStack()
     }
 }

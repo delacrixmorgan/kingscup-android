@@ -1,7 +1,5 @@
 package com.delacrixmorgan.kingscup.game
 
-import android.view.View
-
 /**
  * CardListener
  * kingscup-android
@@ -11,6 +9,6 @@ import android.view.View
  */
 
 interface CardListener {
-    fun onCardSelected(view: View, position: Int)
-    fun onCardDismissed(view: View, position: Int)
+    fun onCardSelected(position: Int)
+    fun onCardDismissed(position: Int)
 }

@@ -37,9 +37,9 @@ class GameCardAdapter(
     inner class GameCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnClickListener {
-                if (deckSize != 0) {
-                    deckSize--
-                    listener.onCardSelected(this.itemView, this.adapterPosition)
+                if (this@GameCardAdapter.deckSize != 0) {
+                    this@GameCardAdapter.deckSize--
+                    this@GameCardAdapter.listener.onCardSelected(this.adapterPosition)
                 }
             }
         }

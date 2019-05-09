@@ -23,6 +23,8 @@ import kotlin.collections.ArrayList
 class GameEngine private constructor(context: Context) {
 
     companion object {
+        const val GAME_CARD_KING = "K"
+
         const val GAME_ENGINE_TAUNT = "GAME_ENGINE_TAUNT"
         const val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
         const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
