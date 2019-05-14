@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.launchShareGameIntent
 import com.delacrixmorgan.kingscup.common.launchWebsite
@@ -28,10 +29,12 @@ class MenuSettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.buildNumberTextView.text = "v${BuildConfig.VERSION_NAME}#${BuildConfig.VERSION_CODE}"
+
         this.backButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
         }
-        
+
         this.guideCardView.setOnClickListener {
             val action = MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuGuideFragment()
             Navigation.findNavController(view).navigate(action)

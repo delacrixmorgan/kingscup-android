@@ -9,9 +9,8 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @Test
-    @Throws(Exception::class)
     fun useAppContext() {
         val appContext = InstrumentationRegistry.getInstrumentation().context
-        assertEquals("com.delacrix.kingscup", appContext.packageName)
+        assertEquals("com.delacrixmorgan.kingscup", appContext.packageName)
     }
 }
