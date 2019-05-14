@@ -1,20 +1,18 @@
 package com.delacrixmorgan.kingscup.menu
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
+import com.delacrixmorgan.kingscup.common.launchShareGameIntent
+import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.model.LanguageType
-import com.delacrixmorgan.kingscup.model.SoundType
-import kotlinx.android.synthetic.main.dialog_credit.*
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
 /**
@@ -45,11 +43,12 @@ class MenuSettingFragment : Fragment() {
 
         this.shareViewGroup.setOnClickListener {
             val message = getString(R.string.preference_message_share_friend)
-            this.context?.launchShareGameIntent(message)
+            launchShareGameIntent(message)
         }
 
         this.creditViewGroup.setOnClickListener {
-            displayCredits()
+            val action = MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuCreditsFragment()
+            Navigation.findNavController(view).navigate(action)
         }
 
         this.languageButton.setOnClickListener {
@@ -83,32 +82,5 @@ class MenuSettingFragment : Fragment() {
         this.creditTextView.text = getString(R.string.preference_title_credits_summary)
         this.shareTextView.text = getString(R.string.preference_title_share_friend)
         this.languageButton.text = getString(R.string.preference_current_language)
-    }
-
-    private fun displayCredits() {
-        val context = this.context ?: return
-        val creditDialog = Dialog(context)
-
-        with(creditDialog) {
-            requestWindowFeature(Window.FEATURE_NO_TITLE)
-            setContentView(R.layout.dialog_credit)
-            show()
-
-            spartanImageView.setOnClickListener { context.launchWebsite("https://github.com/theleagueof/league-spartan") }
-            kornerImageView.setOnClickListener { context.launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
-
-            chineseImageView.setOnClickListener { context.launchWebsite("https://en.wikipedia.org/wiki/China") }
-            portugueseImageView.setOnClickListener { context.launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
-            netherlandsImageView.setOnClickListener { context.launchWebsite("https://en.wikipedia.org/wiki/Netherlands") }
-            spanishImageView.setOnClickListener { context.launchWebsite("https://en.wikipedia.org/wiki/Spain") }
-
-            freesoundImageView.setOnClickListener { context.launchWebsite("https://freesound.org/") }
-            freepikImageView.setOnClickListener { context.launchWebsite("https://freepik.com") }
-
-            doneButton.setOnClickListener {
-                creditDialog.dismiss()
-                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
-            }
-        }
     }
 }

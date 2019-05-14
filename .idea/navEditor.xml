@@ -67,8 +67,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-159" />
-                            <option name="y" value="148" />
+                            <option name="x" value="-205" />
+                            <option name="y" value="14" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -84,6 +84,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="menuCreditsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="819" />
+                            <option name="y" value="147" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -105,8 +117,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="819" />
-                            <option name="y" value="145" />
+                            <option name="x" value="9" />
+                            <option name="y" value="442" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -144,6 +156,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_menuSettingFragment_to_menuCreditsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_menuSettingFragment_to_menuGuideFragment">
                               <value>
                                 <LayoutPositions />

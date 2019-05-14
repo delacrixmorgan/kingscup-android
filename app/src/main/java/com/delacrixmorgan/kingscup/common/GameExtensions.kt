@@ -1,6 +1,5 @@
 package com.delacrixmorgan.kingscup.common
 
-import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
@@ -10,6 +9,7 @@ import android.view.View
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
@@ -25,7 +25,7 @@ import java.util.*
 
 fun setupProgressBar(layoutManager: RecyclerView.LayoutManager?, recyclerView: RecyclerView, progressBar: ProgressBar) {
     val manager = layoutManager as LinearLayoutManager
-    
+
     recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             if (manager.findFirstVisibleItemPosition() == 0) {
@@ -65,8 +65,8 @@ fun View.animateButtonGrow() {
 }
 //endregion
 
-//region Context
-fun Context.launchShareGameIntent(message: String) {
+//region Fragment
+fun Fragment.launchShareGameIntent(message: String) {
     val intent = Intent(Intent.ACTION_SEND)
 
     intent.type = "text/plain"
@@ -75,10 +75,10 @@ fun Context.launchShareGameIntent(message: String) {
     startActivity(Intent.createChooser(intent, getString(R.string.preference_title_share_friend)))
 }
 
-fun Context.launchWebsite(url: String) {
+fun Fragment.launchWebsite(url: String) {
     val intent = Intent(Intent.ACTION_VIEW)
 
     intent.data = Uri.parse(url)
     startActivity(intent)
 }
-//enregion
+//endregion
