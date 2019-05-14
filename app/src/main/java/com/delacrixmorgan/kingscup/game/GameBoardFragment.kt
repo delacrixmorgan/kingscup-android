@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.transaction
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.Slide
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
@@ -64,10 +63,10 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         this.statusTextAnimation = AlphaAnimation(1.0f, 0.0f)
         this.isCardSelected = false
         this.cardAdapter = GameCardAdapter(
-            cellHeight = cellHeight,
-            cellWidth = cellWidth,
-            deckSize = GameEngine.getInstance().getDeckSize(),
-            listener = this
+                cellHeight = cellHeight,
+                cellWidth = cellWidth,
+                deckSize = GameEngine.getInstance().getDeckSize(),
+                listener = this
         )
 
         with(this.recyclerView) {
@@ -84,7 +83,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         }
 
         setupMenuDialog()
-        setupProgressBar(this.recyclerView.layoutManager as LinearLayoutManager, recyclerView, progressBar)
+        setupProgressBar(this.recyclerView.layoutManager, recyclerView, progressBar)
 
         this.restartButton.setOnClickListener { startNewGame() }
         this.menuButton.setOnClickListener { this.menuDialog.show() }
@@ -131,7 +130,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         this.isCardSelected = false
         this.cardAdapter.notifyItemRemoved(position)
         this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
-            ?: getString(R.string.board_title_lets_begin)
+                ?: getString(R.string.board_title_lets_begin)
 
         this.progressBar.max--
         this.statusTextView.startAnimation(this.statusTextAnimation)
@@ -145,6 +144,9 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             0 -> {
                 this.kingOneImageView.isVisible = false
                 this.restartButton.show()
+
+                this.confettiAnimationView.isVisible = true
+                this.confettiAnimationView.playAnimation()
             }
         }
     }

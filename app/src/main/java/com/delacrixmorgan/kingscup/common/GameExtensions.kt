@@ -10,11 +10,8 @@ import android.view.View
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.Slide
 import com.delacrixmorgan.kingscup.R
 import java.util.*
 
@@ -26,7 +23,9 @@ import java.util.*
  * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
-fun setupProgressBar(manager: LinearLayoutManager, recyclerView: RecyclerView, progressBar: ProgressBar) {
+fun setupProgressBar(layoutManager: RecyclerView.LayoutManager?, recyclerView: RecyclerView, progressBar: ProgressBar) {
+    val manager = layoutManager as LinearLayoutManager
+    
     recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             if (manager.findFirstVisibleItemPosition() == 0) {
