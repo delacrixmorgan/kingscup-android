@@ -5,6 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorDivider">#209E9E9E</color>
 
+    <color name="colorBlack1">#FF000000</color>
+    <color name="colorBlack2">#8F000000</color>
+    <color name="colorBlack3">#51000000</color>
+
     <color name="pink">#E63A74</color>
     <color name="orange">#F47709</color>
     <color name="blue">#109CFB</color>

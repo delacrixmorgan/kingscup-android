@@ -4,13 +4,13 @@
     <string name="app_name_debug" translatable="false">King\'s Cup Debug</string>
     <string name="game_over_body">Drink it up!</string>
 
-    <string name="preference_title">Settings</string>
+    <string name="preference_title">Preferences</string>
     <string name="preference_title_quick_guide">Quick Guide</string>
     <string name="preference_title_credits_summary">Hearts and Kisses</string>
     <string name="preference_title_share_friend">Tell a Drinking Buddy</string>
     <string name="preference_current_language">English</string>
     <string name="preference_button_done">Done</string>
-    <string name="preference_message_share_friend">Found the perfect drinking game "King's Cup". No beverages included!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
+    <string name="preference_message_share_friend">Psst don\'t panic 🤫 I played this at a party and it\'s pretty awesome 🔥\n\nKing\'s Cup 🍺 No Beverages Included!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
 
     <string name="board_title_lets_begin">Let\'s Begin</string>
 
