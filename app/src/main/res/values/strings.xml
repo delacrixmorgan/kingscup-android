@@ -27,11 +27,6 @@
     <string name="load_type_new_game">Hold my Beer</string>
     <string name="load_type_restart_game">Setting up New Game</string>
 
-    <string name="suit_spade">Spade</string>
-    <string name="suit_heart">Heart</string>
-    <string name="suit_club">Club</string>
-    <string name="suit_diamond">Diamond</string>
-
     <string name="body_waterfall">Everyone starts drinking until the person who drew the card has stopped.</string>
     <string name="body_you">Choose a mate\nAnd drink together!</string>
     <string name="body_me">Only you. Drink!</string>

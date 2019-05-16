@@ -20,10 +20,6 @@
     <string name="rate_button_awesome">你最棒了</string>
     <string name="load_type_new_game">抓紧你的酒瓶</string>
     <string name="load_type_restart_game">建立新的游戏</string>
-    <string name="suit_spade">黑桃</string>
-    <string name="suit_heart">红心</string>
-    <string name="suit_club">梅花</string>
-    <string name="suit_diamond">方块</string>
     <string name="body_waterfall">抽牌的人先开始喝， 大家跟着喝直到他停止。</string>
     <string name="body_you">和一个伴，一起干杯。</string>
     <string name="body_me">自己单独喝吧！</string>

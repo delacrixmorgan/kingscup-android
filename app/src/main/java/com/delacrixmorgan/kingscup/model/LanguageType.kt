@@ -11,7 +11,8 @@ package com.delacrixmorgan.kingscup.model
 enum class LanguageType(var countryIso: String) {
     ENGLISH("en"),
     CHINESE("zh"),
-    PORTUGUESE_BRAZIL("pt"),
+    PORTUGUESE("pt"),
     DUTCH("nl"),
-    SPANISH("es")
+    SPANISH("es"),
+    FINNISH("fi")
 }
