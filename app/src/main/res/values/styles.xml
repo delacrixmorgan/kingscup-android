@@ -50,11 +50,7 @@
         <item name="android:textSize">13sp</item>
     </style>
 
-    <style name="Caption1" parent="Base.TextAppearance.AppCompat.Caption">
-        <item name="android:textSize">12sp</item>
-    </style>
-
-    <style name="Caption2" parent="Base.TextAppearance.AppCompat.Caption">
+    <style name="Caption" parent="Base.TextAppearance.AppCompat.Caption">
         <item name="android:textSize">12sp</item>
     </style>
 </resources>

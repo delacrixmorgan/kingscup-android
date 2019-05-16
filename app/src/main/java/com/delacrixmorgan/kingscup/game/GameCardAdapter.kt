@@ -22,7 +22,7 @@ class GameCardAdapter(
 ) : RecyclerView.Adapter<GameCardAdapter.GameCardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_game_card, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.cell_card_game, parent, false)
 
         itemView.layoutParams.height = cellHeight
         itemView.layoutParams.width = cellWidth

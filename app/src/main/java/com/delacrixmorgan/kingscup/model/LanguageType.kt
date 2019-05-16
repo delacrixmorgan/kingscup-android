@@ -8,11 +8,11 @@ package com.delacrixmorgan.kingscup.model
  * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
-enum class LanguageType(var countryIso: String) {
-    ENGLISH("en"),
-    CHINESE("zh"),
-    PORTUGUESE("pt"),
-    DUTCH("nl"),
-    SPANISH("es"),
-    FINNISH("fi")
+enum class LanguageType(val countryIso: String, val authorNames: String) {
+    ENGLISH("en", "Delacrix Morgan"),
+    CHINESE("zh", "Yuki Sora"),
+    PORTUGUESE("pt", "Lays Correia"),
+    DUTCH("nl", "Kasper Nooteboom"),
+    SPANISH("es", "Santos Martinez\nGonzo Fernandez"),
+    FINNISH("fi", "Karim Moubarik")
 }

@@ -61,4 +61,6 @@
     <string name="taunt_ten">Kom Op</string>
     <string name="fragment_support_rate_title_more_from_me">Meer dingen van mij</string>
     <string name="fragment_support_rate_description_squark">Zero rommelige valuta-omzetter</string>
+    <string name="fragment_menu_language_btn_help_translate">Help Vertalen</string>
+    <string name="fragment_menu_language_title_choose_language">Kies een taal</string>
 </resources>

@@ -143,7 +143,7 @@
             android:paddingStart="6dp"
             android:paddingEnd="12dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/view_game_card" />
+            tools:listitem="@layout/cell_card_game" />
 
         <ProgressBar
             android:id="@+id/progressBar"

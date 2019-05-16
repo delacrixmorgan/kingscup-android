@@ -72,4 +72,6 @@
     <string name="fragment_support_rate_title_more_from_me">More stuff from me</string>
     <string name="fragment_support_rate_title_squark" translatable="false">Squark</string>
     <string name="fragment_support_rate_description_squark">Zero Cluttered Currency Converter</string>
+    <string name="fragment_menu_language_title_choose_language">Choose Language</string>
+    <string name="fragment_menu_language_btn_help_translate">Help Translate</string>
 </resources>

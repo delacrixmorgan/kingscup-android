@@ -102,7 +102,7 @@
         tools:layout="@layout/fragment_menu_guide" />
     <fragment
         android:id="@+id/menuLanguageFragment"
-        android:name="com.delacrixmorgan.kingscup.menu.MenuLanguageFragment"
+        android:name="com.delacrixmorgan.kingscup.menu.language.MenuLanguageFragment"
         android:label="MenuLanguageFragment"
         tools:layout="@layout/fragment_menu_language">
         <action

@@ -1,176 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:corner_radius="16dp">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
-
-        <ImageView
-            android:id="@+id/logoImageView"
-            android:layout_width="32dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="64dp"
-            android:layout_marginBottom="32dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_kingscup_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/app_name"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="34sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
+        android:background="@color/colorPrimaryDark">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/saveButton"
+            app:layout_constraintBottom_toTopOf="@+id/languageRecyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nameTextView">
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/logoImageView"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_kingscup_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textAppearance="@style/Title1"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
             <TextView
                 android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Choose your language"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:text="@string/fragment_menu_language_title_choose_language"
+                android:textAppearance="@style/Headline"
+                android:textColor="@android:color/white" />
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/translateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_rounded_green"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:text="@string/fragment_menu_language_btn_help_translate"
+                android:textColor="@android:color/white" />
 
-                <RadioGroup
-                    android:id="@+id/languageRadioGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="64dp"
-                    android:paddingStart="32dp"
-                    android:paddingEnd="32dp">
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="8dp"
-                        android:text="English"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="8dp"
-                        android:text="Chinese"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="8dp"
-                        android:text="Portugeese"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="8dp"
-                        android:text="Dutch"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="8dp"
-                        android:text="Spanish"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="8dp"
-                        android:text="Finnish"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="8dp"
-                        android:text="French"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp" />
-
-                </RadioGroup>
-            </ScrollView>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_checked_mark"
+                app:backgroundTint="@android:color/white" />
         </LinearLayout>
 
         <FrameLayout
             android:id="@+id/pinkFrameLayout"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:background="@color/pink"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/languageRecyclerView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:src="@drawable/ic_play"
-            app:backgroundTint="@android:color/white"
-            app:elevation="0dp"
-            app:fabSize="mini"
-            app:layout_constraintBottom_toBottomOf="@+id/pinkFrameLayout"
+            android:layout_marginBottom="16dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingEnd="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/cell_card_language" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
