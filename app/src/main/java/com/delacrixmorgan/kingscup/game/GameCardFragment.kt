@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.bind
 import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
@@ -35,15 +36,13 @@ class GameCardFragment : Fragment() {
         private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
 
         fun newInstance(card: Card, position: Int = 0, cardListener: CardListener): GameCardFragment {
-            val fragment = GameCardFragment()
-            val args = Bundle()
-
-            args.putParcelable(GAME_CARD_FRAGMENT_CARD, card)
-            args.putInt(GAME_CARD_FRAGMENT_POSITION, position)
-
-            fragment.cardListener = cardListener
-            fragment.arguments = args
-            return fragment
+            return GameCardFragment().apply {
+                this.arguments = bundleOf(
+                    GAME_CARD_FRAGMENT_CARD to card,
+                    GAME_CARD_FRAGMENT_POSITION to position
+                )
+                this.cardListener = cardListener
+            }
         }
     }
 
