@@ -67,8 +67,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-205" />
-                            <option name="y" value="14" />
+                            <option name="x" value="-321" />
+                            <option name="y" value="211" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -79,6 +79,11 @@
                               </value>
                             </entry>
                             <entry key="action_launchFragment_to_menuLanguageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_launchFragment_to_menuLanguageFragment2">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -123,7 +128,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_menuLanguageFragment_to_launchFragment">
+                            <entry key="action_menuLanguageFragment_to_navigationMenuFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

@@ -14,10 +14,12 @@ import android.preference.PreferenceManager
 
 object PreferenceHelper {
 
+    const val ONBOARDING = "Preference.OnBoarding"
     const val LANGUAGE = "Preference.Language"
     const val VIBRATE = "Preference.Vibrate"
     const val SOUND = "Preference.Sound"
 
+    const val ONBOARDING_DEFAULT = false
     const val LANGUAGE_DEFAULT = "en"
     const val VIBRATE_DEFAULT = true
     const val SOUND_DEFAULT = true

@@ -15,7 +15,9 @@
             app:destination="@id/navigationMenuFragment" />
         <action
             android:id="@+id/action_launchFragment_to_menuLanguageFragment"
-            app:destination="@id/menuLanguageFragment" />
+            app:destination="@id/menuLanguageFragment"
+            app:popUpTo="@+id/launchFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -106,10 +108,8 @@
         android:label="MenuLanguageFragment"
         tools:layout="@layout/fragment_menu_language">
         <action
-            android:id="@+id/action_menuLanguageFragment_to_launchFragment"
-            app:destination="@id/launchFragment"
-            app:popUpTo="@+id/menuLanguageFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_menuLanguageFragment_to_navigationMenuFragment"
+            app:destination="@id/navigationMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuCreditsFragment"

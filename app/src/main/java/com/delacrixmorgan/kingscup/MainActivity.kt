@@ -1,13 +1,8 @@
 package com.delacrixmorgan.kingscup
 
-import android.media.AudioManager
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.delacrixmorgan.kingscup.common.PreferenceHelper
-import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
-import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.delacrixmorgan.kingscup.common.setLocale
 import com.google.firebase.analytics.FirebaseAnalytics
 
 /**
@@ -23,14 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         FirebaseAnalytics.getInstance(this)
         setContentView(R.layout.activity_main)
-
-        SoundEngine.newInstance(this)
-        this.volumeControlStream = AudioManager.STREAM_MUSIC
-
-        val preference = PreferenceHelper.getPreference(this)
-        val preferenceCountryIso = preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
-
-        this.resources.setLocale(preferenceCountryIso)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
