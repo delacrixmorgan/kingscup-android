@@ -56,19 +56,13 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         super.onViewCreated(view, savedInstanceState)
 
         val deckAnimation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_slide_right)
-        val cellHeight = (this.resources.displayMetrics.heightPixels / 2.5).toInt()
-        val cellWidth = (cellHeight * (10.0 / 16.0)).toInt()
 
         this.volumeImageView.setImageResource(R.drawable.ic_cup_whole)
         this.statusText = getString(R.string.board_title_lets_begin)
         this.statusTextAnimation = AlphaAnimation(1.0f, 0.0f)
         this.isCardSelected = false
-        this.cardAdapter = GameCardAdapter(
-                cellHeight = cellHeight,
-                cellWidth = cellWidth,
-                deckSize = GameEngine.getInstance().getDeckSize(),
-                listener = this
-        )
+        this.cardAdapter = GameCardAdapter(resources = this.resources, listener = this)
+        this.cardAdapter.updateDataSet(GameEngine.getInstance().getCards())
 
         with(this.recyclerView) {
             removeAllViews()
@@ -94,13 +88,13 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
             override fun onAnimationEnd(animation: Animation?) = Unit
             override fun onAnimationStart(animation: Animation?) = Unit
             override fun onAnimationRepeat(animation: Animation?) {
-                this@GameBoardFragment.statusTextView.text = this@GameBoardFragment.statusText
+                statusTextView.text = statusText
             }
         })
     }
 
     override fun onCardSelected(position: Int) {
-        val context = this.context ?: return
+        val context = requireContext()
 
         if (!this.isCardSelected) {
             val card: Card? = GameEngine.getInstance().getCardByPosition(position)
@@ -129,7 +123,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(requireContext())
 
         this.isCardSelected = false
-        this.cardAdapter.notifyItemRemoved(position)
+        this.cardAdapter.removeCard(position)
         this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
                 ?: getString(R.string.board_title_lets_begin)
 
