@@ -99,9 +99,8 @@ class GameCardFragment : Fragment() {
         when {
             GameEngine.getInstance().checkWin(card) -> {
                 doneButton.hide()
-
                 GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.LONG)
-                SoundEngine.getInstance().playSound(context, SoundType.GAME_OVER)
+                SoundEngine.getInstance().playSound(context, SoundType.OOOH)
 
                 Handler().postDelayed({
                     backToBoardFragment()

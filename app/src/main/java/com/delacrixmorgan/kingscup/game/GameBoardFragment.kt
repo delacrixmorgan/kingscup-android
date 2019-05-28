@@ -150,6 +150,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                     this.isConfettiLaunched = true
                     this.confettiAnimationView.isVisible = true
                     this.confettiAnimationView.playAnimation()
+                    SoundEngine.getInstance().playSound(requireContext(), SoundType.GAME_OVER)
                 }
             }
         }
