@@ -33,8 +33,8 @@ class GameEngine private constructor(context: Context) {
         private lateinit var GameEngineInstance: GameEngine
 
         fun newInstance(context: Context): GameEngine {
-            GameEngineInstance = GameEngine(context)
-            return GameEngineInstance
+            this.GameEngineInstance = GameEngine(context)
+            return this.GameEngineInstance
         }
 
         fun getInstance(): GameEngine = this.GameEngineInstance
@@ -44,16 +44,14 @@ class GameEngine private constructor(context: Context) {
     private val tauntList = ArrayList<String>()
     private val deckList = ArrayList<Card>()
     private var kingCounter: Int = 4
-    private var kingRank: String = "K"
     private var vibrator: Vibrator
 
     init {
-        kingCounter = 4
-        kingRank = ActionType.values().last().getRankText()
-        vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        this.kingCounter = 4
+        this.vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-        deckList.clear()
-        guideList.clear()
+        this.deckList.clear()
+        this.guideList.clear()
 
         buildGameEngine(context)
     }
@@ -61,42 +59,39 @@ class GameEngine private constructor(context: Context) {
     private fun buildGameEngine(context: Context) {
         SuitType.values().forEach { suit ->
             ActionType.values().let { actionTypes ->
-                actionTypes.indices.mapTo(deckList) {
-                    Card(suit,
-                            actionTypes[it].getRankText(),
-                            actionTypes[it].getLocalisedHeaderText(context),
-                            actionTypes[it].getLocalisedBodyText(context))
+                actionTypes.indices.mapTo(this.deckList) {
+                    Card(suit, actionTypes[it].getRankText(), actionTypes[it].getLocalisedHeaderText(context), actionTypes[it].getLocalisedBodyText(context))
                 }
             }
         }
 
         GuideType.values().forEach { guide ->
-            guideList.add(guide.getLocalisedText(context))
+            this.guideList.add(guide.getLocalisedText(context))
         }
 
         TauntType.values().forEach { taunt ->
-            tauntList.add(taunt.getLocalisedText(context))
+            this.tauntList.add(taunt.getLocalisedText(context))
         }
 
-        deckList.shuffle(Random(System.nanoTime()))
+        this.deckList.shuffle(Random(System.nanoTime()))
     }
 
     fun removeCard(position: Int) {
-        if (deckList[position].rank == kingRank) {
-            kingCounter--
+        if (this.deckList[position].rank == GAME_CARD_KING) {
+            this.kingCounter--
         }
 
-        deckList.removeAt(position)
+        this.deckList.removeAt(position)
     }
 
     fun updateGraphicStatus(context: Context): Bundle {
-        tauntList.shuffle(Random(System.nanoTime()))
+        this.tauntList.shuffle(Random(System.nanoTime()))
 
         val volume: Int
         val args = Bundle()
-        var taunt = tauntList.first()
+        var taunt = this.tauntList.first()
 
-        when (kingCounter) {
+        when (this.kingCounter) {
             0 -> {
                 taunt = context.getString(R.string.game_over_body)
                 volume = R.drawable.ic_cup_volume_4
@@ -110,7 +105,7 @@ class GameEngine private constructor(context: Context) {
 
         args.putString(GAME_ENGINE_TAUNT, taunt)
         args.putInt(GAME_ENGINE_CUP_VOLUME, volume)
-        args.putInt(GAME_ENGINE_KING_COUNTER, kingCounter)
+        args.putInt(GAME_ENGINE_KING_COUNTER, this.kingCounter)
 
         return args
     }
@@ -127,9 +122,9 @@ class GameEngine private constructor(context: Context) {
 
                 VibrateType.LONG -> {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
+                        this.vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
                     } else {
-                        vibrator.vibrate(vibrateType.duration)
+                        this.vibrator.vibrate(vibrateType.duration)
                     }
                 }
             }
@@ -137,6 +132,6 @@ class GameEngine private constructor(context: Context) {
     }
 
     fun getCards() = this.deckList
-    fun getCardByPosition(position: Int) = deckList[position]
-    fun checkWin(card: Card) = card.rank == kingRank && kingCounter == 1
+    fun getCardByPosition(position: Int) = this.deckList[position]
+    fun checkWin(card: Card) = card.rank == GAME_CARD_KING && this.kingCounter == 1
 }

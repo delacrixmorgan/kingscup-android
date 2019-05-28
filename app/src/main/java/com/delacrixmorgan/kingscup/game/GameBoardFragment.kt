@@ -124,8 +124,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
         this.isCardSelected = false
         this.cardAdapter.removeCard(position)
-        this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
-                ?: getString(R.string.board_title_lets_begin)
+        this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT) ?: getString(R.string.board_title_lets_begin)
 
         this.progressBar.max--
         this.statusTextView.startAnimation(this.statusTextAnimation)
