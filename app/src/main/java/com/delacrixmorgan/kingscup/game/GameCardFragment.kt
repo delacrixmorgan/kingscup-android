@@ -5,6 +5,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil.bind
 import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
@@ -59,6 +60,12 @@ class GameCardFragment : Fragment() {
             this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD) ?: throw Exception("Card Missing")
             this.position = it.getInt(GAME_CARD_FRAGMENT_POSITION)
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                backToBoardFragment()
+            }
+        })
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

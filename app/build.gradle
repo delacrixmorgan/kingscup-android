@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.firebase.firebase-perf'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
@@ -52,6 +52,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$androidx_ktx_core_version"
     implementation "androidx.fragment:fragment-ktx:$androidx_ktx_fragment_version"
 
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
     implementation "com.google.android.material:material:$material_components_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_recyclerview_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$androidx_lifecycle_viewmodel_version"
