@@ -41,6 +41,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     private lateinit var menuDialog: Dialog
 
     private var isCardSelected: Boolean = false
+    private var isConfettiLaunched = false
     private var statusText = ""
 
     private val stateMachine: GameStateMachine by lazy {
@@ -55,7 +56,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         super.onViewCreated(view, savedInstanceState)
 
         val deckAnimation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_slide_right)
-        val cellHeight = (resources.displayMetrics.heightPixels / 2.5).toInt()
+        val cellHeight = (this.resources.displayMetrics.heightPixels / 2.5).toInt()
         val cellWidth = (cellHeight * (10.0 / 16.0)).toInt()
 
         this.volumeImageView.setImageResource(R.drawable.ic_cup_whole)
@@ -145,8 +146,11 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                 this.kingOneImageView.isVisible = false
                 this.restartButton.show()
 
-                this.confettiAnimationView.isVisible = true
-                this.confettiAnimationView.playAnimation()
+                if (!this.isConfettiLaunched) {
+                    this.isConfettiLaunched = true
+                    this.confettiAnimationView.isVisible = true
+                    this.confettiAnimationView.playAnimation()
+                }
             }
         }
     }
