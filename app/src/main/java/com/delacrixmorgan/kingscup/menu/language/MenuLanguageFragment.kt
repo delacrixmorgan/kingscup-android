@@ -1,5 +1,7 @@
 package com.delacrixmorgan.kingscup.menu.language
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +13,10 @@ import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
+import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.model.LanguageType
+import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_language.*
 
 /**
@@ -24,6 +28,10 @@ import kotlinx.android.synthetic.main.fragment_menu_language.*
  */
 
 class MenuLanguageFragment : Fragment(), LanguageListener {
+    companion object {
+        private const val TRANSLATION_CONTACT_EMAIL = "delacrixmorgan@gmail.com"
+    }
+
     private lateinit var languageAdapter: LanguageRecyclerViewAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,7 +57,8 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         this.languageRecyclerView.scheduleLayoutAnimation()
 
         this.translateButton.setOnClickListener {
-            // TODO Email To Me
+            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup - Translation Help", "Hey mate, I would love to translate King's Cup to [x] language.")
+            startActivity(Intent.createChooser(intent, "Help Translate"))
         }
 
         this.saveButton.setOnClickListener {
@@ -81,7 +90,24 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         this.translateButton.text = getString(R.string.fragment_menu_language_btn_help_translate)
     }
 
+    private fun newEmailIntent(recipient: String, subject: String?, body: String?): Intent {
+        val intent = Intent(Intent.ACTION_SENDTO)
+        intent.data = Uri.parse("mailto:")
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
+
+        if (!subject.isNullOrBlank()) {
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        }
+
+        if (!body.isNullOrBlank()) {
+            intent.putExtra(Intent.EXTRA_TEXT, body)
+        }
+
+        return intent
+    }
+
     override fun onLanguageSelected(languageType: LanguageType) {
+        SoundEngine.getInstance().playSound(requireContext(), SoundType.WHOOSH)
         this.resources.setLocale(languageType.countryIso)
         updateLayoutLanguage()
     }
