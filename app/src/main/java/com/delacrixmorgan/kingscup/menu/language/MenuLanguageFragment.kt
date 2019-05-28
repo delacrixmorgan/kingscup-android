@@ -14,9 +14,11 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.performHapticContextClick
 import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.model.LanguageType
 import com.delacrixmorgan.kingscup.model.SoundType
+import com.delacrixmorgan.kingscup.model.formatText
 import kotlinx.android.synthetic.main.fragment_menu_language.*
 
 /**
@@ -33,6 +35,14 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     }
 
     private lateinit var languageAdapter: LanguageRecyclerViewAdapter
+    private val selectedLanguage: LanguageType
+        get() {
+            val preference = PreferenceHelper.getPreference(requireContext())
+            val preferenceCountryIso = preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
+            return LanguageType.values().firstOrNull {
+                it.countryIso == preferenceCountryIso
+            } ?: LanguageType.ENGLISH
+        }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu_language, container, false)
@@ -56,8 +66,10 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         this.languageRecyclerView.layoutAnimation = deckAnimation
         this.languageRecyclerView.scheduleLayoutAnimation()
 
+        this.languageTextView.text = this.selectedLanguage.formatText()
+
         this.translateButton.setOnClickListener {
-            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup - Translation Help", "Hey mate, I would love to translate King's Cup to [x] language.")
+            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
             startActivity(Intent.createChooser(intent, "Help Translate"))
         }
 
@@ -67,27 +79,18 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     }
 
     private fun savePreferenceLanguage(languageType: LanguageType) {
-        val context = this.context ?: return
-        val preference = PreferenceHelper.getPreference(context)
-        val languageTypes = LanguageType.values()
-        var currentLanguage: LanguageType = languageTypes.first {
-            it.countryIso == preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
-        }
+        val preference = PreferenceHelper.getPreference(requireContext())
 
-        currentLanguage = if (currentLanguage == languageTypes.last()) {
-            languageTypes.first()
-        } else {
-            languageTypes[currentLanguage.ordinal + 1]
-        }
-
-        preference[PreferenceHelper.LANGUAGE] = currentLanguage.countryIso
-        this.resources.setLocale(currentLanguage.countryIso)
+        preference[PreferenceHelper.LANGUAGE] = languageType.countryIso
+        this.resources.setLocale(languageType.countryIso)
+        updateLayoutLanguage()
     }
 
     private fun updateLayoutLanguage() {
         this.nameTextView.text = getString(R.string.app_name)
         this.titleTextView.text = getString(R.string.fragment_menu_language_title_choose_language)
         this.translateButton.text = getString(R.string.fragment_menu_language_btn_help_translate)
+        this.languageTextView.text = this.selectedLanguage.formatText()
     }
 
     private fun newEmailIntent(recipient: String, subject: String?, body: String?): Intent {
@@ -108,7 +111,8 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
 
     override fun onLanguageSelected(languageType: LanguageType) {
         SoundEngine.getInstance().playSound(requireContext(), SoundType.WHOOSH)
-        this.resources.setLocale(languageType.countryIso)
-        updateLayoutLanguage()
+        savePreferenceLanguage(languageType)
+
+        this.rootView.performHapticContextClick()
     }
 }

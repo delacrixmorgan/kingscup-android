@@ -2,6 +2,7 @@
 <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:corner_radius="16dp">
@@ -54,11 +55,20 @@
                 android:textAppearance="@style/Headline"
                 android:textColor="@android:color/white" />
 
+            <TextView
+                android:id="@+id/languageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textAllCaps="true"
+                android:textAppearance="@style/Subhead"
+                android:textColor="@android:color/white"
+                tools:text="English" />
+
             <Button
                 android:id="@+id/translateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/button_rounded_green"
                 android:paddingStart="32dp"
                 android:paddingEnd="32dp"
@@ -69,7 +79,7 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/ic_checked_mark"
                 app:backgroundTint="@android:color/white" />
         </LinearLayout>

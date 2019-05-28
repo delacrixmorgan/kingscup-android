@@ -14,5 +14,9 @@ enum class LanguageType(val countryIso: String, val authorNames: String) {
     PORTUGUESE("pt", "Lays Correia"),
     DUTCH("nl", "Kasper Nooteboom"),
     SPANISH("es", "Santos Martinez\nGonzo Fernandez"),
-    FINNISH("fi", "Karim Moubarik")
+    FINNISH("fi", "Karim Moubarik");
+}
+
+fun LanguageType.formatText(): String {
+    return this.name.toLowerCase().capitalize()
 }
