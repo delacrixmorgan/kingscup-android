@@ -31,11 +31,6 @@ class MenuCreditsFragment : Fragment() {
         this.spartanImageView.setOnClickListener { launchWebsite("https://github.com/theleagueof/league-spartan") }
         this.kornerImageView.setOnClickListener { launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
 
-        this.chineseImageView.setOnClickListener { launchWebsite("https://en.wikipedia.org/wiki/China") }
-        this.portugueseImageView.setOnClickListener { launchWebsite("https://en.wikipedia.org/wiki/Brazil") }
-        this.netherlandsImageView.setOnClickListener { launchWebsite("https://en.wikipedia.org/wiki/Netherlands") }
-        this.spanishImageView.setOnClickListener { launchWebsite("https://en.wikipedia.org/wiki/Spain") }
-
         this.freesoundImageView.setOnClickListener { launchWebsite("https://freesound.org/") }
         this.freepikImageView.setOnClickListener { launchWebsite("https://freepik.com") }
 
