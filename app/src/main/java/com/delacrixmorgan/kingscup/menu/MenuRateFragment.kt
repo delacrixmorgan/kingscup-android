@@ -27,6 +27,7 @@ class MenuRateFragment : Fragment() {
 
     companion object {
         const val SQUARK_PACKAGE_NAME = "com.delacrixmorgan.squark"
+        const val MAMIKA_PACKAGE_NAME = "com.delacrixmorgan.mamika"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -61,6 +62,13 @@ class MenuRateFragment : Fragment() {
             this.personImageView.setImageResource(R.drawable.ic_human_happy)
 
             launchPlayStore(SQUARK_PACKAGE_NAME)
+            Navigation.findNavController(view).navigateUp()
+        }
+
+        this.mamikaViewGroup.setOnClickListener {
+            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+
+            launchPlayStore(MAMIKA_PACKAGE_NAME)
             Navigation.findNavController(view).navigateUp()
         }
     }
