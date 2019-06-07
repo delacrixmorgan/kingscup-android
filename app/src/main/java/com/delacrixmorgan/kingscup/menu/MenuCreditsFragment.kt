@@ -33,6 +33,7 @@ class MenuCreditsFragment : Fragment() {
 
         this.freesoundImageView.setOnClickListener { launchWebsite("https://freesound.org/") }
         this.freepikImageView.setOnClickListener { launchWebsite("https://freepik.com") }
+        this.confettiImageView.setOnClickListener { launchWebsite("https://lottiefiles.com/4329-confetti") }
 
         this.doneButton?.setOnClickListener {
             Navigation.findNavController(view).navigateUp()

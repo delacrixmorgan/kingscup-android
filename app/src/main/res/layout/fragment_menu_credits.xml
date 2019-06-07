@@ -261,14 +261,40 @@
                     android:layout_margin="5dp"
                     android:src="@drawable/ic_freepik" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Issac Ting, LottieFiles"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Confetti"
+                    android:textColor="@color/pink"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/confettiImageView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_lottie_files" />
+
             </LinearLayout>
 
             <Button
                 android:id="@+id/doneButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
                 android:background="@drawable/button_rounded_green"
                 android:padding="16dp"
                 android:text="@string/preference_button_done"
