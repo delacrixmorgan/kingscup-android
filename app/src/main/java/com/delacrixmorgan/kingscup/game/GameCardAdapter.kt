@@ -51,7 +51,6 @@ class GameCardAdapter(
     }
 
     fun removeCard(position: Int) {
-        this.cards.removeAt(position)
         notifyItemRemoved(position)
     }
 
@@ -60,7 +59,7 @@ class GameCardAdapter(
 
         init {
             itemView.setOnClickListener {
-                this.listener.onCardSelected(this.adapterPosition)
+                this.listener.onCardSelected(adapterPosition)
             }
         }
 

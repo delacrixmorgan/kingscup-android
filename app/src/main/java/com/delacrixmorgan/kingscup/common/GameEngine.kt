@@ -132,6 +132,6 @@ class GameEngine private constructor(context: Context) {
     }
 
     fun getCards() = this.deckList
-    fun getCardByPosition(position: Int) = this.deckList[position]
+    fun getCardByPosition(position: Int) = this.deckList.getOrNull(position)
     fun checkWin(card: Card) = card.rank == GAME_CARD_KING && this.kingCounter == 1
 }

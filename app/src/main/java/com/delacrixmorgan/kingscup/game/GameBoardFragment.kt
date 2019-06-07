@@ -6,10 +6,10 @@ import android.view.*
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.transaction
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.transition.Slide
 import com.delacrixmorgan.kingscup.R
@@ -19,7 +19,6 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.setupProgressBar
-import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.GameType
 import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.VibrateType
@@ -44,8 +43,14 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     private var isConfettiLaunched = false
     private var statusText = ""
 
-    private val stateMachine: GameStateMachine by lazy {
-        ViewModelProviders.of(requireActivity()).get(GameStateMachine::class.java)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                this@GameBoardFragment.menuDialog.show()
+            }
+        })
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -97,7 +102,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         val context = requireContext()
 
         if (!this.isCardSelected) {
-            val card: Card? = GameEngine.getInstance().getCardByPosition(position)
+            val card = GameEngine.getInstance().getCardByPosition(position)
             if (card != null) {
                 this.isCardSelected = true
 
@@ -126,7 +131,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         this.cardAdapter.removeCard(position)
         this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT) ?: getString(R.string.board_title_lets_begin)
 
-        this.progressBar.max--
+        this.progressBar.max = this.cardAdapter.itemCount - 1
         this.statusTextView.startAnimation(this.statusTextAnimation)
 
         args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
