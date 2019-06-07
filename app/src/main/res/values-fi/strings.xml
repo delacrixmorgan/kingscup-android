@@ -72,4 +72,6 @@
     <string name="fragment_support_rate_description_squark">Maailman Paras Valuuttamuunnin!</string>
     <string name="fragment_menu_language_btn_help_translate">Ohje Käännä</string>
     <string name="fragment_menu_language_title_choose_language">Valitse kieli</string>
+    <string name="preference_title_language">Kieli</string>
+    <string name="preference_title_source_code">Lähdekoodi</string>
 </resources>

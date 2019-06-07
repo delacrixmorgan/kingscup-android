@@ -74,4 +74,6 @@
     <string name="fragment_support_rate_description_squark">Zero Cluttered Currency Converter</string>
     <string name="fragment_menu_language_title_choose_language">Choose Language</string>
     <string name="fragment_menu_language_btn_help_translate">Help Translate</string>
+    <string name="preference_title_language">Language</string>
+    <string name="preference_title_source_code">Source Code</string>
 </resources>

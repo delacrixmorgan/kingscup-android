@@ -63,4 +63,6 @@
     <string name="fragment_support_rate_description_squark">Zero rommelige valuta-omzetter</string>
     <string name="fragment_menu_language_btn_help_translate">Help Vertalen</string>
     <string name="fragment_menu_language_title_choose_language">Kies een taal</string>
+    <string name="preference_title_language">Taal</string>
+    <string name="preference_title_source_code">Broncode</string>
 </resources>

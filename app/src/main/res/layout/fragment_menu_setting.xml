@@ -137,7 +137,7 @@
                             android:id="@+id/languageTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Language"
+                            android:text="@string/preference_title_language"
                             android:textAppearance="@style/Headline"
                             android:textColor="@android:color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -197,7 +197,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
-                        android:text="Source Code"
+                        android:text="@string/preference_title_source_code"
                         android:textColor="@android:color/white" />
                 </FrameLayout>
             </androidx.cardview.widget.CardView>

@@ -68,4 +68,6 @@
     <string name="fragment_support_rate_description_squark">Conversor de moeda desordenado zero</string>
     <string name="fragment_menu_language_btn_help_translate">Ajudar a traduzir</string>
     <string name="fragment_menu_language_title_choose_language">Escolha o seu idioma</string>
+    <string name="preference_title_language">Idioma</string>
+    <string name="preference_title_source_code">Código Fonte</string>
 </resources>

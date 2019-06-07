@@ -63,4 +63,6 @@
     <string name="fragment_support_rate_description_squark">极简货币转换器</string>
     <string name="fragment_menu_language_btn_help_translate">帮助翻译</string>
     <string name="fragment_menu_language_title_choose_language">选择语言</string>
+    <string name="preference_title_language">语言</string>
+    <string name="preference_title_source_code">源代码</string>
 </resources>
