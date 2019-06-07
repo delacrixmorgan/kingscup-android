@@ -65,7 +65,6 @@
     <string name="taunt_nine">Quantos copos já foram?</string>
     <string name="taunt_ten">Não para!</string>
     <string name="fragment_support_rate_title_more_from_me">Mais coisas de mim</string>
-    <string name="fragment_support_rate_description_squark">Conversor de moeda desordenado zero</string>
     <string name="fragment_menu_language_btn_help_translate">Ajudar a traduzir</string>
     <string name="fragment_menu_language_title_choose_language">Escolha o seu idioma</string>
     <string name="preference_title_language">Idioma</string>
