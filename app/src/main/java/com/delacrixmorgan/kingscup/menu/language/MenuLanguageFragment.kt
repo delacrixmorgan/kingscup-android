@@ -11,14 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.PreferenceHelper
-import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.common.performHapticContextClick
 import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.model.LanguageType
 import com.delacrixmorgan.kingscup.model.SoundType
-import com.delacrixmorgan.kingscup.model.formatText
 import kotlinx.android.synthetic.main.fragment_menu_language.*
 
 /**
@@ -35,14 +33,6 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     }
 
     private lateinit var languageAdapter: LanguageRecyclerViewAdapter
-    private val selectedLanguage: LanguageType
-        get() {
-            val preference = PreferenceHelper.getPreference(requireContext())
-            val preferenceCountryIso = preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
-            return LanguageType.values().firstOrNull {
-                it.countryIso == preferenceCountryIso
-            } ?: LanguageType.ENGLISH
-        }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu_language, container, false)
@@ -66,11 +56,11 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         this.languageRecyclerView.layoutAnimation = deckAnimation
         this.languageRecyclerView.scheduleLayoutAnimation()
 
-        this.languageTextView.text = this.selectedLanguage.formatText()
+        this.languageTextView.text = getString(R.string.preference_current_language)
 
         this.translateButton.setOnClickListener {
             val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
-            startActivity(Intent.createChooser(intent, "Help Translate"))
+            startActivity(Intent.createChooser(intent, getString(R.string.fragment_menu_language_btn_help_translate)))
         }
 
         this.saveButton.setOnClickListener {
@@ -90,7 +80,7 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         this.nameTextView.text = getString(R.string.app_name)
         this.titleTextView.text = getString(R.string.fragment_menu_language_title_choose_language)
         this.translateButton.text = getString(R.string.fragment_menu_language_btn_help_translate)
-        this.languageTextView.text = this.selectedLanguage.formatText()
+        this.languageTextView.text = getString(R.string.preference_current_language)
     }
 
     private fun newEmailIntent(recipient: String, subject: String?, body: String?): Intent {
