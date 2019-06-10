@@ -22,8 +22,8 @@ android {
         minSdkVersion 19
         targetSdkVersion rootProject.ext.compileSdkVersion
         multiDexEnabled true
-        versionCode 25
-        versionName "2.4.0"
+        versionCode 26
+        versionName "2.4.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
