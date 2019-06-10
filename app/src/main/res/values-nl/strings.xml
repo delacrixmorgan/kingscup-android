@@ -20,10 +20,6 @@
     <string name="rate_button_awesome">Je bent fantastisch!</string>
     <string name="load_type_new_game">Hou m\'n bier even vast</string>
     <string name="load_type_restart_game">Spel opnieuw klaarzetten</string>
-    <string name="suit_spade">Schoppen</string>
-    <string name="suit_heart">Harten</string>
-    <string name="suit_club">Klaver</string>
-    <string name="suit_diamond">Ruiten</string>
     <string name="body_waterfall">Iedereen begint te drinken totdat de persoon die de kaart had getrokken stopt.</string>
     <string name="body_you">Kies een vriend\nEn drink samen!</string>
     <string name="body_me">Alleen jij. Drinken!</string>
@@ -64,5 +60,8 @@
     <string name="taunt_nine">Alles Goed Joh?</string>
     <string name="taunt_ten">Kom Op</string>
     <string name="fragment_support_rate_title_more_from_me">Meer dingen van mij</string>
-    <string name="fragment_support_rate_description_squark">Zero rommelige valuta-omzetter</string>
+    <string name="fragment_menu_language_btn_help_translate">Help Vertalen</string>
+    <string name="fragment_menu_language_title_choose_language">Kies een taal</string>
+    <string name="preference_title_language">Taal</string>
+    <string name="preference_title_source_code">Broncode</string>
 </resources>

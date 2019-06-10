@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kuninkaan kuppi!</string>
+    <string name="game_over_body">Ääntä kohti!</string>
+
+    <string name="preference_title">Asetukset</string>
+    <string name="preference_title_quick_guide">Pelin Kulku</string>
+    <string name="preference_title_credits_summary">Suurimmat Kiitokset</string>
+    <string name="preference_title_share_friend">Kerro Kaverille</string>
+    <string name="preference_current_language">Suomi</string>
+    <string name="preference_button_done">Valmis</string>
+    <string name="preference_message_share_friend">Löysin loistavan juomapelin "Kuninkaan kuppi!". Omat juomat mukaan!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
+
+    <string name="board_title_lets_begin">Aloitetaan</string>
+
+    <string name="dialog_pause_title">Vessa Tauko</string>
+    <string name="dialog_pause_button_resume">Jatka</string>
+    <string name="dialog_pause_button_quit">Lopeta</string>
+
+    <string name="rate_title">Hei sinä!</string>
+    <string name="rate_paragraph_1">Ei ollut tarkoitus keskeyttää peliäsi</string>
+    <string name="rate_paragraph_2">Jos Kuninkaan kuppi teki illastasi hauskan, anna arvosana.</string>
+    <string name="rate_paragraph_3">Kaikki arvostelut auttavat, pidä hauskaa!!</string>
+    <string name="rate_button_awesome">Ole mahtava, anna arvostelu!</string>
+
+    <string name="load_type_new_game">Pidä Mun Kaljaa</string>
+    <string name="load_type_restart_game">Aloita Uusi Peli</string>
+
+    <string name="body_waterfall">Kaikki aloittavat samaan aikaan juomaan. Vasta kun ensimmäinen aloittaja on lopettanut, muut saavat lopettaa.</string>
+    <string name="body_you">Valitse kaveri ja juokaa yhdessä!</string>
+    <string name="body_me">Sinä juot yksin!</string>
+    <string name="body_thumb_master">Laita peukalo\npöydälle.\nViimeinen joka laittaa,juo!</string>
+    <string name="body_dudes">Kaikki äijät juo!</string>
+    <string name="body_chicks">Kaikki muijat juo!</string>
+    <string name="body_heaven">Kaikki kurottaa taivaalle.\nViimeinen kurottaja juo!</string>
+    <string name="body_mate">Valitse partneri ja hän juo aina kun sinäkin juot!</string>
+    <string name="body_snake_eyes">Kukaan ei saa\nkatsoa sinua silmiin.\nJos jää kiinni,juo!</string>
+    <string name="body_category">Valitse kategoria.\nSano jotain mikä käy valittuun kategoriaan, jos et keksi, juo!</string>
+    <string name="body_jack">Keksi lauseelle loppu,\n "En ole koskaan…" \nKaikki jotka ovat, juo!</string>
+    <string name="body_questions">Kysy pelaajalta kysymys.\nHeidän pitää vastata kysymällä uusi kysymys seuraavalta pelaajalta jne.\n\nEnsimmäinen joka jäätyy, juo!</string>
+    <string name="body_king">Aseta uusi sääntö.\nTäytä kuninkaan kuppia!</string>
+
+    <string name="header_waterfall">Vesiputous</string>
+    <string name="header_you">Sinä</string>
+    <string name="header_me">Minä</string>
+    <string name="header_thumb_master">Peukalo Mestari</string>
+    <string name="header_dudes">Äijät</string>
+    <string name="header_chicks">Muijat</string>
+    <string name="header_heaven">Taivas</string>
+    <string name="header_mate">Frendi</string>
+    <string name="header_snake_eyes">Käärmeen Silmät</string>
+    <string name="header_category">Kategoria</string>
+    <string name="header_jack">Jätkä</string>
+    <string name="header_questions">Kysymykset</string>
+    <string name="header_king">Kuningas</string>
+
+    <string name="guide_page_one">Kyllä, tämä on juomapeli. Eli tulet tarvitsemaan alkoholia.\n\nKaikilla pitää olla juomamuki ja laittaa kuppi keskelle, jotta voi tulla kuninkaaksi.</string>
+    <string name="guide_page_two">Valitse henkilö aloittamaan peli, valitse kortti ja tee mitä se käskee.\n\nÄlä yritä livistää!\nSeuraavan henkilön vuoro on kun olet valmis.</string>
+    <string name="guide_page_three">Jos saat ensimmäisenä kuninkaan pakasta,\nSaat kaataa kuppiin mitä vain valitsemaasi juomaa.\n\nHenkilön joka saa pakasta viimeisenä kuninkaan, pitää juoda muki ykkösellä alas!\nHölkynkölkyn.</string>
+
+    <string name="taunt_one">Oikeesti</string>
+    <string name="taunt_two">Tulossa</string>
+    <string name="taunt_three">Vielä Yks Lisää</string>
+    <string name="taunt_four">Tässä Se Tulee</string>
+    <string name="taunt_five">Älä Ajattele</string>
+    <string name="taunt_six">Juo Minut</string>
+    <string name="taunt_seven">Nopeemmin Frendi</string>
+    <string name="taunt_eight">Ootsä Varma?</string>
+    <string name="taunt_nine">Okei Bro?</string>
+    <string name="taunt_ten">Älä Jaksa</string>
+    <string name="fragment_support_rate_title_more_from_me">Enemmän mun sovelluksia</string>
+    <string name="fragment_menu_language_btn_help_translate">Ohje Käännä</string>
+    <string name="fragment_menu_language_title_choose_language">Valitse kieli</string>
+    <string name="preference_title_language">Kieli</string>
+    <string name="preference_title_source_code">Lähdekoodi</string>
+</resources>

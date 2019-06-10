@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">King\'s Cup</string>
+    <string name="app_name_debug" translatable="false">King\'s Cup Debug</string>
     <string name="game_over_body">Drink it up!</string>
 
-    <string name="preference_title">Settings</string>
+    <string name="preference_title">Preferences</string>
     <string name="preference_title_quick_guide">Quick Guide</string>
     <string name="preference_title_credits_summary">Hearts and Kisses</string>
     <string name="preference_title_share_friend">Tell a Drinking Buddy</string>
     <string name="preference_current_language">English</string>
     <string name="preference_button_done">Done</string>
-    <string name="preference_message_share_friend">Found the perfect drinking game "King's Cup". No beverages included!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
+    <string name="preference_message_share_friend">Psst don\'t panic 🤫 I played this at a party and it\'s pretty awesome 🔥\n\nKing\'s Cup 🍺 No Beverages Included!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
 
     <string name="board_title_lets_begin">Let\'s Begin</string>
 
@@ -25,11 +26,6 @@
 
     <string name="load_type_new_game">Hold my Beer</string>
     <string name="load_type_restart_game">Setting up New Game</string>
-
-    <string name="suit_spade">Spade</string>
-    <string name="suit_heart">Heart</string>
-    <string name="suit_club">Club</string>
-    <string name="suit_diamond">Diamond</string>
 
     <string name="body_waterfall">Everyone starts drinking until the person who drew the card has stopped.</string>
     <string name="body_you">Choose a mate\nAnd drink together!</string>
@@ -74,7 +70,8 @@
     <string name="taunt_nine">Alright Buddy?</string>
     <string name="taunt_ten">Come On</string>
     <string name="fragment_support_rate_title_more_from_me">More stuff from me</string>
-    <string name="fragment_support_rate_title_squark" translatable="false">Squark</string>
-    <string name="fragment_support_rate_description_squark">Zero Cluttered Currency Converter</string>
-
+    <string name="fragment_menu_language_title_choose_language">Choose Language</string>
+    <string name="fragment_menu_language_btn_help_translate">Help Translate</string>
+    <string name="preference_title_language">Language</string>
+    <string name="preference_title_source_code">Source Code</string>
 </resources>

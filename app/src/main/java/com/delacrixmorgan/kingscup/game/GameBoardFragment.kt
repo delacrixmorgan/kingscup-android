@@ -6,14 +6,21 @@ import android.view.*
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.transaction
+import androidx.navigation.Navigation
+import androidx.transition.Slide
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
-import com.delacrixmorgan.kingscup.model.Card
-import com.delacrixmorgan.kingscup.model.LoadType
+import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.common.setupProgressBar
+import com.delacrixmorgan.kingscup.model.GameType
+import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.dialog_pause.*
 import kotlinx.android.synthetic.main.fragment_game_board.*
@@ -27,16 +34,24 @@ import kotlinx.android.synthetic.main.fragment_game_board.*
  */
 
 class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
-    companion object {
-        fun newInstance() = GameBoardFragment()
-    }
 
     private lateinit var statusTextAnimation: AlphaAnimation
     private lateinit var cardAdapter: GameCardAdapter
     private lateinit var menuDialog: Dialog
 
     private var isCardSelected: Boolean = false
+    private var isConfettiLaunched = false
     private var statusText = ""
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                this@GameBoardFragment.menuDialog.show()
+            }
+        })
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_game_board, container, false)
@@ -45,27 +60,14 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupLayouts()
-        setupListeners()
-
-        this.statusTextView.startAnimation(this.statusTextAnimation)
-    }
-
-    private fun setupLayouts() {
         val deckAnimation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_slide_right)
-        val cellHeight = (resources.displayMetrics.heightPixels / 2.5).toInt()
-        val cellWidth = (cellHeight * (10.0 / 16.0)).toInt()
 
         this.volumeImageView.setImageResource(R.drawable.ic_cup_whole)
         this.statusText = getString(R.string.board_title_lets_begin)
         this.statusTextAnimation = AlphaAnimation(1.0f, 0.0f)
         this.isCardSelected = false
-        this.cardAdapter = GameCardAdapter(
-                cellHeight = cellHeight,
-                cellWidth = cellWidth,
-                deckSize = GameEngine.getInstance().getDeckSize(),
-                listener = this
-        )
+        this.cardAdapter = GameCardAdapter(resources = this.resources, listener = this)
+        this.cardAdapter.updateDataSet(GameEngine.getInstance().getCards())
 
         with(this.recyclerView) {
             removeAllViews()
@@ -81,62 +83,73 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         }
 
         setupMenuDialog()
-        setupProgressBar(this.recyclerView.layoutManager as LinearLayoutManager, recyclerView, progressBar)
-    }
+        setupProgressBar(this.recyclerView.layoutManager, recyclerView, progressBar)
 
-    private fun setupListeners() {
         this.restartButton.setOnClickListener { startNewGame() }
         this.menuButton.setOnClickListener { this.menuDialog.show() }
 
+        this.statusTextView.startAnimation(this.statusTextAnimation)
         this.statusTextAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(animation: Animation?) = Unit
             override fun onAnimationStart(animation: Animation?) = Unit
             override fun onAnimationRepeat(animation: Animation?) {
-                this@GameBoardFragment.statusTextView.text = this@GameBoardFragment.statusText
+                statusTextView.text = statusText
             }
         })
     }
 
-    override fun onCardSelected(view: View, position: Int) {
-        val context = this.context ?: return
+    override fun onCardSelected(position: Int) {
+        val context = requireContext()
 
         if (!this.isCardSelected) {
-            val card: Card? = GameEngine.getInstance().getCardByPosition(position)
+            val card = GameEngine.getInstance().getCardByPosition(position)
             if (card != null) {
                 this.isCardSelected = true
 
                 val fragment = GameCardFragment.newInstance(card, position, this)
-                context.showFragmentSliding(fragment, Gravity.BOTTOM)
+                fragment.enterTransition = Slide(Gravity.BOTTOM).setDuration(200)
 
-                GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.SHORT)
+                this.childFragmentManager.transaction {
+                    add(this@GameBoardFragment.rootView.id, fragment, fragment::class.java.simpleName)
+                    addToBackStack(fragment::class.java.simpleName)
+                }
+
+                GameEngine.getInstance().vibrateFeedback(context, this.rootView, VibrateType.SHORT)
                 SoundEngine.getInstance().playSound(context, SoundType.FLIP)
             } else {
-                this.activity?.supportFragmentManager?.popBackStack()
+                Navigation.findNavController(this.rootView).navigateUp()
                 SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
             }
         }
     }
 
-    override fun onCardDismissed(view: View, position: Int) {
+    override fun onCardDismissed(position: Int) {
         GameEngine.getInstance().removeCard(position)
-        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(this.context!!)
+        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(requireContext())
 
         this.isCardSelected = false
-        this.cardAdapter.notifyItemRemoved(position)
+        this.cardAdapter.removeCard(position)
         this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT) ?: getString(R.string.board_title_lets_begin)
 
-        this.progressBar.max--
+        this.progressBar.max = this.cardAdapter.itemCount - 1
         this.statusTextView.startAnimation(this.statusTextAnimation)
 
         args?.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)?.let { volumeImageView.setImageResource(it) }
 
         when (args?.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
-            3 -> this.kingFourImageView.visibility = View.GONE
-            2 -> this.kingThreeImageView.visibility = View.GONE
-            1 -> this.kingTwoImageView.visibility = View.GONE
+            3 -> this.kingFourImageView.isVisible = false
+            2 -> this.kingThreeImageView.isVisible = false
+            1 -> this.kingTwoImageView.isVisible = false
             0 -> {
-                this.kingOneImageView.visibility = View.GONE
+                this.kingOneImageView.isVisible = false
                 this.restartButton.show()
+
+                if (!this.isConfettiLaunched) {
+                    this.isConfettiLaunched = true
+                    this.confettiAnimationView.isVisible = true
+                    this.confettiAnimationView.playAnimation()
+                    SoundEngine.getInstance().playSound(requireContext(), SoundType.GAME_OVER)
+                }
             }
         }
     }
@@ -166,14 +179,13 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     }
 
     override fun onClick(view: View) {
-        val context = this.context ?: return
+        val context = view.context
 
         when (view.id) {
             R.id.startNewGameButton -> {
                 menuDialog.dismiss()
-
-                this.startNewGame()
                 SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                startNewGame()
             }
 
             R.id.vibrateButton -> {
@@ -193,16 +205,15 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
 
             R.id.quitButton -> {
                 this.menuDialog.dismiss()
-                this.activity?.supportFragmentManager?.popBackStack()
-
                 SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                Navigation.findNavController(this.rootView).navigateUp()
             }
         }
     }
 
     private fun startNewGame() {
-        this.activity?.supportFragmentManager?.popBackStack()
-        this.context?.showFragmentSliding(GameLoadFragment.newInstance(LoadType.RESTART_GAME), Gravity.BOTTOM)
+        val action = GameBoardFragmentDirections.actionGameBoardFragmentToGameLoadFragment(GameType.RESTART_GAME)
+        Navigation.findNavController(this.rootView).navigate(action)
     }
 
     private fun updateVibratePreference() {

@@ -2,6 +2,7 @@
 <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -141,8 +142,8 @@
             android:orientation="horizontal"
             android:paddingStart="6dp"
             android:paddingEnd="12dp"
-            app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/view_game_card" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/cell_card_game" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -156,4 +157,11 @@
             android:progress="15"
             android:progressDrawable="@drawable/progressbar_game_board" />
     </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/confettiAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/confetti" />
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

@@ -20,10 +20,6 @@
     <string name="rate_button_awesome">你最棒了</string>
     <string name="load_type_new_game">抓紧你的酒瓶</string>
     <string name="load_type_restart_game">建立新的游戏</string>
-    <string name="suit_spade">黑桃</string>
-    <string name="suit_heart">红心</string>
-    <string name="suit_club">梅花</string>
-    <string name="suit_diamond">方块</string>
     <string name="body_waterfall">抽牌的人先开始喝， 大家跟着喝直到他停止。</string>
     <string name="body_you">和一个伴，一起干杯。</string>
     <string name="body_me">自己单独喝吧！</string>
@@ -64,5 +60,8 @@
     <string name="taunt_nine">还行吗你?</string>
     <string name="taunt_ten">等什么你？</string>
     <string name="fragment_support_rate_title_more_from_me">更多来自我的产品</string>
-    <string name="fragment_support_rate_description_squark">极简货币转换器</string>
+    <string name="fragment_menu_language_btn_help_translate">帮助翻译</string>
+    <string name="fragment_menu_language_title_choose_language">选择语言</string>
+    <string name="preference_title_language">语言</string>
+    <string name="preference_title_source_code">源代码</string>
 </resources>

@@ -14,10 +14,12 @@ import android.preference.PreferenceManager
 
 object PreferenceHelper {
 
+    const val ONBOARDING = "Preference.OnBoarding"
     const val LANGUAGE = "Preference.Language"
     const val VIBRATE = "Preference.Vibrate"
     const val SOUND = "Preference.Sound"
 
+    const val ONBOARDING_DEFAULT = false
     const val LANGUAGE_DEFAULT = "en"
     const val VIBRATE_DEFAULT = true
     const val SOUND_DEFAULT = true
@@ -32,11 +34,11 @@ object PreferenceHelper {
 
     operator fun SharedPreferences.set(key: String, value: Any?) {
         when (value) {
-            is String? -> edit({ it.putString(key, value) })
-            is Int -> edit({ it.putInt(key, value) })
-            is Boolean -> edit({ it.putBoolean(key, value) })
-            is Float -> edit({ it.putFloat(key, value) })
-            is Long -> edit({ it.putLong(key, value) })
+            is String? -> edit { it.putString(key, value) }
+            is Int -> edit { it.putInt(key, value) }
+            is Boolean -> edit { it.putBoolean(key, value) }
+            is Float -> edit { it.putFloat(key, value) }
+            is Long -> edit { it.putLong(key, value) }
             else -> throw UnsupportedOperationException("Not yet implemented")
         }
     }

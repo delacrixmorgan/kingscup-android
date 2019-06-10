@@ -3,18 +3,20 @@ package com.delacrixmorgan.kingscup.game
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.bind
 import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.GameEngine.Companion.GAME_CARD_KING
 import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.delacrixmorgan.kingscup.common.SoundType
 import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.SuitType
 import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.fragment_game_card.*
@@ -27,43 +29,42 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
  * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
-class GameCardFragment : Fragment(), View.OnTouchListener {
+class GameCardFragment : Fragment() {
 
     companion object {
         private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
-        private const val GAME_CARD_KING = "K"
 
-        fun newInstance(card: Card? = null, position: Int = 0, cardListener: CardListener): GameCardFragment {
-            val fragment = GameCardFragment()
-            val args = Bundle()
-
-            args.putParcelable(GAME_CARD_FRAGMENT_CARD, card)
-            args.putInt(GAME_CARD_FRAGMENT_POSITION, position)
-
-            fragment.cardListener = cardListener
-            fragment.arguments = args
-            return fragment
+        fun newInstance(card: Card, position: Int = 0, cardListener: CardListener): GameCardFragment {
+            return GameCardFragment().apply {
+                this.arguments = bundleOf(
+                    GAME_CARD_FRAGMENT_CARD to card,
+                    GAME_CARD_FRAGMENT_POSITION to position
+                )
+                this.cardListener = cardListener
+            }
         }
     }
 
-    var cardListener: CardListener? = null
-
     private lateinit var card: Card
-    private var dataBinding: FragmentGameCardBinding? = null
+
     private var position: Int = 0
+    private var cardListener: CardListener? = null
+    private var dataBinding: FragmentGameCardBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         this.arguments?.let {
-            this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD)
+            this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD) ?: throw Exception("Card Missing")
             this.position = it.getInt(GAME_CARD_FRAGMENT_POSITION)
         }
 
-        if (this.card == null) {
-            this.activity?.finish()
-        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                backToBoardFragment()
+            }
+        })
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -77,57 +78,41 @@ class GameCardFragment : Fragment(), View.OnTouchListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val context = this.context ?: return
+        val context = view.context
 
-        this.doneButton.setOnTouchListener(this)
+        when (this.card.suitType) {
+            SuitType.SPADE -> R.drawable.ic_card_spade
+            SuitType.HEART -> R.drawable.ic_card_heart
+            SuitType.CLUB -> R.drawable.ic_card_club
+            SuitType.DIAMOND -> R.drawable.ic_card_diamond
+        }.apply {
+            lightCenterImageView.setImageResource(this)
+            lightLeftImageView.setImageResource(this)
+            darkRightImageView.setImageResource(this)
+        }
 
-        setupView()
-        animateButtonGrow(context, doneButton)
+        this.doneButton.animateButtonGrow()
+        this.doneButton.setOnClickListener {
+            backToBoardFragment()
+        }
 
         when {
             GameEngine.getInstance().checkWin(card) -> {
                 doneButton.hide()
-
                 GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.LONG)
-                SoundEngine.getInstance().playSound(context, SoundType.GAME_OVER)
+                SoundEngine.getInstance().playSound(context, SoundType.OOOH)
 
                 Handler().postDelayed({
                     backToBoardFragment()
                 }, 2000)
             }
-            card.rank == GAME_CARD_KING -> SoundEngine.getInstance().playSound(context, SoundType.OOOH)
+            this.card.rank == GAME_CARD_KING -> SoundEngine.getInstance().playSound(context, SoundType.OOOH)
         }
-    }
-
-    private fun setupView() {
-        val suitList = SuitType.values()
-        var suitDrawable: Int = R.drawable.ic_card_spade
-
-        this.context?.let {
-            when (card.suit) {
-                suitList[0].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_spade
-                suitList[1].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_heart
-                suitList[2].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_club
-                suitList[3].getLocalisedText(it) -> suitDrawable = R.drawable.ic_card_diamond
-            }
-        }
-
-        this.lightCenterImageView.setImageResource(suitDrawable)
-        this.lightLeftImageView.setImageResource(suitDrawable)
-        this.darkRightImageView.setImageResource(suitDrawable)
     }
 
     private fun backToBoardFragment() {
-        this.cardListener?.onCardDismissed(this.mainContainer, this.position)
+        SoundEngine.getInstance().playSound(requireContext(), SoundType.WHOOSH)
+        this.cardListener?.onCardDismissed(this.position)
         this.activity?.supportFragmentManager?.popBackStack()
-
-        SoundEngine.getInstance().playSound(this.context!!, SoundType.WHOOSH)
-    }
-
-    override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
-        when (motionEvent.action) {
-            MotionEvent.ACTION_DOWN -> this.backToBoardFragment()
-        }
-        return true
     }
 }

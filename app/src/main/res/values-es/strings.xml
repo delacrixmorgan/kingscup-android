@@ -20,10 +20,6 @@
     <string name="rate_button_awesome">Sé impresionante</string>
     <string name="load_type_new_game">Sostén mi cerveza</string>
     <string name="load_type_restart_game">Configurando una nueva ronda</string>
-    <string name="suit_spade">Espada</string>
-    <string name="suit_heart">Corazón</string>
-    <string name="suit_club">Trébol</string>
-    <string name="suit_diamond">Diamante</string>
     <string name="body_waterfall">Elije un número del 2 al 9 (excepto el 7), cámbiale de nombre, y tanto él como sus múltiplos se llaman igual!, el que falle ¡bebe!</string>
     <string name="body_you">Elige un compañero y beban juntos!</string>
     <string name="body_me">Sí! Tú bebes!</string>
@@ -64,5 +60,8 @@
     <string name="taunt_nine">¿Todo bien amigo?</string>
     <string name="taunt_ten">¡Vamos!</string>
     <string name="fragment_support_rate_title_more_from_me">Mas cosas de mi</string>
-    <string name="fragment_support_rate_description_squark">Cero convertidor de divisas desordenado</string>
+    <string name="fragment_menu_language_btn_help_translate">Ayuda para traducir</string>
+    <string name="fragment_menu_language_title_choose_language">Elige lengua</string>
+    <string name="preference_title_language">Lengua</string>
+    <string name="preference_title_source_code">Código fuente</string>
 </resources>
