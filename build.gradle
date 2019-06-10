@@ -13,6 +13,7 @@ buildscript {
         androidx_ktx_core_version = '1.0.2'
         androidx_ktx_fragment_version = '1.0.0'
 
+        androidx_multidex_version = '2.0.1'
         androidx_navigation_version = '1.0.0'
         androidx_recyclerview_version = '1.0.0'
         androidx_appcompat_version = '1.1.0-alpha05'
