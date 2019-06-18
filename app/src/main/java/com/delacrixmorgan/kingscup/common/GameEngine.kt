@@ -30,28 +30,29 @@ class GameEngine private constructor(context: Context) {
         const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
 
         @Volatile
-        private lateinit var GameEngineInstance: GameEngine
+        private var INSTANCE: GameEngine? = null
 
-        fun newInstance(context: Context): GameEngine {
-            this.GameEngineInstance = GameEngine(context)
-            return this.GameEngineInstance
+        fun getInstance(context: Context): GameEngine {
+            return INSTANCE ?: synchronized(this) {
+                GameEngine(context).also {
+                    INSTANCE = it
+                }
+            }
         }
-
-        fun getInstance(): GameEngine = this.GameEngineInstance
     }
 
-    private val guideList = ArrayList<String>()
     private val tauntList = ArrayList<String>()
     private val deckList = ArrayList<Card>()
     private var kingCounter: Int = 4
-    private var vibrator: Vibrator
+    private var vibrator: Vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
     init {
-        this.kingCounter = 4
-        this.vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        setupGame(context)
+    }
 
+    fun setupGame(context: Context) {
+        this.kingCounter = 4
         this.deckList.clear()
-        this.guideList.clear()
 
         buildGameEngine(context)
     }
@@ -63,10 +64,6 @@ class GameEngine private constructor(context: Context) {
                     Card(suit, actionTypes[it].getRankText(), actionTypes[it].getLocalisedHeaderText(context), actionTypes[it].getLocalisedBodyText(context))
                 }
             }
-        }
-
-        GuideType.values().forEach { guide ->
-            this.guideList.add(guide.getLocalisedText(context))
         }
 
         TauntType.values().forEach { taunt ->

@@ -30,6 +30,10 @@ class MenuRateFragment : Fragment() {
         const val MAMIKA_PACKAGE_NAME = "com.delacrixmorgan.mamika"
     }
 
+    private val soundEngine by lazy {
+        SoundEngine.getInstance(requireContext())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_menu_rate, container, false)
     }
@@ -80,6 +84,6 @@ class MenuRateFragment : Fragment() {
         intent.flags = FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
 
-        SoundEngine.getInstance().playSound(requireContext(), SoundType.OOOH)
+        this.soundEngine.playSound(requireContext(), SoundType.OOOH)
     }
 }

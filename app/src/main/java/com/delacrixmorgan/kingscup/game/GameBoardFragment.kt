@@ -43,6 +43,14 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
     private var isConfettiLaunched = false
     private var statusText = ""
 
+    private val gameEngine by lazy {
+        GameEngine.getInstance(requireContext())
+    }
+
+    private val soundEngine by lazy {
+        SoundEngine.getInstance(requireContext())
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -67,7 +75,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         this.statusTextAnimation = AlphaAnimation(1.0f, 0.0f)
         this.isCardSelected = false
         this.cardAdapter = GameCardAdapter(resources = this.resources, listener = this)
-        this.cardAdapter.updateDataSet(GameEngine.getInstance().getCards())
+        this.cardAdapter.updateDataSet(this.gameEngine.getCards())
 
         with(this.recyclerView) {
             removeAllViews()
@@ -102,7 +110,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         val context = requireContext()
 
         if (!this.isCardSelected) {
-            val card = GameEngine.getInstance().getCardByPosition(position)
+            val card = this.gameEngine.getCardByPosition(position)
             if (card != null) {
                 this.isCardSelected = true
 
@@ -114,22 +122,23 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                     addToBackStack(fragment::class.java.simpleName)
                 }
 
-                GameEngine.getInstance().vibrateFeedback(context, this.rootView, VibrateType.SHORT)
-                SoundEngine.getInstance().playSound(context, SoundType.FLIP)
+                this.gameEngine.vibrateFeedback(context, this.rootView, VibrateType.SHORT)
+                this.soundEngine.playSound(context, SoundType.FLIP)
             } else {
                 Navigation.findNavController(this.rootView).navigateUp()
-                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                this.soundEngine.playSound(context, SoundType.WHOOSH)
             }
         }
     }
 
     override fun onCardDismissed(position: Int) {
-        GameEngine.getInstance().removeCard(position)
-        val args: Bundle? = GameEngine.getInstance().updateGraphicStatus(requireContext())
+        this.gameEngine.removeCard(position)
+        val args: Bundle? = this.gameEngine.updateGraphicStatus(requireContext())
 
         this.isCardSelected = false
         this.cardAdapter.removeCard(position)
-        this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT) ?: getString(R.string.board_title_lets_begin)
+        this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT)
+                ?: getString(R.string.board_title_lets_begin)
 
         this.progressBar.max = this.cardAdapter.itemCount - 1
         this.statusTextView.startAnimation(this.statusTextAnimation)
@@ -148,7 +157,7 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
                     this.isConfettiLaunched = true
                     this.confettiAnimationView.isVisible = true
                     this.confettiAnimationView.playAnimation()
-                    SoundEngine.getInstance().playSound(requireContext(), SoundType.GAME_OVER)
+                    this.soundEngine.playSound(requireContext(), SoundType.GAME_OVER)
                 }
             }
         }
@@ -184,28 +193,28 @@ class GameBoardFragment : Fragment(), View.OnClickListener, CardListener {
         when (view.id) {
             R.id.startNewGameButton -> {
                 menuDialog.dismiss()
-                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                this.soundEngine.playSound(context, SoundType.WHOOSH)
                 startNewGame()
             }
 
             R.id.vibrateButton -> {
                 this.updateVibratePreference()
-                GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.SHORT)
+                this.gameEngine.vibrateFeedback(context, view, VibrateType.SHORT)
             }
 
             R.id.volumeButton -> {
                 this.updateSoundPreference()
-                SoundEngine.getInstance().playSound(context, SoundType.CLICK)
+                this.soundEngine.playSound(context, SoundType.CLICK)
             }
 
             R.id.resumeButton -> {
                 this.menuDialog.dismiss()
-                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                this.soundEngine.playSound(context, SoundType.WHOOSH)
             }
 
             R.id.quitButton -> {
                 this.menuDialog.dismiss()
-                SoundEngine.getInstance().playSound(context, SoundType.WHOOSH)
+                this.soundEngine.playSound(context, SoundType.WHOOSH)
                 Navigation.findNavController(this.rootView).navigateUp()
             }
         }

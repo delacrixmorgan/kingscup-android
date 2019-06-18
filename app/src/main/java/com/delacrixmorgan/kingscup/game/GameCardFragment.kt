@@ -52,6 +52,14 @@ class GameCardFragment : Fragment() {
     private var cardListener: CardListener? = null
     private var dataBinding: FragmentGameCardBinding? = null
 
+    private val gameEngine by lazy {
+        GameEngine.getInstance(requireContext())
+    }
+
+    private val soundEngine by lazy {
+        SoundEngine.getInstance(requireContext())
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -97,21 +105,21 @@ class GameCardFragment : Fragment() {
         }
 
         when {
-            GameEngine.getInstance().checkWin(card) -> {
+            this.gameEngine.checkWin(card) -> {
                 doneButton.hide()
-                GameEngine.getInstance().vibrateFeedback(context, view, VibrateType.LONG)
-                SoundEngine.getInstance().playSound(context, SoundType.OOOH)
+                this.gameEngine.vibrateFeedback(context, view, VibrateType.LONG)
+                soundEngine.playSound(context, SoundType.OOOH)
 
                 Handler().postDelayed({
                     backToBoardFragment()
                 }, 2000)
             }
-            this.card.rank == GAME_CARD_KING -> SoundEngine.getInstance().playSound(context, SoundType.OOOH)
+            this.card.rank == GAME_CARD_KING -> this.soundEngine.playSound(context, SoundType.OOOH)
         }
     }
 
     private fun backToBoardFragment() {
-        SoundEngine.getInstance().playSound(requireContext(), SoundType.WHOOSH)
+        this.soundEngine.playSound(requireContext(), SoundType.WHOOSH)
         this.cardListener?.onCardDismissed(this.position)
         this.activity?.supportFragmentManager?.popBackStack()
     }

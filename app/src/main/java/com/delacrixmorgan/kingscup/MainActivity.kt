@@ -3,6 +3,8 @@ package com.delacrixmorgan.kingscup
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.google.firebase.analytics.FirebaseAnalytics
 
 /**
@@ -16,7 +18,11 @@ import com.google.firebase.analytics.FirebaseAnalytics
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
         FirebaseAnalytics.getInstance(this)
+        GameEngine.getInstance(this)
+        SoundEngine.getInstance(this)
+
         setContentView(R.layout.activity_main)
     }
 

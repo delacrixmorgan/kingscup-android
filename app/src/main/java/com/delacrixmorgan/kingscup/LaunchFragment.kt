@@ -33,7 +33,6 @@ class LaunchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        SoundEngine.newInstance(view.context)
         requireActivity().volumeControlStream = AudioManager.STREAM_MUSIC
 
         if (this.preference[PreferenceHelper.ONBOARDING, PreferenceHelper.ONBOARDING_DEFAULT]) {

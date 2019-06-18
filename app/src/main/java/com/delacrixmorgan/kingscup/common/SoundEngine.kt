@@ -21,20 +21,20 @@ class SoundEngine private constructor(context: Context) {
 
     companion object {
         @Volatile
-        private lateinit var SoundEngineInstance: SoundEngine
+        private var INSTANCE: SoundEngine? = null
 
-        fun newInstance(context: Context): SoundEngine {
-            SoundEngineInstance = SoundEngine(context)
-            return SoundEngineInstance
+        fun getInstance(context: Context): SoundEngine {
+            return INSTANCE ?: synchronized(this) {
+                SoundEngine(context).also {
+                    INSTANCE = it
+                }
+            }
         }
-
-        fun getInstance(): SoundEngine = SoundEngineInstance
     }
 
+    private var isLoaded = false
     private lateinit var soundPool: SoundPool
     private lateinit var audioManager: AudioManager
-
-    private var isLoaded = false
 
     init {
         buildSoundEngine(context)
