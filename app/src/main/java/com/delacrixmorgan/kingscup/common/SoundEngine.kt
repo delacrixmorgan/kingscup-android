@@ -1,6 +1,5 @@
 package com.delacrixmorgan.kingscup.common
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.media.AudioAttributes
 import android.media.AudioManager
@@ -33,16 +32,10 @@ class SoundEngine private constructor(context: Context) {
     }
 
     private var isLoaded = false
-    private lateinit var soundPool: SoundPool
-    private lateinit var audioManager: AudioManager
+    private val soundPool: SoundPool
+    private val audioManager: AudioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
     init {
-        buildSoundEngine(context)
-    }
-
-    @SuppressLint("NewApi")
-    private fun buildSoundEngine(context: Context) {
-        this.audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         this.soundPool = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val audioAttributes = AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_GAME)
