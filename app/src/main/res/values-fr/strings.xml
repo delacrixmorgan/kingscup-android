@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Coupe du Roi</string>
+    <string name="board_title_lets_begin">Commençons</string>
+    <string name="body_category">Choisis une catégorie. Dis quelque chose qui va avec jusqu\'à ce que quelq'un ne puisse plus penser à rien. Celui qui arrêté boit!
+    </string>
+    <string name="body_chicks">Tous les filles, buvez!</string>
+    <string name="body_dudes">Tous les mecs, buvez!</string>
+    <string name="body_heaven">Tout le monde met les mains en l\'air. Le dernier joueur boit!</string>
+    <string name="body_jack">Complétez la phrase, Je n\'ai jamais.. Ceux qui l'ont fait, buvez!</string>
+    <string name="body_king">Créer une nouvelle règle. Remplissez la coupe du roi!</string>
+    <string name="body_mate">Choisis un partenaire et bois à chaque fois que ce joueur boit!</string>
+    <string name="body_me">Bois, Seulement toi!</string>
+    <string name="body_questions">Poses une question à un joueur. Il doit répondre avec une autre question à la personne
+        suivante. Premier à échouer, boit!
+    </string>
+    <string name="body_snake_eyes">Personne ne peut te regarder dans les yeux. Si tu les attrapes, ils doivent boire!
+    </string>
+    <string name="body_thumb_master">Mettez vos pouces sur la table. Dernier à le faire, boit!</string>
+    <string name="body_waterfall">Tout le monde commence à boire jusqu\'à ce que la personne qui a tiré la carte se soit
+        arrêtée.
+    </string>
+    <string name="body_you">Choisis un ami et buvez ensemble!</string>
+    <string name="dialog_pause_button_quit">Quitter</string>
+    <string name="dialog_pause_button_resume">Résumer</string>
+    <string name="dialog_pause_title">Pause Pipi</string>
+    <string name="fragment_menu_language_btn_help_translate">Aider à Traduire</string>
+    <string name="fragment_menu_language_title_choose_language">Choisissez Langue</string>
+    <string name="fragment_support_rate_title_more_from_me">Autres applications de moi</string>
+    <string name="game_over_body">Cul sec!</string>
+    <string name="guide_page_one">Oui, c\'est un jeu à boire, pas nécessairement alcoolique. Chacun doit avoir son
+        propre gobelet, et un gobelet au centre pour être la Coupe du Roi.
+    </string>
+    <string name="guide_page_three">Tirer un roi du paquet, vous pouvez choisir n\'importe quel boissons à verser dans
+        la Coupe du Roi. La personne avec le dernier roi devra boire la coupe cul sec! A votre santé!
+    </string>
+    <string name="guide_page_two">Choisissez une personne pour commencer le jeu, sélectionner une carte et faites ce
+        qu\'elle dit. Il n'y a aucune d'issue! Passez à la personne suivante lorsque vous avez terminé.
+    </string>
+    <string name="header_category">Catégorie</string>
+    <string name="header_chicks">Gonzesses</string>
+    <string name="header_dudes">Gars</string>
+    <string name="header_heaven">Paradis</string>
+    <string name="header_jack">Valet</string>
+    <string name="header_king">Roi</string>
+    <string name="header_mate">L\'Ami</string>
+    <string name="header_me">Moi</string>
+    <string name="header_questions">Questions</string>
+    <string name="header_snake_eyes">Yeux de vipère</string>
+    <string name="header_thumb_master">Maître du Pouce</string>
+    <string name="header_waterfall">Cascade</string>
+    <string name="header_you">Toi</string>
+    <string name="load_type_new_game">Tiens ma Bière</string>
+    <string name="load_type_restart_game">Création d\'une nouvelle partie</string>
+    <string name="preference_button_done">Fini</string>
+    <string name="preference_current_language">Français</string>
+    <string name="preference_message_share_friend">J\'ai trouvé le jeu à boire parfait. Coupe du Roi. Pas de boissons
+        incluses! https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup
+    </string>
+    <string name="preference_title">Paramètres</string>
+    <string name="preference_title_credits_summary">Remerciement</string>
+    <string name="preference_title_language">La langue</string>
+    <string name="preference_title_quick_guide">Manuel</string>
+    <string name="preference_title_share_friend">Partages avec tes amis ivrognes</string>
+    <string name="preference_title_source_code">Code source</string>
+    <string name="rate_button_awesome">T\'es génial</string>
+    <string name="rate_paragraph_1">Désolé, je ne voulais pas vous sortir du jeu</string>
+    <string name="rate_paragraph_2">Coupe du Roi est conçu, codé et créé par une seule personne, faisant de chaque revue
+        un gros coup de pousse pour moi.
+    </string>
+    <string name="rate_paragraph_3">Le bien-être de ce jeu repose entièrement sur vos revues. Amuse toi bien!</string>
+    <string name="rate_title">Salut</string>
+    <string name="taunt_eight">T\'es sûre?</string>
+    <string name="taunt_five">Arrête de penser</string>
+    <string name="taunt_four">Ça y est</string>
+    <string name="taunt_nine">Ça va mon pote?</string>
+    <string name="taunt_one">Serieusement</string>
+    <string name="taunt_seven">Plus vite mon gars</string>
+    <string name="taunt_six">Bois</string>
+    <string name="taunt_ten">Vas-y</string>
+    <string name="taunt_three">Encore une!</string>
+    <string name="taunt_two">Encore?</string>
+</resources>
