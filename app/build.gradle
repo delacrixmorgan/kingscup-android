@@ -28,16 +28,14 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             manifestPlaceholders = [appLabel: "@string/app_name"]
         }
         debug {
-            manifestPlaceholders = [appLabel: "@string/app_name_debug"]
             splits.abi.enable = false
             splits.density.enable = false
             ext.alwaysUpdateBuildId = false
+            manifestPlaceholders = [appLabel: "@string/app_name_debug"]
         }
     }
 }

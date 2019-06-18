@@ -63,11 +63,12 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         this.languageTextView.text = getString(R.string.preference_current_language)
 
         this.translateButton.setOnClickListener {
-            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
+            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup 🍺 - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
             startActivity(Intent.createChooser(intent, getString(R.string.fragment_menu_language_btn_help_translate)))
         }
 
         this.saveButton.setOnClickListener {
+            this.soundEngine.playSound(it.context, SoundType.KING)
             Navigation.findNavController(view).navigateUp()
         }
     }
