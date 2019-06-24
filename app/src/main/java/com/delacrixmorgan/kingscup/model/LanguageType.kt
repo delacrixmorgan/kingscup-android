@@ -16,5 +16,6 @@ enum class LanguageType(val countryIso: String, val authorNames: String) {
     SPANISH("es", "Santos Martinez\nGonzo Fernandez"),
     FINNISH("fi", "Karim Moubarik"),
     FRENCH("fr", "David Chitchong Thingee"),
-    GERMAN("de", "Roland Stuhler")
+    GERMAN("de", "Roland Stuhler"),
+    CZECH("cs", "Michal Matlach")
 }
