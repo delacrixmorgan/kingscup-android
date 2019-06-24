@@ -54,9 +54,7 @@
     <string name="load_type_restart_game">Création d\'une nouvelle partie</string>
     <string name="preference_button_done">Fini</string>
     <string name="preference_current_language">Français</string>
-    <string name="preference_message_share_friend">J\'ai trouvé le jeu à boire parfait. Coupe du Roi. Pas de boissons
-        incluses! https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup
-    </string>
+    <string name="preference_message_share_friend">Pas de panique J\'ai joué à ça lors d\'une fête et c\'est vraiment génial \\n \\nCoupe du Roi 🍺 Pas de boissons incluses!\\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
     <string name="preference_title">Paramètres</string>
     <string name="preference_title_credits_summary">Remerciement</string>
     <string name="preference_title_language">La langue</string>
