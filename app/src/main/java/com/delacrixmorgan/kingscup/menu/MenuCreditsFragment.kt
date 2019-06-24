@@ -21,6 +21,11 @@ import kotlinx.android.synthetic.main.fragment_menu_credits.*
  */
 
 class MenuCreditsFragment : Fragment() {
+
+    private val soundEngine by lazy {
+        SoundEngine.getInstance(requireContext())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_menu_credits, container, false)
     }
@@ -35,9 +40,9 @@ class MenuCreditsFragment : Fragment() {
         this.freepikImageView.setOnClickListener { launchWebsite("https://freepik.com") }
         this.confettiImageView.setOnClickListener { launchWebsite("https://lottiefiles.com/4329-confetti") }
 
-        this.doneButton?.setOnClickListener {
+        this.doneButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
-            SoundEngine.getInstance().playSound(view.context, SoundType.WHOOSH)
+            this.soundEngine.playSound(view.context, SoundType.WHOOSH)
         }
     }
 }

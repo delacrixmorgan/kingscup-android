@@ -34,6 +34,10 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
 
     private lateinit var languageAdapter: LanguageRecyclerViewAdapter
 
+    private val soundEngine by lazy {
+        SoundEngine.getInstance(requireContext())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_menu_language, container, false)
     }
@@ -59,11 +63,12 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         this.languageTextView.text = getString(R.string.preference_current_language)
 
         this.translateButton.setOnClickListener {
-            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
+            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup 🍺 - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
             startActivity(Intent.createChooser(intent, getString(R.string.fragment_menu_language_btn_help_translate)))
         }
 
         this.saveButton.setOnClickListener {
+            this.soundEngine.playSound(it.context, SoundType.KING)
             Navigation.findNavController(view).navigateUp()
         }
     }
@@ -100,7 +105,7 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     }
 
     override fun onLanguageSelected(languageType: LanguageType) {
-        SoundEngine.getInstance().playSound(requireContext(), SoundType.WHOOSH)
+        this.soundEngine.playSound(requireContext(), SoundType.WHOOSH)
         savePreferenceLanguage(languageType)
 
         this.rootView.performHapticContextClick()

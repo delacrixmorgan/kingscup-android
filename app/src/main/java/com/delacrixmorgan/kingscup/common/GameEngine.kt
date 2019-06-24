@@ -9,8 +9,6 @@ import android.view.View
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.model.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * GameEngine
@@ -30,33 +28,29 @@ class GameEngine private constructor(context: Context) {
         const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
 
         @Volatile
-        private lateinit var GameEngineInstance: GameEngine
+        private var INSTANCE: GameEngine? = null
 
-        fun newInstance(context: Context): GameEngine {
-            this.GameEngineInstance = GameEngine(context)
-            return this.GameEngineInstance
+        fun getInstance(context: Context): GameEngine {
+            return INSTANCE ?: synchronized(this) {
+                GameEngine(context).also {
+                    INSTANCE = it
+                }
+            }
         }
-
-        fun getInstance(): GameEngine = this.GameEngineInstance
     }
 
-    private val guideList = ArrayList<String>()
-    private val tauntList = ArrayList<String>()
-    private val deckList = ArrayList<Card>()
     private var kingCounter: Int = 4
-    private var vibrator: Vibrator
+    private val deckList = ArrayList<Card>()
+    private val vibrator: Vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
     init {
-        this.kingCounter = 4
-        this.vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-
-        this.deckList.clear()
-        this.guideList.clear()
-
-        buildGameEngine(context)
+        setupGame(context)
     }
 
-    private fun buildGameEngine(context: Context) {
+    fun setupGame(context: Context) {
+        this.kingCounter = 4
+        this.deckList.clear()
+
         SuitType.values().forEach { suit ->
             ActionType.values().let { actionTypes ->
                 actionTypes.indices.mapTo(this.deckList) {
@@ -64,16 +58,7 @@ class GameEngine private constructor(context: Context) {
                 }
             }
         }
-
-        GuideType.values().forEach { guide ->
-            this.guideList.add(guide.getLocalisedText(context))
-        }
-
-        TauntType.values().forEach { taunt ->
-            this.tauntList.add(taunt.getLocalisedText(context))
-        }
-
-        this.deckList.shuffle(Random(System.nanoTime()))
+        this.deckList.shuffle()
     }
 
     fun removeCard(position: Int) {
@@ -85,11 +70,9 @@ class GameEngine private constructor(context: Context) {
     }
 
     fun updateGraphicStatus(context: Context): Bundle {
-        this.tauntList.shuffle(Random(System.nanoTime()))
-
         val volume: Int
         val args = Bundle()
-        var taunt = this.tauntList.first()
+        var taunt = TauntType.values().toList().shuffled().first().getLocalisedText(context)
 
         when (this.kingCounter) {
             0 -> {

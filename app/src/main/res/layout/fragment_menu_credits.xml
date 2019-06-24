@@ -104,7 +104,6 @@
                     android:textSize="12sp" />
 
                 <ImageView
-                    android:id="@+id/chineseImageView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
@@ -129,7 +128,6 @@
                     android:textSize="12sp" />
 
                 <ImageView
-                    android:id="@+id/portugueseImageView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
@@ -154,7 +152,6 @@
                     android:textSize="12sp" />
 
                 <ImageView
-                    android:id="@+id/netherlandsImageView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
@@ -179,7 +176,6 @@
                     android:textSize="12sp" />
 
                 <ImageView
-                    android:id="@+id/spanishImageView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
@@ -210,6 +206,78 @@
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:src="@drawable/ic_credit_finland" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="David Chitchong Thingee"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="French Translation"
+                    android:textColor="@color/pink"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_credit_france" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Roland Stuhler"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="German Translation"
+                    android:textColor="@color/pink"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_credit_germany" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Michal Matlach"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Czech Translation"
+                    android:textColor="@color/pink"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_credit_czech" />
 
                 <TextView
                     android:layout_width="match_parent"

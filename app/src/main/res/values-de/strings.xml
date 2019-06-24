@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">King\'s Cup</string>
+    <string name="board_title_lets_begin">Lass uns anfangen</string>
+    <string name="body_category">Wähle eine Kategorie. Die Person der nichts mehr einfällt trinkt!</string>
+    <string name="body_chicks">Alle Frauen trinken!</string>
+    <string name="body_dudes">Alle Männer trinken!</string>
+    <string name="body_heaven">Alle nehmen ihre Hände zum Himmel und der letzte trinkt!</string>
+    <string name="body_jack">Ich hab noch nie… Jeder der das schonmal getan hat trinkt!</string>
+    <string name="body_king">Füge eine neue Regel hinzu. Füll den King\'s Cup!</string>
+    <string name="body_mate">Such dir einen Saufkompane. Jedes mal wenn er trinkt, trinkst du!</string>
+    <string name="body_me">Du trinkst alleine!</string>
+    <string name="body_questions">Stelle einem Mitspieler eine Frage. Er muss darauf einem anderen Spieler eine Frage
+        stellen. Der erste der einen Fehler macht trinkt!
+    </string>
+    <string name="body_snake_eyes">Niemand darf dir in die Augen sehen ansonsten trinkt diese Person!</string>
+    <string name="body_thumb_master">Platziere deinen Daumen auf dem Tisch. Der letzte trinkt!</string>
+    <string name="body_waterfall">"Jeder trinkt solange bis die Person vor einem sein Glas abgestellt hat! "</string>
+    <string name="body_you">Wähle eine Person die mit dir trinkt!</string>
+    <string name="dialog_pause_button_quit">Spiel verlassen</string>
+    <string name="dialog_pause_button_resume">Zurück zum Spiel</string>
+    <string name="dialog_pause_title">Pinkelpause</string>
+    <string name="fragment_menu_language_btn_help_translate">Hilf mit zu Übersetzen</string>
+    <string name="fragment_menu_language_title_choose_language">Wähle eine Sprache</string>
+    <string name="fragment_support_rate_title_more_from_me">Mehr von mir</string>
+    <string name="game_over_body">Trink ihn aus!</string>
+    <string name="guide_page_one">Ja, das ist ein Trinkspiel! (Muss nicht alkoholisch sein) Jeder braucht seinen eigenes
+        Glas und einen Behälter in der Mitte, als King\'s Cup.
+    </string>
+    <string name="guide_page_three">Jeder der einen König vom Deck zieht füllt den King\'s Cup mit einem Getränk seiner
+        Wahl, und so viel wie er will. Die Person die den letzten König zieht, muss den King\'s Cup auf Ex trinken!
+        Prost!
+    </string>
+    <string name="guide_page_two">Wählt eine Person die anfängt, nehmt eine Karte und tut was auf ihr steht. Es gibt
+        kein entkommen! Danach kommt die nächste Person dran.
+    </string>
+    <string name="header_category">Kategorie</string>
+    <string name="header_chicks">Frauen</string>
+    <string name="header_dudes">Männer</string>
+    <string name="header_heaven">Heaven</string>
+    <string name="header_jack">I never…</string>
+    <string name="header_king">King</string>
+    <string name="header_mate">Mitspieler</string>
+    <string name="header_me">"Ich "</string>
+    <string name="header_questions">Questionmaster</string>
+    <string name="header_snake_eyes">Snake Eyes</string>
+    <string name="header_thumb_master">Thumb Master</string>
+    <string name="header_waterfall">Waterfall</string>
+    <string name="header_you">Du</string>
+    <string name="load_type_new_game">Halt mein Bier</string>
+    <string name="load_type_restart_game">Neues Spiel einrichten</string>
+    <string name="preference_button_done">Fertig</string>
+    <string name="preference_current_language">Englisch</string>
+    <string name="preference_message_share_friend">Keine Panik 🤫 Ich habe das auf einer Party gespielt und es ist ziemlich toll 🔥\n\n King\'s Cup 🍺 Keine Getränke inklusive!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
+    <string name="preference_title">Einstellungen</string>
+    <string name="preference_title_credits_summary">Danksagung</string>
+    <string name="preference_title_language">Sprache</string>
+    <string name="preference_title_quick_guide">Kurzanleitung</string>
+    <string name="preference_title_share_friend">Teil es mit einem Saufkumpel!</string>
+    <string name="preference_title_source_code">Quellcode</string>
+    <string name="rate_button_awesome">Toll sein</string>
+    <string name="rate_paragraph_1">" Das soll dich nicht aus dem Spiel bringen."</string>
+    <string name="rate_paragraph_2">King\'s Cup wurde von einer einzelnen Person entworfen, codiert und kreiert. Was
+        jede Bewertung zu einem großen Anreiz für mich macht.
+    </string>
+    <string name="rate_paragraph_3">Die Qualität dieses Spiels beruht ausschließlich auf euren Bewertungen. Ich wünsche
+        euch viel Spaß!
+    </string>
+    <string name="rate_title">Hallo ;)</string>
+    <string name="taunt_eight">Sicher?</string>
+    <string name="taunt_five">Nicht nachdenken!</string>
+    <string name="taunt_four">Suff ahu!</string>
+    <string name="taunt_nine">Fertig?</string>
+    <string name="taunt_one">Jetzt aber ernst</string>
+    <string name="taunt_seven">Schneller!</string>
+    <string name="taunt_six">Trink mich</string>
+    <string name="taunt_ten">Komm schon</string>
+    <string name="taunt_three">Nur noch einer</string>
+    <string name="taunt_two">Seid ihr bereit?</string>
+</resources>

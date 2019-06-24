@@ -24,6 +24,14 @@ import kotlinx.android.synthetic.main.fragment_game_load.*
 
 class GameLoadFragment : Fragment() {
 
+    private val gameEngine by lazy {
+        GameEngine.getInstance(requireContext())
+    }
+
+    private val soundEngine by lazy {
+        SoundEngine.getInstance(requireContext())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_game_load, container, false)
     }
@@ -34,11 +42,11 @@ class GameLoadFragment : Fragment() {
         this.arguments?.let {
             val gameType = GameLoadFragmentArgs.fromBundle(it).gameType
             this.loadingTextView.text = gameType.getLocalisedText(context)
-
-            GameEngine.newInstance(context)
-            SoundEngine.getInstance().playSound(context, SoundType.KING)
         }
-        
+
+        this.gameEngine.setupGame(context)
+        this.soundEngine.playSound(context, SoundType.KING)
+
         if (BuildConfig.DEBUG == true) {
             val action = GameLoadFragmentDirections.actionGameLoadFragmentToGameBoardFragment()
             Navigation.findNavController(view).navigate(action)

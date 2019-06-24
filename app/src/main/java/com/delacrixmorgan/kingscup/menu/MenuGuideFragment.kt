@@ -33,7 +33,7 @@ class MenuGuideFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         GuideType.values().forEach {
-            this.guideList.add(it.getLocalisedText(context!!))
+            this.guideList.add(it.getLocalisedText(view.context))
         }
 
         this.viewPager.adapter = GuideAdapter()
