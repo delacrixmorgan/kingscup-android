@@ -13,14 +13,14 @@ android {
     bundle {
         language.enableSplit = false
     }
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 28
     dataBinding {
         enabled = true
     }
     defaultConfig {
         applicationId "com.delacrixmorgan.kingscup"
         minSdkVersion 19
-        targetSdkVersion rootProject.ext.compileSdkVersion
+        targetSdkVersion 28
         multiDexEnabled true
         versionCode 27
         versionName "2.5.0"
@@ -47,8 +47,8 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.google.firebase:firebase-perf:17.0.2"
-    implementation "com.google.firebase:firebase-core:16.0.9"
+    implementation "com.google.firebase:firebase-perf:18.0.0"
+    implementation "com.google.firebase:firebase-core:17.0.0"
     implementation "com.google.android.material:material:1.0.0"
 
     implementation "androidx.core:core-ktx:1.0.2"
@@ -64,8 +64,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.0.0"
     implementation "androidx.navigation:navigation-fragment-ktx:2.0.0"
 
-    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "com.airbnb.android:lottie:3.0.1"
     implementation "com.jcminarro:RoundKornerLayouts:0.2.2"
