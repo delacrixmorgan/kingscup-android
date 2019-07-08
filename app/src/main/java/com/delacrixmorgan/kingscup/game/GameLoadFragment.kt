@@ -12,6 +12,9 @@ import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.model.SoundType
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
@@ -47,18 +50,41 @@ class GameLoadFragment : Fragment() {
         this.gameEngine.setupGame(context)
         this.soundEngine.playSound(context, SoundType.KING)
 
-        if (BuildConfig.DEBUG == true) {
-            val action = GameLoadFragmentDirections.actionGameLoadFragmentToGameBoardFragment()
-            Navigation.findNavController(view).navigate(action)
-        } else {
-            Handler().postDelayed({
-                run {
-                    if (this.isVisible) {
-                        val action = GameLoadFragmentDirections.actionGameLoadFragmentToGameBoardFragment()
-                        Navigation.findNavController(view).navigate(action)
-                    }
+        val interstitialAd = InterstitialAd(view.context)
+        interstitialAd.adUnitId = getString(R.string.ad_mob_interstitial_ad_id)
+        interstitialAd.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                if (interstitialAd.isLoaded) {
+                    interstitialAd.show()
                 }
-            }, 2000)
+            }
+
+            override fun onAdFailedToLoad(errorCode: Int) {
+                launchGameFragment()
+            }
+
+            override fun onAdClicked() {
+                launchGameFragment()
+            }
+
+            override fun onAdLeftApplication() {
+                launchGameFragment()
+            }
+
+            override fun onAdClosed() {
+                launchGameFragment()
+            }
         }
+
+        if (BuildConfig.DEBUG == true) {
+            launchGameFragment()
+        } else {
+            interstitialAd.loadAd(AdRequest.Builder().build())
+        }
+    }
+
+    private fun launchGameFragment() {
+        val action = GameLoadFragmentDirections.actionGameLoadFragmentToGameBoardFragment()
+        Navigation.findNavController(this.rootView).navigate(action)
     }
 }
