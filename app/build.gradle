@@ -29,13 +29,13 @@ android {
     buildTypes {
         release {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            manifestPlaceholders = [appLabel: "@string/app_name"]
+            manifestPlaceholders = [appLabel: "@string/app_name", adMobId: "@string/ad_mob_app_id"]
         }
         debug {
             splits.abi.enable = false
             splits.density.enable = false
             ext.alwaysUpdateBuildId = false
-            manifestPlaceholders = [appLabel: "@string/app_name_debug"]
+            manifestPlaceholders = [appLabel: "@string/app_name_debug", adMobId: "@string/ad_mob_app_id"]
         }
     }
 }
@@ -47,16 +47,20 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.google.firebase:firebase-perf:18.0.0"
+    implementation "com.google.firebase:firebase-perf:18.0.1"
     implementation "com.google.firebase:firebase-core:17.0.0"
     implementation "com.google.android.material:material:1.0.0"
+
+    implementation 'com.google.android.gms:play-services-ads:18.0.0'
+    implementation 'com.google.android.gms:play-services-measurement:17.0.0'
+    implementation 'com.google.android.gms:play-services-measurement-sdk:17.0.0'
 
     implementation "androidx.core:core-ktx:1.0.2"
     implementation "androidx.fragment:fragment-ktx:1.0.0"
 
     implementation "androidx.multidex:multidex:2.0.1"
     implementation "androidx.recyclerview:recyclerview:1.0.0"
-    implementation "androidx.appcompat:appcompat:1.1.0-beta01"
+    implementation "androidx.appcompat:appcompat:1.1.0-rc01"
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.0.0"
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
     implementation "androidx.constraintlayout:constraintlayout:1.1.3"
