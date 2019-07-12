@@ -3,6 +3,7 @@ package com.delacrixmorgan.kingscup
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.delacrixmorgan.kingscup.common.AdController
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.google.android.gms.ads.MobileAds
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         GameEngine.getInstance(this)
         SoundEngine.getInstance(this)
+        AdController.getInstance(this)
 
         setContentView(R.layout.activity_main)
     }
