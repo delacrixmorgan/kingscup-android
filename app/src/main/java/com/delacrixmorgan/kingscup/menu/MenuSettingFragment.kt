@@ -1,5 +1,7 @@
 package com.delacrixmorgan.kingscup.menu
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +23,10 @@ import kotlinx.android.synthetic.main.fragment_menu_setting.*
  */
 
 class MenuSettingFragment : Fragment() {
+
+    companion object {
+        private const val TRANSLATION_CONTACT_EMAIL = "delacrixmorgan@gmail.com"
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_menu_setting, container, false)
@@ -54,9 +60,30 @@ class MenuSettingFragment : Fragment() {
             launchWebsite("https://github.com/delacrixmorgan/kingscup-android")
         }
 
+        this.translationCardView.setOnClickListener {
+            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup 🍺 - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
+            startActivity(Intent.createChooser(intent, getString(R.string.fragment_menu_language_btn_help_translate)))
+        }
+
         this.shareCardView.setOnClickListener {
             val message = getString(R.string.preference_message_share_friend)
             launchShareGameIntent(message)
         }
+    }
+
+    private fun newEmailIntent(recipient: String, subject: String?, body: String?): Intent {
+        val intent = Intent(Intent.ACTION_SENDTO)
+        intent.data = Uri.parse("mailto:")
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
+
+        if (!subject.isNullOrBlank()) {
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        }
+
+        if (!body.isNullOrBlank()) {
+            intent.putExtra(Intent.EXTRA_TEXT, body)
+        }
+
+        return intent
     }
 }

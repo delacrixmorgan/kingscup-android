@@ -93,6 +93,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/preference_title_quick_guide"
+                            android:textAlignment="center"
                             android:textAppearance="@style/Headline"
                             android:textColor="@android:color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -138,6 +139,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/preference_title_language"
+                            android:textAlignment="center"
                             android:textAppearance="@style/Headline"
                             android:textColor="@android:color/white"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -198,6 +200,32 @@
                         android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:text="@string/preference_title_source_code"
+                        android:textColor="@android:color/white" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/translationCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/pink"
+                app:cardCornerRadius="8dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="@string/fragment_menu_language_btn_help_translate"
                         android:textColor="@android:color/white" />
                 </FrameLayout>
             </androidx.cardview.widget.CardView>

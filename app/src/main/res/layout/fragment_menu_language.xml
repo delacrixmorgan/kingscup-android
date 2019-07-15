@@ -65,21 +65,11 @@
                 android:textColor="@android:color/white"
                 tools:text="English" />
 
-            <Button
-                android:id="@+id/translateButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded_green"
-                android:paddingStart="32dp"
-                android:paddingEnd="32dp"
-                android:text="@string/fragment_menu_language_btn_help_translate"
-                android:textColor="@android:color/white" />
-
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 android:src="@drawable/ic_checked_mark"
                 app:backgroundTint="@android:color/white" />
         </LinearLayout>

@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.game
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,6 @@ import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.model.SoundType
 import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
@@ -53,34 +53,43 @@ class GameLoadFragment : Fragment() {
         if (BuildConfig.DEBUG == true) {
             launchGameFragment()
         } else {
+            launchDelayedGameFragment()
+
+            // TODO Disable AdMobs
+            /*
             val interstitialAd = AdController.getInstance(context).interstitialAd
             val adRequest = AdController.getInstance(context).adRequest
 
             interstitialAd.loadAd(adRequest)
+
+            if (interstitialAd.isLoaded) {
+                interstitialAd.show()
+            } else {
+                launchDelayedGameFragment()
+            }
+
             interstitialAd.adListener = object : AdListener() {
-                override fun onAdLoaded() {
-                    if (interstitialAd.isLoaded) {
-                        interstitialAd.show()
-                    }
-                }
-
                 override fun onAdFailedToLoad(errorCode: Int) {
-                    launchGameFragment()
-                }
-
-                override fun onAdClicked() {
-                    launchGameFragment()
-                }
-
-                override fun onAdLeftApplication() {
-                    launchGameFragment()
+                    launchDelayedGameFragment()
                 }
 
                 override fun onAdClosed() {
+                    AdController.getInstance(context).refreshInterstitialAd()
                     launchGameFragment()
                 }
             }
+             */
         }
+    }
+
+    private fun launchDelayedGameFragment() {
+        Handler().postDelayed({
+            run {
+                if (isVisible) {
+                    launchGameFragment()
+                }
+            }
+        }, 2000)
     }
 
     private fun launchGameFragment() {

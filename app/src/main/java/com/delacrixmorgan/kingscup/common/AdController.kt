@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.common
 
 import android.content.Context
+import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -32,7 +33,16 @@ class AdController private constructor(context: Context) {
 
     init {
         // TODO Disable AdMob
-//        this.interstitialAd.adUnitId = context.getString(R.string.ad_mob_interstitial_ad_id)
+//        this.interstitialAd.adUnitId = if (BuildConfig.DEBUG != true) {
+//            context.getString(R.string.ad_mob_interstitial_ad_id)
+//        } else {
+//            context.getString(R.string.ad_mob_interstitial_test_ad_id)
+//        }
 //        this.interstitialAd.loadAd(this.adRequest)
+    }
+
+    fun refreshInterstitialAd() {
+        this.adRequest = AdRequest.Builder().build()
+        this.interstitialAd.loadAd(this.adRequest)
     }
 }
