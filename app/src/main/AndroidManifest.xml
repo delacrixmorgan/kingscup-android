@@ -15,9 +15,9 @@
         android:theme="@style/AppTheme"
         tools:replace="android:label">
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="${adMobId}" />
+<!--        <meta-data-->
+<!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
+<!--            android:value="${adMobId}" />-->
 
         <activity
             android:name=".MainActivity"

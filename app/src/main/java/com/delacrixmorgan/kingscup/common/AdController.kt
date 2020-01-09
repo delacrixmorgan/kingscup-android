@@ -31,7 +31,8 @@ class AdController private constructor(context: Context) {
     var adRequest: AdRequest = AdRequest.Builder().build()
 
     init {
-        this.interstitialAd.adUnitId = context.getString(R.string.ad_mob_interstitial_ad_id)
-        this.interstitialAd.loadAd(this.adRequest)
+        // TODO Disable AdMob
+//        this.interstitialAd.adUnitId = context.getString(R.string.ad_mob_interstitial_ad_id)
+//        this.interstitialAd.loadAd(this.adRequest)
     }
 }

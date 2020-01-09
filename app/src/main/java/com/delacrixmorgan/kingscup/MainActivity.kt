@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         FirebaseAnalytics.getInstance(this)
-        MobileAds.initialize(this, getString(R.string.ad_mob_app_id))
+        // TODO Disable AdMob
+//        MobileAds.initialize(this, getString(R.string.ad_mob_app_id))
 
         GameEngine.getInstance(this)
         SoundEngine.getInstance(this)
