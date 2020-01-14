@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.game
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.AdController
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.model.SoundType
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
@@ -53,34 +51,18 @@ class GameLoadFragment : Fragment() {
         if (BuildConfig.DEBUG == true) {
             launchGameFragment()
         } else {
-            val interstitialAd = AdController.getInstance(context).interstitialAd
-            val adRequest = AdController.getInstance(context).adRequest
+            launchDelayedGameFragment()
+        }
+    }
 
-            interstitialAd.loadAd(adRequest)
-            interstitialAd.adListener = object : AdListener() {
-                override fun onAdLoaded() {
-                    if (interstitialAd.isLoaded) {
-                        interstitialAd.show()
-                    }
-                }
-
-                override fun onAdFailedToLoad(errorCode: Int) {
-                    launchGameFragment()
-                }
-
-                override fun onAdClicked() {
-                    launchGameFragment()
-                }
-
-                override fun onAdLeftApplication() {
-                    launchGameFragment()
-                }
-
-                override fun onAdClosed() {
+    private fun launchDelayedGameFragment() {
+        Handler().postDelayed({
+            run {
+                if (isVisible) {
                     launchGameFragment()
                 }
             }
-        }
+        }, 2000)
     }
 
     private fun launchGameFragment() {

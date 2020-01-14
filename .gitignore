@@ -196,7 +196,4 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# AdMob App ID
-/app/src/main/res/values/secrets.xml
-
 # End of https://www.gitignore.io/api/android,androidstudio

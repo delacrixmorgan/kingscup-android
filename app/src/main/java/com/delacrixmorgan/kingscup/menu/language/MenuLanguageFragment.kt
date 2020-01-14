@@ -1,7 +1,5 @@
 package com.delacrixmorgan.kingscup.menu.language
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,10 +26,6 @@ import kotlinx.android.synthetic.main.fragment_menu_language.*
  */
 
 class MenuLanguageFragment : Fragment(), LanguageListener {
-    companion object {
-        private const val TRANSLATION_CONTACT_EMAIL = "delacrixmorgan@gmail.com"
-    }
-
     private lateinit var languageAdapter: LanguageRecyclerViewAdapter
 
     private val soundEngine by lazy {
@@ -62,11 +56,6 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
 
         this.languageTextView.text = getString(R.string.preference_current_language)
 
-        this.translateButton.setOnClickListener {
-            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup 🍺 - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
-            startActivity(Intent.createChooser(intent, getString(R.string.fragment_menu_language_btn_help_translate)))
-        }
-
         this.saveButton.setOnClickListener {
             this.soundEngine.playSound(it.context, SoundType.KING)
             Navigation.findNavController(view).navigateUp()
@@ -84,24 +73,7 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     private fun updateLayoutLanguage() {
         this.nameTextView.text = getString(R.string.app_name)
         this.titleTextView.text = getString(R.string.fragment_menu_language_title_choose_language)
-        this.translateButton.text = getString(R.string.fragment_menu_language_btn_help_translate)
         this.languageTextView.text = getString(R.string.preference_current_language)
-    }
-
-    private fun newEmailIntent(recipient: String, subject: String?, body: String?): Intent {
-        val intent = Intent(Intent.ACTION_SENDTO)
-        intent.data = Uri.parse("mailto:")
-        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
-
-        if (!subject.isNullOrBlank()) {
-            intent.putExtra(Intent.EXTRA_SUBJECT, subject)
-        }
-
-        if (!body.isNullOrBlank()) {
-            intent.putExtra(Intent.EXTRA_TEXT, body)
-        }
-
-        return intent
     }
 
     override fun onLanguageSelected(languageType: LanguageType) {
