@@ -3,10 +3,8 @@ package com.delacrixmorgan.kingscup
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.delacrixmorgan.kingscup.common.AdController
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.google.android.gms.ads.MobileAds
 import com.google.firebase.analytics.FirebaseAnalytics
 
 /**
@@ -22,12 +20,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         FirebaseAnalytics.getInstance(this)
-        // TODO Disable AdMob
-//        MobileAds.initialize(this, getString(R.string.ad_mob_app_id))
-
         GameEngine.getInstance(this)
         SoundEngine.getInstance(this)
-        AdController.getInstance(this)
 
         setContentView(R.layout.activity_main)
     }

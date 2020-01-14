@@ -9,11 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.AdController
 import com.delacrixmorgan.kingscup.common.GameEngine
 import com.delacrixmorgan.kingscup.common.SoundEngine
 import com.delacrixmorgan.kingscup.model.SoundType
-import com.google.android.gms.ads.AdListener
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
 /**
@@ -54,31 +52,6 @@ class GameLoadFragment : Fragment() {
             launchGameFragment()
         } else {
             launchDelayedGameFragment()
-
-            // TODO Disable AdMobs
-            /*
-            val interstitialAd = AdController.getInstance(context).interstitialAd
-            val adRequest = AdController.getInstance(context).adRequest
-
-            interstitialAd.loadAd(adRequest)
-
-            if (interstitialAd.isLoaded) {
-                interstitialAd.show()
-            } else {
-                launchDelayedGameFragment()
-            }
-
-            interstitialAd.adListener = object : AdListener() {
-                override fun onAdFailedToLoad(errorCode: Int) {
-                    launchDelayedGameFragment()
-                }
-
-                override fun onAdClosed() {
-                    AdController.getInstance(context).refreshInterstitialAd()
-                    launchGameFragment()
-                }
-            }
-             */
         }
     }
 
