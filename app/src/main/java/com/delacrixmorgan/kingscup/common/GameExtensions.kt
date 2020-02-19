@@ -38,7 +38,7 @@ fun setupProgressBar(layoutManager: RecyclerView.LayoutManager?, recyclerView: R
 }
 
 //region Resources
-fun Resources.setLocale(language: String?) {
+fun Resources.setLocale(language: String) {
     val locale = Locale(language)
 
     configuration.setLocale(locale)

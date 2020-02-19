@@ -2,8 +2,8 @@ package com.delacrixmorgan.kingscup.common
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import androidx.core.content.edit
+import androidx.preference.PreferenceManager
 
 /**
  * PreferenceHelper
@@ -25,7 +25,8 @@ object PreferenceHelper {
     const val VIBRATE_DEFAULT = true
     const val SOUND_DEFAULT = true
 
-    fun getPreference(context: Context): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+    fun getPreference(context: Context): SharedPreferences =
+        PreferenceManager.getDefaultSharedPreferences(context)
 
     operator fun SharedPreferences.set(key: String, value: Any?) {
         when (value) {
@@ -38,7 +39,10 @@ object PreferenceHelper {
         }
     }
 
-    inline operator fun <reified T : Any> SharedPreferences.get(key: String, defaultValue: T? = null): T {
+    inline operator fun <reified T : Any> SharedPreferences.get(
+        key: String,
+        defaultValue: T? = null
+    ): T {
         return when (T::class) {
             String::class -> getString(key, defaultValue as? String) as T
             Int::class -> getInt(key, defaultValue as? Int ?: -1) as T
