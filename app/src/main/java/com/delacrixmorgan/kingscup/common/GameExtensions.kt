@@ -15,14 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
 import java.util.*
 
-/**
- * GameExtensions
- * kingscup-android
- *
- * Created by Delacrix Morgan on 25/03/2018.
- * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
-
 fun setupProgressBar(layoutManager: RecyclerView.LayoutManager?, recyclerView: RecyclerView, progressBar: ProgressBar) {
     val manager = layoutManager as LinearLayoutManager
 

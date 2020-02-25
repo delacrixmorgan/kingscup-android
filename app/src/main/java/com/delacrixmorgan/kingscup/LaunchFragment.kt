@@ -13,14 +13,6 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.common.setLocale
 
-/**
- * LaunchFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 08/05/2018.
- * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
-
 class LaunchFragment : Fragment() {
     private val preference: SharedPreferences by lazy {
         PreferenceHelper.getPreference(requireContext())

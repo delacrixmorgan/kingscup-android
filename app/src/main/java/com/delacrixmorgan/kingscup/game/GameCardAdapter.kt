@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.GameEngine
+import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.model.Card
 import kotlinx.android.synthetic.main.cell_card_game.view.*
 

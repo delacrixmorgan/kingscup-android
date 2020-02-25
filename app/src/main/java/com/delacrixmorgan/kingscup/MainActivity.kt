@@ -3,26 +3,10 @@ package com.delacrixmorgan.kingscup
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.SoundEngine
-import com.google.firebase.analytics.FirebaseAnalytics
-
-/**
- * MainActivity
- * kingscup-android
- *
- * Created by Delacrix Morgan on 25/03/2018.
- * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        FirebaseAnalytics.getInstance(this)
-        GameEngine.getInstance(this)
-        SoundEngine.getInstance(this)
-
         setContentView(R.layout.activity_main)
     }
 

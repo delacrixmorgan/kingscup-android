@@ -10,9 +10,10 @@ import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.bind
 import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.GameEngine
-import com.delacrixmorgan.kingscup.common.GameEngine.Companion.GAME_CARD_KING
-import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.engine.GameEngine
+import com.delacrixmorgan.kingscup.engine.GameEngine.Companion.GAME_CARD_KING
+import com.delacrixmorgan.kingscup.engine.SoundEngine
+import com.delacrixmorgan.kingscup.engine.VibratorEngine
 import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
@@ -107,7 +108,7 @@ class GameCardFragment : Fragment() {
         when {
             this.gameEngine.checkWin(card) -> {
                 doneButton.hide()
-                this.gameEngine.vibrateFeedback(context, view, VibrateType.LONG)
+                VibratorEngine.vibrate(view, VibrateType.LONG)
                 soundEngine.playSound(context, SoundType.OOOH)
 
                 Handler().postDelayed({

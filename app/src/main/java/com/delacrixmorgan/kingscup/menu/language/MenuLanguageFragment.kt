@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
-import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.common.performHapticContextClick
 import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.model.LanguageType

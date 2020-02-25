@@ -85,7 +85,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameBoardFragment"
-        android:name="com.delacrixmorgan.kingscup.game.GameBoardFragment"
+        android:name="com.delacrixmorgan.kingscup.game.board.GameBoardFragment"
         android:label="GameBoardFragment"
         tools:layout="@layout/fragment_game_board">
         <action
