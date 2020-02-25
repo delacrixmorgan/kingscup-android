@@ -1,6 +1,7 @@
 package com.delacrixmorgan.kingscup.game
 
 import androidx.lifecycle.ViewModel
+import com.delacrixmorgan.kingscup.statemachine.ObservableStateMachine
 
 /**
  * GameStateMachine
@@ -10,6 +11,6 @@ import androidx.lifecycle.ViewModel
  * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
-class GameStateMachine : ViewModel() {
+class GameStateMachine : ObservableStateMachine<State> {
     
 }

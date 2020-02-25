@@ -26,17 +26,17 @@ class NavigationMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.rateButton.setOnClickListener {
+        rateButton.setOnClickListener {
             val action = NavigationMenuFragmentDirections.actionMenuFragmentToMenuRateFragment()
             Navigation.findNavController(view).navigate(action)
         }
 
-        this.settingButton.setOnClickListener {
+        settingButton.setOnClickListener {
             val action = NavigationMenuFragmentDirections.actionMenuFragmentToMenuSettingFragment()
             Navigation.findNavController(view).navigate(action)
         }
 
-        this.startButton.setOnClickListener {
+        startButton.setOnClickListener {
             val action = NavigationMenuFragmentDirections.actionMenuFragmentToGameLoadFragment(GameType.NEW_GAME)
             Navigation.findNavController(view).navigate(action)
         }

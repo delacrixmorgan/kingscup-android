@@ -8,10 +8,14 @@ package com.delacrixmorgan.kingscup.statemachine
  * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
  */
 
+sealed class FSMError {
+    object INVALID_STATE_TRANSITION : Error()
+}
+
 interface FSMState
 
 interface FSMTransitions
 
-interface FiniteStateMachine<State : FSMState> : FSMTransitions {
-    val state: State
+interface FiniteStateMachine<T : FSMState> : FSMTransitions {
+    val state: T
 }
