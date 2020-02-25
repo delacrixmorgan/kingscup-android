@@ -19,15 +19,29 @@ Beautifully hand crafted with excruciating detail.
 
 __c) Multiple Language Support__ 🌏
 
-Thanks to the overwhelming support from the community, King’s Cup now supports English, Chinese, Portuguese, Dutch and Spanish!
+Thanks to the overwhelming support from the community, King’s Cup now supports all these languages.
 
-i) Chinese - Wang Ruihao
+❤️ Chinese by Wang Ruihao
 
-ii) Brazilian Portuguese - Lays Correia
+❤️ Portuguese by Lays Correia
 
-iii) Dutch - Kasper Nooteboom
+❤️ Dutch by Kasper Nooteboom
 
-iv) Spanish - Santos Martinez, Gonzo Fernandez
+❤️ Spanish by Santos Martinez and Gonzo Fernandez
+
+❤️ Finnish by Karim Moubarik
+
+❤️ French by David Chitchong Thingee
+
+❤️ German by Roland Stuhler
+
+❤️ Czech by Michal Matlach
+
+❤️ Hungarian by Dávid Kardos
+
+❤️ Filipino by Rexson Bernal
+
+❤️ Japanese by Yukiko Kimura
 
 Drop me a message if you are excited to translate and help bring King’s Cup to your native tongue. MORE the merrier!
 
@@ -40,14 +54,6 @@ Set out to be a simple yet awesome party game. Even when you’re stranded in th
 More to come. In the meantime, go nuts!
 
 [Google Play Store - King's Cup No Beverages Included](https://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup)
-
-**What’s New - Dessert Update 🍰** (09/04/2018)
-
-Dutch Translation Added - Kasper Nooteboom 🌷
-
-Spanish Translation Added - Santos Martinez, Gonzo Fernandez 💃
-
-Optimisation Patches, Bug Extermination 🐛
 
 ## Screenshots
 
