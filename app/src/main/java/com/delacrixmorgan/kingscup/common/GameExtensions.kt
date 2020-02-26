@@ -8,26 +8,9 @@ import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
-import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
 import java.util.*
-
-fun setupProgressBar(layoutManager: RecyclerView.LayoutManager?, recyclerView: RecyclerView, progressBar: ProgressBar) {
-    val manager = layoutManager as LinearLayoutManager
-
-    recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            if (manager.findFirstVisibleItemPosition() == 0) {
-                progressBar.progress = 0
-            } else {
-                progressBar.progress = manager.findLastVisibleItemPosition()
-            }
-        }
-    })
-}
 
 //region Resources
 fun Resources.setLocale(language: String) {

@@ -10,25 +10,17 @@ import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.bind
 import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.animateButtonGrow
+import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.engine.GameEngine.Companion.GAME_CARD_KING
 import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.engine.VibratorEngine
-import com.delacrixmorgan.kingscup.common.animateButtonGrow
-import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.SuitType
 import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.fragment_game_card.*
-
-/**
- * GameCardFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 25/03/2018.
- * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
 
 class GameCardFragment : Fragment() {
 
@@ -36,7 +28,11 @@ class GameCardFragment : Fragment() {
         private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
 
-        fun newInstance(card: Card, position: Int = 0, cardListener: CardListener): GameCardFragment {
+        fun newInstance(
+            card: Card,
+            position: Int = 0,
+            cardListener: CardListener
+        ): GameCardFragment {
             return GameCardFragment().apply {
                 this.arguments = bundleOf(
                     GAME_CARD_FRAGMENT_CARD to card,
@@ -49,7 +45,6 @@ class GameCardFragment : Fragment() {
 
     private lateinit var card: Card
 
-    private var position: Int = 0
     private var cardListener: CardListener? = null
     private var dataBinding: FragmentGameCardBinding? = null
 
@@ -66,17 +61,22 @@ class GameCardFragment : Fragment() {
 
         this.arguments?.let {
             this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD) ?: throw Exception("Card Missing")
-            this.position = it.getInt(GAME_CARD_FRAGMENT_POSITION)
         }
 
-        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                backToBoardFragment()
-            }
-        })
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    backToBoardFragment()
+                }
+            })
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val rootView = inflater.inflate(R.layout.fragment_game_card, container, false)
 
         this.dataBinding = bind(rootView)
@@ -121,7 +121,7 @@ class GameCardFragment : Fragment() {
 
     private fun backToBoardFragment() {
         this.soundEngine.playSound(requireContext(), SoundType.WHOOSH)
-        this.cardListener?.onCardDismissed(this.position)
+        this.cardListener?.onCardDismissed(card)
         this.activity?.supportFragmentManager?.popBackStack()
     }
 }

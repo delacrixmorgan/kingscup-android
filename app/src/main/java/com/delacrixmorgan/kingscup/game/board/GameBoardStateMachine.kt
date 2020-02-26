@@ -11,7 +11,8 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
     sealed class State : FSMState {
         object Start : State()
         object Presenting : State()
-        object ShowingDetail : State()
+        class Updating(val card: Card) : State()
+        class ShowingDetail(val card: Card) : State()
         object Pausing : State()
         object Winning : State()
         object Restarting : State()
@@ -47,7 +48,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
         }
     }
 
-    fun drawCard() {
+    fun drawCard(card: Card) {
         when (state) {
             is State.Presenting -> {
                 state = State.ShowingDetail
@@ -55,7 +56,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
         }
     }
 
-    fun dismissCard() {
+    fun dismissCard(card: Card) {
         when (state) {
             is State.ShowingDetail -> {
                 state = State.Presenting
