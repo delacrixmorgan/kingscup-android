@@ -12,6 +12,7 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.common.setLocale
+import com.delacrixmorgan.kingscup.model.DeckCard
 
 class LaunchFragment : Fragment() {
     private val preference: SharedPreferences by lazy {
@@ -25,6 +26,8 @@ class LaunchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().volumeControlStream = AudioManager.STREAM_MUSIC
+
+        DeckCard.Ace.title
 
         if (preference[PreferenceHelper.ONBOARDING, PreferenceHelper.ONBOARDING_DEFAULT]) {
             setupLocale()

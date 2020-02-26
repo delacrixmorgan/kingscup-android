@@ -51,7 +51,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
     fun drawCard(card: Card) {
         when (state) {
             is State.Presenting -> {
-                state = State.ShowingDetail
+//                state = State.ShowingDetail
             }
         }
     }
