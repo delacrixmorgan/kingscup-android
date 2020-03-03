@@ -46,7 +46,7 @@ class GameLoadFragment : Fragment() {
         }
 
         this.gameEngine.setupGame(context)
-        this.soundEngine.playSound(context, SoundType.KING)
+        this.soundEngine.playSound(context, SoundType.King)
 
         if (BuildConfig.DEBUG == true) {
             launchGameFragment()

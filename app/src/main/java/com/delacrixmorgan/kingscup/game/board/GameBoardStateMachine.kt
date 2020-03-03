@@ -1,9 +1,12 @@
 package com.delacrixmorgan.kingscup.game.board
 
+import android.content.Context
 import com.delacrixmorgan.kingscup.App
 import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.model.SoundType
+import com.delacrixmorgan.kingscup.model.TauntType
 import com.delacrixmorgan.kingscup.statemachine.FSMState
 import com.delacrixmorgan.kingscup.statemachine.ObservableStateMachine
 
@@ -19,18 +22,20 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
         object Completed : State()
     }
 
+    val context: Context
+        get() = App.appContext
+
     val gameEngine by lazy {
-        GameEngine.getInstance(App.appContext)
+        GameEngine.getInstance(context)
     }
 
     val soundEngine by lazy {
-        SoundEngine.getInstance(App.appContext)
+        SoundEngine.getInstance(context)
     }
 
-    val cards: ArrayList<Card>
-        get() {
-            return gameEngine.getCards()
-        }
+    // TODO: Game Over Needs a Different Taunt context.getString(R.string.game_over_body)
+    val taunt: String
+        get() = TauntType.values().toList().shuffled().first().getLocalisedText(context)
 
     /**
      * Transitions
@@ -94,6 +99,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
     fun endGame() {
         when (state) {
             is State.Presenting -> {
+                soundEngine.playSound(context, SoundType.GameOver)
                 state = State.Winning
             }
 
@@ -110,6 +116,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
             }
 
             is State.Winning -> {
+                soundEngine.playSound(context, SoundType.Whoosh)
                 state = State.Completed
             }
         }

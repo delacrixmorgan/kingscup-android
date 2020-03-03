@@ -109,18 +109,18 @@ class GameCardFragment : Fragment() {
             this.gameEngine.checkWin(card) -> {
                 doneButton.hide()
                 VibratorEngine.vibrate(view, VibrateType.LONG)
-                soundEngine.playSound(context, SoundType.OOOH)
+                soundEngine.playSound(context, SoundType.Oooh)
 
                 Handler().postDelayed({
                     backToBoardFragment()
                 }, 2000)
             }
-            this.card.rank == GAME_CARD_KING -> this.soundEngine.playSound(context, SoundType.OOOH)
+            this.card.rank == GAME_CARD_KING -> this.soundEngine.playSound(context, SoundType.Oooh)
         }
     }
 
     private fun backToBoardFragment() {
-        this.soundEngine.playSound(requireContext(), SoundType.WHOOSH)
+        this.soundEngine.playSound(requireContext(), SoundType.Whoosh)
         this.cardListener?.onCardDismissed(card)
         this.activity?.supportFragmentManager?.popBackStack()
     }

@@ -10,20 +10,12 @@ import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
-import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.common.performHapticContextClick
 import com.delacrixmorgan.kingscup.common.setLocale
+import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.LanguageType
 import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_language.*
-
-/**
- * MenuLanguageFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 08/05/2018.
- * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
 
 class MenuLanguageFragment : Fragment(), LanguageListener {
     private lateinit var languageAdapter: LanguageRecyclerViewAdapter
@@ -32,22 +24,27 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         SoundEngine.getInstance(requireContext())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_menu_language, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val deckAnimation = AnimationUtils.loadLayoutAnimation(this.context, R.anim.layout_animation_slide_right)
+        val deckAnimation =
+            AnimationUtils.loadLayoutAnimation(this.context, R.anim.layout_animation_slide_right)
         val cellHeight = (resources.displayMetrics.heightPixels / 2.5).toInt()
         val cellWidth = (cellHeight * (10.0 / 16.0)).toInt()
 
         this.languageAdapter = LanguageRecyclerViewAdapter(
-                cellHeight = cellHeight,
-                cellWidth = cellWidth,
-                languageTypes = LanguageType.values(),
-                listener = this
+            cellHeight = cellHeight,
+            cellWidth = cellWidth,
+            languageTypes = LanguageType.values(),
+            listener = this
         )
 
         this.languageRecyclerView.adapter = this.languageAdapter
@@ -57,7 +54,7 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         this.languageTextView.text = getString(R.string.preference_current_language)
 
         this.saveButton.setOnClickListener {
-            this.soundEngine.playSound(it.context, SoundType.KING)
+            this.soundEngine.playSound(it.context, SoundType.King)
             Navigation.findNavController(view).navigateUp()
         }
     }
@@ -77,7 +74,7 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     }
 
     override fun onLanguageSelected(languageType: LanguageType) {
-        this.soundEngine.playSound(requireContext(), SoundType.WHOOSH)
+        this.soundEngine.playSound(requireContext(), SoundType.Whoosh)
         savePreferenceLanguage(languageType)
 
         this.rootView.performHapticContextClick()

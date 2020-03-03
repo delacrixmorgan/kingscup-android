@@ -12,22 +12,23 @@ import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.common.setLocale
-import com.delacrixmorgan.kingscup.model.DeckCard
 
 class LaunchFragment : Fragment() {
     private val preference: SharedPreferences by lazy {
         PreferenceHelper.getPreference(requireContext())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_launch, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().volumeControlStream = AudioManager.STREAM_MUSIC
-
-        DeckCard.Ace.title
 
         if (preference[PreferenceHelper.ONBOARDING, PreferenceHelper.ONBOARDING_DEFAULT]) {
             setupLocale()
@@ -41,7 +42,8 @@ class LaunchFragment : Fragment() {
     }
 
     private fun setupLocale() {
-        val preferenceCountryIso = this.preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
+        val preferenceCountryIso =
+            this.preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
         resources.setLocale(preferenceCountryIso)
     }
 }

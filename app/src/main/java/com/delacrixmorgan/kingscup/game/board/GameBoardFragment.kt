@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Slide
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.engine.VibratorEngine
 import com.delacrixmorgan.kingscup.game.CardListener
 import com.delacrixmorgan.kingscup.game.GameCardAdapter
@@ -97,8 +96,8 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
         })
         recyclerView.scheduleLayoutAnimation()
 
-        restartButton.setOnClickListener { stateMachine.restartGame() }
         menuButton.setOnClickListener { stateMachine.pauseGame() }
+        restartButton.setOnClickListener { stateMachine.restartGame() }
     }
 
     /**
@@ -113,66 +112,60 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                 stateMachine.present()
             }
             is GameBoardStateMachine.State.Presenting -> {
-                cardAdapter.updateDataSet(stateMachine.cards)
+                cardAdapter.updateDataSet(stateMachine.gameEngine.cards)
             }
             is GameBoardStateMachine.State.ShowingDetail -> {
-                GameCardFragment.newInstance(state.card, 1, this).let { fragment ->
-                    fragment.enterTransition = Slide(Gravity.BOTTOM).setDuration(200)
-                    childFragmentManager.commit {
-                        add(rootView.id, fragment, fragment.javaClass.simpleName)
-                        addToBackStack(fragment.javaClass.simpleName)
-                    }
+                val fragment = GameCardFragment.newInstance(state.card, 1, this)
+                fragment.enterTransition = Slide(Gravity.BOTTOM).setDuration(200)
+                childFragmentManager.commit {
+                    add(rootView.id, fragment, fragment.javaClass.simpleName)
+                    addToBackStack(fragment.javaClass.simpleName)
                 }
 
                 VibratorEngine.vibrate(rootView, VibrateType.SHORT)
-                stateMachine.soundEngine.playSound(context, SoundType.FLIP)
+                stateMachine.soundEngine.playSound(context, SoundType.Flip)
             }
             is GameBoardStateMachine.State.Updating -> {
-                val args: Bundle? = stateMachine.gameEngine.updateGraphicStatus(requireContext())
-
                 cardAdapter.removeCard(state.card)
 
-                // Update Text
-                this.statusText = args?.getString(GameEngine.GAME_ENGINE_TAUNT)!!
+                statusText = stateMachine.taunt
+                progressBar.max = cardAdapter.itemCount - 1
 
-                this.progressBar.max = this.cardAdapter.itemCount - 1
+                // TODO: Update Cup Drawable
+                volumeImageView.setImageResource(stateMachine.gameEngine.cupVolumeResId)
+//                args.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)
+//                    .let { volumeImageView.setImageResource(it) }
 
-                args.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)
-                    .let { volumeImageView.setImageResource(it) }
-
-                when (args.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
-                    3 -> this.kingFourImageView.isVisible = false
-                    2 -> this.kingThreeImageView.isVisible = false
-                    1 -> this.kingTwoImageView.isVisible = false
-                    0 -> {
-                        this.kingOneImageView.isVisible = false
-                        stateMachine.endGame()
-                    }
-                }
+                // TODO: Toggle King's Cup and End Game
+//                when (args.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
+//                    3 -> this.kingFourImageView.isVisible = false
+//                    2 -> this.kingThreeImageView.isVisible = false
+//                    1 -> this.kingTwoImageView.isVisible = false
+//                    0 -> {
+//                        this.kingOneImageView.isVisible = false
+//                        stateMachine.endGame()
+//                    }
+//                }
             }
             is GameBoardStateMachine.State.Pausing -> {
-                val dialog = GameMenuDialog()
-                dialog.show(
-                    requireNotNull(activity?.supportFragmentManager),
-                    dialog.javaClass.simpleName
-                )
+                GameMenuDialog().apply {
+                    show(requireActivity().supportFragmentManager, javaClass.simpleName)
+                }
             }
             is GameBoardStateMachine.State.Winning -> {
-                this.restartButton.show()
-                this.confettiAnimationView.isVisible = true
-                this.confettiAnimationView.playAnimation()
-                stateMachine.soundEngine.playSound(
-                    requireContext(),
-                    SoundType.GAME_OVER
-                )
+                restartButton.show()
+                confettiAnimationView.isVisible = true
+                confettiAnimationView.playAnimation()
             }
             is GameBoardStateMachine.State.Restarting -> {
                 val action = GameBoardFragmentDirections.actionGameBoardFragmentToGameLoadFragment(
-                    GameType.RESTART_GAME
+                    GameType.RestartGame
                 )
                 Navigation.findNavController(rootView).navigate(action)
             }
-            is GameBoardStateMachine.State.Completed -> TODO()
+            is GameBoardStateMachine.State.Completed -> {
+                Navigation.findNavController(this.rootView).navigateUp()
+            }
         }
     }
 

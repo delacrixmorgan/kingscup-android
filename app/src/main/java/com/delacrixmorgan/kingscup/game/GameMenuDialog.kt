@@ -52,7 +52,7 @@ class GameMenuDialog : DialogFragment(), View.OnClickListener {
         when (view.id) {
             R.id.startNewGameButton -> {
                 dismiss()
-                soundEngine.playSound(context, SoundType.WHOOSH)
+                soundEngine.playSound(context, SoundType.Whoosh)
 //                startNewGame()
             }
 
@@ -63,17 +63,17 @@ class GameMenuDialog : DialogFragment(), View.OnClickListener {
 
             R.id.volumeButton -> {
                 updateSoundPreference()
-                soundEngine.playSound(context, SoundType.CLICK)
+                soundEngine.playSound(context, SoundType.Click)
             }
 
             R.id.resumeButton -> {
                 dismiss()
-                soundEngine.playSound(context, SoundType.WHOOSH)
+                soundEngine.playSound(context, SoundType.Whoosh)
             }
 
             R.id.quitButton -> {
                 dismiss()
-                soundEngine.playSound(context, SoundType.WHOOSH)
+                soundEngine.playSound(context, SoundType.Whoosh)
 //                Navigation.findNavController(this.rootView).navigateUp()
             }
         }

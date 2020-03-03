@@ -9,17 +9,13 @@ import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.model.GameType
 import kotlinx.android.synthetic.main.fragment_navigation_menu.*
 
-/**
- * NavigationMenuFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 08/05/2019.
- * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
-
 class NavigationMenuFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_navigation_menu, container, false)
     }
 
@@ -37,7 +33,8 @@ class NavigationMenuFragment : Fragment() {
         }
 
         startButton.setOnClickListener {
-            val action = NavigationMenuFragmentDirections.actionMenuFragmentToGameLoadFragment(GameType.NEW_GAME)
+            val action =
+                NavigationMenuFragmentDirections.actionMenuFragmentToGameLoadFragment(GameType.NewGame)
             Navigation.findNavController(view).navigate(action)
         }
     }

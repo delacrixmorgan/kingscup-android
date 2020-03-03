@@ -1,94 +1,71 @@
 package com.delacrixmorgan.kingscup.engine
 
 import android.content.Context
-import android.os.Bundle
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.model.*
-
-/**
- * GameEngine
- * kingscup-android
- *
- * Created by Delacrix Morgan on 25/03/2018.
- * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
+import com.delacrixmorgan.kingscup.model.ActionType
+import com.delacrixmorgan.kingscup.model.Card
+import com.delacrixmorgan.kingscup.model.SuitType
 
 class GameEngine private constructor(context: Context) {
 
     companion object {
         const val GAME_CARD_KING = "K"
 
-        const val GAME_ENGINE_TAUNT = "GAME_ENGINE_TAUNT"
-        const val GAME_ENGINE_CUP_VOLUME = "GAME_ENGINE_CUP_VOLUME"
-        const val GAME_ENGINE_KING_COUNTER = "GAME_ENGINE_KING_COUNTER"
-
         @Volatile
         private var INSTANCE: GameEngine? = null
 
         fun getInstance(context: Context): GameEngine {
             return INSTANCE
-                    ?: synchronized(this) {
-                GameEngine(context).also {
-                    INSTANCE = it
+                ?: synchronized(this) {
+                    GameEngine(context).also {
+                        INSTANCE = it
+                    }
                 }
-            }
         }
     }
 
-    private var kingCounter: Int = 4
-    private val deckList = ArrayList<Card>()
+    val cards = arrayListOf<Card>()
+
+    private val turnsLeft: Int
+        get() {
+            return cards.count { it.rank == "K" }
+        }
+
+    val cupVolumeResId: Int
+        get() {
+            return when (turnsLeft) {
+                0 -> R.drawable.ic_cup_volume_4
+                1 -> R.drawable.ic_cup_volume_3
+                2 -> R.drawable.ic_cup_volume_2
+                3 -> R.drawable.ic_cup_volume_1
+                else -> R.drawable.ic_cup_whole
+            }
+        }
 
     init {
         setupGame(context)
     }
 
     fun setupGame(context: Context) {
-        this.kingCounter = 4
-        this.deckList.clear()
+        this.cards.clear()
 
         SuitType.values().forEach { suit ->
             ActionType.values().let { actionTypes ->
-                actionTypes.indices.mapTo(this.deckList) {
-                    Card(suit, actionTypes[it].getRankText(), actionTypes[it].getLocalisedHeaderText(context), actionTypes[it].getLocalisedBodyText(context))
+                actionTypes.indices.mapTo(this.cards) {
+                    Card(
+                        suit,
+                        actionTypes[it].getRankText(),
+                        actionTypes[it].getLocalisedHeaderText(context),
+                        actionTypes[it].getLocalisedBodyText(context)
+                    )
                 }
             }
         }
-        this.deckList.shuffle()
+        this.cards.shuffle()
     }
 
     fun removeCard(position: Int) {
-        if (this.deckList[position].rank == GAME_CARD_KING) {
-            this.kingCounter--
-        }
-
-        this.deckList.removeAt(position)
+        this.cards.removeAt(position)
     }
-
-    fun updateGraphicStatus(context: Context): Bundle {
-        val volume: Int
-        val args = Bundle()
-        var taunt = TauntType.values().toList().shuffled().first().getLocalisedText(context)
-
-        when (this.kingCounter) {
-            0 -> {
-                taunt = context.getString(R.string.game_over_body)
-                volume = R.drawable.ic_cup_volume_4
-            }
-
-            1 -> volume = R.drawable.ic_cup_volume_3
-            2 -> volume = R.drawable.ic_cup_volume_2
-            3 -> volume = R.drawable.ic_cup_volume_1
-            else -> volume = R.drawable.ic_cup_whole
-        }
-
-        args.putString(GAME_ENGINE_TAUNT, taunt)
-        args.putInt(GAME_ENGINE_CUP_VOLUME, volume)
-        args.putInt(GAME_ENGINE_KING_COUNTER, this.kingCounter)
-
-        return args
-    }
-
-    fun getCards() = this.deckList
-    fun getCardByPosition(position: Int) = this.deckList.getOrNull(position)
-    fun checkWin(card: Card) = card.rank == GAME_CARD_KING && this.kingCounter == 1
+    fun checkWin(card: Card) = card.rank == GAME_CARD_KING && turnsLeft == 0
 }

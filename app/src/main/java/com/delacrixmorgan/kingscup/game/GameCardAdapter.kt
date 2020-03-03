@@ -19,8 +19,9 @@ class GameCardAdapter(
     private var cards = arrayListOf<Card>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameCardViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.cell_card_game, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.cell_card_game, parent, false
+        )
         val cellHeight = (App.appContext.resources.displayMetrics.heightPixels / 2.5).toInt()
         val cellWidth = (cellHeight * (10.0 / 16.0)).toInt()
 
@@ -31,7 +32,7 @@ class GameCardAdapter(
     }
 
     override fun onBindViewHolder(holder: GameCardViewHolder, position: Int) {
-        holder.updateData(cards[position])
+        holder.bind(cards[position])
     }
 
     override fun getItemCount() = cards.size
@@ -51,18 +52,14 @@ class GameCardAdapter(
         itemView: View,
         private val listener: CardListener
     ) : RecyclerView.ViewHolder(itemView) {
-        private lateinit var card: Card
 
-        init {
+        fun bind(card: Card) {
+            itemView.debugKingImageView.isVisible =
+                BuildConfig.DEBUG == true && card.rank == GameEngine.GAME_CARD_KING
+
             itemView.setOnClickListener {
-                this.listener.onCardSelected(card)
+                listener.onCardSelected(card)
             }
-        }
-
-        fun updateData(card: Card) {
-            this.card = card
-            this.itemView.debugKingImageView.isVisible =
-                BuildConfig.DEBUG == true && this.card.rank == GameEngine.GAME_CARD_KING
         }
     }
 }

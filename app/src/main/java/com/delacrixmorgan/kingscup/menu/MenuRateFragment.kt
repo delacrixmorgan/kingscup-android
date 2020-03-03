@@ -15,14 +15,6 @@ import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_rate.*
 
-/**
- * MenuRateFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 08/05/2019.
- * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
-
 class MenuRateFragment : Fragment() {
 
     companion object {
@@ -34,7 +26,11 @@ class MenuRateFragment : Fragment() {
         SoundEngine.getInstance(requireContext())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.fragment_menu_rate, container, false)
     }
 
@@ -84,6 +80,6 @@ class MenuRateFragment : Fragment() {
         intent.flags = FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
 
-        this.soundEngine.playSound(requireContext(), SoundType.OOOH)
+        this.soundEngine.playSound(requireContext(), SoundType.Oooh)
     }
 }

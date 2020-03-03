@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
 import java.util.*
 
-//region Resources
+/**
+ * Resource
+ */
 fun Resources.setLocale(language: String) {
     val locale = Locale(language)
 
@@ -22,9 +24,10 @@ fun Resources.setLocale(language: String) {
 
     Locale.setDefault(locale)
 }
-//endregion
 
-//region View
+/**
+ * View
+ */
 fun View.performHapticContextClick() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK)
@@ -38,22 +41,21 @@ fun View.animateButtonGrow() {
     animGrow.addAnimation(AnimationUtils.loadAnimation(this.context, R.anim.pop_out))
     startAnimation(animGrow)
 }
-//endregion
 
-//region Fragment
+/**
+ * Fragment
+ */
 fun Fragment.launchShareGameIntent(message: String) {
-    val intent = Intent(Intent.ACTION_SEND)
-
-    intent.type = "text/plain"
-    intent.putExtra(Intent.EXTRA_TEXT, message)
-
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, message)
+    }
     startActivity(Intent.createChooser(intent, getString(R.string.preference_title_share_friend)))
 }
 
 fun Fragment.launchWebsite(url: String) {
-    val intent = Intent(Intent.ACTION_VIEW)
-
-    intent.data = Uri.parse(url)
+    val intent = Intent(Intent.ACTION_VIEW).apply {
+        data = Uri.parse(url)
+    }
     startActivity(intent)
 }
-//endregion
