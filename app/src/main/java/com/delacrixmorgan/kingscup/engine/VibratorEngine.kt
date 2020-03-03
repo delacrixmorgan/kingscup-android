@@ -23,11 +23,11 @@ object VibratorEngine {
 
         if (vibratePreference) {
             when (vibrateType) {
-                VibrateType.SHORT -> {
+                VibrateType.Short -> {
                     view.performHapticContextClick()
                 }
 
-                VibrateType.LONG -> {
+                VibrateType.Long -> {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         vibrator.vibrate(VibrationEffect.createOneShot(vibrateType.duration, -1))
                     } else {

@@ -58,7 +58,7 @@ class GameMenuDialog : DialogFragment(), View.OnClickListener {
 
             R.id.vibrateButton -> {
                 updateVibratePreference()
-                VibratorEngine.vibrate(view, VibrateType.SHORT)
+                VibratorEngine.vibrate(view, VibrateType.Short)
             }
 
             R.id.volumeButton -> {

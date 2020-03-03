@@ -122,7 +122,7 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                     addToBackStack(fragment.javaClass.simpleName)
                 }
 
-                VibratorEngine.vibrate(rootView, VibrateType.SHORT)
+                VibratorEngine.vibrate(rootView, VibrateType.Short)
                 stateMachine.soundEngine.playSound(context, SoundType.Flip)
             }
             is GameBoardStateMachine.State.Updating -> {

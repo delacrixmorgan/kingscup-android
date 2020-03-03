@@ -47,11 +47,11 @@ class GameEngine private constructor(context: Context) {
     }
 
     fun setupGame(context: Context) {
-        this.cards.clear()
+        cards.clear()
 
         SuitType.values().forEach { suit ->
             ActionType.values().let { actionTypes ->
-                actionTypes.indices.mapTo(this.cards) {
+                actionTypes.indices.mapTo(cards) {
                     Card(
                         suit,
                         actionTypes[it].getRankText(),
@@ -61,11 +61,9 @@ class GameEngine private constructor(context: Context) {
                 }
             }
         }
-        this.cards.shuffle()
+        cards.shuffle()
     }
 
-    fun removeCard(position: Int) {
-        this.cards.removeAt(position)
-    }
+    // TODO: Restructure Win Factor
     fun checkWin(card: Card) = card.rank == GAME_CARD_KING && turnsLeft == 0
 }

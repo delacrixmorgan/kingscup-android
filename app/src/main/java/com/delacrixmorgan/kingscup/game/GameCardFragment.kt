@@ -90,10 +90,10 @@ class GameCardFragment : Fragment() {
         val context = view.context
 
         when (this.card.suitType) {
-            SuitType.SPADE -> R.drawable.ic_card_spade
-            SuitType.HEART -> R.drawable.ic_card_heart
-            SuitType.CLUB -> R.drawable.ic_card_club
-            SuitType.DIAMOND -> R.drawable.ic_card_diamond
+            SuitType.Spade -> R.drawable.ic_card_spade
+            SuitType.Heart -> R.drawable.ic_card_heart
+            SuitType.Club -> R.drawable.ic_card_club
+            SuitType.Diamond -> R.drawable.ic_card_diamond
         }.apply {
             lightCenterImageView.setImageResource(this)
             lightLeftImageView.setImageResource(this)
@@ -108,7 +108,7 @@ class GameCardFragment : Fragment() {
         when {
             this.gameEngine.checkWin(card) -> {
                 doneButton.hide()
-                VibratorEngine.vibrate(view, VibrateType.LONG)
+                VibratorEngine.vibrate(view, VibrateType.Long)
                 soundEngine.playSound(context, SoundType.Oooh)
 
                 Handler().postDelayed({
