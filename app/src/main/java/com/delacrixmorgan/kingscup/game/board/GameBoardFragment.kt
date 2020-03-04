@@ -21,9 +21,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Slide
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.engine.VibratorEngine
-import com.delacrixmorgan.kingscup.game.CardListener
-import com.delacrixmorgan.kingscup.game.GameCardAdapter
-import com.delacrixmorgan.kingscup.game.GameCardFragment
+import com.delacrixmorgan.kingscup.game.card.GameCardListener
+import com.delacrixmorgan.kingscup.game.card.GameCardAdapter
+import com.delacrixmorgan.kingscup.game.card.GameCardFragment
 import com.delacrixmorgan.kingscup.game.dialog.GameDialogFragment
 import com.delacrixmorgan.kingscup.game.dialog.GameDialogListeners
 import com.delacrixmorgan.kingscup.model.Card
@@ -33,11 +33,8 @@ import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
 class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
-    Animation.AnimationListener, CardListener, GameDialogListeners {
-
-    private val cardAdapter: GameCardAdapter by lazy {
-        GameCardAdapter(this)
-    }
+    Animation.AnimationListener,
+    GameCardListener, GameDialogListeners {
 
     private var statusText: String = ""
         set(value) {
@@ -54,8 +51,16 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
         }
     }
 
+    private val cardAdapter: GameCardAdapter by lazy {
+        GameCardAdapter(this)
+    }
+
     private val gameMenuDialog: DialogFragment by lazy {
         GameDialogFragment.create(this)
+    }
+
+    private val kingImageViews by lazy {
+        listOf(kingOneImageView, kingTwoImageView, kingThreeImageView, kingFourImageView)
     }
 
     private lateinit var stateMachine: GameBoardStateMachine
@@ -109,10 +114,6 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
     /**
      * State Machine
      */
-
-    private val kingImageViews by lazy {
-        listOf(kingOneImageView, kingTwoImageView, kingThreeImageView, kingFourImageView)
-    }
 
     override fun onChanged(state: GameBoardStateMachine.State) {
         val context = requireContext()

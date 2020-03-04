@@ -96,7 +96,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameCardFragment"
-        android:name="com.delacrixmorgan.kingscup.game.GameCardFragment"
+        android:name="com.delacrixmorgan.kingscup.game.card.GameCardFragment"
         android:label="GameCardFragment"
         tools:layout="@layout/fragment_game_card" />
     <fragment
