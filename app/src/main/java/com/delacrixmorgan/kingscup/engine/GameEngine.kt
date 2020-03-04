@@ -1,6 +1,8 @@
 package com.delacrixmorgan.kingscup.engine
 
 import android.content.Context
+import android.widget.ImageView
+import androidx.core.view.isVisible
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.ActionType
 import com.delacrixmorgan.kingscup.model.Card
@@ -31,17 +33,6 @@ class GameEngine private constructor(context: Context) {
             return cards.count { it.rank == "K" }
         }
 
-    val cupVolumeResId: Int
-        get() {
-            return when (turnsLeft) {
-                0 -> R.drawable.ic_cup_volume_4
-                1 -> R.drawable.ic_cup_volume_3
-                2 -> R.drawable.ic_cup_volume_2
-                3 -> R.drawable.ic_cup_volume_1
-                else -> R.drawable.ic_cup_whole
-            }
-        }
-
     init {
         setupGame(context)
     }
@@ -62,6 +53,34 @@ class GameEngine private constructor(context: Context) {
             }
         }
         cards.shuffle()
+    }
+
+    fun toggleKingImageView(
+        kingImageViews: List<ImageView>,
+        volumeImageView: ImageView
+    ) {
+        when (turnsLeft) {
+            4 -> {
+                kingImageViews.forEach { it.isVisible = true }
+                volumeImageView.setImageResource(R.drawable.ic_cup_whole)
+            }
+            3 -> {
+                kingImageViews[3].isVisible = false
+                volumeImageView.setImageResource(R.drawable.ic_cup_volume_1)
+            }
+            2 -> {
+                kingImageViews[2].isVisible = false
+                volumeImageView.setImageResource(R.drawable.ic_cup_volume_2)
+            }
+            1 -> {
+                kingImageViews[1].isVisible = false
+                volumeImageView.setImageResource(R.drawable.ic_cup_volume_3)
+            }
+            0 -> {
+                kingImageViews[0].isVisible = false
+                volumeImageView.setImageResource(R.drawable.ic_cup_volume_4)
+            }
+        }
     }
 
     // TODO: Restructure Win Factor

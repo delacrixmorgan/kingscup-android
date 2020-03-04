@@ -14,14 +14,6 @@ import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_game_load.*
 
-/**
- * GameLoadFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 08/05/2019.
- * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
-
 class GameLoadFragment : Fragment() {
 
     private val gameEngine by lazy {

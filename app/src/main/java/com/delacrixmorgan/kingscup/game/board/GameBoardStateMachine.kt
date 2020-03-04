@@ -43,11 +43,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
 
     fun present() {
         when (state) {
-            is State.Start -> {
-                state = State.Presenting
-            }
-
-            is State.Winning -> {
+            is State.Start, is State.Updating, is State.Winning -> {
                 state = State.Presenting
             }
         }
@@ -55,8 +51,8 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
 
     fun drawCard(card: Card) {
         when (state) {
-            is State.Presenting -> {
-//                state = State.ShowingDetail
+            is State.Presenting, is State.Updating -> {
+                state = State.ShowingDetail(card)
             }
         }
     }
@@ -64,14 +60,14 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
     fun dismissCard(card: Card) {
         when (state) {
             is State.ShowingDetail -> {
-                state = State.Presenting
+                state = State.Updating(card)
             }
         }
     }
 
     fun pauseGame() {
         when (state) {
-            is State.Presenting -> {
+            is State.Presenting, is State.Updating -> {
                 state = State.Pausing
             }
         }

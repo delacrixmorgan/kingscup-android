@@ -37,5 +37,9 @@ class NavigationMenuFragment : Fragment() {
                 NavigationMenuFragmentDirections.actionMenuFragmentToGameLoadFragment(GameType.NewGame)
             Navigation.findNavController(view).navigate(action)
         }
+
+//        val action =
+//            NavigationMenuFragmentDirections.actionMenuFragmentToGameLoadFragment(GameType.NewGame)
+//        Navigation.findNavController(view).navigate(action)
     }
 }

@@ -10,6 +10,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
@@ -23,7 +24,8 @@ import com.delacrixmorgan.kingscup.engine.VibratorEngine
 import com.delacrixmorgan.kingscup.game.CardListener
 import com.delacrixmorgan.kingscup.game.GameCardAdapter
 import com.delacrixmorgan.kingscup.game.GameCardFragment
-import com.delacrixmorgan.kingscup.game.GameMenuDialog
+import com.delacrixmorgan.kingscup.game.dialog.GameDialogFragment
+import com.delacrixmorgan.kingscup.game.dialog.GameDialogListeners
 import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.GameType
 import com.delacrixmorgan.kingscup.model.SoundType
@@ -31,13 +33,13 @@ import com.delacrixmorgan.kingscup.model.VibrateType
 import kotlinx.android.synthetic.main.fragment_game_board.*
 
 class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
-    Animation.AnimationListener, CardListener {
+    Animation.AnimationListener, CardListener, GameDialogListeners {
 
     private val cardAdapter: GameCardAdapter by lazy {
         GameCardAdapter(this)
     }
 
-    private var statusText: String = getString(R.string.board_title_lets_begin)
+    private var statusText: String = ""
         set(value) {
             field = value
             statusTextView.startAnimation(statusTextAnimation)
@@ -50,6 +52,10 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
             repeatMode = Animation.REVERSE
             setAnimationListener(this@GameBoardFragment)
         }
+    }
+
+    private val gameMenuDialog: DialogFragment by lazy {
+        GameDialogFragment.create(this)
     }
 
     private lateinit var stateMachine: GameBoardStateMachine
@@ -104,15 +110,31 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
      * State Machine
      */
 
+    private val kingImageViews by lazy {
+        listOf(kingOneImageView, kingTwoImageView, kingThreeImageView, kingFourImageView)
+    }
+
     override fun onChanged(state: GameBoardStateMachine.State) {
         val context = requireContext()
 
         when (state) {
             is GameBoardStateMachine.State.Start -> {
+                cardAdapter.updateDataSet(stateMachine.gameEngine.cards)
                 stateMachine.present()
             }
             is GameBoardStateMachine.State.Presenting -> {
-                cardAdapter.updateDataSet(stateMachine.gameEngine.cards)
+                stateMachine.gameEngine.toggleKingImageView(kingImageViews, volumeImageView)
+
+                // TODO: Toggle King's Cup and End Game
+//                when (args.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
+//                    3 -> this.kingFourImageView.isVisible = false
+//                    2 -> this.kingThreeImageView.isVisible = false
+//                    1 -> this.kingTwoImageView.isVisible = false
+//                    0 -> {
+//                        this.kingOneImageView.isVisible = false
+//                        stateMachine.endGame()
+//                    }
+//                }
             }
             is GameBoardStateMachine.State.ShowingDetail -> {
                 val fragment = GameCardFragment.newInstance(state.card, 1, this)
@@ -131,26 +153,10 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                 statusText = stateMachine.taunt
                 progressBar.max = cardAdapter.itemCount - 1
 
-                // TODO: Update Cup Drawable
-                volumeImageView.setImageResource(stateMachine.gameEngine.cupVolumeResId)
-//                args.getInt(GameEngine.GAME_ENGINE_CUP_VOLUME)
-//                    .let { volumeImageView.setImageResource(it) }
-
-                // TODO: Toggle King's Cup and End Game
-//                when (args.getInt(GameEngine.GAME_ENGINE_KING_COUNTER)) {
-//                    3 -> this.kingFourImageView.isVisible = false
-//                    2 -> this.kingThreeImageView.isVisible = false
-//                    1 -> this.kingTwoImageView.isVisible = false
-//                    0 -> {
-//                        this.kingOneImageView.isVisible = false
-//                        stateMachine.endGame()
-//                    }
-//                }
+                stateMachine.present()
             }
             is GameBoardStateMachine.State.Pausing -> {
-                GameMenuDialog().apply {
-                    show(requireActivity().supportFragmentManager, javaClass.simpleName)
-                }
+                gameMenuDialog.show(requireActivity().supportFragmentManager, javaClass.simpleName)
             }
             is GameBoardStateMachine.State.Winning -> {
                 restartButton.show()
@@ -164,7 +170,7 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                 Navigation.findNavController(rootView).navigate(action)
             }
             is GameBoardStateMachine.State.Completed -> {
-                Navigation.findNavController(this.rootView).navigateUp()
+                Navigation.findNavController(rootView).navigateUp()
             }
         }
     }
@@ -179,6 +185,21 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
 
     override fun onCardDismissed(card: Card) {
         stateMachine.dismissCard(card)
+    }
+
+    /**
+     * GameMenuDialogListeners
+     */
+    override fun onGameResumed() {
+        stateMachine.resumeGame()
+    }
+
+    override fun onGameRestart() {
+        stateMachine.restartGame()
+    }
+
+    override fun onGameQuit() {
+        stateMachine.complete()
     }
 
     /**

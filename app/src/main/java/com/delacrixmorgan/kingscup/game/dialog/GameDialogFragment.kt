@@ -1,5 +1,6 @@
-package com.delacrixmorgan.kingscup.game
+package com.delacrixmorgan.kingscup.game.dialog
 
+import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,9 +15,15 @@ import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.engine.VibratorEngine
 import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.VibrateType
-import kotlinx.android.synthetic.main.fragment_game_menu_dialog.*
+import kotlinx.android.synthetic.main.fragmment_game_dialog.*
 
-class GameMenuDialog : DialogFragment(), View.OnClickListener {
+class GameDialogFragment : DialogFragment(), View.OnClickListener {
+
+    companion object {
+        fun create(listener: GameDialogListeners) = GameDialogFragment().apply {
+            this.listener = listener
+        }
+    }
 
     private val preference: SharedPreferences by lazy {
         PreferenceHelper.getPreference(requireContext())
@@ -26,15 +33,24 @@ class GameMenuDialog : DialogFragment(), View.OnClickListener {
         SoundEngine.getInstance(requireContext())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_game_menu_dialog, container, false)
+    private var action = GameDialogActions.Resume
+
+    private lateinit var listener: GameDialogListeners
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragmment_game_dialog, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
-        val vibratePreference = preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
+        val vibratePreference =
+            preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
 
         volumeButton.setImageResource(if (soundPreference) R.drawable.ic_volume_up else R.drawable.ic_volume_off)
         vibrateButton.setImageResource(if (vibratePreference) R.drawable.ic_vibration_enable else R.drawable.ic_vibration_disable)
@@ -51,9 +67,21 @@ class GameMenuDialog : DialogFragment(), View.OnClickListener {
 
         when (view.id) {
             R.id.startNewGameButton -> {
-                dismiss()
+                action = GameDialogActions.Restart
                 soundEngine.playSound(context, SoundType.Whoosh)
-//                startNewGame()
+                dismiss()
+            }
+
+            R.id.resumeButton -> {
+                soundEngine.playSound(context, SoundType.Whoosh)
+                action = GameDialogActions.Resume
+                dismiss()
+            }
+
+            R.id.quitButton -> {
+                action = GameDialogActions.Quit
+                soundEngine.playSound(context, SoundType.Whoosh)
+                dismiss()
             }
 
             R.id.vibrateButton -> {
@@ -65,23 +93,22 @@ class GameMenuDialog : DialogFragment(), View.OnClickListener {
                 updateSoundPreference()
                 soundEngine.playSound(context, SoundType.Click)
             }
+        }
+    }
 
-            R.id.resumeButton -> {
-                dismiss()
-                soundEngine.playSound(context, SoundType.Whoosh)
-            }
-
-            R.id.quitButton -> {
-                dismiss()
-                soundEngine.playSound(context, SoundType.Whoosh)
-//                Navigation.findNavController(this.rootView).navigateUp()
-            }
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        when (action) {
+            GameDialogActions.Restart -> listener.onGameRestart()
+            GameDialogActions.Resume -> listener.onGameResumed()
+            GameDialogActions.Quit -> listener.onGameQuit()
         }
     }
 
     private fun updateVibratePreference() {
         val preference = PreferenceHelper.getPreference(requireContext())
-        val vibratePreference = preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
+        val vibratePreference =
+            preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
 
         if (vibratePreference) {
             vibrateButton.setImageResource(R.drawable.ic_vibration_disable)
