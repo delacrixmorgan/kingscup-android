@@ -6,7 +6,6 @@ import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.SoundType
-import com.delacrixmorgan.kingscup.model.TauntType
 import com.delacrixmorgan.kingscup.statemachine.FSMState
 import com.delacrixmorgan.kingscup.statemachine.ObservableStateMachine
 
@@ -14,7 +13,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
     sealed class State : FSMState {
         object Start : State()
         object Presenting : State()
-        class Updating(val card: Card, var hasWin: Boolean? = null) : State()
+        class Updating(val card: Card) : State()
         class ShowingDetail(val card: Card) : State()
         object Pausing : State()
         object Winning : State()
@@ -32,9 +31,6 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
     val soundEngine by lazy {
         SoundEngine.getInstance(context)
     }
-
-    val taunt: String
-        get() = TauntType.values().toList().shuffled().first().getLocalisedText(context)
 
     /**
      * Transitions
@@ -56,17 +52,17 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
         }
     }
 
-    fun dismissCard(card: Card, hasWin: Boolean? = null) {
+    fun dismissCard(card: Card) {
         when (state) {
             is State.ShowingDetail -> {
-                state = State.Updating(card, hasWin)
+                state = State.Updating(card)
             }
         }
     }
 
     fun pauseGame() {
         when (state) {
-            is State.Presenting, is State.Updating -> {
+            is State.Presenting, is State.Updating, is State.Winning -> {
                 state = State.Pausing
             }
         }
@@ -75,7 +71,11 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
     fun resumeGame() {
         when (state) {
             is State.Pausing -> {
-                state = State.Presenting
+                state = if (gameEngine.hasWon) {
+                    State.Winning
+                } else {
+                    State.Presenting
+                }
             }
         }
     }

@@ -102,16 +102,16 @@ class GameCardFragment : Fragment() {
                 soundEngine.playSound(context, SoundType.Oooh)
 
                 Handler().postDelayed({
-                    backToBoardFragment(hasWin = true)
+                    backToBoardFragment()
                 }, 2_000)
             }
             card.rank == GAME_CARD_KING -> soundEngine.playSound(context, SoundType.Oooh)
         }
     }
 
-    private fun backToBoardFragment(hasWin: Boolean? = null) {
+    private fun backToBoardFragment() {
         soundEngine.playSound(requireContext(), SoundType.Whoosh)
-        listener.onCardDismissed(card, hasWin)
+        listener.onCardDismissed(card)
         activity?.supportFragmentManager?.popBackStack()
     }
 }

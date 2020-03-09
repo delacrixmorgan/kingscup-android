@@ -3,10 +3,12 @@ package com.delacrixmorgan.kingscup.engine
 import android.content.Context
 import android.widget.ImageView
 import androidx.core.view.isVisible
+import com.delacrixmorgan.kingscup.App
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.ActionType
 import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.SuitType
+import com.delacrixmorgan.kingscup.model.TauntType
 
 class GameEngine private constructor(context: Context) {
 
@@ -27,6 +29,12 @@ class GameEngine private constructor(context: Context) {
     }
 
     val cards = arrayListOf<Card>()
+
+    val taunt: String
+        get() = TauntType.values().toList().shuffled().first().getLocalisedText(App.appContext)
+
+    val hasWon: Boolean
+        get() = turnsLeft == 0
 
     private val turnsLeft: Int
         get() {
@@ -83,6 +91,5 @@ class GameEngine private constructor(context: Context) {
         }
     }
 
-    // TODO: Restructure Win Factor
     fun hasTriggerWin(card: Card) = card.rank == GAME_CARD_KING && turnsLeft == 1
 }

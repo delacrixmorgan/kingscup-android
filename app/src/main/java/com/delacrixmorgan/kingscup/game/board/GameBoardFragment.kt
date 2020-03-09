@@ -132,7 +132,7 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                 stateMachine.present()
             }
             is GameBoardStateMachine.State.Presenting -> Unit
-            
+
             is GameBoardStateMachine.State.ShowingDetail -> {
                 val fragment = GameCardFragment.newInstance(state.card, 1, this)
                 fragment.enterTransition = Slide(Gravity.BOTTOM).setDuration(200)
@@ -145,12 +145,12 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                 stateMachine.soundEngine.playSound(context, SoundType.Flip)
             }
             is GameBoardStateMachine.State.Updating -> {
-                statusText = stateMachine.taunt
+                statusText = stateMachine.gameEngine.taunt
                 cardAdapter.removeCard(state.card)
                 progressBar.max = cardAdapter.itemCount - 1
                 stateMachine.gameEngine.toggleKingImageView(kingImageViews, volumeImageView)
 
-                if (state.hasWin == true) {
+                if (stateMachine.gameEngine.hasWon) {
                     stateMachine.endGame()
                 } else {
                     stateMachine.present()
@@ -186,8 +186,8 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
         stateMachine.drawCard(card)
     }
 
-    override fun onCardDismissed(card: Card, hasWin: Boolean?) {
-        stateMachine.dismissCard(card, hasWin)
+    override fun onCardDismissed(card: Card) {
+        stateMachine.dismissCard(card)
     }
 
     /**

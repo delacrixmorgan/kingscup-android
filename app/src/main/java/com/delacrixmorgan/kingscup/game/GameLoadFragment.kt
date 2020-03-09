@@ -37,10 +37,10 @@ class GameLoadFragment : Fragment() {
             this.loadingTextView.text = gameType.getLocalisedText(context)
         }
 
-        this.gameEngine.setupGame(context)
-        this.soundEngine.playSound(context, SoundType.King)
+        gameEngine.setupGame(context)
+        soundEngine.playSound(context, SoundType.King)
 
-        if (BuildConfig.DEBUG == true) {
+        if (BuildConfig.DEBUG) {
             launchGameFragment()
         } else {
             launchDelayedGameFragment()

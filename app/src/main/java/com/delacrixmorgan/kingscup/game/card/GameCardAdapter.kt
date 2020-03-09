@@ -53,7 +53,7 @@ class GameCardAdapter(
 
     class GameCardViewHolder(
         itemView: View,
-        private val listenerGame: GameCardListener
+        private val listener: GameCardListener
     ) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(card: Card) {
@@ -61,7 +61,7 @@ class GameCardAdapter(
                 BuildConfig.DEBUG == true && card.rank == GameEngine.GAME_CARD_KING
 
             itemView.setOnClickListener {
-                listenerGame.onCardSelected(card)
+                listener.onCardSelected(card)
             }
         }
     }
