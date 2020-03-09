@@ -29,16 +29,16 @@ class MenuCreditsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.spartanImageView.setOnClickListener { launchWebsite("https://github.com/theleagueof/league-spartan") }
-        this.kornerImageView.setOnClickListener { launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
+        spartanImageView.setOnClickListener { launchWebsite("https://github.com/theleagueof/league-spartan") }
+        kornerImageView.setOnClickListener { launchWebsite("https://github.com/JcMinarro/RoundKornerLayouts") }
 
-        this.freesoundImageView.setOnClickListener { launchWebsite("https://freesound.org/") }
-        this.freepikImageView.setOnClickListener { launchWebsite("https://freepik.com") }
-        this.confettiImageView.setOnClickListener { launchWebsite("https://lottiefiles.com/4329-confetti") }
+        freesoundImageView.setOnClickListener { launchWebsite("https://freesound.org/") }
+        freepikImageView.setOnClickListener { launchWebsite("https://freepik.com") }
+        confettiImageView.setOnClickListener { launchWebsite("https://lottiefiles.com/4329-confetti") }
 
-        this.doneButton.setOnClickListener {
+        doneButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
-            this.soundEngine.playSound(view.context, SoundType.Whoosh)
+            soundEngine.playSound(view.context, SoundType.Whoosh)
         }
     }
 }

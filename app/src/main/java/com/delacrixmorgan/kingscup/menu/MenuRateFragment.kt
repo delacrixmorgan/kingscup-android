@@ -39,34 +39,34 @@ class MenuRateFragment : Fragment() {
         val context = view.context
         val packageName = context.packageName
 
-        this.backButton.setOnClickListener {
+        backButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.starImageView.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.ic_human_happy)
-            this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
+        starImageView.setOnClickListener {
+            personImageView.setImageResource(R.drawable.ic_human_happy)
+            starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
 
             launchPlayStore(packageName)
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.rateButton.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+        rateButton.setOnClickListener {
+            personImageView.setImageResource(R.drawable.ic_human_happy)
 
             launchPlayStore(packageName)
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.squarkViewGroup.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+        squarkViewGroup.setOnClickListener {
+            personImageView.setImageResource(R.drawable.ic_human_happy)
 
             launchPlayStore(SQUARK_PACKAGE_NAME)
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.mamikaViewGroup.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+        mamikaViewGroup.setOnClickListener {
+            personImageView.setImageResource(R.drawable.ic_human_happy)
 
             launchPlayStore(MAMIKA_PACKAGE_NAME)
             Navigation.findNavController(view).navigateUp()
@@ -75,11 +75,11 @@ class MenuRateFragment : Fragment() {
 
     private fun launchPlayStore(packageName: String) {
         val url = "https://play.google.com/store/apps/details?id=$packageName"
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+            flags = FLAG_ACTIVITY_NEW_TASK
+        }
 
-        intent.flags = FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
-
-        this.soundEngine.playSound(requireContext(), SoundType.Oooh)
+        soundEngine.playSound(requireContext(), SoundType.Oooh)
     }
 }

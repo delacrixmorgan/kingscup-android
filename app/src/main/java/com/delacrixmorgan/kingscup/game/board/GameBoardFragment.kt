@@ -134,7 +134,7 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
             is GameBoardStateMachine.State.Presenting -> Unit
 
             is GameBoardStateMachine.State.ShowingDetail -> {
-                val fragment = GameCardFragment.newInstance(state.card, 1, this)
+                val fragment = GameCardFragment.create(state.card, 1, this)
                 fragment.enterTransition = Slide(Gravity.BOTTOM).setDuration(200)
                 childFragmentManager.commit {
                     add(rootView.id, fragment, fragment.javaClass.simpleName)

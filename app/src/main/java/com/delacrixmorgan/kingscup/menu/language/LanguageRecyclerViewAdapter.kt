@@ -25,33 +25,30 @@ class LanguageRecyclerViewAdapter(
         itemView.layoutParams.height = cellHeight
         itemView.layoutParams.width = cellWidth
 
-        return LanguageViewHolder(itemView, this.listener)
+        return LanguageViewHolder(itemView, listener)
     }
 
     override fun onBindViewHolder(holder: LanguageViewHolder, position: Int) {
-        val languageType = this.languageTypes[position]
+        val languageType = languageTypes[position]
         holder.updateDataSet(languageType)
     }
 
-    override fun getItemCount() = this.languageTypes.size
+    override fun getItemCount() = languageTypes.size
 
-    class LanguageViewHolder(itemView: View, listener: LanguageListener) :
+    class LanguageViewHolder(itemView: View, private val listener: LanguageListener) :
         RecyclerView.ViewHolder(itemView) {
-        private lateinit var languageType: LanguageType
-
-        init {
-            itemView.setOnClickListener {
-                listener.onLanguageSelected(this.languageType)
-            }
-        }
 
         @SuppressLint("DefaultLocale")
         fun updateDataSet(languageType: LanguageType) {
-            this.languageType = languageType
+            itemView.languageTextView.text = languageType.name.toLowerCase(
+                Locale.US
+            ).capitalize()
 
-            this.itemView.languageTextView.text =
-                languageType.name.toLowerCase(Locale.US).capitalize()
-            this.itemView.authorTextView.text = languageType.authorNames
+            itemView.authorTextView.text = languageType.authorNames
+
+            itemView.setOnClickListener {
+                listener.onLanguageSelected(languageType)
+            }
         }
     }
 }

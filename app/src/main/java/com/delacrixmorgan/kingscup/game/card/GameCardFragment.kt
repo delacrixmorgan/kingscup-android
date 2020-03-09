@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.bind
 import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.Keys
 import com.delacrixmorgan.kingscup.common.animateButtonGrow
 import com.delacrixmorgan.kingscup.databinding.FragmentGameCardBinding
 import com.delacrixmorgan.kingscup.engine.GameEngine
@@ -25,16 +26,13 @@ import kotlinx.android.synthetic.main.fragment_game_card.*
 class GameCardFragment : Fragment() {
 
     companion object {
-        private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
-        private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
-
-        fun newInstance(card: Card, position: Int = 0, gameCardListener: GameCardListener) =
+        fun create(card: Card, position: Int, listener: GameCardListener) =
             GameCardFragment().apply {
                 arguments = bundleOf(
-                    GAME_CARD_FRAGMENT_CARD to card,
-                    GAME_CARD_FRAGMENT_POSITION to position
+                    Keys.GameCard.Card.name to card,
+                    Keys.GameCard.Position.name to position
                 )
-                listener = gameCardListener
+                this.listener = listener
             }
     }
 
@@ -76,7 +74,7 @@ class GameCardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val context = view.context
 
-        card = requireNotNull(arguments?.getParcelable(GAME_CARD_FRAGMENT_CARD))
+        card = requireNotNull(arguments?.getParcelable(Keys.GameCard.Card.name))
         dataBinding?.card = card
 
         when (this.card.suitType) {

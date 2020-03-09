@@ -33,35 +33,35 @@ class MenuSettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.buildNumberTextView.text = "v${BuildConfig.VERSION_NAME}#${BuildConfig.VERSION_CODE}"
+        buildNumberTextView.text = "v${BuildConfig.VERSION_NAME}#${BuildConfig.VERSION_CODE}"
 
-        this.backButton.setOnClickListener {
+        backButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.guideCardView.setOnClickListener {
+        guideCardView.setOnClickListener {
             val action =
                 MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuGuideFragment()
             Navigation.findNavController(view).navigate(action)
         }
 
-        this.languageCardView.setOnClickListener {
+        languageCardView.setOnClickListener {
             val action =
                 MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuLanguageFragment()
             Navigation.findNavController(view).navigate(action)
         }
 
-        this.creditsCardView.setOnClickListener {
+        creditsCardView.setOnClickListener {
             val action =
                 MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuCreditsFragment()
             Navigation.findNavController(view).navigate(action)
         }
 
-        this.sourceCodeCardView.setOnClickListener {
+        sourceCodeCardView.setOnClickListener {
             launchWebsite("https://github.com/delacrixmorgan/kingscup-android")
         }
 
-        this.translationCardView.setOnClickListener {
+        translationCardView.setOnClickListener {
             val intent = newEmailIntent(
                 TRANSLATION_CONTACT_EMAIL,
                 "King's Cup 🍺 - Translation Help",
@@ -75,7 +75,7 @@ class MenuSettingFragment : Fragment() {
             )
         }
 
-        this.shareCardView.setOnClickListener {
+        shareCardView.setOnClickListener {
             val message = getString(R.string.preference_message_share_friend)
             launchShareGameIntent(message)
         }

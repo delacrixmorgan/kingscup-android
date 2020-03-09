@@ -29,13 +29,13 @@ class MenuGuideFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         GuideType.values().forEach {
-            this.guideList.add(it.getLocalisedText(view.context))
+            guideList.add(it.getLocalisedText(view.context))
         }
 
-        this.viewPager.adapter = GuideAdapter()
-        this.tabLayout.setupWithViewPager(viewPager, true)
+        viewPager.adapter = GuideAdapter()
+        tabLayout.setupWithViewPager(viewPager, true)
 
-        this.backButton.setOnClickListener {
+        backButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
         }
     }
