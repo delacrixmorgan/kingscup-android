@@ -1,5 +1,6 @@
 package com.delacrixmorgan.kingscup.menu
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,58 +15,67 @@ import com.delacrixmorgan.kingscup.common.launchShareGameIntent
 import com.delacrixmorgan.kingscup.common.launchWebsite
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
-/**
- * MenuSettingFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 08/05/2019.
- * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
-
 class MenuSettingFragment : Fragment() {
 
     companion object {
         private const val TRANSLATION_CONTACT_EMAIL = "delacrixmorgan@gmail.com"
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.fragment_menu_setting, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.buildNumberTextView.text = "v${BuildConfig.VERSION_NAME}#${BuildConfig.VERSION_CODE}"
+        buildNumberTextView.text = "v${BuildConfig.VERSION_NAME}#${BuildConfig.VERSION_CODE}"
 
-        this.backButton.setOnClickListener {
+        backButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.guideCardView.setOnClickListener {
-            val action = MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuGuideFragment()
+        guideCardView.setOnClickListener {
+            val action =
+                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuGuideFragment()
             Navigation.findNavController(view).navigate(action)
         }
 
-        this.languageCardView.setOnClickListener {
-            val action = MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuLanguageFragment()
+        languageCardView.setOnClickListener {
+            val action =
+                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuLanguageFragment()
             Navigation.findNavController(view).navigate(action)
         }
 
-        this.creditsCardView.setOnClickListener {
-            val action = MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuCreditsFragment()
+        creditsCardView.setOnClickListener {
+            val action =
+                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuCreditsFragment()
             Navigation.findNavController(view).navigate(action)
         }
 
-        this.sourceCodeCardView.setOnClickListener {
+        sourceCodeCardView.setOnClickListener {
             launchWebsite("https://github.com/delacrixmorgan/kingscup-android")
         }
 
-        this.translationCardView.setOnClickListener {
-            val intent = newEmailIntent(TRANSLATION_CONTACT_EMAIL, "King's Cup 🍺 - Translation Help", "Hey mate,\n\nI would love to translate King's Cup to [x] language.")
-            startActivity(Intent.createChooser(intent, getString(R.string.fragment_menu_language_btn_help_translate)))
+        translationCardView.setOnClickListener {
+            val intent = newEmailIntent(
+                TRANSLATION_CONTACT_EMAIL,
+                "King's Cup 🍺 - Translation Help",
+                "Hey mate,\n\nI would love to translate King's Cup to [x] language."
+            )
+            startActivity(
+                Intent.createChooser(
+                    intent,
+                    getString(R.string.fragment_menu_language_btn_help_translate)
+                )
+            )
         }
 
-        this.shareCardView.setOnClickListener {
+        shareCardView.setOnClickListener {
             val message = getString(R.string.preference_message_share_friend)
             launchShareGameIntent(message)
         }

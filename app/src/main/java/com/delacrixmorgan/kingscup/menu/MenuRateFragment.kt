@@ -11,17 +11,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.SoundEngine
+import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_rate.*
-
-/**
- * MenuRateFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 08/05/2019.
- * Copyright (c) 2019 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
 
 class MenuRateFragment : Fragment() {
 
@@ -34,7 +26,11 @@ class MenuRateFragment : Fragment() {
         SoundEngine.getInstance(requireContext())
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.fragment_menu_rate, container, false)
     }
 
@@ -43,34 +39,34 @@ class MenuRateFragment : Fragment() {
         val context = view.context
         val packageName = context.packageName
 
-        this.backButton.setOnClickListener {
+        backButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.starImageView.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.ic_human_happy)
-            this.starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
+        starImageView.setOnClickListener {
+            personImageView.setImageResource(R.drawable.ic_human_happy)
+            starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
 
             launchPlayStore(packageName)
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.rateButton.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+        rateButton.setOnClickListener {
+            personImageView.setImageResource(R.drawable.ic_human_happy)
 
             launchPlayStore(packageName)
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.squarkViewGroup.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+        squarkViewGroup.setOnClickListener {
+            personImageView.setImageResource(R.drawable.ic_human_happy)
 
             launchPlayStore(SQUARK_PACKAGE_NAME)
             Navigation.findNavController(view).navigateUp()
         }
 
-        this.mamikaViewGroup.setOnClickListener {
-            this.personImageView.setImageResource(R.drawable.ic_human_happy)
+        mamikaViewGroup.setOnClickListener {
+            personImageView.setImageResource(R.drawable.ic_human_happy)
 
             launchPlayStore(MAMIKA_PACKAGE_NAME)
             Navigation.findNavController(view).navigateUp()
@@ -79,11 +75,11 @@ class MenuRateFragment : Fragment() {
 
     private fun launchPlayStore(packageName: String) {
         val url = "https://play.google.com/store/apps/details?id=$packageName"
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+            flags = FLAG_ACTIVITY_NEW_TASK
+        }
 
-        intent.flags = FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
-
-        this.soundEngine.playSound(requireContext(), SoundType.OOOH)
+        soundEngine.playSound(requireContext(), SoundType.Oooh)
     }
 }

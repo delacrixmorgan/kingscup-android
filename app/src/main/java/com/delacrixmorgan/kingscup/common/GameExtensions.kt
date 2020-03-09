@@ -8,37 +8,14 @@ import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
-import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
 import java.util.*
 
 /**
- * GameExtensions
- * kingscup-android
- *
- * Created by Delacrix Morgan on 25/03/2018.
- * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+ * Resource
  */
-
-fun setupProgressBar(layoutManager: RecyclerView.LayoutManager?, recyclerView: RecyclerView, progressBar: ProgressBar) {
-    val manager = layoutManager as LinearLayoutManager
-
-    recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            if (manager.findFirstVisibleItemPosition() == 0) {
-                progressBar.progress = 0
-            } else {
-                progressBar.progress = manager.findLastVisibleItemPosition()
-            }
-        }
-    })
-}
-
-//region Resources
-fun Resources.setLocale(language: String?) {
+fun Resources.setLocale(language: String) {
     val locale = Locale(language)
 
     configuration.setLocale(locale)
@@ -47,9 +24,10 @@ fun Resources.setLocale(language: String?) {
 
     Locale.setDefault(locale)
 }
-//endregion
 
-//region View
+/**
+ * View
+ */
 fun View.performHapticContextClick() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK)
@@ -63,22 +41,21 @@ fun View.animateButtonGrow() {
     animGrow.addAnimation(AnimationUtils.loadAnimation(this.context, R.anim.pop_out))
     startAnimation(animGrow)
 }
-//endregion
 
-//region Fragment
+/**
+ * Fragment
+ */
 fun Fragment.launchShareGameIntent(message: String) {
-    val intent = Intent(Intent.ACTION_SEND)
-
-    intent.type = "text/plain"
-    intent.putExtra(Intent.EXTRA_TEXT, message)
-
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, message)
+    }
     startActivity(Intent.createChooser(intent, getString(R.string.preference_title_share_friend)))
 }
 
 fun Fragment.launchWebsite(url: String) {
-    val intent = Intent(Intent.ACTION_VIEW)
-
-    intent.data = Uri.parse(url)
+    val intent = Intent(Intent.ACTION_VIEW).apply {
+        data = Uri.parse(url)
+    }
     startActivity(intent)
 }
-//endregion

@@ -13,19 +13,15 @@ import com.delacrixmorgan.kingscup.model.GuideType
 import kotlinx.android.synthetic.main.fragment_menu_guide.*
 import kotlinx.android.synthetic.main.view_guide_list.view.*
 
-/**
- * MenuGuideFragment
- * kingscup-android
- *
- * Created by Delacrix Morgan on 25/03/2018.
- * Copyright (c) 2018 licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
- */
-
 class MenuGuideFragment : Fragment() {
 
     private var guideList: ArrayList<String> = ArrayList()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_menu_guide, container, false)
     }
 
@@ -33,20 +29,21 @@ class MenuGuideFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         GuideType.values().forEach {
-            this.guideList.add(it.getLocalisedText(view.context))
+            guideList.add(it.getLocalisedText(view.context))
         }
 
-        this.viewPager.adapter = GuideAdapter()
-        this.tabLayout.setupWithViewPager(viewPager, true)
+        viewPager.adapter = GuideAdapter()
+        tabLayout.setupWithViewPager(viewPager, true)
 
-        this.backButton.setOnClickListener {
+        backButton.setOnClickListener {
             Navigation.findNavController(view).navigateUp()
         }
     }
 
     private inner class GuideAdapter : PagerAdapter() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
-            val rootView = LayoutInflater.from(activity).inflate(R.layout.view_guide_list, collection, false)
+            val rootView =
+                LayoutInflater.from(activity).inflate(R.layout.view_guide_list, collection, false)
 
             rootView.guideTextView.text = guideList[position]
             collection.addView(rootView)

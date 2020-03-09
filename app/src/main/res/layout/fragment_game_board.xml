@@ -164,4 +164,14 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:lottie_rawRes="@raw/confetti" />
+
+    <TextView
+        android:id="@+id/debugTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:padding="18dp"
+        android:text="State: Presenting"
+        android:textColor="@android:color/black" />
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

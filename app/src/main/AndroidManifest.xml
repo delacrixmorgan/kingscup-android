@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name="androidx.multidex.MultiDexApplication"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="${appLabel}"
@@ -18,7 +18,8 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="locale|layoutDirection"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
