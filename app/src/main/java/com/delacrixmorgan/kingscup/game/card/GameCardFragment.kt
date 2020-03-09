@@ -28,24 +28,19 @@ class GameCardFragment : Fragment() {
         private const val GAME_CARD_FRAGMENT_CARD = "GameCardFragment.Card"
         private const val GAME_CARD_FRAGMENT_POSITION = "GameCardFragment.Position"
 
-        fun newInstance(
-            card: Card,
-            position: Int = 0,
-            gameCardListener: GameCardListener
-        ): GameCardFragment {
-            return GameCardFragment().apply {
-                this.arguments = bundleOf(
+        fun newInstance(card: Card, position: Int = 0, gameCardListener: GameCardListener) =
+            GameCardFragment().apply {
+                arguments = bundleOf(
                     GAME_CARD_FRAGMENT_CARD to card,
                     GAME_CARD_FRAGMENT_POSITION to position
                 )
-                this.gameCardListener = gameCardListener
+                listener = gameCardListener
             }
-        }
     }
 
     private lateinit var card: Card
+    private lateinit var listener: GameCardListener
 
-    private var gameCardListener: GameCardListener? = null
     private var dataBinding: FragmentGameCardBinding? = null
 
     private val gameEngine by lazy {
@@ -58,11 +53,6 @@ class GameCardFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        this.arguments?.let {
-            this.card = it.getParcelable(GAME_CARD_FRAGMENT_CARD) ?: throw Exception("Card Missing")
-        }
-
         requireActivity().onBackPressedDispatcher.addCallback(
             this,
             object : OnBackPressedCallback(true) {
@@ -77,17 +67,17 @@ class GameCardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_game_card, container, false)
-
-        this.dataBinding = bind(rootView)
-        this.dataBinding?.card = this.card
-
-        return rootView
+        return inflater.inflate(R.layout.fragment_game_card, container, false).apply {
+            dataBinding = bind(this)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val context = view.context
+
+        card = requireNotNull(arguments?.getParcelable(GAME_CARD_FRAGMENT_CARD))
+        dataBinding?.card = card
 
         when (this.card.suitType) {
             SuitType.Spade -> R.drawable.ic_card_spade
@@ -100,28 +90,28 @@ class GameCardFragment : Fragment() {
             darkRightImageView.setImageResource(this)
         }
 
-        this.doneButton.animateButtonGrow()
-        this.doneButton.setOnClickListener {
+        doneButton.animateButtonGrow()
+        doneButton.setOnClickListener {
             backToBoardFragment()
         }
 
         when {
-            this.gameEngine.checkWin(card) -> {
+            gameEngine.hasTriggerWin(card) -> {
                 doneButton.hide()
                 VibratorEngine.vibrate(view, VibrateType.Long)
                 soundEngine.playSound(context, SoundType.Oooh)
 
                 Handler().postDelayed({
-                    backToBoardFragment()
-                }, 2000)
+                    backToBoardFragment(hasWin = true)
+                }, 2_000)
             }
-            this.card.rank == GAME_CARD_KING -> this.soundEngine.playSound(context, SoundType.Oooh)
+            card.rank == GAME_CARD_KING -> soundEngine.playSound(context, SoundType.Oooh)
         }
     }
 
-    private fun backToBoardFragment() {
-        this.soundEngine.playSound(requireContext(), SoundType.Whoosh)
-        this.gameCardListener?.onCardDismissed(card)
-        this.activity?.supportFragmentManager?.popBackStack()
+    private fun backToBoardFragment(hasWin: Boolean? = null) {
+        soundEngine.playSound(requireContext(), SoundType.Whoosh)
+        listener.onCardDismissed(card, hasWin)
+        activity?.supportFragmentManager?.popBackStack()
     }
 }

@@ -14,7 +14,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
     sealed class State : FSMState {
         object Start : State()
         object Presenting : State()
-        class Updating(val card: Card) : State()
+        class Updating(val card: Card, var hasWin: Boolean? = null) : State()
         class ShowingDetail(val card: Card) : State()
         object Pausing : State()
         object Winning : State()
@@ -33,7 +33,6 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
         SoundEngine.getInstance(context)
     }
 
-    // TODO: Game Over Needs a Different Taunt context.getString(R.string.game_over_body)
     val taunt: String
         get() = TauntType.values().toList().shuffled().first().getLocalisedText(context)
 
@@ -57,10 +56,10 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
         }
     }
 
-    fun dismissCard(card: Card) {
+    fun dismissCard(card: Card, hasWin: Boolean? = null) {
         when (state) {
             is State.ShowingDetail -> {
-                state = State.Updating(card)
+                state = State.Updating(card, hasWin)
             }
         }
     }
@@ -94,7 +93,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
 
     fun endGame() {
         when (state) {
-            is State.Presenting -> {
+            is State.Presenting, is State.Updating -> {
                 soundEngine.playSound(context, SoundType.GameOver)
                 state = State.Winning
             }

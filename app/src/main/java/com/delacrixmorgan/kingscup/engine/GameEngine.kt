@@ -84,5 +84,5 @@ class GameEngine private constructor(context: Context) {
     }
 
     // TODO: Restructure Win Factor
-    fun checkWin(card: Card) = card.rank == GAME_CARD_KING && turnsLeft == 0
+    fun hasTriggerWin(card: Card) = card.rank == GAME_CARD_KING && turnsLeft == 1
 }
