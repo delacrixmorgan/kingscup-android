@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kuninkaan kuppi!</string>
+    <string name="app_name">Kuninkaan Kuppi</string>
     <string name="game_over_body">Ääntä kohti!</string>
 
     <string name="preference_title">Asetukset</string>

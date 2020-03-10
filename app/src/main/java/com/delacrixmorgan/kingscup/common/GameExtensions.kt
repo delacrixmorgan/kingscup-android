@@ -10,6 +10,7 @@ import android.view.animation.AnimationSet
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.model.Card
 import java.util.*
 
 /**
@@ -58,4 +59,13 @@ fun Fragment.launchWebsite(url: String) {
         data = Uri.parse(url)
     }
     startActivity(intent)
+}
+
+/**
+ * Card
+ */
+fun ArrayList<Card>.findCardIndex(card: Card): Int {
+    return indexOf(firstOrNull {
+        it.suitType == card.suitType && it.rank == card.rank
+    })
 }

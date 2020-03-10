@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Králův pohár</string>
+    <string name="app_name">Králův Pohár</string>
     <string name="board_title_lets_begin">Jdeme na to</string>
     <string name="body_category">Zvol si kategorii. Řekni něco co do ní spadá, první koho nic nenapadne, PIJE!</string>
     <string name="body_chicks">Pijí všechny dámy!</string>

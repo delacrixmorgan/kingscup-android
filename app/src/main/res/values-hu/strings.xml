@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Királyok kupája</string>
+    <string name="app_name">Királyok Kupája</string>
     <string name="board_title_lets_begin">Kezdjük</string>
     <string name="body_category">"Válasz egy kategóriát. "</string>
     <string name="body_chicks">Minden csaj iszik!</string>
@@ -10,74 +10,58 @@
     <string name="body_king">Hozz egy új szabályt. Tölts a Király Kupájába!</string>
     <string name="body_mate">Válassz egy partnert és igyál amikor a partnered is iszik!</string>
     <string name="body_me">Csak te. Igyál!</string>
-    <string name="body_questions">Tegyél fel egy kérdést az egyik játékosnak. Nem szabad válaszolni hanem egy másik
-        kérdést feltenni egy másik játékosnak. Aki válaszol iszik!
-    </string>
+    <string name="body_questions">Tegyél fel egy kérdést az egyik játékosnak. Nem szabad válaszolni hanem egy másik kérdést feltenni egy másik játékosnak. Aki válaszol iszik!</string>
     <string name="body_snake_eyes">Senki sem nézhet a szemedbe. Ha mégis igyon!</string>
     <string name="body_thumb_master">Helyezzétek a hüvelykujjaitok az asztalra. Az utolsó igyon!</string>
-    <string name="body_waterfall">Mindenki elkezd inni és addig le nem teszi amíg aki húzta a kártyát abba nem hagyja
-    </string>
+    <string name="body_waterfall">Mindenki elkezd inni és addig le nem teszi amíg aki húzta a kártyát abba nem hagyja</string>
     <string name="body_you">Válassz egy társat és igyál vele egyet!</string>
     <string name="dialog_pause_button_quit">Kilépés</string>
     <string name="dialog_pause_button_resume">Folytat</string>
     <string name="dialog_pause_title">WC szünet</string>
     <string name="fragment_menu_language_btn_help_translate">Segíts a fordításban</string>
     <string name="fragment_menu_language_title_choose_language">Válassz nyelvet</string>
-    <string name="fragment_support_rate_title_more_from_me">Zero Cluttered Currency Converter</string>
-    <string name="game_over_body">Több app nekem:</string>
-    <string name="guide_page_one">Idd meg!</string>
-    <string name="guide_page_three">Igen, ez egy ivós játék. Nem kell feltétlenül alkoholosnak lennie. Mindenkinek van
-        egy pohara és ezen felül helyezzetek el egy üres poharat középre is. Ez lesz a Király Kupája
-    </string>
-    <string name="guide_page_two">Vállaszatok egy Királyt az asztaltól. Töltsön bármilyen italt a Király Kupájába ez az
-        ő egyedüli döntése. Az a játékos aki az utolsó király lesz le kell húznia a király kupáját. Egészségedre haver!
-    </string>
-    <string name="header_category">"Válasszatok egy embert aki elkezdi a játékot, vállaszon egy kártyát és csinálja meg
-        ami rajta áll. Innen nincs menekülés. Add át egy másik személynek ha végeztél a feladattal. "
-    </string>
-    <string name="header_chicks">Kategória</string>
-    <string name="header_dudes">Csajok</string>
-    <string name="header_heaven">Srácok</string>
-    <string name="header_jack">Mennybolt</string>
-    <string name="header_king">Jack</string>
-    <string name="header_mate">Király</string>
-    <string name="header_me">Társ</string>
-    <string name="header_questions">Én</string>
-    <string name="header_snake_eyes">Kérdés</string>
-    <string name="header_thumb_master">Kigyó szemei</string>
-    <string name="header_waterfall">Ujj mester</string>
-    <string name="header_you">Vízesés</string>
-    <string name="load_type_new_game">Te</string>
-    <string name="load_type_restart_game">Fogd meg a söröm</string>
-    <string name="preference_button_done">Új játék beállítása</string>
-    <string name="preference_current_language">Kész</string>
-    <string name="preference_message_share_friend">Angol</string>
-    <string name="preference_title">Psst nyugi ne pánikolj! 🤫 Ezzel a játékkal játszottunk egy buliba és nagyon
-        király.🔥\\n\\nKing\\\'s Cup 🍺 Nem tartalmaz
-        italokat!\\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup
-    </string>
-    <string name="preference_title_credits_summary">Beállítások</string>
-    <string name="preference_title_language">Köszönet nekik</string>
-    <string name="preference_title_quick_guide">Nyelv</string>
-    <string name="preference_title_share_friend">Gyors Útmutató</string>
-    <string name="preference_title_source_code">Mond el egy ivócimborádnak</string>
-    <string name="rate_button_awesome">Forráskód</string>
-    <string name="rate_paragraph_1">Legyél fantasztikus</string>
-    <string name="rate_paragraph_2">"Ez nem azért van, hogy abbahagyd a játékot. "</string>
-    <string name="rate_paragraph_3">A King\'s Cup tervezését, kódolását és elkészítését egy átlag személy csinálta.
-        Minden visszajelzés hatalmas ösztönzést jelent.
-    </string>
-    <string name="rate_title">A játék a ti visszaigazolásotok alapján tud fejlődni és ettől lesz jó.Legyél egy jó
-        tásr!
-    </string>
-    <string name="taunt_eight">Halihó!</string>
-    <string name="taunt_five">Biztos vagy benne?</string>
-    <string name="taunt_four">Ne gondolj</string>
-    <string name="taunt_nine">Ez az</string>
-    <string name="taunt_one">Rendben vagy haver?</string>
-    <string name="taunt_seven">Komolyan</string>
-    <string name="taunt_six">Gyorsabban haver</string>
-    <string name="taunt_ten">Igyál meg</string>
-    <string name="taunt_three">Gyerünk</string>
-    <string name="taunt_two">Csak még egyet</string>
+    <string name="fragment_support_rate_title_more_from_me">Több app nekem:</string>
+    <string name="game_over_body">Idd meg!</string>
+    <string name="guide_page_one">Igen, ez egy ivós játék. Nem kell feltétlenül alkoholosnak lennie. Mindenkinek van egy pohara és ezen felül helyezzetek el egy üres poharat középre is. Ez lesz a Király Kupája</string>
+    <string name="guide_page_three">Vállaszatok egy Királyt az asztaltól. Töltsön bármilyen italt a Király Kupájába ez az ő egyedüli döntése. Az a játékos aki az utolsó király lesz le kell húznia a király kupáját. Egészségedre haver!</string>
+    <string name="guide_page_two">"Válasszatok egy embert aki elkezdi a játékot, vállaszon egy kártyát és csinálja meg ami rajta áll. Innen nincs menekülés. Add át egy másik személynek ha végeztél a feladattal. "</string>
+    <string name="header_category">Kategória</string>
+    <string name="header_chicks">Csajok</string>
+    <string name="header_dudes">Srácok</string>
+    <string name="header_heaven">Mennybolt</string>
+    <string name="header_jack">Jack</string>
+    <string name="header_king">Király</string>
+    <string name="header_mate">Társ</string>
+    <string name="header_me">Én</string>
+    <string name="header_questions">Kérdés</string>
+    <string name="header_snake_eyes">Kigyó szemei</string>
+    <string name="header_thumb_master">Ujj mester</string>
+    <string name="header_waterfall">Vízesés</string>
+    <string name="header_you">Te</string>
+    <string name="load_type_new_game">Fogd meg a söröm</string>
+    <string name="load_type_restart_game">Új játék beállítása</string>
+    <string name="preference_button_done">Kész</string>
+    <string name="preference_current_language">Angol</string>
+    <string name="preference_message_share_friend">Psst nyugi ne pánikolj! 🤫 Ezzel a játékkal játszottunk egy buliba és nagyon király.🔥\\n\\nKing\\\'s Cup 🍺 Nem tartalmaz italokat!\\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
+    <string name="preference_title">Beállítások</string>
+    <string name="preference_title_credits_summary">Köszönet nekik</string>
+    <string name="preference_title_language">Nyelv</string>
+    <string name="preference_title_quick_guide">Gyors Útmutató</string>
+    <string name="preference_title_share_friend">Mond el egy ivócimborádnak</string>
+    <string name="preference_title_source_code">Forráskód</string>
+    <string name="rate_button_awesome">Legyél fantasztikus</string>
+    <string name="rate_paragraph_1">"Ez nem azért van, hogy abbahagyd a játékot. "</string>
+    <string name="rate_paragraph_2">A King\'s Cup tervezését, kódolását és elkészítését egy átlag személy csinálta. Minden visszajelzés hatalmas ösztönzést jelent.</string>
+    <string name="rate_paragraph_3">A játék a ti visszaigazolásotok alapján tud fejlődni és ettől lesz jó.Legyél egy jó tásr!</string>
+    <string name="rate_title">Halihó!</string>
+    <string name="taunt_eight">Biztos vagy benne?</string>
+    <string name="taunt_five">Ne gondolj</string>
+    <string name="taunt_four">Ez az</string>
+    <string name="taunt_nine">Rendben vagy haver?</string>
+    <string name="taunt_one">Komolyan</string>
+    <string name="taunt_seven">Gyorsabban haver</string>
+    <string name="taunt_six">Igyál meg</string>
+    <string name="taunt_ten">Gyerünk</string>
+    <string name="taunt_three">Csak még egyet</string>
+    <string name="taunt_two">Következik</string>
 </resources>
