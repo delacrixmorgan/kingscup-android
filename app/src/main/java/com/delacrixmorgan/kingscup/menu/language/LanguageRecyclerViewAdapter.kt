@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.LanguageType
@@ -18,6 +19,8 @@ class LanguageRecyclerViewAdapter(
         Language,
         HelpTranslatePlaceholder
     }
+
+    var selectedLanguage = LanguageType.ENGLISH
 
     override fun getItemViewType(position: Int): Int {
         return if (position != itemCount - 1) {
@@ -50,7 +53,8 @@ class LanguageRecyclerViewAdapter(
         when (holder) {
             is LanguageViewHolder -> {
                 val languageType = languageTypes[position]
-                holder.bind(languageType)
+                val isSelected = languageType == selectedLanguage
+                holder.bind(isSelected, languageType)
             }
             is HelpTranslateViewHolder -> {
                 holder.bind()
@@ -64,13 +68,57 @@ class LanguageRecyclerViewAdapter(
         RecyclerView.ViewHolder(itemView) {
 
         @SuppressLint("DefaultLocale")
-        fun bind(languageType: LanguageType) = with(itemView) {
+        fun bind(isSelected: Boolean, languageType: LanguageType) = with(itemView) {
+            updateViews(isSelected)
+
             flagTextView.text = languageType.flagEmoji
             authorTextView.text = languageType.authorNames
             languageTextView.text = languageType.name.toLowerCase().capitalize()
 
             setOnClickListener {
                 listener.onLanguageSelected(adapterPosition, languageType)
+            }
+        }
+
+        private fun updateViews(isSelected: Boolean) = with(itemView) {
+            if (isSelected) {
+                parentViewGroup.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorPrimary
+                    )
+                )
+                languageTextView.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        android.R.color.white
+                    )
+                )
+                authorTextView.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        android.R.color.white
+                    )
+                )
+            } else {
+                parentViewGroup.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorInactive
+                    )
+                )
+                languageTextView.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorInactiveHint
+                    )
+                )
+                authorTextView.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorInactiveHint
+                    )
+                )
             }
         }
     }

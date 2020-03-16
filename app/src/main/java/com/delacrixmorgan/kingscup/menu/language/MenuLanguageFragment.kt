@@ -25,6 +25,10 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         SoundEngine.getInstance(requireContext())
     }
 
+    private val adapter by lazy {
+        LanguageRecyclerViewAdapter(LanguageType.values(), this)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,7 +40,7 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        languageRecyclerView.adapter = LanguageRecyclerViewAdapter(LanguageType.values(), this)
+        languageRecyclerView.adapter = adapter
         languageRecyclerView.layoutAnimation = AnimationUtils.loadLayoutAnimation(
             context, R.anim.layout_animation_slide_right
         )
@@ -69,9 +73,12 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     }
 
     override fun onLanguageSelected(position: Int, languageType: LanguageType) {
-        soundEngine.playSound(requireContext(), SoundType.Whoosh)
         languageRecyclerView.smoothScrollToPosition(position)
         savePreferenceLanguage(languageType)
+
+        soundEngine.playSound(requireContext(), SoundType.Whoosh)
+        adapter.selectedLanguage = languageType
+        adapter.notifyDataSetChanged()
 
         rootView.performHapticContextClick()
     }
