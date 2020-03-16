@@ -69,3 +69,18 @@ fun ArrayList<Card>.findCardIndex(card: Card): Int {
         it.suitType == card.suitType && it.rank == card.rank
     })
 }
+
+fun newEmailIntent(recipient: String, subject: String?, body: String?): Intent {
+    val intent = Intent(Intent.ACTION_SENDTO)
+    intent.data = Uri.parse("mailto:")
+    intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
+
+    if (!subject.isNullOrBlank()) {
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+    }
+
+    if (!body.isNullOrBlank()) {
+        intent.putExtra(Intent.EXTRA_TEXT, body)
+    }
+    return intent
+}

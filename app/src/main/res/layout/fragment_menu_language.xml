@@ -78,7 +78,7 @@
             app:layout_constraintBottom_toTopOf="@id/saveButton"
             app:layout_constraintEnd_toEndOf="@id/pinkFrameLayout"
             app:layout_constraintStart_toStartOf="@+id/pinkFrameLayout"
-            tools:listitem="@layout/cell_card_language" />
+            tools:listitem="@layout/cell_language" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/saveButton"

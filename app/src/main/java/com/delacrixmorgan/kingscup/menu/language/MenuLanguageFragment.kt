@@ -1,5 +1,6 @@
 package com.delacrixmorgan.kingscup.menu.language
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,17 +9,18 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.GridSpacingItemDecoration
-import com.delacrixmorgan.kingscup.common.PreferenceHelper
+import com.delacrixmorgan.kingscup.common.*
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
-import com.delacrixmorgan.kingscup.common.performHapticContextClick
-import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.LanguageType
 import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_language.*
 
 class MenuLanguageFragment : Fragment(), LanguageListener {
+    companion object {
+        private const val TRANSLATION_CONTACT_EMAIL = "delacrixmorgan@gmail.com"
+    }
+
     private val soundEngine by lazy {
         SoundEngine.getInstance(requireContext())
     }
@@ -66,10 +68,26 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         titleTextView.text = getString(R.string.fragment_menu_language_title_choose_language)
     }
 
-    override fun onLanguageSelected(languageType: LanguageType) {
+    override fun onLanguageSelected(position: Int, languageType: LanguageType) {
         soundEngine.playSound(requireContext(), SoundType.Whoosh)
+        languageRecyclerView.smoothScrollToPosition(position)
         savePreferenceLanguage(languageType)
 
         rootView.performHapticContextClick()
+    }
+
+    override fun onHelpTranslateSelected(position: Int) {
+        languageRecyclerView.smoothScrollToPosition(position)
+        val intent = newEmailIntent(
+            TRANSLATION_CONTACT_EMAIL,
+            "King's Cup 🍺 - Translation Help",
+            "Hey mate,\n\nI would love to translate King's Cup to [x] language."
+        )
+        startActivity(
+            Intent.createChooser(
+                intent,
+                getString(R.string.fragment_menu_language_btn_help_translate)
+            )
+        )
     }
 }

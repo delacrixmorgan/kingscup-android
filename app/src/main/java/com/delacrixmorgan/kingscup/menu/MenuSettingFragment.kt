@@ -2,7 +2,6 @@ package com.delacrixmorgan.kingscup.menu
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,7 @@ import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.launchShareGameIntent
 import com.delacrixmorgan.kingscup.common.launchWebsite
+import com.delacrixmorgan.kingscup.common.newEmailIntent
 import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
 class MenuSettingFragment : Fragment() {
@@ -79,21 +79,5 @@ class MenuSettingFragment : Fragment() {
             val message = getString(R.string.preference_message_share_friend)
             launchShareGameIntent(message)
         }
-    }
-
-    private fun newEmailIntent(recipient: String, subject: String?, body: String?): Intent {
-        val intent = Intent(Intent.ACTION_SENDTO)
-        intent.data = Uri.parse("mailto:")
-        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
-
-        if (!subject.isNullOrBlank()) {
-            intent.putExtra(Intent.EXTRA_SUBJECT, subject)
-        }
-
-        if (!body.isNullOrBlank()) {
-            intent.putExtra(Intent.EXTRA_TEXT, body)
-        }
-
-        return intent
     }
 }

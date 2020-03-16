@@ -7,39 +7,79 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.LanguageType
-import kotlinx.android.synthetic.main.cell_card_language.view.*
+import kotlinx.android.synthetic.main.cell_language.view.*
 
 class LanguageRecyclerViewAdapter(
     private val languageTypes: Array<LanguageType>,
     private val listener: LanguageListener
-) : RecyclerView.Adapter<LanguageRecyclerViewAdapter.LanguageViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
-        return LanguageViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.cell_card_language, parent, false
-            ), listener
-        )
+    enum class ViewType {
+        Language,
+        HelpTranslatePlaceholder
     }
 
-    override fun onBindViewHolder(holder: LanguageViewHolder, position: Int) {
-        val languageType = languageTypes[position]
-        holder.updateDataSet(languageType)
+    override fun getItemViewType(position: Int): Int {
+        return if (position != itemCount - 1) {
+            ViewType.Language.ordinal
+        } else {
+            ViewType.HelpTranslatePlaceholder.ordinal
+        }
     }
 
-    override fun getItemCount() = languageTypes.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (ViewType.values()[viewType]) {
+            ViewType.Language -> {
+                LanguageViewHolder(
+                    LayoutInflater.from(parent.context).inflate(
+                        R.layout.cell_language, parent, false
+                    ), listener
+                )
+            }
+            ViewType.HelpTranslatePlaceholder -> {
+                HelpTranslateViewHolder(
+                    LayoutInflater.from(parent.context).inflate(
+                        R.layout.cell_language_help_translate, parent, false
+                    ), listener
+                )
+            }
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is LanguageViewHolder -> {
+                val languageType = languageTypes[position]
+                holder.bind(languageType)
+            }
+            is HelpTranslateViewHolder -> {
+                holder.bind()
+            }
+        }
+    }
+
+    override fun getItemCount() = languageTypes.size + 1
 
     class LanguageViewHolder(itemView: View, private val listener: LanguageListener) :
         RecyclerView.ViewHolder(itemView) {
 
         @SuppressLint("DefaultLocale")
-        fun updateDataSet(languageType: LanguageType) = with(itemView) {
+        fun bind(languageType: LanguageType) = with(itemView) {
             flagTextView.text = languageType.flagEmoji
             authorTextView.text = languageType.authorNames
             languageTextView.text = languageType.name.toLowerCase().capitalize()
 
             setOnClickListener {
-                listener.onLanguageSelected(languageType)
+                listener.onLanguageSelected(adapterPosition, languageType)
+            }
+        }
+    }
+
+    class HelpTranslateViewHolder(itemView: View, private val listener: LanguageListener) :
+        RecyclerView.ViewHolder(itemView) {
+        fun bind() = with(itemView) {
+            setOnClickListener {
+                listener.onHelpTranslateSelected(adapterPosition)
             }
         }
     }
