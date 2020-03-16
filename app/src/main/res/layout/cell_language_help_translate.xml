@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:foreground="?attr/selectableItemBackground"
-    app:cardBackgroundColor="@color/colorPrimaryDark"
+    app:cardBackgroundColor="@color/colorInactiveHint"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp">
 
@@ -36,11 +36,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Help Translate"
+            android:text="@string/fragment_menu_language_btn_help_translate"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textAppearance="@style/Title3"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorInactive"
             app:layout_constraintBottom_toTopOf="@id/authorTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -10,23 +10,28 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.LanguageType
 import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_language.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MenuLanguageFragment : Fragment(), LanguageListener {
     companion object {
         private const val TRANSLATION_CONTACT_EMAIL = "delacrixmorgan@gmail.com"
     }
 
+    private val languageTypes = ArrayList(LanguageType.values().asList())
+
     private val soundEngine by lazy {
         SoundEngine.getInstance(requireContext())
     }
 
     private val adapter by lazy {
-        LanguageRecyclerViewAdapter(LanguageType.values(), this)
+        LanguageRecyclerViewAdapter(languageTypes, this)
     }
 
     override fun onCreateView(
@@ -57,6 +62,22 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
             soundEngine.playSound(it.context, SoundType.King)
             Navigation.findNavController(view).navigateUp()
         }
+
+        setupLanguage()
+    }
+
+    private fun setupLanguage() {
+        val preference = PreferenceHelper.getPreference(requireContext())
+        val languageCode = preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
+
+        val languageType = LanguageType.values().firstOrNull { it.countryIso == languageCode }
+            ?: LanguageType.ENGLISH
+
+        val index = languageTypes.indexOf(languageType)
+
+        Collections.swap(languageTypes, 0, index)
+        adapter.selectedLanguage = languageType
+        adapter.notifyDataSetChanged()
     }
 
     private fun savePreferenceLanguage(languageType: LanguageType) {

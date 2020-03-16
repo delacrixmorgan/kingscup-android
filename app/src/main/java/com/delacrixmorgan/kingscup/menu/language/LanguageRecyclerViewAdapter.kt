@@ -11,7 +11,7 @@ import com.delacrixmorgan.kingscup.model.LanguageType
 import kotlinx.android.synthetic.main.cell_language.view.*
 
 class LanguageRecyclerViewAdapter(
-    private val languageTypes: Array<LanguageType>,
+    private val languageTypes: ArrayList<LanguageType>,
     private val listener: LanguageListener
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
