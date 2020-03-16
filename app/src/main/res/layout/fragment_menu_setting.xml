@@ -46,7 +46,8 @@
                     android:textColor="@android:color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.3"
+                    app:layout_constraintStart_toEndOf="@id/backButton"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -128,14 +129,14 @@
                             android:layout_marginBottom="4dp"
                             android:adjustViewBounds="true"
                             android:src="@drawable/ic_language"
-                            app:layout_constraintBottom_toTopOf="@+id/languageTextView"
+                            app:layout_constraintBottom_toTopOf="@+id/titleTextView"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_chainStyle="packed" />
 
                         <TextView
-                            android:id="@+id/languageTextView"
+                            android:id="@+id/titleTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/preference_title_language"

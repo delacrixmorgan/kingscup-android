@@ -72,8 +72,8 @@ class LanguageRecyclerViewAdapter(
             updateViews(isSelected)
 
             flagTextView.text = languageType.flagEmoji
-            authorTextView.text = languageType.authorNames
-            languageTextView.text = languageType.name.toLowerCase().capitalize()
+            descriptionTextView.text = languageType.authorNames
+            titleTextView.text = languageType.name.toLowerCase().capitalize()
 
             setOnClickListener {
                 listener.onLanguageSelected(adapterPosition, languageType)
@@ -88,13 +88,13 @@ class LanguageRecyclerViewAdapter(
                         R.color.colorPrimary
                     )
                 )
-                languageTextView.setTextColor(
+                titleTextView.setTextColor(
                     ContextCompat.getColor(
                         context,
                         android.R.color.white
                     )
                 )
-                authorTextView.setTextColor(
+                descriptionTextView.setTextColor(
                     ContextCompat.getColor(
                         context,
                         android.R.color.white
@@ -107,13 +107,13 @@ class LanguageRecyclerViewAdapter(
                         R.color.colorInactive
                     )
                 )
-                languageTextView.setTextColor(
+                titleTextView.setTextColor(
                     ContextCompat.getColor(
                         context,
                         R.color.colorInactiveHint
                     )
                 )
-                authorTextView.setTextColor(
+                descriptionTextView.setTextColor(
                     ContextCompat.getColor(
                         context,
                         R.color.colorInactiveHint
@@ -126,6 +126,12 @@ class LanguageRecyclerViewAdapter(
     class HelpTranslateViewHolder(itemView: View, private val listener: LanguageListener) :
         RecyclerView.ViewHolder(itemView) {
         fun bind() = with(itemView) {
+            titleTextView.text = context.getString(
+                R.string.fragment_menu_language_btn_help_translate
+            )
+            descriptionTextView.text = context.getString(
+                R.string.msg_help_translate_description
+            )
             setOnClickListener {
                 listener.onHelpTranslateSelected(adapterPosition)
             }

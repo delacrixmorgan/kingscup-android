@@ -16,8 +16,6 @@ import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.LanguageType
 import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_language.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MenuLanguageFragment : Fragment(), LanguageListener {
     companion object {
@@ -73,10 +71,9 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         val languageType = LanguageType.values().firstOrNull { it.countryIso == languageCode }
             ?: LanguageType.ENGLISH
 
-        val index = languageTypes.indexOf(languageType)
+        languageTypes.remove(languageType)
+        languageTypes.add(0, languageType)
 
-        Collections.swap(languageTypes, 0, index)
-        adapter.selectedLanguage = languageType
         adapter.notifyDataSetChanged()
     }
 

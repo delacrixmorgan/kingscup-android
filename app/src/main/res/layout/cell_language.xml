@@ -23,14 +23,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/LargeTitle"
-            app:layout_constraintBottom_toTopOf="@id/languageTextView"
+            app:layout_constraintBottom_toTopOf="@id/titleTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="🇪🇸" />
 
         <TextView
-            android:id="@+id/languageTextView"
+            android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -38,14 +38,14 @@
             android:textAllCaps="true"
             android:textAppearance="@style/Title3"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@id/authorTextView"
+            app:layout_constraintBottom_toTopOf="@id/descriptionTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/flagTextView"
             tools:text="Spanish" />
 
         <TextView
-            android:id="@+id/authorTextView"
+            android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="30dp"
@@ -55,7 +55,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/languageTextView"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
             tools:text="Santos Martinez &amp; Gonzo Fernandez" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
