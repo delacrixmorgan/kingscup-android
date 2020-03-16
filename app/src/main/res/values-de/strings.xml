@@ -77,4 +77,5 @@
     <string name="taunt_ten">Komm schon</string>
     <string name="taunt_three">Nur noch einer</string>
     <string name="taunt_two">Seid ihr bereit?</string>
+    <string name="msg_help_translate_description">Sie können nicht finden, wonach Sie suchen?</string>
 </resources>

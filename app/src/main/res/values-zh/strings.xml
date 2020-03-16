@@ -64,4 +64,5 @@
     <string name="fragment_menu_language_title_choose_language">选择语言</string>
     <string name="preference_title_language">语言</string>
     <string name="preference_title_source_code">源代码</string>
+    <string name="msg_help_translate_description">找不到您想要的语言吗？</string>
 </resources>

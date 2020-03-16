@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:minHeight="30dp"
-            android:text="Can't find what you're looking for?"
+            android:text="@string/msg_help_translate_description"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textAppearance="@style/Caption"

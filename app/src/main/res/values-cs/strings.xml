@@ -64,4 +64,5 @@
     <string name="taunt_ten">No tak</string>
     <string name="taunt_three">Jen ještě jednou</string>
     <string name="taunt_two">přichází</string>
+    <string name="msg_help_translate_description">Nemůžete najít to, co hledáte?</string>
 </resources>
