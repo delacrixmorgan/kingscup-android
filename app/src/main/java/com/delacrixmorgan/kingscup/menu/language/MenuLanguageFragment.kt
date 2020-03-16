@@ -38,12 +38,8 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         val deckAnimation = AnimationUtils.loadLayoutAnimation(
             context, R.anim.layout_animation_slide_right
         )
-        val cellHeight = (resources.displayMetrics.heightPixels / 2.5).toInt()
-        val cellWidth = (cellHeight * (10.0 / 16.0)).toInt()
 
         languageAdapter = LanguageRecyclerViewAdapter(
-            cellHeight = cellHeight,
-            cellWidth = cellWidth,
             languageTypes = LanguageType.values(),
             listener = this
         )
