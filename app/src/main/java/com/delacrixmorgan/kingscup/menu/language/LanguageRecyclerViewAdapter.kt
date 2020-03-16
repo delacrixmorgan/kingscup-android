@@ -20,7 +20,7 @@ class LanguageRecyclerViewAdapter(
         HelpTranslatePlaceholder
     }
 
-    var selectedLanguage = LanguageType.ENGLISH
+    var selectedLanguage = LanguageType.English
 
     override fun getItemViewType(position: Int): Int {
         return if (position != itemCount - 1) {

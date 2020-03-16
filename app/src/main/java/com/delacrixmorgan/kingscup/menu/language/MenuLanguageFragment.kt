@@ -69,7 +69,7 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         val languageCode = preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
 
         val languageType = LanguageType.values().firstOrNull { it.countryIso == languageCode }
-            ?: LanguageType.ENGLISH
+            ?: LanguageType.English
 
         languageTypes.remove(languageType)
         languageTypes.add(0, languageType)
