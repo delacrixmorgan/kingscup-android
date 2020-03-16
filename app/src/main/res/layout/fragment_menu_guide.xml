@@ -26,7 +26,7 @@
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:background="@color/pink"
+        android:background="@color/colorPink"
         android:gravity="center"
         android:orientation="vertical">
 

@@ -36,7 +36,7 @@
                 android:id="@+id/headerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
-                android:background="@color/orange"
+                android:background="@color/colorOrange"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -108,28 +108,28 @@
                         android:layout_height="36dp"
                         android:layout_weight="1"
                         android:src="@drawable/ic_rate_star"
-                        android:tint="@color/orange" />
+                        android:tint="@color/colorOrange" />
 
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_weight="1"
                         android:src="@drawable/ic_rate_star"
-                        android:tint="@color/orange" />
+                        android:tint="@color/colorOrange" />
 
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_weight="1"
                         android:src="@drawable/ic_rate_star"
-                        android:tint="@color/orange" />
+                        android:tint="@color/colorOrange" />
 
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_weight="1"
                         android:src="@drawable/ic_rate_star"
-                        android:tint="@color/orange" />
+                        android:tint="@color/colorOrange" />
 
                     <ImageView
                         android:id="@+id/starImageView"

@@ -7,10 +7,10 @@
     <color name="colorInactive">#3a383a</color>
     <color name="colorInactiveHint">#5E5E5E</color>
 
-    <color name="pink">#E63A74</color>
-    <color name="orange">#F47709</color>
-    <color name="blue">#109CFB</color>
-    <color name="green">#4CAF50</color>
-    <color name="yellow">#FFEB3B</color>
-    <color name="red">#DD5044</color>
+    <color name="colorPink">#E63A74</color>
+    <color name="colorOrange">#F47709</color>
+    <color name="colorBlue">#109CFB</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorYellow">#FFEB3B</color>
+    <color name="colorRed">#DD5044</color>
 </resources>

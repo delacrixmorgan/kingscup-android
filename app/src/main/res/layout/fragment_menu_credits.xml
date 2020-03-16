@@ -27,7 +27,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/preference_title_credits_summary"
-                android:textColor="@color/yellow"
+                android:textColor="@color/colorYellow"
                 android:textSize="22sp" />
 
             <LinearLayout
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Font Library"
-                    android:textColor="@color/pink"
+                    android:textColor="@color/colorPink"
                     android:textSize="12sp" />
 
                 <ImageView
@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Android Library"
-                    android:textColor="@color/pink"
+                    android:textColor="@color/colorPink"
                     android:textSize="12sp" />
 
                 <ImageView
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Sound Resource"
-                    android:textColor="@color/pink"
+                    android:textColor="@color/colorPink"
                     android:textSize="12sp" />
 
                 <ImageView
@@ -125,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Graphic Resource"
-                    android:textColor="@color/pink"
+                    android:textColor="@color/colorPink"
                     android:textSize="12sp" />
 
                 <ImageView
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Confetti"
-                    android:textColor="@color/pink"
+                    android:textColor="@color/colorPink"
                     android:textSize="12sp" />
 
                 <ImageView
