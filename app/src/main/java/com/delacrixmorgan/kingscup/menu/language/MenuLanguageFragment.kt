@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
+import com.delacrixmorgan.kingscup.common.GridSpacingItemDecoration
 import com.delacrixmorgan.kingscup.common.PreferenceHelper
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
 import com.delacrixmorgan.kingscup.common.performHapticContextClick
@@ -18,8 +19,6 @@ import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_language.*
 
 class MenuLanguageFragment : Fragment(), LanguageListener {
-    private lateinit var languageAdapter: LanguageRecyclerViewAdapter
-
     private val soundEngine by lazy {
         SoundEngine.getInstance(requireContext())
     }
@@ -35,20 +34,18 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val deckAnimation = AnimationUtils.loadLayoutAnimation(
+        languageRecyclerView.adapter = LanguageRecyclerViewAdapter(LanguageType.values(), this)
+        languageRecyclerView.layoutAnimation = AnimationUtils.loadLayoutAnimation(
             context, R.anim.layout_animation_slide_right
         )
-
-        languageAdapter = LanguageRecyclerViewAdapter(
-            languageTypes = LanguageType.values(),
-            listener = this
-        )
-
-        languageRecyclerView.adapter = languageAdapter
-        languageRecyclerView.layoutAnimation = deckAnimation
         languageRecyclerView.scheduleLayoutAnimation()
-
-        languageTextView.text = getString(R.string.preference_current_language)
+        languageRecyclerView.addItemDecoration(
+            GridSpacingItemDecoration(
+                columnCount = 1,
+                spacing = 16,
+                shouldShowHorizontalMargin = true
+            )
+        )
 
         saveButton.setOnClickListener {
             soundEngine.playSound(it.context, SoundType.King)
@@ -67,7 +64,6 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     private fun updateLayoutLanguage() {
         nameTextView.text = getString(R.string.app_name)
         titleTextView.text = getString(R.string.fragment_menu_language_title_choose_language)
-        languageTextView.text = getString(R.string.preference_current_language)
     }
 
     override fun onLanguageSelected(languageType: LanguageType) {

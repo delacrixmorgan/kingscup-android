@@ -5,12 +5,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:foreground="?attr/selectableItemBackground"
-    android:minWidth="188dp"
     app:cardBackgroundColor="@color/colorPrimary"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:paddingStart="32dp"
@@ -31,7 +30,7 @@
 
         <TextView
             android:id="@+id/languageTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textAlignment="center"
@@ -46,7 +45,7 @@
 
         <TextView
             android:id="@+id/authorTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="30dp"
             android:textAlignment="center"

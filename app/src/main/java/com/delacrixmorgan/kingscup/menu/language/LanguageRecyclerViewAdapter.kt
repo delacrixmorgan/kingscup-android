@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.LanguageType
 import kotlinx.android.synthetic.main.cell_card_language.view.*
-import java.util.*
 
 class LanguageRecyclerViewAdapter(
     private val languageTypes: Array<LanguageType>,
@@ -35,13 +34,9 @@ class LanguageRecyclerViewAdapter(
 
         @SuppressLint("DefaultLocale")
         fun updateDataSet(languageType: LanguageType) = with(itemView) {
-            languageTextView.text = languageType.name.toLowerCase(
-                Locale.US
-            ).capitalize()
-
             flagTextView.text = languageType.flagEmoji
-
             authorTextView.text = languageType.authorNames
+            languageTextView.text = languageType.name.toLowerCase().capitalize()
 
             setOnClickListener {
                 listener.onLanguageSelected(languageType)
