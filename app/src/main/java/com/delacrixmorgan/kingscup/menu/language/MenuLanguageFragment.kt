@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.core.os.ConfigurationCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
@@ -66,15 +67,15 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
 
     private fun setupLanguage() {
         val preference = PreferenceHelper.getPreference(requireContext())
-        val languageCode = preference[PreferenceHelper.LANGUAGE, PreferenceHelper.LANGUAGE_DEFAULT]
-
+        val currentLocale = ConfigurationCompat.getLocales(resources.configuration)[0]
+        val languageCode = preference[PreferenceHelper.LANGUAGE, currentLocale.language]
         val languageType = LanguageType.values().firstOrNull { it.countryIso == languageCode }
             ?: LanguageType.English
 
         languageTypes.remove(languageType)
         languageTypes.add(0, languageType)
 
-        adapter.notifyDataSetChanged()
+        adapter.selectedLanguageType = languageType
     }
 
     private fun savePreferenceLanguage(languageType: LanguageType) {
@@ -95,8 +96,7 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
         savePreferenceLanguage(languageType)
 
         soundEngine.playSound(requireContext(), SoundType.Whoosh)
-        adapter.selectedLanguage = languageType
-        adapter.notifyDataSetChanged()
+        adapter.selectedLanguageType = languageType
 
         rootView.performHapticContextClick()
     }

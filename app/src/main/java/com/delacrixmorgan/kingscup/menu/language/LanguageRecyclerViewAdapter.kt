@@ -20,7 +20,11 @@ class LanguageRecyclerViewAdapter(
         HelpTranslatePlaceholder
     }
 
-    var selectedLanguage = LanguageType.English
+    var selectedLanguageType: LanguageType = LanguageType.English
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun getItemViewType(position: Int): Int {
         return if (position != itemCount - 1) {
@@ -53,7 +57,7 @@ class LanguageRecyclerViewAdapter(
         when (holder) {
             is LanguageViewHolder -> {
                 val languageType = languageTypes[position]
-                val isSelected = languageType == selectedLanguage
+                val isSelected = languageType == selectedLanguageType
                 holder.bind(isSelected, languageType)
             }
             is HelpTranslateViewHolder -> {
