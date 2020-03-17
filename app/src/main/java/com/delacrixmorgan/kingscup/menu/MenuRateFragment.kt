@@ -45,7 +45,7 @@ class MenuRateFragment : Fragment() {
 
         starImageView.setOnClickListener {
             personImageView.setImageResource(R.drawable.ic_human_happy)
-            starImageView.setColorFilter(ContextCompat.getColor(context, R.color.orange))
+            starImageView.setColorFilter(ContextCompat.getColor(context, R.color.colorOrange))
 
             launchPlayStore(packageName)
             Navigation.findNavController(view).navigateUp()

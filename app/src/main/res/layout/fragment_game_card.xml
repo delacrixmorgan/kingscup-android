@@ -29,7 +29,7 @@
             android:layout_alignParentEnd="true"
             android:adjustViewBounds="true"
             android:src="@drawable/bg_card_accent"
-            android:tint="@color/pink" />
+            android:tint="@color/colorPink" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@{card.rank}"
-                android:textColor="@color/pink"
+                android:textColor="@color/colorPink"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 tool:text="9" />

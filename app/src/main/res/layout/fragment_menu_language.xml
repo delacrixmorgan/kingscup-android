@@ -17,7 +17,7 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/languageRecyclerView"
+            app:layout_constraintBottom_toTopOf="@+id/pinkFrameLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -54,31 +54,13 @@
                 android:text="@string/fragment_menu_language_title_choose_language"
                 android:textAppearance="@style/Headline"
                 android:textColor="@android:color/white" />
-
-            <TextView
-                android:id="@+id/languageTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:textAllCaps="true"
-                android:textAppearance="@style/Subhead"
-                android:textColor="@android:color/white"
-                tools:text="English" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/saveButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:src="@drawable/ic_checked_mark"
-                app:backgroundTint="@android:color/white" />
         </LinearLayout>
 
         <FrameLayout
             android:id="@+id/pinkFrameLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/pink"
+            android:layout_height="230dp"
+            android:background="@color/colorPink"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -87,16 +69,28 @@
             android:id="@+id/languageRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="28dp"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:paddingStart="6dp"
-            android:paddingEnd="12dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/saveButton"
+            app:layout_constraintEnd_toEndOf="@id/pinkFrameLayout"
+            app:layout_constraintStart_toStartOf="@+id/pinkFrameLayout"
+            tools:listitem="@layout/cell_language" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:src="@drawable/ic_checked_mark"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/cell_card_language" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>

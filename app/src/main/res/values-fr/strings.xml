@@ -78,4 +78,5 @@
     <string name="taunt_ten">Vas-y</string>
     <string name="taunt_three">Encore une!</string>
     <string name="taunt_two">Encore?</string>
+    <string name="msg_help_translate_description">Vous ne trouvez pas ce que vous cherchez?</string>
 </resources>

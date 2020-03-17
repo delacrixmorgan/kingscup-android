@@ -64,4 +64,5 @@
     <string name="fragment_menu_language_title_choose_language">Elige lengua</string>
     <string name="preference_title_language">Lengua</string>
     <string name="preference_title_source_code">Código fuente</string>
+    <string name="msg_help_translate_description">¿No encuentras lo que buscas?</string>
 </resources>

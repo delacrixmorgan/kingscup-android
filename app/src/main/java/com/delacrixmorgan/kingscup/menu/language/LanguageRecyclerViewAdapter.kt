@@ -4,50 +4,140 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.LanguageType
-import kotlinx.android.synthetic.main.cell_card_language.view.*
-import java.util.*
+import kotlinx.android.synthetic.main.cell_language.view.*
 
 class LanguageRecyclerViewAdapter(
-    private val cellHeight: Int,
-    private val cellWidth: Int,
-    private val languageTypes: Array<LanguageType>,
+    private val languageTypes: ArrayList<LanguageType>,
     private val listener: LanguageListener
-) : RecyclerView.Adapter<LanguageRecyclerViewAdapter.LanguageViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.cell_card_language, parent, false
-        )
-
-        itemView.layoutParams.height = cellHeight
-        itemView.layoutParams.width = cellWidth
-
-        return LanguageViewHolder(itemView, listener)
+    enum class ViewType {
+        Language,
+        HelpTranslatePlaceholder
     }
 
-    override fun onBindViewHolder(holder: LanguageViewHolder, position: Int) {
-        val languageType = languageTypes[position]
-        holder.updateDataSet(languageType)
+    var selectedLanguageType: LanguageType = LanguageType.English
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position != itemCount - 1) {
+            ViewType.Language.ordinal
+        } else {
+            ViewType.HelpTranslatePlaceholder.ordinal
+        }
     }
 
-    override fun getItemCount() = languageTypes.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (ViewType.values()[viewType]) {
+            ViewType.Language -> {
+                LanguageViewHolder(
+                    LayoutInflater.from(parent.context).inflate(
+                        R.layout.cell_language, parent, false
+                    ), listener
+                )
+            }
+            ViewType.HelpTranslatePlaceholder -> {
+                HelpTranslateViewHolder(
+                    LayoutInflater.from(parent.context).inflate(
+                        R.layout.cell_language_help_translate, parent, false
+                    ), listener
+                )
+            }
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is LanguageViewHolder -> {
+                val languageType = languageTypes[position]
+                val isSelected = languageType == selectedLanguageType
+                holder.bind(isSelected, languageType)
+            }
+            is HelpTranslateViewHolder -> {
+                holder.bind()
+            }
+        }
+    }
+
+    override fun getItemCount() = languageTypes.size + 1
 
     class LanguageViewHolder(itemView: View, private val listener: LanguageListener) :
         RecyclerView.ViewHolder(itemView) {
 
         @SuppressLint("DefaultLocale")
-        fun updateDataSet(languageType: LanguageType) {
-            itemView.languageTextView.text = languageType.name.toLowerCase(
-                Locale.US
-            ).capitalize()
+        fun bind(isSelected: Boolean, languageType: LanguageType) = with(itemView) {
+            updateViews(isSelected)
 
-            itemView.authorTextView.text = languageType.authorNames
+            flagTextView.text = languageType.flagEmoji
+            descriptionTextView.text = languageType.authorNames
+            titleTextView.text = languageType.name.toLowerCase().capitalize()
 
-            itemView.setOnClickListener {
-                listener.onLanguageSelected(languageType)
+            setOnClickListener {
+                listener.onLanguageSelected(adapterPosition, languageType)
+            }
+        }
+
+        private fun updateViews(isSelected: Boolean) = with(itemView) {
+            if (isSelected) {
+                parentViewGroup.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorPrimary
+                    )
+                )
+                titleTextView.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        android.R.color.white
+                    )
+                )
+                descriptionTextView.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        android.R.color.white
+                    )
+                )
+            } else {
+                parentViewGroup.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorInactive
+                    )
+                )
+                titleTextView.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorInactiveHint
+                    )
+                )
+                descriptionTextView.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.colorInactiveHint
+                    )
+                )
+            }
+        }
+    }
+
+    class HelpTranslateViewHolder(itemView: View, private val listener: LanguageListener) :
+        RecyclerView.ViewHolder(itemView) {
+        fun bind() = with(itemView) {
+            titleTextView.text = context.getString(
+                R.string.fragment_menu_language_btn_help_translate
+            )
+            descriptionTextView.text = context.getString(
+                R.string.msg_help_translate_description
+            )
+            setOnClickListener {
+                listener.onHelpTranslateSelected(adapterPosition)
             }
         }
     }

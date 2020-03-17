@@ -1,27 +1,36 @@
 package com.delacrixmorgan.kingscup.menu.language
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.core.os.ConfigurationCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
-import com.delacrixmorgan.kingscup.common.PreferenceHelper
+import com.delacrixmorgan.kingscup.common.*
+import com.delacrixmorgan.kingscup.common.PreferenceHelper.get
 import com.delacrixmorgan.kingscup.common.PreferenceHelper.set
-import com.delacrixmorgan.kingscup.common.performHapticContextClick
-import com.delacrixmorgan.kingscup.common.setLocale
 import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.LanguageType
 import com.delacrixmorgan.kingscup.model.SoundType
 import kotlinx.android.synthetic.main.fragment_menu_language.*
 
 class MenuLanguageFragment : Fragment(), LanguageListener {
-    private lateinit var languageAdapter: LanguageRecyclerViewAdapter
+    companion object {
+        private const val TRANSLATION_CONTACT_EMAIL = "delacrixmorgan@gmail.com"
+    }
+
+    private val languageTypes = ArrayList(LanguageType.values().asList())
 
     private val soundEngine by lazy {
         SoundEngine.getInstance(requireContext())
+    }
+
+    private val adapter by lazy {
+        LanguageRecyclerViewAdapter(languageTypes, this)
     }
 
     override fun onCreateView(
@@ -35,29 +44,38 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val deckAnimation = AnimationUtils.loadLayoutAnimation(
+        languageRecyclerView.adapter = adapter
+        languageRecyclerView.layoutAnimation = AnimationUtils.loadLayoutAnimation(
             context, R.anim.layout_animation_slide_right
         )
-        val cellHeight = (resources.displayMetrics.heightPixels / 2.5).toInt()
-        val cellWidth = (cellHeight * (10.0 / 16.0)).toInt()
-
-        languageAdapter = LanguageRecyclerViewAdapter(
-            cellHeight = cellHeight,
-            cellWidth = cellWidth,
-            languageTypes = LanguageType.values(),
-            listener = this
-        )
-
-        languageRecyclerView.adapter = languageAdapter
-        languageRecyclerView.layoutAnimation = deckAnimation
         languageRecyclerView.scheduleLayoutAnimation()
-
-        languageTextView.text = getString(R.string.preference_current_language)
+        languageRecyclerView.addItemDecoration(
+            GridSpacingItemDecoration(
+                columnCount = 1,
+                spacing = 16,
+                shouldShowHorizontalMargin = true
+            )
+        )
 
         saveButton.setOnClickListener {
             soundEngine.playSound(it.context, SoundType.King)
             Navigation.findNavController(view).navigateUp()
         }
+
+        setupLanguage()
+    }
+
+    private fun setupLanguage() {
+        val preference = PreferenceHelper.getPreference(requireContext())
+        val currentLocale = ConfigurationCompat.getLocales(resources.configuration)[0]
+        val languageCode = preference[PreferenceHelper.LANGUAGE, currentLocale.language]
+        val languageType = LanguageType.values().firstOrNull { it.countryIso == languageCode }
+            ?: LanguageType.English
+
+        languageTypes.remove(languageType)
+        languageTypes.add(0, languageType)
+
+        adapter.selectedLanguageType = languageType
     }
 
     private fun savePreferenceLanguage(languageType: LanguageType) {
@@ -71,13 +89,30 @@ class MenuLanguageFragment : Fragment(), LanguageListener {
     private fun updateLayoutLanguage() {
         nameTextView.text = getString(R.string.app_name)
         titleTextView.text = getString(R.string.fragment_menu_language_title_choose_language)
-        languageTextView.text = getString(R.string.preference_current_language)
     }
 
-    override fun onLanguageSelected(languageType: LanguageType) {
-        soundEngine.playSound(requireContext(), SoundType.Whoosh)
+    override fun onLanguageSelected(position: Int, languageType: LanguageType) {
+        languageRecyclerView.smoothScrollToPosition(position)
         savePreferenceLanguage(languageType)
 
+        soundEngine.playSound(requireContext(), SoundType.Whoosh)
+        adapter.selectedLanguageType = languageType
+
         rootView.performHapticContextClick()
+    }
+
+    override fun onHelpTranslateSelected(position: Int) {
+        languageRecyclerView.smoothScrollToPosition(position)
+        val intent = newEmailIntent(
+            TRANSLATION_CONTACT_EMAIL,
+            "King's Cup 🍺 - Translation Help",
+            "Hey mate,\n\nI would love to translate King's Cup to [x] language."
+        )
+        startActivity(
+            Intent.createChooser(
+                intent,
+                getString(R.string.fragment_menu_language_btn_help_translate)
+            )
+        )
     }
 }

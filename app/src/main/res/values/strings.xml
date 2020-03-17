@@ -74,4 +74,5 @@
     <string name="fragment_menu_language_btn_help_translate">Help Translate</string>
     <string name="preference_title_language">Language</string>
     <string name="preference_title_source_code">Source Code</string>
+    <string name="msg_help_translate_description">Can\'t find what you\'re looking for?</string>
 </resources>
