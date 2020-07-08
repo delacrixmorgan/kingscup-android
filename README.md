@@ -43,6 +43,14 @@ Thanks to the overwhelming support from the community, King’s Cup now supports
 
 ❤️ Japanese by Yukiko Kimura
 
+❤️ Ukrainian by Alexander Bondarevskyi
+
+❤️ Russian by Alexander Bondarevskyi
+
+❤️ Polish by Kamil Kowalik
+
+❤️ Indonesian by Julius Lukman
+
 Drop me a message if you are excited to translate and help bring King’s Cup to your native tongue. MORE the merrier!
 
 Each card has a rule that is predetermined before the game starts. When a player draws the last King from the deck ultimately has the FINISH off the King's Cup with that has been added by players who have drawn the Kings during the game.
