@@ -14,5 +14,7 @@ enum class LanguageType(val flagEmoji: String, val countryIso: String, val autho
     Portuguese("🇧🇷", "pt", "Lays Correia"),
     Spanish("🇪🇸", "es", "Santos Martinez & Gonzo Fernandez"),
     Ukrainian("🇺🇦", "uk", "Alexander Bondarevskyi"),
-    Russian("🇷🇺", "ru", "Alexander Bondarevskyi")
+    Russian("🇷🇺", "ru", "Alexander Bondarevskyi"),
+    Polish("🇵🇱","pl", "Kamil Kowalik"),
+    Indonesian("🇮🇩", "in", "Julius Lukman")
 }
