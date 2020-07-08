@@ -51,13 +51,13 @@ Thanks to the overwhelming support from the community, King’s Cup now supports
 
 ❤️ Indonesian by Julius Lukman
 
-Drop me a message if you are excited to translate and help bring King’s Cup to your native tongue. MORE the merrier!
+Drop me a message if you are excited to translate and help bring King’s Cup to your native tongue. **MORE** the merrier!
 
-Each card has a rule that is predetermined before the game starts. When a player draws the last King from the deck ultimately has the FINISH off the King's Cup with that has been added by players who have drawn the Kings during the game.
+Each card has a rule that is predetermined before the game starts. When a player draws the last King from the deck ultimately has the **FINISH** off the King's Cup with that has been added by players who have drawn the Kings during the game.
 
-King's Cup is designed to bring Material Design to all aspects of the game. PERFECT app on your phone for game nights, birthday parties, you name it!
+King's Cup is designed to bring Material Design to all aspects of the game. **PERFECT** app on your phone for game nights, birthday parties, you name it!
  
-Set out to be a simple yet awesome party game 🥳. Even when you’re stranded in the middle of the ocean 🌊 or trapped in the forest 🌳 with your FRIENDS, King’s Cup will always be there for you. As long as you still have juice 🔋 left on your phone 📱. 
+Set out to be a simple yet awesome party game 🥳. Even when you’re stranded in the middle of the ocean 🌊 or trapped in the forest 🌳 with your **FRIENDS**, King’s Cup will always be there for you. As long as you still have juice 🔋 left on your phone 📱. 
 
 More to come. In the meantime, go nuts!
 
