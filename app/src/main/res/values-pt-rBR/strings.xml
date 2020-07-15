@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Rei do Copo</string>
     <string name="game_over_body">Beba!</string>
-
     <string name="preference_title">Configurações</string>
     <string name="preference_title_quick_guide">Como funciona</string>
     <string name="preference_title_credits_summary">Os Vira Copos</string>
@@ -10,19 +9,15 @@
     <string name="preference_current_language">Português</string>
     <string name="preference_button_done">OK</string>
     <string name="preference_message_share_friend">Não entre em pânico 🤫 Eu joguei isso em uma festa e é muito legal 🔥\n\nRei do Copo 🍺 Bebidas não incluídas!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
-
     <string name="board_title_lets_begin">Vamos Começar</string>
-
     <string name="dialog_pause_title">Pausa pra Hidratar</string>
     <string name="dialog_pause_button_resume">Voltar</string>
     <string name="dialog_pause_button_quit">Sair</string>
-
     <string name="rate_title">Oi</string>
     <string name="rate_paragraph_1">Não tive a inteção de fazer você sair da sua partida.</string>
     <string name="rate_paragraph_2">Rei do copo tem design e código feito por uma única pessoa. Cada avaliação é um grande avanço para mim.</string>
     <string name="rate_paragraph_3">O bem estar deste jogo depende da sua avaliação.</string>
     <string name="rate_button_awesome">Você é incrível!</string>
-
     <string name="load_type_new_game">Segura Minha Bebida</string>
     <string name="load_type_restart_game">Começando uma Nova Partida</string>
     <string name="body_waterfall">Todo mundo começa a beber até a pessoa que pegou a carta parar de beber.</string>

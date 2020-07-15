@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Kuninkaan Kuppi</string>
     <string name="game_over_body">Ääntä kohti!</string>
-
     <string name="preference_title">Asetukset</string>
     <string name="preference_title_quick_guide">Pelin Kulku</string>
     <string name="preference_title_credits_summary">Suurimmat Kiitokset</string>
@@ -10,22 +9,17 @@
     <string name="preference_current_language">Suomi</string>
     <string name="preference_button_done">Valmis</string>
     <string name="preference_message_share_friend">Älä paniikkia 🤫 pelasin tätä puolueella ja se on aika mahtavaa 🔥\n\n Kuninkaan kuppi 🍺 Ei juomia mukana!\nhttps://play.google.com/store/apps/details?id=com.delacrixmorgan.kingscup</string>
-
     <string name="board_title_lets_begin">Aloitetaan</string>
-
     <string name="dialog_pause_title">Vessa Tauko</string>
     <string name="dialog_pause_button_resume">Jatka</string>
     <string name="dialog_pause_button_quit">Lopeta</string>
-
     <string name="rate_title">Hei sinä!</string>
     <string name="rate_paragraph_1">Ei ollut tarkoitus keskeyttää peliäsi</string>
     <string name="rate_paragraph_2">Jos Kuninkaan kuppi teki illastasi hauskan, anna arvosana.</string>
     <string name="rate_paragraph_3">Kaikki arvostelut auttavat, pidä hauskaa!!</string>
     <string name="rate_button_awesome">Ole mahtava, anna arvostelu!</string>
-
     <string name="load_type_new_game">Pidä Mun Kaljaa</string>
     <string name="load_type_restart_game">Aloita Uusi Peli</string>
-
     <string name="body_waterfall">Kaikki aloittavat samaan aikaan juomaan. Vasta kun ensimmäinen aloittaja on lopettanut, muut saavat lopettaa.</string>
     <string name="body_you">Valitse kaveri ja juokaa yhdessä!</string>
     <string name="body_me">Sinä juot yksin!</string>
@@ -39,7 +33,6 @@
     <string name="body_jack">Keksi lauseelle loppu,\n "En ole koskaan…" \nKaikki jotka ovat, juo!</string>
     <string name="body_questions">Kysy pelaajalta kysymys.\nHeidän pitää vastata kysymällä uusi kysymys seuraavalta pelaajalta jne.\n\nEnsimmäinen joka jäätyy, juo!</string>
     <string name="body_king">Aseta uusi sääntö.\nTäytä kuninkaan kuppia!</string>
-
     <string name="header_waterfall">Vesiputous</string>
     <string name="header_you">Sinä</string>
     <string name="header_me">Minä</string>
@@ -53,11 +46,9 @@
     <string name="header_jack">Jätkä</string>
     <string name="header_questions">Kysymykset</string>
     <string name="header_king">Kuningas</string>
-
     <string name="guide_page_one">Kyllä, tämä on juomapeli. Eli tulet tarvitsemaan alkoholia.\n\nKaikilla pitää olla juomamuki ja laittaa kuppi keskelle, jotta voi tulla kuninkaaksi.</string>
     <string name="guide_page_two">Valitse henkilö aloittamaan peli, valitse kortti ja tee mitä se käskee.\n\nÄlä yritä livistää!\nSeuraavan henkilön vuoro on kun olet valmis.</string>
     <string name="guide_page_three">Jos saat ensimmäisenä kuninkaan pakasta,\nSaat kaataa kuppiin mitä vain valitsemaasi juomaa.\n\nHenkilön joka saa pakasta viimeisenä kuninkaan, pitää juoda muki ykkösellä alas!\nHölkynkölkyn.</string>
-
     <string name="taunt_one">Oikeesti</string>
     <string name="taunt_two">Tulossa</string>
     <string name="taunt_three">Vielä Yks Lisää</string>

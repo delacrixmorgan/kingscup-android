@@ -10,9 +10,7 @@
     <string name="body_king">Füge eine neue Regel hinzu. Füll den King\'s Cup!</string>
     <string name="body_mate">Such dir einen Saufkompane. Jedes mal wenn er trinkt, trinkst du!</string>
     <string name="body_me">Du trinkst alleine!</string>
-    <string name="body_questions">Stelle einem Mitspieler eine Frage. Er muss darauf einem anderen Spieler eine Frage
-        stellen. Der erste der einen Fehler macht trinkt!
-    </string>
+    <string name="body_questions">Stelle einem Mitspieler eine Frage. Er muss darauf einem anderen Spieler eine Frage stellen. Der erste der einen Fehler macht trinkt!</string>
     <string name="body_snake_eyes">Niemand darf dir in die Augen sehen ansonsten trinkt diese Person!</string>
     <string name="body_thumb_master">Platziere deinen Daumen auf dem Tisch. Der letzte trinkt!</string>
     <string name="body_waterfall">"Jeder trinkt solange bis die Person vor einem sein Glas abgestellt hat! "</string>
@@ -24,16 +22,9 @@
     <string name="fragment_menu_language_title_choose_language">Wähle eine Sprache</string>
     <string name="fragment_support_rate_title_more_from_me">Mehr von mir</string>
     <string name="game_over_body">Trink ihn aus!</string>
-    <string name="guide_page_one">Ja, das ist ein Trinkspiel! (Muss nicht alkoholisch sein) Jeder braucht seinen eigenes
-        Glas und einen Behälter in der Mitte, als King\'s Cup.
-    </string>
-    <string name="guide_page_three">Jeder der einen König vom Deck zieht füllt den King\'s Cup mit einem Getränk seiner
-        Wahl, und so viel wie er will. Die Person die den letzten König zieht, muss den King\'s Cup auf Ex trinken!
-        Prost!
-    </string>
-    <string name="guide_page_two">Wählt eine Person die anfängt, nehmt eine Karte und tut was auf ihr steht. Es gibt
-        kein entkommen! Danach kommt die nächste Person dran.
-    </string>
+    <string name="guide_page_one">Ja, das ist ein Trinkspiel! (Muss nicht alkoholisch sein) Jeder braucht seinen eigenes Glas und einen Behälter in der Mitte, als King\'s Cup.</string>
+    <string name="guide_page_three">Jeder der einen König vom Deck zieht füllt den King\'s Cup mit einem Getränk seiner\nWahl, und so viel wie er will. Die Person die den letzten König zieht, muss den King\'s Cup auf Ex trinken!Prost!</string>
+    <string name="guide_page_two">Wählt eine Person die anfängt, nehmt eine Karte und tut was auf ihr steht. Es gibt kein entkommen! Danach kommt die nächste Person dran.</string>
     <string name="header_category">Kategorie</string>
     <string name="header_chicks">Frauen</string>
     <string name="header_dudes">Männer</string>
@@ -60,12 +51,8 @@
     <string name="preference_title_source_code">Quellcode</string>
     <string name="rate_button_awesome">Toll sein</string>
     <string name="rate_paragraph_1">" Das soll dich nicht aus dem Spiel bringen."</string>
-    <string name="rate_paragraph_2">King\'s Cup wurde von einer einzelnen Person entworfen, codiert und kreiert. Was
-        jede Bewertung zu einem großen Anreiz für mich macht.
-    </string>
-    <string name="rate_paragraph_3">Die Qualität dieses Spiels beruht ausschließlich auf euren Bewertungen. Ich wünsche
-        euch viel Spaß!
-    </string>
+    <string name="rate_paragraph_2">King\'s Cup wurde von einer einzelnen Person entworfen, codiert und kreiert. Was jede Bewertung zu einem großen Anreiz für mich macht.</string>
+    <string name="rate_paragraph_3">Die Qualität dieses Spiels beruht ausschließlich auf euren Bewertungen. Ich wünsche euch viel Spaß!</string>
     <string name="rate_title">Hallo ;)</string>
     <string name="taunt_eight">Sicher?</string>
     <string name="taunt_five">Nicht nachdenken!</string>
