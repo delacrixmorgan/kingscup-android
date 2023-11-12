@@ -6,11 +6,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.App
-import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.engine.GameEngine
 import com.delacrixmorgan.kingscup.model.Card
-import kotlinx.android.synthetic.main.cell_card_game.view.*
 
 class GameCardAdapter(
     private val listenerGame: GameCardListener
@@ -57,8 +55,8 @@ class GameCardAdapter(
     ) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(card: Card) {
-            itemView.debugKingImageView.isVisible =
-                BuildConfig.DEBUG == true && card.rank == GameEngine.GAME_CARD_KING
+//            itemView.debugKingImageView.isVisible =
+//                BuildConfig.DEBUG == true && card.rank == GameEngine.GAME_CARD_KING
 
             itemView.setOnClickListener {
                 listener.onCardSelected(card)

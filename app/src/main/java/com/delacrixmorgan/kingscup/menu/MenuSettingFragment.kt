@@ -8,12 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.launchShareGameIntent
 import com.delacrixmorgan.kingscup.common.launchWebsite
 import com.delacrixmorgan.kingscup.common.newEmailIntent
-import kotlinx.android.synthetic.main.fragment_menu_setting.*
 
 class MenuSettingFragment : Fragment() {
 
@@ -33,51 +31,50 @@ class MenuSettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        buildNumberTextView.text = "v${BuildConfig.VERSION_NAME}#${BuildConfig.VERSION_CODE}"
-
-        backButton.setOnClickListener {
-            Navigation.findNavController(view).navigateUp()
-        }
-
-        guideCardView.setOnClickListener {
-            val action =
-                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuGuideFragment()
-            Navigation.findNavController(view).navigate(action)
-        }
-
-        languageCardView.setOnClickListener {
-            val action =
-                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuLanguageFragment()
-            Navigation.findNavController(view).navigate(action)
-        }
-
-        creditsCardView.setOnClickListener {
-            val action =
-                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuCreditsFragment()
-            Navigation.findNavController(view).navigate(action)
-        }
-
-        sourceCodeCardView.setOnClickListener {
-            launchWebsite("https://github.com/delacrixmorgan/kingscup-android")
-        }
-
-        translationCardView.setOnClickListener {
-            val intent = newEmailIntent(
-                TRANSLATION_CONTACT_EMAIL,
-                "King's Cup 🍺 - Translation Help",
-                "Hey mate,\n\nI would love to translate King's Cup to [x] language."
-            )
-            startActivity(
-                Intent.createChooser(
-                    intent,
-                    getString(R.string.fragment_menu_language_btn_help_translate)
-                )
-            )
-        }
-
-        shareCardView.setOnClickListener {
-            val message = getString(R.string.preference_message_share_friend)
-            launchShareGameIntent(message)
-        }
+//        buildNumberTextView.text = "v${BuildConfig.VERSION_NAME}#${BuildConfig.VERSION_CODE}"
+//
+//        backButton.setOnClickListener {
+//            Navigation.findNavController(view).navigateUp()
+//        }
+//
+//        guideCardView.setOnClickListener {
+//            val action =
+//                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuGuideFragment()
+//            Navigation.findNavController(view).navigate(action)
+//        }
+//
+//        languageCardView.setOnClickListener {
+//            val action =
+//                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuLanguageFragment()
+//            Navigation.findNavController(view).navigate(action)
+//        }
+//
+//        creditsCardView.setOnClickListener {
+//            val action =
+//                MenuSettingFragmentDirections.actionMenuSettingFragmentToMenuCreditsFragment()
+//            Navigation.findNavController(view).navigate(action)
+//        }
+//
+//        sourceCodeCardView.setOnClickListener {
+//            launchWebsite("https://github.com/delacrixmorgan/kingscup-android")
+//        }
+//
+//        translationCardView.setOnClickListener {
+//            val intent = newEmailIntent(
+//                TRANSLATION_CONTACT_EMAIL,
+//                "King's Cup 🍺 - Translation Help",
+//                "Hey mate,\n\nI would love to translate King's Cup to [x] language."
+//            )
+//            startActivity(
+//                Intent.createChooser(
+//                    intent,
+//                    getString(R.string.fragment_menu_language_btn_help_translate)
+//                )
+//            )
+//        }
+//        shareCardView.setOnClickListener {
+//            val message = getString(R.string.preference_message_share_friend)
+//            launchShareGameIntent(message)
+//        }
     }
 }

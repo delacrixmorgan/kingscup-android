@@ -10,8 +10,6 @@ import androidx.navigation.Navigation
 import androidx.viewpager.widget.PagerAdapter
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.GuideType
-import kotlinx.android.synthetic.main.fragment_menu_guide.*
-import kotlinx.android.synthetic.main.view_guide_list.view.*
 
 class MenuGuideFragment : Fragment() {
 
@@ -32,12 +30,12 @@ class MenuGuideFragment : Fragment() {
             guideList.add(it.getLocalisedText(view.context))
         }
 
-        viewPager.adapter = GuideAdapter()
-        tabLayout.setupWithViewPager(viewPager, true)
-
-        backButton.setOnClickListener {
-            Navigation.findNavController(view).navigateUp()
-        }
+//        viewPager.adapter = GuideAdapter()
+//        tabLayout.setupWithViewPager(viewPager, true)
+//
+//        backButton.setOnClickListener {
+//            Navigation.findNavController(view).navigateUp()
+//        }
     }
 
     private inner class GuideAdapter : PagerAdapter() {
@@ -45,7 +43,7 @@ class MenuGuideFragment : Fragment() {
             val rootView =
                 LayoutInflater.from(activity).inflate(R.layout.view_guide_list, collection, false)
 
-            rootView.guideTextView.text = guideList[position]
+//            rootView.guideTextView.text = guideList[position]
             collection.addView(rootView)
 
             return rootView

@@ -3,7 +3,6 @@ package com.delacrixmorgan.kingscup.engine
 import android.content.Context
 import android.widget.ImageView
 import androidx.core.view.isVisible
-import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.common.findCardIndex
 import com.delacrixmorgan.kingscup.model.ActionType
@@ -68,38 +67,39 @@ class GameEngine private constructor(context: Context) {
             }
         }
 
-        if (BuildConfig.DEBUG) {
-            val spadesCard = Card(
-                SuitType.Spade,
-                ActionType.CATEGORY.getRankText(),
-                ActionType.CATEGORY.getLocalisedHeaderText(context),
-                ActionType.CATEGORY.getLocalisedBodyText(context)
-            )
-            val clubCard = Card(
-                SuitType.Club,
-                ActionType.JACK.getRankText(),
-                ActionType.JACK.getLocalisedHeaderText(context),
-                ActionType.JACK.getLocalisedBodyText(context)
-            )
-            val heartCard = Card(
-                SuitType.Heart,
-                ActionType.THUMB_MASTER.getRankText(),
-                ActionType.THUMB_MASTER.getLocalisedHeaderText(context),
-                ActionType.THUMB_MASTER.getLocalisedBodyText(context)
-            )
-            val diamondCard = Card(
-                SuitType.Diamond,
-                ActionType.CHICKS.getRankText(),
-                ActionType.CHICKS.getLocalisedHeaderText(context),
-                ActionType.CHICKS.getLocalisedBodyText(context)
-            )
-            Collections.swap(cards, 0, cards.findCardIndex(spadesCard))
-            Collections.swap(cards, 1, cards.findCardIndex(clubCard))
-            Collections.swap(cards, 2, cards.findCardIndex(heartCard))
-            Collections.swap(cards, 3, cards.findCardIndex(diamondCard))
-        } else {
-            cards.shuffle()
-        }
+//        if (BuildConfig.DEBUG) {
+//            val spadesCard = Card(
+//                SuitType.Spade,
+//                ActionType.CATEGORY.getRankText(),
+//                ActionType.CATEGORY.getLocalisedHeaderText(context),
+//                ActionType.CATEGORY.getLocalisedBodyText(context)
+//            )
+//            val clubCard = Card(
+//                SuitType.Club,
+//                ActionType.JACK.getRankText(),
+//                ActionType.JACK.getLocalisedHeaderText(context),
+//                ActionType.JACK.getLocalisedBodyText(context)
+//            )
+//            val heartCard = Card(
+//                SuitType.Heart,
+//                ActionType.THUMB_MASTER.getRankText(),
+//                ActionType.THUMB_MASTER.getLocalisedHeaderText(context),
+//                ActionType.THUMB_MASTER.getLocalisedBodyText(context)
+//            )
+//            val diamondCard = Card(
+//                SuitType.Diamond,
+//                ActionType.CHICKS.getRankText(),
+//                ActionType.CHICKS.getLocalisedHeaderText(context),
+//                ActionType.CHICKS.getLocalisedBodyText(context)
+//            )
+//            Collections.swap(cards, 0, cards.findCardIndex(spadesCard))
+//            Collections.swap(cards, 1, cards.findCardIndex(clubCard))
+//            Collections.swap(cards, 2, cards.findCardIndex(heartCard))
+//            Collections.swap(cards, 3, cards.findCardIndex(diamondCard))
+//        } else {
+//            cards.shuffle()
+//        }
+        cards.shuffle()
     }
 
     fun toggleKingImageView(

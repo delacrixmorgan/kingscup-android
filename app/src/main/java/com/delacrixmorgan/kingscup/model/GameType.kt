@@ -1,12 +1,9 @@
 package com.delacrixmorgan.kingscup.model
 
 import android.content.Context
-import android.os.Parcelable
 import com.delacrixmorgan.kingscup.R
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
-enum class GameType : Parcelable {
+enum class GameType {
     NewGame,
     RestartGame;
 

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.model.GameType
-import kotlinx.android.synthetic.main.fragment_navigation_menu.*
 
 class NavigationMenuFragment : Fragment() {
 
@@ -22,20 +21,20 @@ class NavigationMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rateButton.setOnClickListener {
-            val action = NavigationMenuFragmentDirections.actionMenuFragmentToMenuRateFragment()
-            Navigation.findNavController(view).navigate(action)
-        }
-
-        settingButton.setOnClickListener {
-            val action = NavigationMenuFragmentDirections.actionMenuFragmentToMenuSettingFragment()
-            Navigation.findNavController(view).navigate(action)
-        }
-
-        startButton.setOnClickListener {
-            val action =
-                NavigationMenuFragmentDirections.actionMenuFragmentToGameLoadFragment(GameType.NewGame)
-            Navigation.findNavController(view).navigate(action)
-        }
+//        rateButton.setOnClickListener {
+//            val action = NavigationMenuFragmentDirections.actionMenuFragmentToMenuRateFragment()
+//            Navigation.findNavController(view).navigate(action)
+//        }
+//
+//        settingButton.setOnClickListener {
+//            val action = NavigationMenuFragmentDirections.actionMenuFragmentToMenuSettingFragment()
+//            Navigation.findNavController(view).navigate(action)
+//        }
+//
+//        startButton.setOnClickListener {
+//            val action =
+//                NavigationMenuFragmentDirections.actionMenuFragmentToGameLoadFragment(GameType.NewGame)
+//            Navigation.findNavController(view).navigate(action)
+//        }
     }
 }

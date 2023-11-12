@@ -15,7 +15,6 @@ import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.engine.VibratorEngine
 import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.VibrateType
-import kotlinx.android.synthetic.main.fragmment_game_dialog.*
 
 class GameDialogFragment : DialogFragment(), View.OnClickListener {
 
@@ -52,14 +51,14 @@ class GameDialogFragment : DialogFragment(), View.OnClickListener {
         val vibratePreference =
             preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
 
-        volumeButton.setImageResource(if (soundPreference) R.drawable.ic_volume_up else R.drawable.ic_volume_off)
-        vibrateButton.setImageResource(if (vibratePreference) R.drawable.ic_vibration_enable else R.drawable.ic_vibration_disable)
-
-        quitButton.setOnClickListener(this)
-        volumeButton.setOnClickListener(this)
-        resumeButton.setOnClickListener(this)
-        vibrateButton.setOnClickListener(this)
-        startNewGameButton.setOnClickListener(this)
+//        volumeButton.setImageResource(if (soundPreference) R.drawable.ic_volume_up else R.drawable.ic_volume_off)
+//        vibrateButton.setImageResource(if (vibratePreference) R.drawable.ic_vibration_enable else R.drawable.ic_vibration_disable)
+//
+//        quitButton.setOnClickListener(this)
+//        volumeButton.setOnClickListener(this)
+//        resumeButton.setOnClickListener(this)
+//        vibrateButton.setOnClickListener(this)
+//        startNewGameButton.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -110,11 +109,11 @@ class GameDialogFragment : DialogFragment(), View.OnClickListener {
         val vibratePreference =
             preference[PreferenceHelper.VIBRATE, PreferenceHelper.VIBRATE_DEFAULT]
 
-        if (vibratePreference) {
-            vibrateButton.setImageResource(R.drawable.ic_vibration_disable)
-        } else {
-            vibrateButton.setImageResource(R.drawable.ic_vibration_enable)
-        }
+//        if (vibratePreference) {
+//            vibrateButton.setImageResource(R.drawable.ic_vibration_disable)
+//        } else {
+//            vibrateButton.setImageResource(R.drawable.ic_vibration_enable)
+//        }
 
         preference[PreferenceHelper.VIBRATE] = !vibratePreference
     }
@@ -123,11 +122,11 @@ class GameDialogFragment : DialogFragment(), View.OnClickListener {
         val preference = PreferenceHelper.getPreference(requireContext())
         val soundPreference = preference[PreferenceHelper.SOUND, PreferenceHelper.SOUND_DEFAULT]
 
-        if (soundPreference) {
-            volumeButton.setImageResource(R.drawable.ic_volume_off)
-        } else {
-            volumeButton.setImageResource(R.drawable.ic_volume_up)
-        }
+//        if (soundPreference) {
+//            volumeButton.setImageResource(R.drawable.ic_volume_off)
+//        } else {
+//            volumeButton.setImageResource(R.drawable.ic_volume_up)
+//        }
 
         preference[PreferenceHelper.SOUND] = !soundPreference
     }

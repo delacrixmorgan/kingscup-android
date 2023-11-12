@@ -19,7 +19,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Slide
-import com.delacrixmorgan.kingscup.BuildConfig
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.engine.VibratorEngine
 import com.delacrixmorgan.kingscup.game.card.GameCardAdapter
@@ -31,7 +30,6 @@ import com.delacrixmorgan.kingscup.model.Card
 import com.delacrixmorgan.kingscup.model.GameType
 import com.delacrixmorgan.kingscup.model.SoundType
 import com.delacrixmorgan.kingscup.model.VibrateType
-import kotlinx.android.synthetic.main.fragment_game_board.*
 
 class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
     Animation.AnimationListener,
@@ -40,7 +38,7 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
     private var statusText: String = ""
         set(value) {
             field = value
-            statusTextView.startAnimation(statusTextAnimation)
+//            statusTextView.startAnimation(statusTextAnimation)
         }
 
     private val statusTextAnimation: AlphaAnimation by lazy {
@@ -61,7 +59,7 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
     }
 
     private val kingImageViews by lazy {
-        listOf(kingOneImageView, kingTwoImageView, kingThreeImageView, kingFourImageView)
+//        listOf(kingOneImageView, kingTwoImageView, kingThreeImageView, kingFourImageView)
     }
 
     private lateinit var stateMachine: GameBoardStateMachine
@@ -92,27 +90,27 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView.adapter = cardAdapter
-        recyclerView.layoutAnimation = AnimationUtils.loadLayoutAnimation(
-            context, R.anim.layout_animation_slide_right
-        )
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                val manager = recyclerView.layoutManager as LinearLayoutManager
-                if (manager.findFirstVisibleItemPosition() == 0) {
-                    progressBar.progress = 0
-                } else {
-                    progressBar.progress = manager.findLastVisibleItemPosition()
-                }
-            }
-        })
-        recyclerView.scheduleLayoutAnimation()
-
-        menuButton.setOnClickListener { stateMachine.pauseGame() }
-        restartButton.setOnClickListener { stateMachine.restartGame() }
-
-        debugTextView.isVisible = BuildConfig.DEBUG
-        debugTextView.setOnClickListener { debugTextView.isVisible = false }
+//        recyclerView.adapter = cardAdapter
+//        recyclerView.layoutAnimation = AnimationUtils.loadLayoutAnimation(
+//            context, R.anim.layout_animation_slide_right
+//        )
+//        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                val manager = recyclerView.layoutManager as LinearLayoutManager
+//                if (manager.findFirstVisibleItemPosition() == 0) {
+//                    progressBar.progress = 0
+//                } else {
+//                    progressBar.progress = manager.findLastVisibleItemPosition()
+//                }
+//            }
+//        })
+//        recyclerView.scheduleLayoutAnimation()
+//
+//        menuButton.setOnClickListener { stateMachine.pauseGame() }
+//        restartButton.setOnClickListener { stateMachine.restartGame() }
+//
+//        debugTextView.isVisible = BuildConfig.DEBUG
+//        debugTextView.setOnClickListener { debugTextView.isVisible = false }
     }
 
     /**
@@ -121,13 +119,13 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
 
     override fun onChanged(state: GameBoardStateMachine.State) {
         val context = requireContext()
-        debugTextView.text = "State: ${state.javaClass.simpleName}"
+//        debugTextView.text = "State: ${state.javaClass.simpleName}"
 
         when (state) {
             is GameBoardStateMachine.State.Start -> {
                 cardAdapter.updateDataSet(stateMachine.gameEngine.cards)
                 statusText = getString(R.string.board_title_lets_begin)
-                stateMachine.gameEngine.toggleKingImageView(kingImageViews, volumeImageView)
+//                stateMachine.gameEngine.toggleKingImageView(kingImageViews, volumeImageView)
 
                 stateMachine.present()
             }
@@ -137,18 +135,18 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                 val fragment = GameCardFragment.create(state.card, 1, this)
                 fragment.enterTransition = Slide(Gravity.BOTTOM).setDuration(200)
                 childFragmentManager.commit {
-                    add(rootView.id, fragment, fragment.javaClass.simpleName)
+//                    add(rootView.id, fragment, fragment.javaClass.simpleName)
                     addToBackStack(fragment.javaClass.simpleName)
                 }
 
-                VibratorEngine.vibrate(rootView, VibrateType.Short)
+//                VibratorEngine.vibrate(rootView, VibrateType.Short)
                 stateMachine.soundEngine.playSound(context, SoundType.Flip)
             }
             is GameBoardStateMachine.State.Updating -> {
                 statusText = stateMachine.gameEngine.taunt
                 cardAdapter.removeCard(state.card)
-                progressBar.max = cardAdapter.itemCount - 1
-                stateMachine.gameEngine.toggleKingImageView(kingImageViews, volumeImageView)
+//                progressBar.max = cardAdapter.itemCount - 1
+//                stateMachine.gameEngine.toggleKingImageView(kingImageViews, volumeImageView)
 
                 if (stateMachine.gameEngine.hasWon) {
                     stateMachine.endGame()
@@ -160,9 +158,9 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                 gameMenuDialog.show(requireActivity().supportFragmentManager, javaClass.simpleName)
             }
             is GameBoardStateMachine.State.Winning -> {
-                restartButton.show()
-                confettiAnimationView.isVisible = true
-                confettiAnimationView.playAnimation()
+//                restartButton.show()
+//                confettiAnimationView.isVisible = true
+//                confettiAnimationView.playAnimation()
 
                 statusText = context.getString(R.string.game_over_body)
             }
@@ -170,10 +168,10 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
                 val action = GameBoardFragmentDirections.actionGameBoardFragmentToGameLoadFragment(
                     GameType.RestartGame
                 )
-                Navigation.findNavController(rootView).navigate(action)
+//                Navigation.findNavController(rootView).navigate(action)
             }
             is GameBoardStateMachine.State.Completed -> {
-                Navigation.findNavController(rootView).navigateUp()
+//                Navigation.findNavController(rootView).navigateUp()
             }
         }
     }
@@ -210,7 +208,7 @@ class GameBoardFragment : Fragment(), Observer<GameBoardStateMachine.State>,
      */
 
     override fun onAnimationRepeat(animation: Animation?) {
-        statusTextView.text = statusText
+//        statusTextView.text = statusText
     }
 
     override fun onAnimationEnd(animation: Animation?) = Unit

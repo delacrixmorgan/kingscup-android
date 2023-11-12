@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.model.LanguageType
-import kotlinx.android.synthetic.main.cell_language.view.*
 
 class LanguageRecyclerViewAdapter(
     private val languageTypes: ArrayList<LanguageType>,
@@ -75,9 +74,9 @@ class LanguageRecyclerViewAdapter(
         fun bind(isSelected: Boolean, languageType: LanguageType) = with(itemView) {
             updateViews(isSelected)
 
-            flagTextView.text = languageType.flagEmoji
-            descriptionTextView.text = languageType.authorNames
-            titleTextView.text = languageType.name.toLowerCase().capitalize()
+//            flagTextView.text = languageType.flagEmoji
+//            descriptionTextView.text = languageType.authorNames
+//            titleTextView.text = languageType.name.toLowerCase().capitalize()
 
             setOnClickListener {
                 listener.onLanguageSelected(adapterPosition, languageType)
@@ -86,43 +85,43 @@ class LanguageRecyclerViewAdapter(
 
         private fun updateViews(isSelected: Boolean) = with(itemView) {
             if (isSelected) {
-                parentViewGroup.setCardBackgroundColor(
-                    ContextCompat.getColor(
-                        context,
-                        R.color.colorPrimary
-                    )
-                )
-                titleTextView.setTextColor(
-                    ContextCompat.getColor(
-                        context,
-                        android.R.color.white
-                    )
-                )
-                descriptionTextView.setTextColor(
-                    ContextCompat.getColor(
-                        context,
-                        android.R.color.white
-                    )
-                )
+//                parentViewGroup.setCardBackgroundColor(
+//                    ContextCompat.getColor(
+//                        context,
+//                        R.color.colorPrimary
+//                    )
+//                )
+//                titleTextView.setTextColor(
+//                    ContextCompat.getColor(
+//                        context,
+//                        android.R.color.white
+//                    )
+//                )
+//                descriptionTextView.setTextColor(
+//                    ContextCompat.getColor(
+//                        context,
+//                        android.R.color.white
+//                    )
+//                )
             } else {
-                parentViewGroup.setCardBackgroundColor(
-                    ContextCompat.getColor(
-                        context,
-                        R.color.colorInactive
-                    )
-                )
-                titleTextView.setTextColor(
-                    ContextCompat.getColor(
-                        context,
-                        R.color.colorInactiveHint
-                    )
-                )
-                descriptionTextView.setTextColor(
-                    ContextCompat.getColor(
-                        context,
-                        R.color.colorInactiveHint
-                    )
-                )
+//                parentViewGroup.setCardBackgroundColor(
+//                    ContextCompat.getColor(
+//                        context,
+//                        R.color.colorInactive
+//                    )
+//                )
+//                titleTextView.setTextColor(
+//                    ContextCompat.getColor(
+//                        context,
+//                        R.color.colorInactiveHint
+//                    )
+//                )
+//                descriptionTextView.setTextColor(
+//                    ContextCompat.getColor(
+//                        context,
+//                        R.color.colorInactiveHint
+//                    )
+//                )
             }
         }
     }
@@ -130,12 +129,12 @@ class LanguageRecyclerViewAdapter(
     class HelpTranslateViewHolder(itemView: View, private val listener: LanguageListener) :
         RecyclerView.ViewHolder(itemView) {
         fun bind() = with(itemView) {
-            titleTextView.text = context.getString(
-                R.string.fragment_menu_language_btn_help_translate
-            )
-            descriptionTextView.text = context.getString(
-                R.string.msg_help_translate_description
-            )
+//            titleTextView.text = context.getString(
+//                R.string.fragment_menu_language_btn_help_translate
+//            )
+//            descriptionTextView.text = context.getString(
+//                R.string.msg_help_translate_description
+//            )
             setOnClickListener {
                 listener.onHelpTranslateSelected(adapterPosition)
             }

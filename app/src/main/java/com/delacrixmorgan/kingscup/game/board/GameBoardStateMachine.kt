@@ -41,6 +41,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
             is State.Start, is State.Updating, is State.Winning -> {
                 state = State.Presenting
             }
+            else -> Unit
         }
     }
 
@@ -49,6 +50,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
             is State.Presenting, is State.Updating -> {
                 state = State.ShowingDetail(card)
             }
+            else -> Unit
         }
     }
 
@@ -57,6 +59,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
             is State.ShowingDetail -> {
                 state = State.Updating(card)
             }
+            else -> Unit
         }
     }
 
@@ -65,6 +68,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
             is State.Presenting, is State.Updating, is State.Winning -> {
                 state = State.Pausing
             }
+            else -> Unit
         }
     }
 
@@ -77,6 +81,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
                     State.Presenting
                 }
             }
+            else -> Unit
         }
     }
 
@@ -88,6 +93,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
             is State.Winning -> {
                 state = State.Restarting
             }
+            else -> Unit
         }
     }
 
@@ -101,6 +107,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
             is State.Winning -> {
                 state = State.Completed
             }
+            else -> Unit
         }
     }
 
@@ -114,6 +121,7 @@ class GameBoardStateMachine : ObservableStateMachine<GameBoardStateMachine.State
                 soundEngine.playSound(context, SoundType.Whoosh)
                 state = State.Completed
             }
+            else -> Unit
         }
     }
 }

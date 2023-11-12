@@ -13,7 +13,6 @@ import androidx.navigation.Navigation
 import com.delacrixmorgan.kingscup.R
 import com.delacrixmorgan.kingscup.engine.SoundEngine
 import com.delacrixmorgan.kingscup.model.SoundType
-import kotlinx.android.synthetic.main.fragment_menu_rate.*
 
 class MenuRateFragment : Fragment() {
 
@@ -39,38 +38,38 @@ class MenuRateFragment : Fragment() {
         val context = view.context
         val packageName = context.packageName
 
-        backButton.setOnClickListener {
-            Navigation.findNavController(view).navigateUp()
-        }
-
-        starImageView.setOnClickListener {
-            personImageView.setImageResource(R.drawable.ic_human_happy)
-            starImageView.setColorFilter(ContextCompat.getColor(context, R.color.colorOrange))
-
-            launchPlayStore(packageName)
-            Navigation.findNavController(view).navigateUp()
-        }
-
-        rateButton.setOnClickListener {
-            personImageView.setImageResource(R.drawable.ic_human_happy)
-
-            launchPlayStore(packageName)
-            Navigation.findNavController(view).navigateUp()
-        }
-
-        squarkViewGroup.setOnClickListener {
-            personImageView.setImageResource(R.drawable.ic_human_happy)
-
-            launchPlayStore(SQUARK_PACKAGE_NAME)
-            Navigation.findNavController(view).navigateUp()
-        }
-
-        mamikaViewGroup.setOnClickListener {
-            personImageView.setImageResource(R.drawable.ic_human_happy)
-
-            launchPlayStore(MAMIKA_PACKAGE_NAME)
-            Navigation.findNavController(view).navigateUp()
-        }
+//        backButton.setOnClickListener {
+//            Navigation.findNavController(view).navigateUp()
+//        }
+//
+//        starImageView.setOnClickListener {
+//            personImageView.setImageResource(R.drawable.ic_human_happy)
+//            starImageView.setColorFilter(ContextCompat.getColor(context, R.color.colorOrange))
+//
+//            launchPlayStore(packageName)
+//            Navigation.findNavController(view).navigateUp()
+//        }
+//
+//        rateButton.setOnClickListener {
+//            personImageView.setImageResource(R.drawable.ic_human_happy)
+//
+//            launchPlayStore(packageName)
+//            Navigation.findNavController(view).navigateUp()
+//        }
+//
+//        squarkViewGroup.setOnClickListener {
+//            personImageView.setImageResource(R.drawable.ic_human_happy)
+//
+//            launchPlayStore(SQUARK_PACKAGE_NAME)
+//            Navigation.findNavController(view).navigateUp()
+//        }
+//
+//        mamikaViewGroup.setOnClickListener {
+//            personImageView.setImageResource(R.drawable.ic_human_happy)
+//
+//            launchPlayStore(MAMIKA_PACKAGE_NAME)
+//            Navigation.findNavController(view).navigateUp()
+//        }
     }
 
     private fun launchPlayStore(packageName: String) {
