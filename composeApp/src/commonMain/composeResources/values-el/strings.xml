@@ -25,7 +25,7 @@
     <string name="rules_questionMasterDescription">Κάντε μια ερώτηση σε έναν παίκτη. Πρέπει να απαντήσει με μια άλλη ερώτηση στον επόμενο παίκτη. Ο πρώτος που θα αποτύχει, θα πιει!</string>
     <string name="rules_neverHaveIEverEmoji">🤔</string>
     <string name="rules_neverHaveIEverLabel">Ποτέ δεν έχω</string>
-    <string name="rules_neverHaveIEverDescription">Συμπληρώστε την πρόταση, Ποτέ δεν έχω ποτέ... Όποιος έχει πιει, πιει!</string>
+    <string name="rules_neverHaveIEverDescription">Συμπλήρωσε την πρόταση, Ποτέ δεν έχω ποτέ... Όποιος έχει πιει, πιει!</string>
     <string name="rules_categoriesEmoji">🔮</string>
     <string name="rules_categoriesLabel">Κατηγορίες</string>
     <string name="rules_categoriesDescription">Διάλεξε μια κατηγορία. Πες κάτι που ταιριάζει μέχρι όποιος δεν μπορεί να σκεφτεί καμία, ας πιει!</string>
@@ -72,7 +72,7 @@
     <string name="rules_beLikeBillyLabel">Μπίλι Ρουλ</string>
     <string name="rules_beLikeBillyDescription">Τώρα, όλοι πρέπει να λέγονται Μπίλι. Να είσαι σαν τον Μπίλι.</string>
     <string name="rules_iWillTellYouWhatEmoji">🥴</string>
-    <string name="rules_iWillTellYouWhatLabel">Κανόνας «Θα σου πω εγώ τι»</string>
+    <string name="rules_iWillTellYouWhatLabel">Κανόνας «Θα σου πω τι»</string>
     <string name="rules_iWillTellYouWhatDescription">Πρέπει να πεις αυτή τη φράση πριν μιλήσεις!</string>
     <string name="rules_noPhonesEmoji">🤳</string>
     <string name="rules_noPhonesLabel">Κανόνας χωρίς τηλέφωνο</string>

@@ -1,22 +1,22 @@
 [versions]
-kotlin = "2.4.0"
-agp = "9.2.1"
+kotlin = "2.4.10"
+agp = "9.3.1"
 android-compileSdk = "37"
 android-minSdk = "24"
 android-targetSdk = "37"
 
-androidx-lifecycle = "2.10.0"
+androidx-lifecycle = "2.11.0"
 androidx-datastore-preference = "1.2.1" # https://developer.android.com/jetpack/androidx/releases/datastore
 androidx-navigation-compose = "2.9.2" # https://mvnrepository.com/artifact/org.jetbrains.androidx.navigation/navigation-compose-uikitarm64
 
 compose-multiplatform = "1.11.1" # https://github.com/JetBrains/compose-multiplatform/releases
-composeBoM = "2026.06.00" # https://developer.android.com/develop/ui/compose/bom/bom-mapping
+composeBoM = "2026.06.01" # https://developer.android.com/develop/ui/compose/bom/bom-mapping
 composables-core = "1.49.9"
 
 koinBoM = "4.2.2" # https://github.com/InsertKoinIO/koin/releases
 compottie = "2.2.4"
 confetti-kit = "0.8.0"
-material3 = "1.11.0-alpha07" # 1.12.0-alpha01 will break
+material3 = "1.12.0-alpha03"
 
 [libraries]
 androidx-datastore-preference = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidx-datastore-preference" }

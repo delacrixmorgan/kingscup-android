@@ -70,7 +70,7 @@
     <string name="rules_tRexArmsDescription">Czujesz pragnienie? Pij tylko najlepszymi rękami T-Rexa.</string>
     <string name="rules_beLikeBillyEmoji">🤓</string>
     <string name="rules_beLikeBillyLabel">Billy Rule</string>
-    <string name="rules_beLikeBillyDescription">Teraz wszyscy muszą nazywać się Billy. Bądź jak Billy.</string>
+    <string name="rules_beLikeBillyDescription">Teraz wszyscy muszą nazywać się Billy. Bądźcie jak Billy.</string>
     <string name="rules_iWillTellYouWhatEmoji">🥴</string>
     <string name="rules_iWillTellYouWhatLabel">Zasada „Powiem ci co”</string>
     <string name="rules_iWillTellYouWhatDescription">Musisz powiedzieć to zdanie zanim zaczniesz mówić!</string>
@@ -132,9 +132,9 @@
     <string name="appInfo_developerLabel">Wywoływacz</string>
     <string name="appInfo_sourceCodeLabel">Kod źródłowy</string>
     <string name="appInfo_sourceCodeDescription">GitHub</string>
-    <string name="appInfo_styleGuideLabel">Przewodnik po stylach</string>
+    <string name="appInfo_styleGuideLabel">Przewodnik po stylu</string>
     <string name="appInfo_styleGuideDescription">Piksele i heksy</string>
-    <string name="styleGuide_title">Przewodnik po stylach</string>
+    <string name="styleGuide_title">Przewodnik po stylu</string>
     <string name="styleGuide_themeLabel">Temat</string>
     <string name="styleGuide_themeSystem">System</string>
     <string name="styleGuide_themeLight">Światło</string>

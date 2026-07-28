@@ -55,7 +55,7 @@
     <string name="rules_youDescription">Válassz egy társat, és igyatok együtt!</string>
     <string name="rules_waterfallEmoji">🌊</string>
     <string name="rules_waterfallLabel">Vízesés</string>
-    <string name="rules_waterfallDescription">Mindenki addig inni kezd, amíg az a személy, aki a kártyát kihúzta, abba nem hagyja.</string>
+    <string name="rules_waterfallDescription">Mindenki addig inni kezd, amíg az is abba nem hagyja, aki a kártyát kihúzta.</string>
     <string name="rules_vikingEmoji">😈</string>
     <string name="rules_vikingLabel">Viking uralom</string>
     <string name="rules_vikingDescription">Amikor „billegő viking kürtöket” készítesz, mindenkinek úgy kell eveznie, mintha egy csónakban lenne!\n\nAki utoljára csinálja, az igyon!</string>
@@ -94,7 +94,7 @@
     <string name="rules_toiletDescription">Mielőtt bárki pisilni vagy kakilni menne, mindenkinek innia kell!</string>
     <string name="loading_title">Terhelés</string>
     <string name="board_tauntOne">Komolyan</string>
-    <string name="board_tauntTwo">Közeleg</string>
+    <string name="board_tauntTwo">Feljön</string>
     <string name="board_tauntThree">Csak még egy</string>
     <string name="board_tauntFour">Ez az</string>
     <string name="board_tauntFive">Ne gondolkozz</string>
@@ -110,7 +110,7 @@
     <string name="board_buttonExitGame">Kilépés a játékból</string>
     <string name="board_gameOver">Idd meg!</string>
     <string name="card_buttonDone">Kész</string>
-    <string name="card_buttonGameOver">Vége a játéknak</string>
+    <string name="card_buttonGameOver">Játék vége</string>
     <string name="rules_countdownEmoji">⏰</string>
     <string name="rules_countdownLabel">Végső visszaszámlálás</string>
     <string name="rules_countdownDescription">Kezdjetek számolni, akik kétszer mondják ugyanazt a számot, azok isznak!</string>

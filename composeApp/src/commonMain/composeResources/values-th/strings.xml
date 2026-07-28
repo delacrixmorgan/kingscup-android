@@ -46,7 +46,7 @@
     <string name="rules_dudesDescription">ผู้ชายทุกคนดื่มเหล้า!</string>
     <string name="rules_thumbMasterEmoji">👍</string>
     <string name="rules_thumbMasterLabel">อาจารย์นิ้วโป้ง</string>
-    <string name="rules_thumbMasterDescription">วางนิ้วโป้งของคุณลงบนโต๊ะ คนสุดท้ายที่ทำแบบนั้นคือคนที่ชอบดื่ม!</string>
+    <string name="rules_thumbMasterDescription">วางนิ้วโป้งของคุณลงบนโต๊ะ คนสุดท้ายที่ทำแบบนั้นคือคนที่กำลังดื่ม!</string>
     <string name="rules_meEmoji">👊</string>
     <string name="rules_meLabel">ฉัน</string>
     <string name="rules_meDescription">เฉพาะคุณเท่านั้น ดื่ม!</string>
@@ -75,7 +75,7 @@
     <string name="rules_iWillTellYouWhatLabel">กฎ “ฉันจะบอกคุณว่า”</string>
     <string name="rules_iWillTellYouWhatDescription">ต้องพูดวลีนี้ก่อนพูด!</string>
     <string name="rules_noPhonesEmoji">🤳</string>
-    <string name="rules_noPhonesLabel">ห้ามใช้โทรศัพท์มือถือ</string>
+    <string name="rules_noPhonesLabel">กฎห้ามใช้โทรศัพท์</string>
     <string name="rules_noPhonesDescription">ถ้าคุณแตะต้องโทรศัพท์ของคุณ หรือโทรศัพท์ของคนอื่น ดื่ม!</string>
     <string name="rules_noSwearingEmoji">🤬</string>
     <string name="rules_noSwearingLabel">ห้ามใช้คำหยาบ</string>

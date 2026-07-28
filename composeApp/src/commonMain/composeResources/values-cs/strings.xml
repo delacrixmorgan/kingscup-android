@@ -66,7 +66,7 @@
     <string name="rules_noPointingLabel">Pravidlo bez ukazování</string>
     <string name="rules_noPointingDescription">Když na někoho ukážeš, tak piješ!</string>
     <string name="rules_tRexArmsEmoji">🦖</string>
-    <string name="rules_tRexArmsLabel">T-Rexova vláda zbraní</string>
+    <string name="rules_tRexArmsLabel">T-Rexovy paže vládnou</string>
     <string name="rules_tRexArmsDescription">Máte žízeň? Pijte pouze rukama svého nejlepšího tyranosaura.</string>
     <string name="rules_beLikeBillyEmoji">🤓</string>
     <string name="rules_beLikeBillyLabel">Billy Rule</string>
@@ -105,7 +105,7 @@
     <string name="board_tauntTen">No tak</string>
     <string name="board_cardsLeft">Zbývá %1$s karet</string>
     <string name="board_pauseDialogTitle">Přestávka na toaletu</string>
-    <string name="board_pauseDialogDescription">Není to tak, že bych nikam šel.</string>
+    <string name="board_pauseDialogDescription">Není to tak, že bych někam šel.</string>
     <string name="board_buttonNewGame">Ještě jedna hra</string>
     <string name="board_buttonExitGame">Ukončit hru</string>
     <string name="board_gameOver">Vypij to!</string>

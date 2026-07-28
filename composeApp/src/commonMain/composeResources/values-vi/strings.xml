@@ -31,7 +31,7 @@
     <string name="rules_categoriesDescription">Chọn một thể loại. Nói điều gì đó phù hợp cho đến khi ai không nghĩ ra được thì phải uống!</string>
     <string name="rules_snakeEyesEmoji">🐍</string>
     <string name="rules_snakeEyesLabel">Mắt rắn</string>
-    <string name="rules_snakeEyesDescription">Không ai được phép nhìn thẳng vào mắt bạn. Nếu bị bắt gặp, hãy uống rượu!</string>
+    <string name="rules_snakeEyesDescription">Không ai được phép nhìn thẳng vào mắt bạn. Nếu bị bắt gặp, hãy uống!</string>
     <string name="rules_mateEmoji">🫶</string>
     <string name="rules_mateLabel">Bạn </string>
     <string name="rules_mateDescription">Hãy chọn một người bạn và cùng uống với người đó mỗi khi người kia uống!</string>
@@ -63,7 +63,7 @@
     <string name="rules_noFirstNamesLabel">Quy tắc không dùng tên riêng</string>
     <string name="rules_noFirstNamesDescription">Tôi là Bond, James Bond.\nỐi! Cứ gọi tôi là Bond đi, chết tiệt.</string>
     <string name="rules_noPointingEmoji">🫵</string>
-    <string name="rules_noPointingLabel">Không có quy tắc chỉ trỏ</string>
+    <string name="rules_noPointingLabel">Quy tắc cấm chỉ trỏ</string>
     <string name="rules_noPointingDescription">Nếu bạn chỉ tay vào ai đó, bạn phải uống!</string>
     <string name="rules_tRexArmsEmoji">🦖</string>
     <string name="rules_tRexArmsLabel">Cánh tay của T-Rex thật tuyệt vời!</string>
@@ -101,7 +101,7 @@
     <string name="board_tauntSix">Uống tôi đi</string>
     <string name="board_tauntSeven">Bạn nhanh hơn</string>
     <string name="board_tauntEight">Bạn chắc chứ?</string>
-    <string name="board_tauntNine">Được rồi bạn ơi?</string>
+    <string name="board_tauntNine">Được rồi bạn?</string>
     <string name="board_tauntTen">Cố lên</string>
     <string name="board_cardsLeft">Còn lại %1$s thẻ</string>
     <string name="board_pauseDialogTitle">Đi vệ sinh</string>

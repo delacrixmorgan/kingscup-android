@@ -91,7 +91,7 @@
     <string name="rules_leftHandDescription">Juo vain vasemmalla kädellä!</string>
     <string name="rules_toiletEmoji">☣️</string>
     <string name="rules_toiletLabel">WC-sääntö</string>
-    <string name="rules_toiletDescription">Ennen kuin kukaan menee pissalle, pissalle tai kakalle, kaikkien on juotava!</string>
+    <string name="rules_toiletDescription">Ennen kuin kukaan menee pissalle tai kakalle, kaikkien on juotava!</string>
     <string name="loading_title">Ladataan</string>
     <string name="board_tauntOne">Vakavasti</string>
     <string name="board_tauntTwo">Tulossa</string>

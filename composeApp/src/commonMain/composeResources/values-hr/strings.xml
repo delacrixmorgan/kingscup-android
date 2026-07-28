@@ -25,7 +25,7 @@
     <string name="rules_questionMasterDescription">Postavite pitanje igraču. Mora odgovoriti drugim pitanjem sljedećoj osobi. Prvi koji ne uspije, pije!</string>
     <string name="rules_neverHaveIEverEmoji">🤔</string>
     <string name="rules_neverHaveIEverLabel">Nikad Nisam Nikad</string>
-    <string name="rules_neverHaveIEverDescription">Dopuni rečenicu, Nikad nisam, ikada.. Svatko tko jest, neka pije!</string>
+    <string name="rules_neverHaveIEverDescription">Dopuni rečenicu, Nikad nisam, ikada.. Tko god jest, neka pije!</string>
     <string name="rules_categoriesEmoji">🔮</string>
     <string name="rules_categoriesLabel">Kategorije</string>
     <string name="rules_categoriesDescription">Odaberite kategoriju. Recite nešto što odgovara dok se tko god ne sjeti ničega, neka pije!</string>
@@ -33,7 +33,7 @@
     <string name="rules_snakeEyesLabel">Zmijske oči</string>
     <string name="rules_snakeEyesDescription">Nitko ne smije uspostaviti kontakt očima s tobom. Ako te uhvate, pij!</string>
     <string name="rules_mateEmoji">🫶</string>
-    <string name="rules_mateLabel">Drug</string>
+    <string name="rules_mateLabel">Drug/drugarica</string>
     <string name="rules_mateDescription">Izaberi partnera i pij kad god taj igrač pije!</string>
     <string name="rules_heavenEmoji">☝🏻</string>
     <string name="rules_heavenLabel">Nebo</string>
@@ -119,7 +119,7 @@
     <string name="rules_rhymeDescription">Izgovori riječ, igrač s tvoje lijeve strane mora izgovoriti riječ koja se rimuje.\n\nIdi u krug dok netko ne oklijeva ili ne ponovi. Mora piti!</string>
     <string name="rules_swapCupsEmoji">🍻</string>
     <string name="rules_swapCupsLabel">Zamijenite šalice</string>
-    <string name="rules_swapCupsDescription">Do kraja igre moraš zamijeniti pića s nekim drugim.</string>
+    <string name="rules_swapCupsDescription">Do kraja igre morate razmjenjivati ​​pića s nekim drugim.</string>
     <string name="rules_tellAJokeEmoji">🤡</string>
     <string name="rules_tellAJokeLabel">Ispričaj vic</string>
     <string name="rules_tellAJokeDescription">Moraš ispričati vic. Ako se nitko ne smije, onda je šala tvoja i moraš piti!</string>

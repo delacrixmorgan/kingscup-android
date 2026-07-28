@@ -4,7 +4,7 @@
     <string name="locale_generatedPlaceholder">Сгенерировано</string>
     <string name="locale_selectTitle">Выберите язык</string>
     <string name="locale_bannerVolunteerTitle">Не можете найти то, что ищете?</string>
-    <string name="locale_bannerVolunteerDescription">Напишите мне!</string>
+    <string name="locale_bannerVolunteerDescription">Напишите мне сообщение!</string>
     <string name="setup_title">Настраивать</string>
     <string name="setup_jokersLabel">Джокеры</string>
     <string name="setup_jokersDescription">Добавьте немного остроты.</string>
@@ -99,7 +99,7 @@
     <string name="board_tauntFour">Вот и всё.</string>
     <string name="board_tauntFive">Не думай</string>
     <string name="board_tauntSix">Выпей меня</string>
-    <string name="board_tauntSeven">Быстрый приятель</string>
+    <string name="board_tauntSeven">Быстрее, приятель</string>
     <string name="board_tauntEight">Вы уверены?</string>
     <string name="board_tauntNine">Всё в порядке, дружище?</string>
     <string name="board_tauntTen">Ну давай же</string>

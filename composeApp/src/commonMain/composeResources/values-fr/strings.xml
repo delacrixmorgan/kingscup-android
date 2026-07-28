@@ -72,7 +72,7 @@
     <string name="rules_beLikeBillyLabel">Billy Rule</string>
     <string name="rules_beLikeBillyDescription">Désormais, tout le monde doit s'appeler Billy. Soyez comme Billy.</string>
     <string name="rules_iWillTellYouWhatEmoji">🥴</string>
-    <string name="rules_iWillTellYouWhatLabel">« Je vais vous dire quoi » Règle</string>
+    <string name="rules_iWillTellYouWhatLabel">Règle « Je vais vous dire quoi »</string>
     <string name="rules_iWillTellYouWhatDescription">Vous devez prononcer cette phrase avant de parler !</string>
     <string name="rules_noPhonesEmoji">🤳</string>
     <string name="rules_noPhonesLabel">Règle de l'absence de téléphone</string>

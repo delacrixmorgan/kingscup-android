@@ -4,7 +4,7 @@
     <string name="locale_generatedPlaceholder">Oluşturuldu</string>
     <string name="locale_selectTitle">Dil seçin</string>
     <string name="locale_bannerVolunteerTitle">Aradığınızı bulamadınız mı?</string>
-    <string name="locale_bannerVolunteerDescription">Bana mesaj at!</string>
+    <string name="locale_bannerVolunteerDescription">Bana bir mesaj gönder!</string>
     <string name="setup_title">Kurmak</string>
     <string name="setup_jokersLabel">Jokerler</string>
     <string name="setup_jokersDescription">Biraz heyecan katalım.</string>
@@ -25,10 +25,10 @@
     <string name="rules_questionMasterDescription">Bir oyuncuya bir soru sorun. Oyuncu, bir sonraki kişiye başka bir soruyla yanıt vermelidir. İlk başarısız olan, içki içer!</string>
     <string name="rules_neverHaveIEverEmoji">🤔</string>
     <string name="rules_neverHaveIEverLabel">Hiç Yapmadım</string>
-    <string name="rules_neverHaveIEverDescription">Cümleyi tamamlayın: Hiçbir zaman yapmadım... İçki içen var mı?</string>
+    <string name="rules_neverHaveIEverDescription">Cümleyi tamamlayın: "Hiç yapmadım..." "Yapmış olan herkes içsin!"</string>
     <string name="rules_categoriesEmoji">🔮</string>
     <string name="rules_categoriesLabel">Kategoriler</string>
-    <string name="rules_categoriesDescription">Bir kategori seçin. Aklına hiçbir şey gelmeyene kadar uygun bir şey söyleyin, sonra da içki içsin!</string>
+    <string name="rules_categoriesDescription">Bir kategori seçin. Aklına uygun bir şey gelene kadar söyleyin, aklına hiçbir şey gelmeyen içsin!</string>
     <string name="rules_snakeEyesEmoji">🐍</string>
     <string name="rules_snakeEyesLabel">Yılan gözlü</string>
     <string name="rules_snakeEyesDescription">Kimse seninle göz teması kurmamalı. Eğer yakalanırsan, içki iç!</string>
@@ -37,7 +37,7 @@
     <string name="rules_mateDescription">Bir partner seçin ve o oyuncu içtiğinde siz de içebilirsiniz.</string>
     <string name="rules_heavenEmoji">☝🏻</string>
     <string name="rules_heavenLabel">Cennet</string>
-    <string name="rules_heavenDescription">Herkes iki eliyle gökyüzüne uzansın. Sonuncu olan içsin!</string>
+    <string name="rules_heavenDescription">Herkes iki eliyle gökyüzüne uzansın. Sonuncu olan içer!</string>
     <string name="rules_chicksEmoji">💃</string>
     <string name="rules_chicksLabel">Civcivler</string>
     <string name="rules_chicksDescription">Bütün bayanlar içki içer!</string>
@@ -46,7 +46,7 @@
     <string name="rules_dudesDescription">Bütün erkekler içki içer!</string>
     <string name="rules_thumbMasterEmoji">👍</string>
     <string name="rules_thumbMasterLabel">Başparmak Ustası</string>
-    <string name="rules_thumbMasterDescription">Başparmağınızı masaya koyun. Bunu en son yapan, içkilerini yudumlasın!</string>
+    <string name="rules_thumbMasterDescription">Başparmağınızı masaya koyun. Bunu en son yapan, içeceklerini yudumlasın!</string>
     <string name="rules_meEmoji">👊</string>
     <string name="rules_meLabel">Ben</string>
     <string name="rules_meDescription">Sadece sen. İçki iç!</string>
@@ -105,7 +105,7 @@
     <string name="board_tauntTen">Hadi</string>
     <string name="board_cardsLeft">%1 kart kaldı</string>
     <string name="board_pauseDialogTitle">Tuvalet Molası</string>
-    <string name="board_pauseDialogDescription">Ben bir yere gidecek değilim ki.</string>
+    <string name="board_pauseDialogDescription">Sanki bir yere gidiyormuşum gibi değil.</string>
     <string name="board_buttonNewGame">Bir Oyun Daha</string>
     <string name="board_buttonExitGame">Oyundan Çıkış</string>
     <string name="board_gameOver">İçin gitsin!</string>

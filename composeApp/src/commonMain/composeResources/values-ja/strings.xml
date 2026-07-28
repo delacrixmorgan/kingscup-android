@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">キングスカップ</string>
     <string name="locale_generatedPlaceholder">生成された</string>
-    <string name="locale_selectTitle">言語を選択してください</string>
+    <string name="locale_selectTitle">言語を選択</string>
     <string name="locale_bannerVolunteerTitle">お探しのものが見つかりませんか？</string>
     <string name="locale_bannerVolunteerDescription">メッセージを送ってください！</string>
     <string name="setup_title">設定</string>
@@ -82,7 +82,7 @@
     <string name="rules_noSwearingDescription">「誰か子供たちのことを考えてくれないか！？」</string>
     <string name="rules_photographerEmoji">📷</string>
     <string name="rules_photographerLabel">写真家ルール</string>
-    <string name="rules_photographerDescription">3、2、1と声に出して数えて、写真を撮ってください。写真に写っていない場合は、お酒を飲んでください！</string>
+    <string name="rules_photographerDescription">3、2、1と大きな声で数えて写真を撮ってください。写真に写っていない場合は、お酒を飲んでください！</string>
     <string name="rules_lastOneLaughingEmoji">🤣</string>
     <string name="rules_lastOneLaughingLabel">最後に笑った人が勝ちというルール</string>
     <string name="rules_lastOneLaughingDescription">誰かが笑ったら、みんなも笑わなきゃいけない。最後に加わった人が、飲み物をどうぞ！</string>
@@ -119,7 +119,7 @@
     <string name="rules_rhymeDescription">単語を一つ言ってください。あなたの左隣の人は、その単語と韻を踏む単語を言わなければなりません。\n\n誰かがためらったり、同じ単語を繰り返したりするまで、順番に繰り返してください。ためらったり、同じ単語を繰り返したりした人は、お酒を飲まなければなりません！</string>
     <string name="rules_swapCupsEmoji">🍻</string>
     <string name="rules_swapCupsLabel">カップを交換する</string>
-    <string name="rules_swapCupsDescription">ゲームの残りの時間は、他の誰かと飲み物を交換しなければなりません。</string>
+    <string name="rules_swapCupsDescription">ゲームの残りの時間、あなたは他の誰かと飲み物を交換しなければなりません。</string>
     <string name="rules_tellAJokeEmoji">🤡</string>
     <string name="rules_tellAJokeLabel">ジョークを言ってみて</string>
     <string name="rules_tellAJokeDescription">必ずジョークを言わなければならない。誰も笑わなかったら、ジョークを言われたのは君だ。君は酒を飲まなければならない！</string>

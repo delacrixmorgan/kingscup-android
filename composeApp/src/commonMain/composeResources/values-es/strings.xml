@@ -79,7 +79,7 @@
     <string name="rules_noPhonesDescription">Si tocas tu teléfono o el de otra persona, ¡bebe!</string>
     <string name="rules_noSwearingEmoji">🤬</string>
     <string name="rules_noSwearingLabel">Regla de no decir palabrotas</string>
-    <string name="rules_noSwearingDescription">¡¿Es que nadie piensa en los niños, por favor?!</string>
+    <string name="rules_noSwearingDescription">¡¿Es que nadie piensa en los niños?!</string>
     <string name="rules_photographerEmoji">📷</string>
     <string name="rules_photographerLabel">Regla del fotógrafo</string>
     <string name="rules_photographerDescription">Cuenta en voz alta 3, 2, 1 y tómate una foto. Si no sales en la foto, ¡bebe!</string>
@@ -122,7 +122,7 @@
     <string name="rules_swapCupsDescription">Debes intercambiar bebidas con otra persona durante el resto de la partida.</string>
     <string name="rules_tellAJokeEmoji">🤡</string>
     <string name="rules_tellAJokeLabel">Cuenta un chiste</string>
-    <string name="rules_tellAJokeDescription">Debes contar un chiste. Si nadie se ríe, ¡la broma es a tu costa y tienes que beber!</string>
+    <string name="rules_tellAJokeDescription">Debes contar un chiste. Si nadie se ríe, ¡la broma es a costa tuya y tienes que beber!</string>
     <string name="support_title">Apoyo</string>
     <string name="support_appInfoLabel">Información de la aplicación</string>
     <string name="support_privacyPolicyLabel">política de privacidad</string>

@@ -61,7 +61,7 @@
     <string name="rules_vikingDescription">Tuwing gagawa ka ng "wiggly Viking horns" kailangan magsagwan ang lahat na parang nasa bangka!\n\nHuling taong gagawa nito, uminom!</string>
     <string name="rules_noFirstNamesEmoji">😱</string>
     <string name="rules_noFirstNamesLabel">Walang Panuntunan sa Unang Pangalan</string>
-    <string name="rules_noFirstNamesDescription">Si Bond pala, James Bond.\nNaku! Tawagin mo na lang akong Bond, naku!</string>
+    <string name="rules_noFirstNamesDescription">Si Bond pala, James Bond.\nNaku! Tawagin mo na lang akong Bond, naku.</string>
     <string name="rules_noPointingEmoji">🫵</string>
     <string name="rules_noPointingLabel">Panuntunan sa Bawal ang Pagturo</string>
     <string name="rules_noPointingDescription">Kung may itinuro ka, uminom ka!</string>
@@ -79,7 +79,7 @@
     <string name="rules_noPhonesDescription">Kung hahawakan mo ang telepono mo, o ang telepono ng iba. Uminom ka!</string>
     <string name="rules_noSwearingEmoji">🤬</string>
     <string name="rules_noSwearingLabel">Batas sa Bawal ang Pagmumura</string>
-    <string name="rules_noSwearingDescription">"Wala bang sinuman ang maaaring mag-isip sa mga bata!?"</string>
+    <string name="rules_noSwearingDescription">"Wala bang sinuman ang mag-iisip sa mga bata?!"</string>
     <string name="rules_photographerEmoji">📷</string>
     <string name="rules_photographerLabel">Panuntunan ng Litratista</string>
     <string name="rules_photographerDescription">Magbilang nang malakas ng 3, 2, 1 at kumuha ng litrato. Kung wala ka sa litrato, uminom ka!</string>
@@ -87,7 +87,7 @@
     <string name="rules_lastOneLaughingLabel">Huling Panuntunan sa Pagtawa</string>
     <string name="rules_lastOneLaughingDescription">Kapag may tumawa, lahat ay tatawa. Huling sasali, inuman!</string>
     <string name="rules_leftHandEmoji">✋🏻</string>
-    <string name="rules_leftHandLabel">Kaliwang Panuntunan</string>
+    <string name="rules_leftHandLabel">Panuntunan sa Kaliwang Kamay</string>
     <string name="rules_leftHandDescription">Uminom ka lang gamit ang kaliwang kamay mo!</string>
     <string name="rules_toiletEmoji">☣️</string>
     <string name="rules_toiletLabel">Panuntunan sa Palikuran</string>

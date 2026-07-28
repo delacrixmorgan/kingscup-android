@@ -24,7 +24,7 @@
     <string name="rules_questionMasterLabel">استاد سوال</string>
     <string name="rules_questionMasterDescription">از یک بازیکن یک سوال بپرسید. او باید با سوال دیگری به نفر بعدی پاسخ دهد. اولین کسی که شکست می‌خورد، نوشیدنی بنوش!</string>
     <string name="rules_neverHaveIEverEmoji">🤔</string>
-    <string name="rules_neverHaveIEverLabel">هرگز چنین نکرده‌ام</string>
+    <string name="rules_neverHaveIEverLabel">من هرگز چنین نکرده‌ام</string>
     <string name="rules_neverHaveIEverDescription">جمله را کامل کنید، من هرگز ... را ندیده‌ام. هر کسی که داشته، بنوشد!</string>
     <string name="rules_categoriesEmoji">🔮</string>
     <string name="rules_categoriesLabel">دسته‌ها</string>
@@ -67,10 +67,10 @@
     <string name="rules_noPointingDescription">اگر به کسی اشاره کنی، می‌نوشی!</string>
     <string name="rules_tRexArmsEmoji">🦖</string>
     <string name="rules_tRexArmsLabel">قانون بازوهای تی-رکس</string>
-    <string name="rules_tRexArmsDescription">احساس تشنگی می‌کنید؟ فقط با بهترین بازوهای تی‌رکس خود بنوشید.</string>
+    <string name="rules_tRexArmsDescription">احساس تشنگی می‌کنید؟ فقط با بهترین بازوهای تی‌رکس خود آب بنوشید.</string>
     <string name="rules_beLikeBillyEmoji">🤓</string>
     <string name="rules_beLikeBillyLabel">بیلی رول</string>
-    <string name="rules_beLikeBillyDescription">حالا، همه باید بیلی صدا شوند. شما هم مثل بیلی باشید.</string>
+    <string name="rules_beLikeBillyDescription">حالا، همه باید بیلی صداشون کنن. شما هم مثل بیلی باشید.</string>
     <string name="rules_iWillTellYouWhatEmoji">🥴</string>
     <string name="rules_iWillTellYouWhatLabel">قانون «من به شما خواهم گفت چه»</string>
     <string name="rules_iWillTellYouWhatDescription">قبل از صحبت کردن، حتماً این عبارت را بگویید!</string>
@@ -122,7 +122,7 @@
     <string name="rules_swapCupsDescription">شما باید تا آخر بازی نوشیدنی‌هایتان را با شخص دیگری عوض کنید.</string>
     <string name="rules_tellAJokeEmoji">🤡</string>
     <string name="rules_tellAJokeLabel">یک جوک بگو</string>
-    <string name="rules_tellAJokeDescription">باید یه جوک تعریف کنی. اگه کسی نخندید، یعنی جوک رو به گردن خودت انداختی و باید مشروب بخوری!</string>
+    <string name="rules_tellAJokeDescription">باید یه جوک بگی. اگه کسی نخندید، پس جوک تقصیر توئه و باید مشروب بخوری!</string>
     <string name="support_title">پشتیبانی</string>
     <string name="support_appInfoLabel">اطلاعات برنامه</string>
     <string name="support_privacyPolicyLabel">سیاست حفظ حریم خصوصی</string>

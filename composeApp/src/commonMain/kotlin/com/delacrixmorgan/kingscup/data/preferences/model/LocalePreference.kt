@@ -75,6 +75,11 @@ enum class LocalePreference(
         emoji = "\uD83C\uDDEC\uD83C\uDDF7",
         localisedName = "Greek",
     ),
+    Hebrew(
+        code = "he",
+        emoji = "\uD83C\uDDEE\uD83C\uDDF1",
+        localisedName = "Hebrew",
+    ),
     Hungarian(
         code = "hu",
         emoji = "\uD83C\uDDED\uD83C\uDDFA",
@@ -98,6 +103,11 @@ enum class LocalePreference(
         emoji = "\uD83C\uDDEF\uD83C\uDDF5",
         localisedName = "Japanese",
         contributorName = "Yukiko Kimura",
+    ),
+    Korean(
+        code = "kr",
+        emoji = "\uD83C\uDDF0\uD83C\uDDF7",
+        localisedName = "Korean",
     ),
     Lao(
         code = "lo",
@@ -157,11 +167,6 @@ enum class LocalePreference(
         code = "vi",
         emoji = "\uD83C\uDDFB\uD83C\uDDF3",
         localisedName = "Vietnamese",
-    ),
-    Hebrew(
-        code = "he",
-        emoji = "\uD83C\uDDEE\uD83C\uDDF1",
-        localisedName = "Hebrew",
     );
 
     companion object {

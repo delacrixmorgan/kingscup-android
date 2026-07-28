@@ -75,14 +75,14 @@
     <string name="rules_iWillTellYouWhatLabel">Правило «Я тобі скажу що»</string>
     <string name="rules_iWillTellYouWhatDescription">Обов'язково скажіть цю фразу, перш ніж говорити!</string>
     <string name="rules_noPhonesEmoji">🤳</string>
-    <string name="rules_noPhonesLabel">Правило заборони телефону</string>
+    <string name="rules_noPhonesLabel">Правило «Без телефону»</string>
     <string name="rules_noPhonesDescription">Якщо ви торкнетеся свого телефону або телефону когось іншого. Пийте!</string>
     <string name="rules_noSwearingEmoji">🤬</string>
     <string name="rules_noSwearingLabel">Правило заборони лайливих висловлювань</string>
-    <string name="rules_noSwearingDescription">«Хтось, будь ласка, не подумає про дітей!?»</string>
+    <string name="rules_noSwearingDescription">«Хтось, будь ласка, не подумайте про дітей!?»</string>
     <string name="rules_photographerEmoji">📷</string>
     <string name="rules_photographerLabel">Правило фотографа</string>
-    <string name="rules_photographerDescription">Порахуйте голосно 3, 2, 1 та сфотографуйтесь. Якщо вас немає на фото, випийте!</string>
+    <string name="rules_photographerDescription">Порахуйте голосно 3, 2, 1 і сфотографуйтеся. Якщо вас немає на фото, випийте!</string>
     <string name="rules_lastOneLaughingEmoji">🤣</string>
     <string name="rules_lastOneLaughingLabel">Правило останнього сміху</string>
     <string name="rules_lastOneLaughingDescription">Коли хтось сміється, всі інші мають сміятися. Останній, хто приєднується, п'є!</string>

@@ -78,7 +78,7 @@
     <string name="rules_noPhonesLabel">Vietato usare il telefono</string>
     <string name="rules_noPhonesDescription">Se tocchi il tuo telefono o quello di qualcun altro, bevi!</string>
     <string name="rules_noSwearingEmoji">🤬</string>
-    <string name="rules_noSwearingLabel">Vietato imprecare</string>
+    <string name="rules_noSwearingLabel">Regola contro le parolacce</string>
     <string name="rules_noSwearingDescription">“Qualcuno pensi ai bambini, per favore!?”</string>
     <string name="rules_photographerEmoji">📷</string>
     <string name="rules_photographerLabel">Regola del fotografo</string>
@@ -115,7 +115,7 @@
     <string name="rules_countdownLabel">Conto alla rovescia finale</string>
     <string name="rules_countdownDescription">Iniziate a contare, chi ripete lo stesso numero due volte, beve!</string>
     <string name="rules_rhymeEmoji">🫳</string>
-    <string name="rules_rhymeLabel">Scatenare una rima</string>
+    <string name="rules_rhymeLabel">Scatena una rima</string>
     <string name="rules_rhymeDescription">Di' una parola, il giocatore alla tua sinistra deve dire una parola in rima.\n\nSi procede in senso orario finché qualcuno non esita o ripete la parola. Quella persona deve bere!</string>
     <string name="rules_swapCupsEmoji">🍻</string>
     <string name="rules_swapCupsLabel">Scambia le tazze</string>
@@ -127,7 +127,7 @@
     <string name="support_appInfoLabel">Informazioni sull'app</string>
     <string name="support_privacyPolicyLabel">politica sulla riservatezza</string>
     <string name="support_sendFeedbackLabel">Invia feedback</string>
-    <string name="support_rateUsLabel">Valutateci</string>
+    <string name="support_rateUsLabel">Valutaci</string>
     <string name="appInfo_title">Informazioni sull'app</string>
     <string name="appInfo_developerLabel">Sviluppatore</string>
     <string name="appInfo_sourceCodeLabel">Codice sorgente</string>

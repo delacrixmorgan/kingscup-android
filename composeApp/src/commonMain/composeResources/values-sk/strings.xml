@@ -91,7 +91,7 @@
     <string name="rules_leftHandDescription">Pite iba ľavou rukou!</string>
     <string name="rules_toiletEmoji">☣️</string>
     <string name="rules_toiletLabel">Pravidlo pre toaletu</string>
-    <string name="rules_toiletDescription">Predtým, ako niekto pôjde cikať alebo kakať, musí sa každý napiť!</string>
+    <string name="rules_toiletDescription">Predtým, ako niekto pôjde cikať alebo kakať, sa musí každý napiť!</string>
     <string name="loading_title">Načítava sa</string>
     <string name="board_tauntOne">Vážne</string>
     <string name="board_tauntTwo">Blíži sa</string>
